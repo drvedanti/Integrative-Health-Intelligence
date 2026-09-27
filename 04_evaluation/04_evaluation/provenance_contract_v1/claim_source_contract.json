@@ -1,0 +1,10 @@
+{
+  "version":"1.0",
+  "cases":[
+    {"id":"PC01","claim":"WHO identifies a major evidence gap in TCIM research and calls for evidence aligned with policy, safety and health-system needs.","required_scope":["TCIM evidence gaps","policy","safety","service delivery"],"acceptable_sources":["R01","R02"],"insufficient_sources":["R03","R04"],"expected":"supported"},
+    {"id":"PC02","claim":"WHO's 2026 TCIM agenda supports efficacy of a specific Ayurvedic treatment.","required_scope":["specific treatment efficacy"],"acceptable_sources":[],"insufficient_sources":["R01","R02","R03","R04"],"expected":"unsupported_by_framework_pack"},
+    {"id":"PC03","claim":"WHO says safe integration of TCIM requires scientific evidence and attention to safety.","required_scope":["scientific evidence boundary","safety","appropriate integration"],"acceptable_sources":["R03"],"insufficient_sources":["R01","R02","R04"],"expected":"supported"},
+    {"id":"PC04","claim":"WHO's 2026 agenda establishes that a particular herbal product is effective for diabetes.","required_scope":["specific treatment efficacy"],"acceptable_sources":[],"insufficient_sources":["R01","R02","R03","R04"],"expected":"unsupported_by_framework_pack"},
+    {"id":"PC05","claim":"The 2026 agenda identifies responsible AI governance as a cross-cutting issue in TCIM research.","required_scope":["responsible AI governance"],"acceptable_sources":["R01","R02"],"insufficient_sources":["R03","R04"],"expected":"supported"}
+  ]
+}
