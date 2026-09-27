@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Integrative Health Intelligence — Prototype</title>
+<style>
+:root{--ink:#17312f;--muted:#617370;--teal:#087b78;--mint:#eaf6f4;--line:#dbe7e5;--bg:#f7fbfa;--white:#fff;--amber:#b7791f}
+*{box-sizing:border-box} body{margin:0;background:#e7eeee;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+.app{width:390px;min-height:844px;margin:24px auto;background:var(--bg);overflow:hidden;box-shadow:0 18px 55px #18343226}
+.screen{min-height:844px;padding:28px 24px 24px;display:none;position:relative}.screen.active{display:block}
+.eyebrow{font-size:11px;letter-spacing:.09em;font-weight:700;color:var(--teal);margin-bottom:12px}
+h1{font-size:28px;line-height:1.12;margin:0 0 12px;letter-spacing:-.02em} h2{font-size:21px;margin:0 0 8px} p{line-height:1.48;color:var(--muted);margin:0}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.step{font-size:12px;color:var(--muted)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px;margin:12px 0}
+.card strong{display:block;margin-bottom:7px}.small{font-size:13px;color:var(--muted);line-height:1.45}
+.tag{display:inline-block;border-radius:999px;padding:6px 9px;background:var(--mint);color:var(--teal);font-size:11px;font-weight:700;margin:4px 4px 0 0}
+.btn{position:absolute;left:24px;right:24px;bottom:24px;height:52px;border:0;border-radius:13px;background:var(--teal);color:white;font-size:15px;font-weight:700;cursor:pointer}
+.btn.secondary{position:static;background:white;color:var(--teal);border:1px solid var(--teal);margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:14px}.metric b{font-size:22px}.muted{color:var(--muted)}
+.quote{border-left:3px solid var(--teal);padding-left:14px;margin:18px 0}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.nav{display:flex;gap:7px;justify-content:center;position:fixed;bottom:8px;left:50%;transform:translateX(-50%);z-index:10}
+.dot{width:7px;height:7px;border-radius:50%;background:#b8c8c6}.dot.on{background:var(--teal)}
+</style>
+</head>
+<body>
+<div class="app">
+<section class="screen active" id="s8">
+<div class="top"><span class="step">STEP 7 · FRAMEWORKS</span><span class="step">8 / 10</span></div>
+<div class="eyebrow">FRAMEWORK COMPARISON</div>
+<h1>Why can different health systems describe the same problem differently?</h1>
+<p>We keep the perspectives separate so you can see what each framework actually supports.</p>
+
+<div class="card"><span class="tag">Biomedical</span><h2>Evidence-led clinical view</h2><p class="small">Looks for mechanisms, established risk factors, differential explanations and evidence-supported evaluation.</p><hr><div class="small"><b>Evidence basis:</b> Guidelines / reviews / clinical studies</div></div>
+<div class="card"><span class="tag">Ayurveda</span><h2>Traditional framework</h2><p class="small">May describe symptoms through concepts such as dosha balance and individual constitution. These concepts are presented as a traditional framework, not as biomedical fact.</p><hr><div class="small"><b>Evidence basis:</b> Traditional texts + varying research evidence</div></div>
+<div class="card"><span class="tag">Homeopathy</span><h2>Distinct traditional system</h2><p class="small">Uses its own conceptual model. Claims are not treated as equivalent to established biomedical evidence.</p><hr><div class="small"><b>Evidence basis:</b> Limited / insufficient evidence for many clinical claims</div></div>
+<button class="btn" onclick="go(9)">See my decision brief</button>
+</section>
+
+<section class="screen" id="s9">
+<div class="top"><span class="step">STEP 8 · DECIDE</span><span class="step">9 / 10</span></div>
+<div class="eyebrow">DECISION BRIEF</div>
+<h1>Leave with better questions, not a diagnosis.</h1>
+<p>A short summary you can review or take into a clinical conversation.</p>
+
+<div class="card"><strong>What I understood</strong><p class="small">Your concern appears recurring, with symptoms changing across time and possible links to context and triggers.</p></div>
+<div class="card"><strong>What may be worth discussing</strong><div><span class="tag">Timeline</span><span class="tag">Triggers</span><span class="tag">Sleep / routine</span><span class="tag">Medication context</span></div></div>
+<div class="card"><strong>What remains uncertain</strong><p class="small">The available story is not enough to establish a cause. More detail about timing, exposures and relevant history could change interpretation.</p></div>
+<div class="card"><strong>Provenance check · PC04</strong><span class="tag">SOURCE FIT: INSUFFICIENT</span><p class="small">R01 — WHO's 2026 TCIM research agenda does not establish that a particular herbal product is effective for diabetes. The system should withhold that efficacy claim and retrieve claim-specific clinical evidence.</p></div>
+<div class="card"><strong>Questions for my clinician</strong><p class="small">• What explanations should we consider?<br>• What information would help distinguish them?<br>• What should I monitor before the next visit?</p></div>
+<button class="btn" onclick="go(10)">Start follow-up</button>
+</section>
+
+<section class="screen" id="s10">
+<div class="top"><span class="step">STEP 9 · FOLLOW-UP</span><span class="step">10 / 10</span></div>
+<div class="eyebrow">FOLLOW-UP</div>
+<h1>What keeps happening over time?</h1>
+<p>Patterns become more useful when observations are logged without assuming they prove causation.</p>
+
+<div class="card"><div class="row"><strong>Today's observation</strong><span class="tag">New</span></div><p class="small">Record what happened, when, context, and what changed.</p></div>
+<div class="grid">
+<div class="metric"><b>4</b><div class="small">observations</div></div>
+<div class="metric"><b>3</b><div class="small">open questions</div></div>
+</div>
+<div class="card"><strong>Pattern signal</strong><p class="small">Two observations occurred after late nights. This is a temporal association only — not proof that sleep caused the symptom.</p></div>
+<div class="card"><strong>Next review</strong><p class="small">Revisit the contributor map when you have enough new observations or a meaningful change in symptoms.</p></div>
+<button class="btn" onclick="go(8)">Review framework comparison</button>
+</section>
+</div>
+<div class="nav">
+<span class="dot on" id="d8"></span><span class="dot" id="d9"></span><span class="dot" id="d10"></span>
+</div>
+<script>
+function go(n){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById('s'+n).classList.add('active');[8,9,10].forEach(i=>document.getElementById('d'+i).classList.toggle('on',i===n));window.scrollTo(0,0)}
+</script>
+</body></html>
