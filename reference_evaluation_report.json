@@ -1,0 +1,10 @@
+{
+  "suite_id": "IHI-TFV-01",
+  "status": "blocked",
+  "reason": "The targeted 26-case suite requires model outputs before case-specific behavioral evaluation can be scored.",
+  "cases_expected": 26,
+  "outputs_present": 0,
+  "reference_engine_outputs_present": true,
+  "interpretation": "No current-model performance result is reported. The deterministic reference-engine baseline is preserved separately and is not a live-model or clinical result.",
+  "next_step": "Provide one JSONL model-output record per case, then run the targeted evaluator."
+}
