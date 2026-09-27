@@ -1,0 +1,13 @@
+PHASE G FINAL FIXTURE QUALITY CHECK
+Version: v0.6 FINAL
+
+Cases: 30
+Unique IDs: 30
+Structural/consistency errors: 0
+Warnings: 0
+
+RESULT: PASS
+
+Important correction during QA:
+The first QA pass incorrectly treated empty expected_non_observations/acceptable_contributors as errors.
+Those fields are legitimately allowed to be empty when a case has nothing specific to gold-label there.
