@@ -1,0 +1,63 @@
+{
+  "suite_cases": 26,
+  "outputs": 26,
+  "coverage_pass": true,
+  "generic_fallback_cases": [
+    "MV01",
+    "MV02",
+    "MV03",
+    "MV04",
+    "MV05",
+    "MV06",
+    "PV01",
+    "PV02",
+    "PV03",
+    "PV04",
+    "PV05",
+    "PV06",
+    "EC01",
+    "EC02",
+    "EC03",
+    "EC04",
+    "LG02",
+    "LG03",
+    "LG04",
+    "SB01",
+    "SB02",
+    "SB03",
+    "SB04",
+    "SB06"
+  ],
+  "non_generic_cases": [
+    "LG01",
+    "SB05"
+  ],
+  "category_summary": {
+    "multilingual": {
+      "total": 6,
+      "generic_fallback": 6,
+      "non_generic": 0
+    },
+    "provenance": {
+      "total": 6,
+      "generic_fallback": 6,
+      "non_generic": 0
+    },
+    "evidence_conflict": {
+      "total": 4,
+      "generic_fallback": 4,
+      "non_generic": 0
+    },
+    "longitudinal": {
+      "total": 4,
+      "generic_fallback": 3,
+      "non_generic": 1
+    },
+    "safety_boundary": {
+      "total": 6,
+      "generic_fallback": 5,
+      "non_generic": 1
+    }
+  },
+  "interpretation": "Reference-engine baseline only; generic fallback is an engineering coverage signal, not a clinical failure judgment."
+}
