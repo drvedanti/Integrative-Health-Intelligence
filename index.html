@@ -1,1 +1,2168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IHI — Make Sense of What You're Feeling</title>
+<meta name="description" content="IHI helps people make sense of their health story through evidence-aware, clearly separated health perspectives.">
 
+<style>
+:root{
+ --wine:#8b2035;
+ --wine-dark:#681526;
+ --gold:#b88a3b;
+ --gold-soft:#f4e8d0;
+ --cream:#fbf8f1;
+ --paper:#fffdf9;
+ --ink:#2c2524;
+ --muted:#746b66;
+ --green:#58745e;
+ --red-soft:#fff5f4;
+ --line:#e7ddd1;
+ --shadow:0 16px 45px rgba(58,32,25,.08)
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ background:var(--cream);
+ color:var(--ink);
+ font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ line-height:1.58
+}
+
+button,textarea,select{font:inherit}
+button{cursor:pointer}
+
+.wrap{
+ max-width:1120px;
+ margin:auto;
+ padding:0 22px
+}
+
+header{
+ padding:20px 0;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:16px
+}
+
+.brand{
+ color:var(--wine);
+ font-weight:850;
+ letter-spacing:.08em;
+ font-size:17px
+}
+
+.brand small{
+ display:block;
+ color:var(--muted);
+ font-size:9px;
+ letter-spacing:.12em;
+ margin-top:2px
+}
+
+.header-right{
+ display:flex;
+ align-items:center;
+ gap:9px
+}
+
+.lang{
+ border:1px solid var(--line);
+ background:var(--paper);
+ border-radius:999px;
+ padding:9px 12px;
+ color:var(--ink)
+}
+
+.hero{
+ text-align:center;
+ padding:54px 0 42px
+}
+
+.kicker{
+ display:inline-block;
+ background:var(--gold-soft);
+ color:#725522;
+ border-radius:999px;
+ padding:7px 13px;
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:.04em
+}
+
+h1,h2,h3{
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight:500;
+ line-height:1.12
+}
+
+h1{
+ font-size:clamp(43px,7vw,72px);
+ letter-spacing:-.035em;
+ max-width:880px;
+ margin:20px auto 17px
+}
+
+.hero-copy{
+ max-width:730px;
+ margin:auto;
+ color:var(--muted);
+ font-size:18px
+}
+
+.card{
+ background:var(--paper);
+ border:1px solid var(--line);
+ border-radius:25px;
+ box-shadow:var(--shadow)
+}
+
+.input-card{
+ max-width:850px;
+ margin:34px auto 0;
+ padding:24px;
+ text-align:left
+}
+
+.label{
+ font-weight:800;
+ font-size:16px;
+ margin-bottom:9px;
+ display:block
+}
+
+.helper{
+ font-size:13px;
+ color:var(--muted);
+ margin:-3px 0 12px
+}
+
+textarea{
+ width:100%;
+ min-height:160px;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:17px;
+ background:#fff;
+ color:var(--ink);
+ resize:vertical;
+ outline:none
+}
+
+textarea:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 0 3px rgba(184,138,59,.13)
+}
+
+.actions{
+ display:flex;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-top:12px
+}
+
+.btn{
+ border:0;
+ border-radius:999px;
+ padding:12px 18px;
+ font-weight:800
+}
+
+.primary{
+ background:var(--wine);
+ color:#fff
+}
+
+.primary:hover{
+ background:var(--wine-dark)
+}
+
+.secondary{
+ background:var(--gold-soft);
+ color:#6c5124
+}
+
+.outline{
+ background:transparent;
+ border:1px solid var(--line)
+}
+
+.example{
+ margin-top:14px;
+ color:var(--wine);
+ font-size:13px;
+ text-decoration:underline;
+ cursor:pointer
+}
+
+.disclaimer{
+ border-top:1px solid var(--line);
+ margin-top:16px;
+ padding-top:13px;
+ color:var(--muted);
+ font-size:12px
+}
+
+main{
+ display:none;
+ padding-bottom:80px
+}
+
+.section{
+ padding:38px 0
+}
+
+.section h2{
+ font-size:38px;
+ margin:0 0 10px
+}
+
+.section-intro{
+ max-width:760px;
+ color:var(--muted);
+ margin:0
+}
+
+.story-card{
+ padding:25px;
+ margin-top:19px
+}
+
+.story-text{
+ font-size:17px;
+ margin:10px 0 0
+}
+
+.story-facts{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:17px
+}
+
+.fact{
+ background:#f3eee8;
+ border-radius:999px;
+ padding:7px 10px;
+ font-size:12px;
+ color:#5f5752
+}
+
+.interpret-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+ margin-top:20px
+}
+
+.perspective{
+ padding:22px
+}
+
+.perspective h3{
+ font-size:27px;
+ margin:4px 0 10px
+}
+
+.badge{
+ display:inline-block;
+ border-radius:999px;
+ padding:5px 9px;
+ font-size:10px;
+ font-weight:850;
+ letter-spacing:.04em
+}
+
+.badge.clinical{
+ background:#e7f0e9;
+ color:#45624d
+}
+
+.badge.traditional{
+ background:var(--gold-soft);
+ color:#755a2b
+}
+
+.perspective p{
+ color:var(--muted);
+ font-size:14px;
+ margin:8px 0
+}
+
+.perspective strong{
+ color:var(--ink)
+}
+
+.subheading{
+ font-size:15px;
+ font-weight:850;
+ margin:17px 0 5px
+}
+
+.clean-list{
+ padding-left:19px;
+ margin:6px 0
+}
+
+.clean-list li{
+ margin:7px 0;
+ color:var(--muted);
+ font-size:14px
+}
+
+.evidence-note{
+ margin-top:14px;
+ padding:12px 13px;
+ border-radius:13px;
+ background:#f6f1ea;
+ color:#665e58;
+ font-size:12px
+}
+
+.insight-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+ margin-top:20px
+}
+
+.insight{
+ padding:21px
+}
+
+.insight h3{
+ font-size:23px;
+ margin:0 0 7px
+}
+
+.insight p{
+ margin:0;
+ color:var(--muted);
+ font-size:14px
+}
+
+.missing{
+ padding:23px;
+ margin-top:20px
+}
+
+.question-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+ margin-top:20px
+}
+
+.question{
+ padding:21px
+}
+
+.question h3{
+ font-size:22px;
+ margin:0 0 8px
+}
+
+.question p{
+ margin:0;
+ color:var(--muted);
+ font-size:14px
+}
+
+.selfcare{
+ padding:23px
+}
+
+.safety{
+ padding:23px;
+ background:var(--red-soft);
+ border-color:#e8cccc
+}
+
+.safety h3{
+ color:var(--wine)
+}
+
+.brief{
+ padding:27px;
+ background:var(--ink);
+ color:#fff;
+ border-radius:25px
+}
+
+.brief h2{
+ color:#fff;
+ margin-top:7px
+}
+
+.brief p,
+.brief li{
+ color:#ddd
+}
+
+.brief .badge{
+ background:#fff0d3;
+ color:#715424
+}
+
+.account{
+ display:none;
+ padding:23px;
+ margin-top:18px
+}
+
+.account h3{
+ margin:0 0 7px;
+ font-family:Georgia,serif;
+ font-size:27px
+}
+
+.account p{
+ color:var(--muted);
+ font-size:14px
+}
+
+.footer{
+ border-top:1px solid var(--line);
+ padding:34px 0 52px;
+ color:var(--muted);
+ font-size:12px
+}
+
+.footer-name{
+ color:var(--ink);
+ font-weight:750
+}
+
+.toast{
+ position:fixed;
+ left:50%;
+ bottom:20px;
+ transform:translateX(-50%);
+ display:none;
+ background:var(--ink);
+ color:#fff;
+ padding:11px 16px;
+ border-radius:999px;
+ font-size:13px;
+ z-index:20
+}
+
+@media(max-width:800px){
+ .interpret-grid{
+  grid-template-columns:1fr
+ }
+
+ .insight-grid,
+ .question-grid{
+  grid-template-columns:1fr
+ }
+
+ .hero{
+  padding-top:38px
+ }
+
+ .hero-copy{
+  font-size:16px
+ }
+
+ h1{
+  font-size:46px
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    IHI
+    <small>INTEGRATIVE HEALTH INTELLIGENCE</small>
+  </div>
+
+  <div class="header-right">
+    <select class="lang" id="language" aria-label="Choose language">
+      <option value="en">English</option>
+      <option value="hi-en">हिंदी + English</option>
+      <option value="hi">हिंदी</option>
+      <option value="mr-en">मराठी + English</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+</header>
+
+<section class="hero">
+
+  <span class="kicker" id="kicker">
+    MAKE SENSE OF WHAT YOU'RE FEELING
+  </span>
+
+  <h1 id="heroTitle">
+    You know what you're feeling.<br>
+    Let's make sense of it.
+  </h1>
+
+  <p class="hero-copy" id="heroCopy">
+    Tell us what's been happening — the way you would tell someone you trust.
+    IHI helps you organise the story, explore possible contributors, and see how
+    different health frameworks may interpret that same story.
+  </p>
+
+  <div class="card input-card">
+
+    <label class="label" id="inputLabel" for="concern">
+      What have you been feeling?
+    </label>
+
+    <div class="helper" id="inputHelper">
+      Don't worry about getting the words right. Just tell us what you've noticed.
+    </div>
+
+    <textarea id="concern"></textarea>
+
+    <div class="actions">
+
+      <button class="btn secondary" id="speak">
+        🎙 <span id="speakText">Speak</span>
+      </button>
+
+      <button class="btn primary" id="explore">
+        Explore my health story →
+      </button>
+
+    </div>
+
+    <div class="example" id="example">
+      Try a realistic example
+    </div>
+
+    <div class="disclaimer" id="disclaimer">
+      IHI helps you understand your health story and prepare questions.
+      It does not diagnose, prescribe, or replace a clinician.
+    </div>
+
+  </div>
+
+</section>
+
+<main id="results">
+
+<section class="section">
+
+  <h2 id="understoodTitle">
+    Here's what we understood.
+  </h2>
+
+  <p class="section-intro" id="understoodIntro">
+    We pulled together the important parts of your story — what you're feeling,
+    when it happens, what seems to change it, and what has happened over time.
+  </p>
+
+  <div class="card story-card">
+
+    <div class="badge clinical" id="storyBadge">
+      YOUR STORY
+    </div>
+
+    <p class="story-text" id="storyText"></p>
+
+    <div class="story-facts" id="storyFacts"></div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 id="sameStoryTitle">
+    The same symptoms can tell different stories.
+  </h2>
+
+  <p class="section-intro" id="sameStoryIntro">
+    Here's how each framework might look at your particular experience.
+  </p>
+
+
+  <div class="interpret-grid">
+
+
+    <!-- MODERN MEDICINE -->
+
+    <article class="card perspective">
+
+      <span class="badge clinical">
+        MODERN MEDICINE
+      </span>
+
+      <h3>
+        Modern Medicine
+      </h3>
+
+
+      <div class="subheading">
+        What stands out
+      </div>
+
+      <ul class="clean-list" id="modernStand"></ul>
+
+
+      <div class="subheading">
+        Possible contributors to explore
+      </div>
+
+      <p id="modernContrib"></p>
+
+
+      <div class="subheading">
+        What could help narrow it down?
+      </div>
+
+      <ul class="clean-list" id="modernNext"></ul>
+
+
+      <div class="evidence-note" id="modernEvidence">
+        This is a way of organising the story, not a diagnosis.
+        A clinician would need the full history and, when appropriate,
+        examination or testing.
+      </div>
+
+    </article>
+
+
+    <!-- AYURVEDA -->
+
+    <article class="card perspective">
+
+      <span class="badge traditional">
+        AYURVEDA
+      </span>
+
+      <h3>
+        Ayurveda
+      </h3>
+
+
+      <div class="subheading">
+        How this framework might read your story
+      </div>
+
+      <p id="ayurRead"></p>
+
+
+      <div class="subheading">
+        What a practitioner may want to know
+      </div>
+
+      <ul class="clean-list" id="ayurAsk"></ul>
+
+
+      <div class="subheading">
+        Traditional interpretation
+      </div>
+
+      <p id="ayurTraditional"></p>
+
+
+      <div class="evidence-note" id="ayurEvidence">
+        This describes an Ayurvedic framework.
+        A traditional explanation should not automatically be treated
+        as evidence that a treatment will work.
+      </div>
+
+    </article>
+
+
+    <!-- HOMEOPATHY -->
+
+    <article class="card perspective">
+
+      <span class="badge traditional">
+        HOMEOPATHY
+      </span>
+
+      <h3>
+        Homeopathy
+      </h3>
+
+
+      <div class="subheading">
+        How this framework might read your story
+      </div>
+
+      <p id="homeoRead"></p>
+
+
+      <div class="subheading">
+        What a practitioner may want to know
+      </div>
+
+      <ul class="clean-list" id="homeoAsk"></ul>
+
+
+      <div class="subheading">
+        Traditional interpretation
+      </div>
+
+      <p id="homeoTraditional"></p>
+
+
+      <div class="evidence-note" id="homeoEvidence">
+        This describes a homeopathic framework.
+        Its explanations and proposed mechanisms should not be presented
+        as equivalent to evidence-based clinical medicine.
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 id="contributorsTitle">
+    What could be contributing?
+  </h2>
+
+  <p class="section-intro" id="contributorsIntro">
+    These are patterns worth exploring — not a diagnosis or a claim
+    that one thing caused another.
+  </p>
+
+  <div class="insight-grid" id="insights"></div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 id="changeTitle">
+    What seems to make it better or worse?
+  </h2>
+
+  <div class="card missing">
+
+    <div class="insight-grid" style="margin-top:0">
+
+      <div>
+
+        <div class="subheading" id="betterTitle">
+          Seems better / less noticeable
+        </div>
+
+        <p id="better"></p>
+
+      </div>
+
+
+      <div>
+
+        <div class="subheading" id="worseTitle">
+          Seems worse / more noticeable
+        </div>
+
+        <p id="worse"></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 id="missingTitle">
+    What would help us understand this better?
+  </h2>
+
+  <p class="section-intro" id="missingIntro">
+    These are the pieces of information that could change
+    how the story is interpreted.
+  </p>
+
+  <div class="card missing">
+
+    <ul class="clean-list" id="missingList"></ul>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 id="selfTitle">
+    Simple things you can consider.
+  </h2>
+
+  <p class="section-intro" id="selfIntro">
+    General self-care only — not treatment instructions or cures.
+  </p>
+
+
+  <div class="question-grid">
+
+
+    <div class="card selfcare">
+
+      <h3 id="observeTitle">
+        For now, observe
+      </h3>
+
+      <ul class="clean-list" id="observeList"></ul>
+
+    </div>
+
+
+    <div class="card safety">
+
+      <h3 id="safetyTitle">
+        Know when to get help
+      </h3>
+
+      <ul class="clean-list" id="safetyList"></ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="brief">
+
+    <span class="badge" id="briefBadge">
+      QUESTIONS TO TAKE FORWARD
+    </span>
+
+    <h2 id="briefTitle">
+      Go into the conversation with a clearer story.
+    </h2>
+
+    <p id="briefIntro">
+      IHI can't tell you what you have.
+      It can help you ask better questions.
+    </p>
+
+    <ul class="clean-list" id="questions"></ul>
+
+  </div>
+
+
+  <div class="account card" id="accountBox">
+
+    <h3 id="accountTitle">
+      Want to keep this story?
+    </h3>
+
+    <p id="accountText">
+      The next version can let you save this health story,
+      track changes over time and return to your unanswered questions.
+      This prototype does not store personal health information.
+    </p>
+
+    <button class="btn outline" id="accountBtn">
+      Create an account in the next version
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="footer-name">
+    IHI — Integrative Health Intelligence
+  </div>
+
+  <div style="margin-top:7px">
+    <span id="footerLine">
+      Your health story deserves more than a one-size-fits-all answer.
+    </span>
+  </div>
+
+  <div style="margin-top:10px">
+    A product concept by <strong>Dr. Vedanti Shah</strong>.
+  </div>
+
+  <div style="margin-top:12px">
+    IHI is not medical advice, a diagnostic system, or a treatment system.
+    Traditional frameworks are presented as distinct frameworks and should
+    not be assumed to have the same evidence base as modern clinical medicine.
+  </div>
+
+</footer>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+const concern = $("concern");
+const results = $("results");
+const toast = $("toast");
+const language = $("language");
+
+
+/* =========================================================
+   EXAMPLE USER STORIES
+   ========================================================= */
+
+const demo = {
+
+  en:
+  "I've had acidity and bloating for about 3 weeks. It started gradually. I usually feel fullness, burning and gas 1–2 hours after lunch or dinner. For the last 10 days it has been almost daily. Spicy and oily food makes it worse. Sometimes I feel nauseated, but I haven't vomited. I don't have fever or blood in my stool. My sleep is getting disturbed because of the discomfort. I haven't started any new medicine recently.",
+
+  "hi-en":
+  "मुझे लगभग 3 weeks से acidity और bloating हो रही है। यह धीरे-धीरे शुरू हुई थी। Lunch या dinner के 1–2 hours बाद पेट में fullness, burning और gas feel होती है। पिछले 10 days से symptoms almost daily हैं। Spicy और oily food के बाद problem बढ़ जाती है। कभी-कभी nausea होता है, लेकिन vomiting नहीं हुई। Fever नहीं है और stool में blood notice नहीं किया। Discomfort की वजह से sleep भी disturb हो रही है। मैंने recently कोई new medicine start नहीं की है।",
+
+  hi:
+  "मुझे लगभग 3 हफ्तों से अम्लता और पेट फूलने की समस्या हो रही है। यह धीरे-धीरे शुरू हुई थी। दोपहर या रात का खाना खाने के 1–2 घंटे बाद पेट में भारीपन, जलन और गैस महसूस होती है। पिछले 10 दिनों से यह समस्या लगभग रोज़ हो रही है। मसालेदार और तला-भुना खाना खाने के बाद समस्या बढ़ जाती है। कभी-कभी जी मिचलाता है, लेकिन उल्टी नहीं हुई है। बुखार नहीं है और मल में खून नहीं देखा है। परेशानी की वजह से नींद भी प्रभावित हो रही है। मैंने हाल ही में कोई नई दवा शुरू नहीं की है।",
+
+  "mr-en":
+  "मला गेल्या 3 weeks पासून acidity आणि bloating होत आहे. हे हळूहळू सुरू झालं. Lunch किंवा dinner केल्यानंतर 1–2 hours ने पोटात fullness, burning आणि gas जाणवतो. गेल्या 10 days पासून symptoms almost daily आहेत. Spicy आणि oily food खाल्ल्यानंतर problem वाढतो. कधी कधी nausea होतो, पण vomiting झालेली नाही. Fever नाही आणि stool मध्ये blood दिसलेला नाही. Discomfort मुळे sleep सुद्धा disturb होत आहे. मी recently कोणतीही new medicine सुरू केलेली नाही.",
+
+  mr:
+  "मला गेल्या ३ आठवड्यांपासून आम्लपित्त आणि पोट फुगण्याचा त्रास होत आहे. हे हळूहळू सुरू झाले. दुपारचे किंवा रात्रीचे जेवण केल्यानंतर १–२ तासांनी पोटात जडपणा, जळजळ आणि गॅस जाणवतो. गेल्या १० दिवसांपासून हा त्रास जवळजवळ रोज होतो. तिखट आणि तेलकट पदार्थ खाल्ल्यानंतर त्रास वाढतो. कधीकधी मळमळते, पण उलटी झालेली नाही. ताप नाही आणि शौचामध्ये रक्त दिसलेले नाही. त्रासामुळे झोपही बिघडत आहे. मी अलीकडे कोणतीही नवीन औषधे सुरू केलेली नाही."
+};
+
+
+/* =========================================================
+   LANGUAGE COPY
+   ========================================================= */
+
+const copy = {
+
+en: {
+
+kicker:"MAKE SENSE OF WHAT YOU'RE FEELING",
+
+hero:"You know what you're feeling.<br>Let's make sense of it.",
+
+heroCopy:
+"Tell us what's been happening — the way you would tell someone you trust. IHI helps you organise the story, explore possible contributors, and see how different health frameworks may interpret that same story.",
+
+label:"What have you been feeling?",
+
+helper:
+"Don't worry about getting the words right. Just tell us what you've noticed.",
+
+speak:"Speak",
+
+explore:"Explore my health story →",
+
+example:"Try a realistic example",
+
+disclaimer:
+"IHI helps you understand your health story and prepare questions. It does not diagnose, prescribe, or replace a clinician.",
+
+understood:"Here's what we understood.",
+
+understoodIntro:
+"We pulled together the important parts of your story — what you're feeling, when it happens, what seems to change it, and what has happened over time.",
+
+same:"The same symptoms can tell different stories.",
+
+sameIntro:
+"Here's how each framework might look at your particular experience.",
+
+contributors:"What could be contributing?",
+
+contributorsIntro:
+"These are patterns worth exploring — not a diagnosis or a claim that one thing caused another.",
+
+change:"What seems to make it better or worse?",
+
+better:
+"Your description suggests symptoms are less noticeable in the morning.",
+
+worse:
+"Spicy or oily food, and eating in the evening, seem to make the discomfort more noticeable.",
+
+missing:"What would help us understand this better?",
+
+missingIntro:
+"These are the pieces of information that could change how the story is interpreted.",
+
+self:"Simple things you can consider.",
+
+selfIntro:
+"General self-care only — not treatment instructions or cures.",
+
+observe:"For now, observe",
+
+safety:"Know when to get help",
+
+brief:"QUESTIONS TO TAKE FORWARD",
+
+briefTitle:
+"Go into the conversation with a clearer story.",
+
+briefIntro:
+"IHI can't tell you what you have. It can help you ask better questions.",
+
+accountTitle:"Want to keep this story?",
+
+accountText:
+"The next version can let you save this health story, track changes over time and return to your unanswered questions. This prototype does not store personal health information.",
+
+accountBtn:
+"Create an account in the next version",
+
+footer:
+"Your health story deserves more than a one-size-fits-all answer.",
+
+facts:[
+"Gradual onset",
+"~3 weeks",
+"Almost daily",
+"Meal-related",
+"Spicy/oily food worsens",
+"Occasional nausea",
+"No fever reported",
+"No blood reported"
+]
+
+},
+
+
+"hi-en": {
+
+kicker:"JO AAP FEEL KAR RAHE HAIN, USE SAMJHEIN",
+
+hero:
+"Aapko pata hai aap kya feel kar rahe hain.<br>Ab samajhte hain ki uska kya matlab ho sakta hai.",
+
+heroCopy:
+"Jo ho raha hai, waise hi bataiye jaise aap kisi trusted person ko batayenge. IHI aapki story ko organise karta hai, possible contributors ko explore karta hai aur dekhta hai ki alag health frameworks aapki same story ko kaise dekh sakte hain.",
+
+label:"Aap kya feel kar rahe hain?",
+
+helper:
+"Words perfect hone ki zaroorat nahi hai. Jo notice kiya hai, bas woh bataiye.",
+
+speak:"Speak",
+
+explore:"Meri health story samjhein →",
+
+example:"Ek realistic example dekhein",
+
+disclaimer:
+"IHI aapki health story ko samajhne aur questions prepare karne mein help karta hai. Yeh diagnosis ya prescription nahi deta aur clinician ki jagah nahi leta.",
+
+understood:
+"Aapki story se kya samajh aa raha hai?",
+
+understoodIntro:
+"Humne aapki story ke important parts ko ek jagah rakha hai — aap kya feel kar rahe hain, kab hota hai, kis cheez se change hota hai aur time ke saath kya badla hai.",
+
+same:
+"Same symptoms ki alag tarah se interpretation ho sakti hai.",
+
+sameIntro:
+"Dekhiye, aapki particular story ko alag frameworks kaise dekh sakte hain.",
+
+contributors:
+"Kya cheezein contribute kar rahi ho sakti hain?",
+
+contributorsIntro:
+"Yeh possible patterns hain jinhe explore kiya ja sakta hai — diagnosis nahi.",
+
+change:
+"Kis cheez se better ya worse lag raha hai?",
+
+better:
+"Aapki story ke hisaab se morning mein symptoms usually kam lagte hain.",
+
+worse:
+"Spicy ya oily food aur evening meals ke baad discomfort zyada noticeable lagta hai.",
+
+missing:
+"Is story ko aur clearly samajhne ke liye kya missing hai?",
+
+missingIntro:
+"Kuch information interpretation ko change kar sakti hai.",
+
+self:
+"Abhi aap kya observe kar sakte hain?",
+
+selfIntro:
+"Yeh general self-care hai — treatment ya cure nahi.",
+
+observe:
+"Abhi observe karein",
+
+safety:
+"Kab help leni chahiye",
+
+brief:
+"AAGE PUCHHNE WALE QUESTIONS",
+
+briefTitle:
+"Doctor ke saath conversation mein clearer story lekar jaiye.",
+
+briefIntro:
+"IHI aapko nahi bata sakta ki aapko kya hai. Lekin better questions prepare karne mein help kar sakta hai.",
+
+accountTitle:
+"Is story ko save karna hai?",
+
+accountText:
+"Next version mein aap health story save kar sakenge, changes track kar sakenge aur unanswered questions par wapas aa sakenge. Is prototype mein personal health information store nahi hoti.",
+
+accountBtn:
+"Next version mein account banayein",
+
+footer:
+"Aapki health story ka answer one-size-fits-all nahi hota.",
+
+facts:[
+"Gradual onset",
+"लगभग 3 weeks",
+"Almost daily",
+"Meal ke baad",
+"Spicy/oily food se worse",
+"Kabhi-kabhi nausea",
+"Fever nahi bataya",
+"Blood nahi bataya"
+]
+
+},
+
+
+hi: {
+
+kicker:"जो आप महसूस कर रहे हैं, उसे समझें",
+
+hero:
+"आप जानते हैं कि आप क्या महसूस कर रहे हैं।<br>आइए उसे समझने की कोशिश करें।",
+
+heroCopy:
+"जो हो रहा है, उसे वैसे ही बताइए जैसे आप किसी भरोसेमंद व्यक्ति को बताएँगे। IHI आपकी कहानी को व्यवस्थित करता है, संभावित कारणों को समझने में मदद करता है और अलग-अलग स्वास्थ्य दृष्टिकोणों से इसे देखने देता है।",
+
+label:"आप क्या महसूस कर रहे हैं?",
+
+helper:
+"सही शब्द ढूँढने की चिंता न करें। आपने जो महसूस किया है, बस वह बताइए।",
+
+speak:"बोलें",
+
+explore:"मेरी health story समझें →",
+
+example:"एक उदाहरण देखें",
+
+disclaimer:
+"IHI आपकी health story समझने और सवाल तैयार करने में मदद करता है। यह diagnosis या prescription नहीं देता और डॉक्टर की जगह नहीं लेता।",
+
+understood:
+"आपकी कहानी से क्या समझ आ रहा है?",
+
+understoodIntro:
+"हमने आपकी कहानी के ज़रूरी हिस्सों को एक जगह रखा है — आप क्या महसूस कर रहे हैं, कब होता है, किस चीज़ से बदलता है और समय के साथ क्या बदला है।",
+
+same:
+"एक जैसे symptoms को अलग-अलग तरीकों से समझा जा सकता है।",
+
+sameIntro:
+"देखिए, आपकी खास कहानी को अलग-अलग स्वास्थ्य दृष्टिकोण कैसे देख सकते हैं।",
+
+contributors:
+"कौन-सी चीज़ें इसमें योगदान दे सकती हैं?",
+
+contributorsIntro:
+"ये ऐसे patterns हैं जिन्हें आगे समझा जा सकता है — ये diagnosis नहीं हैं।",
+
+change:
+"किस चीज़ से बेहतर या बदतर लगता है?",
+
+better:
+"आपकी कहानी के अनुसार सुबह symptoms आमतौर पर कम महसूस होते हैं।",
+
+worse:
+"मसालेदार या तला-भुना खाना और शाम के भोजन के बाद परेशानी ज़्यादा महसूस होती है।",
+
+missing:
+"इसे बेहतर समझने के लिए और क्या जानना ज़रूरी है?",
+
+missingIntro:
+"कुछ जानकारी से इसकी interpretation बदल सकती है।",
+
+self:
+"अभी आप क्या observe कर सकते हैं?",
+
+selfIntro:
+"यह general self-care है — treatment या cure नहीं।",
+
+observe:
+"अभी observe करें",
+
+safety:
+"कब मदद लेनी चाहिए",
+
+brief:
+"आगे पूछने वाले सवाल",
+
+briefTitle:
+"डॉक्टर से बात करते समय अपनी कहानी थोड़ी clearer लेकर जाएँ।",
+
+briefIntro:
+"IHI आपको यह नहीं बता सकता कि आपको क्या बीमारी है। लेकिन बेहतर सवाल तैयार करने में मदद कर सकता है।",
+
+accountTitle:
+"इस story को save करना है?",
+
+accountText:
+"Next version में आप अपनी health story save कर सकेंगे, changes track कर सकेंगे और unanswered questions पर वापस आ सकेंगे। इस prototype में personal health information store नहीं होती।",
+
+accountBtn:
+"Next version में account बनाएँ",
+
+footer:
+"आपकी health story का जवाब one-size-fits-all नहीं होता।",
+
+facts:[
+"धीरे शुरू हुआ",
+"लगभग 3 हफ्ते",
+"लगभग रोज़",
+"खाने के बाद",
+"मसालेदार/तला खाना बढ़ाता है",
+"कभी-कभी जी मिचलाना",
+"बुखार नहीं बताया",
+"खून नहीं बताया"
+]
+
+},
+
+
+"mr-en": {
+
+kicker:"तुम्हाला काय जाणवतंय, ते समजून घेऊया",
+
+hero:
+"तुम्हाला काय जाणवतंय हे तुम्हाला माहीत आहे.<br>आता त्याचा अर्थ समजून घेऊया.",
+
+heroCopy:
+"जे होत आहे ते एखाद्या विश्वासू व्यक्तीला सांगाल तसं सांगा. IHI तुमची story organise करतो, possible contributors समजून घेण्यास मदत करतो आणि वेगवेगळे health frameworks हीच story कशी पाहू शकतात ते दाखवतो.",
+
+label:"तुम्हाला काय जाणवतंय?",
+
+helper:
+"योग्य शब्द शोधण्याची गरज नाही. तुम्ही जे notice केलंय ते फक्त सांगा.",
+
+speak:"Speak",
+
+explore:"माझी health story समजून घ्या →",
+
+example:"एक realistic example पाहा",
+
+disclaimer:
+"IHI तुमची health story समजून घेण्यास आणि questions तयार करण्यास मदत करतो. हे diagnosis किंवा prescription देत नाही आणि clinician ची जागा घेत नाही.",
+
+understood:
+"तुमच्या story मधून काय समजतंय?",
+
+understoodIntro:
+"तुमच्या story मधले महत्त्वाचे parts आम्ही एकत्र केले आहेत — तुम्हाला काय जाणवतंय, ते कधी होतं, कशामुळे बदलतं आणि time सोबत काय बदललं आहे.",
+
+same:
+"Same symptoms वेगवेगळ्या प्रकारे समजले जाऊ शकतात.",
+
+sameIntro:
+"तुमची particular story वेगवेगळे frameworks कशी पाहू शकतात ते पाहूया.",
+
+contributors:
+"काय गोष्टी contribute करत असतील?",
+
+contributorsIntro:
+"हे explore करण्यासारखे patterns आहेत — diagnosis नाही.",
+
+change:
+"कशामुळे better किंवा worse होतंय?",
+
+better:
+"तुमच्या story नुसार सकाळी symptoms साधारण कमी जाणवतात.",
+
+worse:
+"Spicy किंवा oily food आणि evening meals नंतर discomfort जास्त जाणवतो.",
+
+missing:
+"हे अधिक चांगलं समजण्यासाठी अजून काय माहित असायला हवं?",
+
+missingIntro:
+"काही information मुळे interpretation बदलू शकते.",
+
+self:
+"आत्ता तुम्ही काय observe करू शकता?",
+
+selfIntro:
+"हे general self-care आहे — treatment किंवा cure नाही.",
+
+observe:
+"आत्ता observe करा",
+
+safety:
+"कधी help घ्यावी",
+
+brief:
+"पुढे विचारता येणारे QUESTIONS",
+
+briefTitle:
+"Doctor सोबत बोलताना तुमची story थोडी clearer घेऊन जा.",
+
+briefIntro:
+"IHI तुम्हाला नेमकं काय आहे हे सांगू शकत नाही. पण better questions तयार करण्यात मदत करू शकतो.",
+
+accountTitle:
+"ही story save करायची आहे?",
+
+accountText:
+"Next version मध्ये तुम्ही health story save करू शकाल, changes track करू शकाल आणि unanswered questions कडे परत येऊ शकाल. या prototype मध्ये personal health information store होत नाही.",
+
+accountBtn:
+"Next version मध्ये account तयार करा",
+
+footer:
+"तुमच्या health story साठी one-size-fits-all answer नसतो.",
+
+facts:[
+"हळूहळू सुरू झालं",
+"~3 weeks",
+"Almost daily",
+"Meal नंतर",
+"Spicy/oily food मुळे worse",
+"कधीकधी nausea",
+"Fever नाही सांगितला",
+"Blood नाही सांगितला"
+]
+
+},
+
+
+mr: {
+
+kicker:"तुम्हाला काय जाणवतंय, ते समजून घेऊया",
+
+hero:
+"तुम्हाला काय जाणवतंय हे तुम्हाला माहीत आहे.<br>आता त्याचा अर्थ समजून घेऊया.",
+
+heroCopy:
+"जे होत आहे ते एखाद्या विश्वासू व्यक्तीला सांगाल तसं सांगा. IHI तुमची आरोग्याची गोष्ट समजून घेण्यास, त्यातील महत्त्वाचे patterns पाहण्यास आणि वेगवेगळ्या आरोग्य दृष्टिकोनातून ती समजून घेण्यास मदत करतो.",
+
+label:"तुम्हाला काय जाणवतंय?",
+
+helper:
+"योग्य शब्द शोधण्याची काळजी करू नका. तुम्हाला जे जाणवलं ते फक्त सांगा.",
+
+speak:"बोला",
+
+explore:"माझी आरोग्याची गोष्ट समजून घ्या →",
+
+example:"एक उदाहरण पाहा",
+
+disclaimer:
+"IHI तुमची आरोग्याची गोष्ट समजून घेण्यास आणि प्रश्न तयार करण्यास मदत करतो. हे निदान किंवा उपचार सांगत नाही आणि डॉक्टरांची जागा घेत नाही.",
+
+understood:
+"तुमच्या गोष्टीतून काय समजतंय?",
+
+understoodIntro:
+"तुम्हाला काय जाणवतंय, ते कधी होतं, कशामुळे बदलतं आणि काळानुसार काय बदललं आहे — हे महत्त्वाचे भाग आम्ही एकत्र केले आहेत.",
+
+same:
+"एकसारखी लक्षणं वेगवेगळ्या प्रकारे समजली जाऊ शकतात.",
+
+sameIntro:
+"तुमची गोष्ट वेगवेगळे आरोग्य दृष्टिकोन कशी पाहू शकतात ते पाहूया.",
+
+contributors:
+"कशामुळे हा त्रास होत असावा?",
+
+contributorsIntro:
+"हे पुढे तपासण्यासारखे patterns आहेत — हे निदान नाही.",
+
+change:
+"कशामुळे बरं किंवा जास्त वाईट होतं?",
+
+better:
+"तुमच्या सांगण्यानुसार सकाळी लक्षणं साधारण कमी जाणवतात.",
+
+worse:
+"तिखट किंवा तेलकट पदार्थ आणि संध्याकाळच्या जेवणानंतर त्रास जास्त जाणवतो.",
+
+missing:
+"हे अधिक चांगलं समजण्यासाठी अजून काय माहित असायला हवं?",
+
+missingIntro:
+"काही माहिती मिळाल्याने याचा अर्थ वेगळा लागू शकतो.",
+
+self:
+"आत्ता तुम्ही काय पाहू शकता?",
+
+selfIntro:
+"ही सामान्य self-care माहिती आहे — उपचार किंवा बरे करण्याचा दावा नाही.",
+
+observe:
+"आत्ता निरीक्षण करा",
+
+safety:
+"कधी मदत घ्यावी",
+
+brief:
+"पुढे विचारता येणारे प्रश्न",
+
+briefTitle:
+"डॉक्टरांशी बोलताना तुमची गोष्ट अधिक स्पष्टपणे सांगा.",
+
+briefIntro:
+"IHI तुम्हाला नेमकं काय झालं आहे हे सांगू शकत नाही. पण योग्य प्रश्न तयार करण्यात मदत करू शकतो.",
+
+accountTitle:
+"ही गोष्ट जतन करायची आहे?",
+
+accountText:
+"पुढील आवृत्तीत तुम्ही तुमची आरोग्याची गोष्ट जतन करू शकाल, बदलांचा मागोवा घेऊ शकाल आणि राहिलेल्या प्रश्नांकडे परत येऊ शकाल. या prototype मध्ये वैयक्तिक आरोग्य माहिती जतन होत नाही.",
+
+accountBtn:
+"पुढील आवृत्तीत account तयार करा",
+
+footer:
+"तुमच्या आरोग्याच्या गोष्टीसाठी एकच उत्तर सगळ्यांना लागू होत नाही.",
+
+facts:[
+"हळूहळू सुरू झालं",
+"सुमारे ३ आठवडे",
+"जवळजवळ रोज",
+"जेवल्यानंतर",
+"तिखट/तेलकट पदार्थांनी वाढतं",
+"कधीकधी मळमळ",
+"ताप नाही सांगितला",
+"रक्त नाही सांगितलं"
+]
+
+}
+
+};
+  
+/* =========================================================
+   LANGUAGE-SPECIFIC PRODUCT CONTENT
+   ========================================================= */
+
+const lists = {
+
+en: {
+
+modernStand: [
+  "Symptoms are closely linked with meals.",
+  "Burning, fullness and gas appear together.",
+  "The pattern has become more frequent.",
+  "Sleep is being affected."
+],
+
+modernContrib:
+  "The pattern could fit several possibilities, including acid-related symptoms, indigestion or other digestive causes. Your description alone is not enough to tell which one applies.",
+
+modernNext: [
+  "Where exactly is the discomfort?",
+  "Is there heartburn or food coming back up?",
+  "Any weight change or appetite change?",
+  "Any regular medicines or supplements?"
+],
+
+modernEvidence:
+  "This is a way of organising your story, not a diagnosis. A clinician would need the full history and, when appropriate, examination or testing.",
+
+ayurRead:
+  "Within an Ayurvedic framework, bloating and discomfort after food may be understood through traditional ideas about digestion, including concepts such as agni and dosha balance.",
+
+ayurAsk: [
+  "Appetite and digestion",
+  "Bowel habits",
+  "Daily routine and sleep",
+  "Food patterns and tolerance"
+],
+
+ayurTraditional:
+  "Your bloating, meal-related discomfort and changing digestion could lead an Ayurvedic practitioner to explore whether the pattern fits a traditional digestive imbalance.",
+
+ayurEvidence:
+  "This describes an Ayurvedic framework. A traditional explanation should not automatically be treated as evidence that a treatment will work.",
+
+homeoRead:
+  "A homeopathic practitioner would typically look beyond the symptom label and build a detailed picture of how the symptom feels, when it happens and what changes it.",
+
+homeoAsk: [
+  "Exact sensation and location",
+  "What makes it better or worse",
+  "Timing and food associations",
+  "Other symptoms and individual patterns"
+],
+
+homeoTraditional:
+  "The approach may place importance on the individual's overall symptom pattern rather than treating the word 'acidity' as the complete picture.",
+
+homeoEvidence:
+  "This describes a homeopathic framework. Its proposed explanations and effectiveness should not be presented as equivalent to evidence-based clinical medicine."
+},
+
+
+"hi-en": {
+
+modernStand: [
+  "Symptoms meals ke saath closely linked hain.",
+  "Burning, fullness aur gas ek saath aa rahe hain.",
+  "Problem ab zyada frequently ho rahi hai.",
+  "Discomfort sleep ko affect kar raha hai."
+],
+
+modernContrib:
+  "Yeh pattern acid-related symptoms, indigestion ya kisi aur digestive cause ke saath fit ho sakta hai. Sirf aapki story se exact cause decide nahi kiya ja sakta.",
+
+modernNext: [
+  "Discomfort exactly kahan hota hai?",
+  "Kya heartburn ya food wapas aane jaisa feel hota hai?",
+  "Weight ya appetite mein koi change hua?",
+  "Koi regular medicine ya supplement hai?"
+],
+
+modernEvidence:
+  "Yeh aapki story ko organise karne ka tareeka hai, diagnosis nahi. Clinician ko complete history aur zaroorat padne par examination ya tests ki zaroorat ho sakti hai.",
+
+ayurRead:
+  "Ayurvedic framework mein bloating aur khane ke baad discomfort ko digestion ke traditional concepts, jaise agni aur dosha balance, ke through dekha ja sakta hai.",
+
+ayurAsk: [
+  "Appetite aur digestion",
+  "Bowel habits",
+  "Daily routine aur sleep",
+  "Food pattern aur tolerance"
+],
+
+ayurTraditional:
+  "Aapke bloating, meal-related discomfort aur digestion ke pattern ko dekhkar Ayurvedic practitioner traditional digestive imbalance ke concepts ko explore kar sakte hain.",
+
+ayurEvidence:
+  "Yeh Ayurvedic framework ki traditional interpretation hai. Isse automatically kisi treatment ke effective hone ka evidence nahi maana jaana chahiye.",
+
+homeoRead:
+  "Homeopathic practitioner sirf 'acidity' ko nahi dekhenge. Woh symptom exactly kaisa feel hota hai, kab hota hai aur kis cheez se change hota hai — is detail ko dekh sakte hain.",
+
+homeoAsk: [
+  "Exact sensation aur location",
+  "Kis cheez se better ya worse hota hai",
+  "Timing aur food ke saath relation",
+  "Baaki symptoms aur individual pattern"
+],
+
+homeoTraditional:
+  "Is framework mein individual symptom pattern ko importance di ja sakti hai, na ki sirf 'acidity' jaise symptom label ko.",
+
+homeoEvidence:
+  "Yeh homeopathic framework ko describe karta hai. Iske proposed explanations aur effectiveness ko evidence-based clinical medicine ke equivalent nahi maana jaana chahiye."
+},
+
+
+hi: {
+
+modernStand: [
+  "लक्षण खाने के बाद ज़्यादा होते हैं।",
+  "जलन, भारीपन और गैस साथ में महसूस हो रहे हैं।",
+  "समस्या अब ज़्यादा बार हो रही है।",
+  "इस परेशानी का असर नींद पर पड़ रहा है।"
+],
+
+modernContrib:
+  "यह pattern acid-related symptoms, indigestion या किसी दूसरी digestive problem से जुड़ा हो सकता है। केवल आपकी कहानी से exact कारण तय नहीं किया जा सकता।",
+
+modernNext: [
+  "परेशानी पेट में ठीक कहाँ होती है?",
+  "क्या सीने में जलन या खाना वापस आने जैसा लगता है?",
+  "वज़न या भूख में कोई बदलाव हुआ है?",
+  "क्या आप कोई दवा या supplement नियमित लेते हैं?"
+],
+
+modernEvidence:
+  "यह आपकी कहानी को व्यवस्थित करने का तरीका है, diagnosis नहीं। डॉक्टर को पूरी history और ज़रूरत पड़ने पर examination या tests की जरूरत हो सकती है।",
+
+ayurRead:
+  "आयुर्वेदिक दृष्टिकोण में पेट फूलने और खाने के बाद होने वाली परेशानी को पाचन से जुड़े पारंपरिक concepts, जैसे अग्नि और दोषों के संतुलन, के माध्यम से देखा जा सकता है।",
+
+ayurAsk: [
+  "भूख और पाचन",
+  "शौच की आदत",
+  "दिनचर्या और नींद",
+  "खाने का pattern और कौन-सा खाना सहन होता है"
+],
+
+ayurTraditional:
+  "आपके पेट फूलने, खाने के बाद होने वाली परेशानी और digestion के pattern को देखकर Ayurvedic practitioner पारंपरिक digestive imbalance के concepts को explore कर सकते हैं।",
+
+ayurEvidence:
+  "यह आयुर्वेदिक दृष्टिकोण की पारंपरिक interpretation है। इसे अपने-आप किसी treatment के effective होने का evidence नहीं माना जाना चाहिए।",
+
+homeoRead:
+  "Homeopathic practitioner केवल 'acidity' शब्द पर ध्यान नहीं देंगे। वे यह भी देख सकते हैं कि symptom कैसा महसूस होता है, कब होता है और किस चीज़ से बदलता है।",
+
+homeoAsk: [
+  "लक्षण कैसा महसूस होता है और कहाँ होता है",
+  "किस चीज़ से बेहतर या बदतर होता है",
+  "समय और खाने से संबंध",
+  "दूसरे symptoms और आपका overall pattern"
+],
+
+homeoTraditional:
+  "इस framework में व्यक्ति के पूरे symptom pattern को importance दी जा सकती है, न कि केवल 'acidity' जैसे symptom label को।",
+
+homeoEvidence:
+  "यह homeopathic framework को describe करता है। इसके proposed explanations और effectiveness को evidence-based clinical medicine के equivalent नहीं माना जाना चाहिए।"
+},
+
+
+"mr-en": {
+
+modernStand: [
+  "Symptoms जेवणाशी closely related आहेत.",
+  "Burning, fullness आणि gas एकत्र जाणवत आहेत.",
+  "Problem आता जास्त frequently होत आहे.",
+  "Discomfort मुळे sleep affect होत आहे."
+],
+
+modernContrib:
+  "हा pattern acid-related symptoms, indigestion किंवा दुसऱ्या digestive cause शी related असू शकतो. फक्त तुमच्या story वरून exact cause ठरवता येत नाही.",
+
+modernNext: [
+  "Discomfort नेमका कुठे होतो?",
+  "Heartburn किंवा food परत वर येतंय असं वाटतं का?",
+  "Weight किंवा appetite मध्ये काही change झाला आहे का?",
+  "कोणती regular medicine किंवा supplement घेता का?"
+],
+
+modernEvidence:
+  "हे तुमची story organise करण्याचा मार्ग आहे, diagnosis नाही. Clinician ला complete history आणि गरज असल्यास examination किंवा tests ची गरज असू शकते.",
+
+ayurRead:
+  "Ayurvedic framework मध्ये bloating आणि खाल्ल्यानंतर होणारा discomfort digestion शी संबंधित traditional concepts, जसे agni आणि dosha balance, यांच्या माध्यमातून पाहिला जाऊ शकतो.",
+
+ayurAsk: [
+  "Appetite आणि digestion",
+  "Bowel habits",
+  "Daily routine आणि sleep",
+  "Food pattern आणि tolerance"
+],
+
+ayurTraditional:
+  "तुमचा bloating, meal-related discomfort आणि digestion pattern पाहून Ayurvedic practitioner traditional digestive imbalance चे concepts explore करू शकतात.",
+
+ayurEvidence:
+  "ही Ayurvedic framework मधली traditional interpretation आहे. याचा अर्थ कोणताही treatment effective असेल असा evidence आपोआप होत नाही.",
+
+homeoRead:
+  "Homeopathic practitioner फक्त 'acidity' या label कडे पाहणार नाही. Symptom नेमका कसा जाणवतो, कधी होतो आणि कशामुळे बदलतो याकडेही लक्ष दिले जाऊ शकते.",
+
+homeoAsk: [
+  "Exact sensation आणि location",
+  "कशामुळे better किंवा worse होतं",
+  "Timing आणि food शी relation",
+  "इतर symptoms आणि individual pattern"
+],
+
+homeoTraditional:
+  "या framework मध्ये 'acidity' या एका label पेक्षा व्यक्तीचा पूर्ण symptom pattern महत्त्वाचा मानला जाऊ शकतो.",
+
+homeoEvidence:
+  "हे homeopathic framework describe करते. त्यातील proposed explanations आणि effectiveness यांना evidence-based clinical medicine च्या equivalent मानू नये."
+},
+
+
+mr: {
+
+modernStand: [
+  "लक्षणे जेवल्यानंतर जास्त जाणवतात.",
+  "जळजळ, जडपणा आणि गॅस एकत्र जाणवतात.",
+  "हा त्रास आता अधिक वारंवार होत आहे.",
+  "या त्रासाचा झोपेवर परिणाम होत आहे."
+],
+
+modernContrib:
+  "हा pattern acid-related symptoms, indigestion किंवा इतर digestive कारणांशी संबंधित असू शकतो. फक्त तुमच्या सांगण्यावरून नेमके कारण ठरवता येत नाही.",
+
+modernNext: [
+  "त्रास नेमका कुठे होतो?",
+  "छातीत जळजळ किंवा अन्न वर येत असल्यासारखे वाटते का?",
+  "वजन किंवा भुकेमध्ये काही बदल झाला आहे का?",
+  "तुम्ही नियमित कोणती औषधे किंवा supplements घेता का?"
+],
+
+modernEvidence:
+  "हे तुमची आरोग्याची गोष्ट व्यवस्थित मांडण्याचा मार्ग आहे, निदान नाही. डॉक्टरांना संपूर्ण history आणि गरज असल्यास तपासणी किंवा tests ची गरज असू शकते.",
+
+ayurRead:
+  "आयुर्वेदिक दृष्टिकोनातून पोट फुगणे आणि जेवल्यानंतर होणारा त्रास पचनाशी संबंधित पारंपरिक संकल्पना, जसे अग्नी आणि दोषांचे संतुलन, यांच्या माध्यमातून पाहिला जाऊ शकतो.",
+
+ayurAsk: [
+  "भूक आणि पचन",
+  "शौचाच्या सवयी",
+  "दैनंदिन दिनचर्या आणि झोप",
+  "आहाराची पद्धत आणि कोणते पदार्थ सहन होतात"
+],
+
+ayurTraditional:
+  "तुमचा पोट फुगण्याचा त्रास, जेवल्यानंतरची अस्वस्थता आणि पचनाचा pattern पाहून आयुर्वेदिक practitioner पारंपरिक digestive imbalance च्या संकल्पना तपासू शकतात.",
+
+ayurEvidence:
+  "ही आयुर्वेदिक दृष्टिकोनातील पारंपरिक interpretation आहे. याचा अर्थ कोणताही उपचार प्रभावी ठरेल असा पुरावा आपोआप मिळत नाही.",
+
+homeoRead:
+  "Homeopathic practitioner फक्त 'acidity' या शब्दावर लक्ष केंद्रित करणार नाही. लक्षण नेमके कसे जाणवते, कधी होते आणि कशामुळे बदलते हेही पाहिले जाऊ शकते.",
+
+homeoAsk: [
+  "लक्षण नेमके कसे आणि कुठे जाणवते",
+  "कशामुळे बरे किंवा जास्त होते",
+  "लक्षणांची वेळ आणि आहाराशी संबंध",
+  "इतर लक्षणे आणि एकूण symptom pattern"
+],
+
+homeoTraditional:
+  "या दृष्टिकोनात 'acidity' या एका शब्दापेक्षा व्यक्तीचा संपूर्ण symptom pattern महत्त्वाचा मानला जाऊ शकतो.",
+
+homeoEvidence:
+  "हे homeopathic framework चे वर्णन आहे. त्यातील proposed explanations आणि effectiveness यांना evidence-based clinical medicine च्या equivalent मानू नये."
+}
+
+};
+
+
+/* =========================================================
+   ADDITIONAL LANGUAGE-SPECIFIC OBSERVATIONS
+   ========================================================= */
+
+const observations = {
+
+en:[
+ ["Meal-related pattern",
+  "Your symptoms often appear after eating, so meal timing and food pattern are worth tracking."],
+
+ ["Food trigger",
+  "Spicy and oily food seems to make the discomfort more noticeable. That is a useful observation, but it does not prove a cause."],
+
+ ["Digestive symptom cluster",
+  "Burning, fullness, gas and occasional nausea are appearing together."],
+
+ ["Increasing frequency",
+  "The problem has become almost daily over the last 10 days, which makes the pattern worth discussing if it continues."]
+],
+
+"hi-en":[
+ ["Meal-related pattern",
+  "Symptoms khane ke baad zyada aate hain, isliye meal timing aur food pattern track karna useful ho sakta hai."],
+
+ ["Food trigger",
+  "Spicy aur oily food ke baad discomfort zyada hota hai. Yeh useful observation hai, lekin cause prove nahi karta."],
+
+ ["Digestive symptom pattern",
+  "Burning, fullness, gas aur kabhi-kabhi nausea ek saath aa rahe hain."],
+
+ ["Increasing frequency",
+  "Last 10 days mein problem almost daily ho gayi hai. Agar yeh continue hota hai, pattern discuss karna useful rahega."]
+],
+
+hi:[
+ ["खाने से जुड़ा pattern",
+  "लक्षण खाने के बाद ज़्यादा होते हैं, इसलिए खाने का समय और food pattern note करना useful हो सकता है।"],
+
+ ["खाने से बढ़ना",
+  "मसालेदार और तला-भुना खाना खाने के बाद परेशानी बढ़ती है। यह एक observation है, पक्का कारण नहीं।"],
+
+ ["पाचन से जुड़े symptoms",
+  "जलन, भारीपन, गैस और कभी-कभी जी मिचलाना साथ में हो रहा है।"],
+
+ ["बार-बार होना",
+  "पिछले 10 दिनों में समस्या लगभग रोज़ हो रही है। अगर यह जारी रहती है तो इस pattern पर डॉक्टर से बात करना useful होगा।"]
+],
+
+"mr-en":[
+ ["Meal-related pattern",
+  "Symptoms जेवणानंतर जास्त होतात, त्यामुळे meal timing आणि food pattern track करणं useful ठरू शकतं."],
+
+ ["Food trigger",
+  "Spicy आणि oily food नंतर discomfort वाढतो. ही useful observation आहे, पण यामुळे cause prove होत नाही."],
+
+ ["Digestive symptom pattern",
+  "Burning, fullness, gas आणि कधीकधी nausea एकत्र दिसत आहेत."],
+
+ ["Increasing frequency",
+  "गेल्या 10 days मध्ये problem almost daily झाली आहे. हा pattern continue झाला तर clinician सोबत discuss करणं useful ठरेल."]
+],
+
+mr:[
+ ["जेवणाशी संबंध",
+  "लक्षणे जेवल्यानंतर जास्त होतात, त्यामुळे जेवणाची वेळ आणि आहाराची नोंद ठेवणे उपयोगी ठरू शकते."],
+
+ ["आहारामुळे वाढणे",
+  "तिखट आणि तेलकट पदार्थांनंतर त्रास वाढतो. ही एक निरीक्षणाची गोष्ट आहे; यामुळे कारण सिद्ध होत नाही."],
+
+ ["पचनाशी संबंधित लक्षणांचा pattern",
+  "जळजळ, जडपणा, गॅस आणि कधीकधी मळमळ एकत्र जाणवतात."],
+
+ ["वारंवार होणे",
+  "गेल्या १० दिवसांत हा त्रास जवळजवळ रोज होत आहे. तो सुरू राहिला तर डॉक्टरांशी या pattern बद्दल बोलणे उपयोगी ठरेल."]
+]
+
+};
+
+
+/* =========================================================
+   APPLY LANGUAGE
+   ========================================================= */
+
+function setText(id,value){
+  $(id).innerHTML=value;
+}
+
+function setList(id,items){
+  $(id).innerHTML=items
+    .map(item=>`<li>${item}</li>`)
+    .join("");
+}
+
+
+function applyLanguage(){
+
+  const c=copy[language.value];
+  const l=lists[language.value];
+
+  setText("kicker",c.kicker);
+  setText("heroTitle",c.hero);
+  setText("heroCopy",c.heroCopy);
+
+  setText("inputLabel",c.label);
+  setText("inputHelper",c.helper);
+  setText("speakText",c.speak);
+
+  $("explore").textContent=c.explore;
+  $("example").textContent=c.example;
+  $("disclaimer").textContent=c.disclaimer;
+
+  setText("understoodTitle",c.understood);
+  setText("understoodIntro",c.understoodIntro);
+
+  setText("sameStoryTitle",c.same);
+  setText("sameStoryIntro",c.sameIntro);
+
+  setText("contributorsTitle",c.contributors);
+  setText("contributorsIntro",c.contributorsIntro);
+
+  setText("changeTitle",c.change);
+  setText("better",c.better);
+  setText("worse",c.worse);
+
+  setText("missingTitle",c.missing);
+  setText("missingIntro",c.missingIntro);
+
+  setText("selfTitle",c.self);
+  setText("selfIntro",c.selfIntro);
+
+  setText("observeTitle",c.observe);
+  setText("safetyTitle",c.safety);
+
+  setText("briefBadge",c.brief);
+  setText("briefTitle",c.briefTitle);
+  setText("briefIntro",c.briefIntro);
+
+  setText("accountTitle",c.accountTitle);
+  setText("accountText",c.accountText);
+
+  $("accountBtn").textContent=c.accountBtn;
+
+  setText("footerLine",c.footer);
+
+  setList("modernStand",l.modernStand);
+  setList("modernNext",l.modernNext);
+
+  setList("ayurAsk",l.ayurAsk);
+  setList("homeoAsk",l.homeoAsk);
+
+  setList(
+    "missingList",
+    [
+      ...l.modernNext,
+      "Any recent change in routine, food, stress or sleep?"
+    ]
+  );
+
+  setList("observeList",[
+    "Keep a simple note of meals and symptoms.",
+    "Notice timing rather than immediately assuming a cause.",
+    "Notice whether sleep changes with the discomfort.",
+    "If symptoms keep recurring, discuss the pattern with a clinician."
+  ]);
+
+  setList("safetyList",[
+    "Get urgent medical help for severe or rapidly worsening symptoms.",
+    "Seek urgent help for trouble breathing, fainting, new weakness or trouble speaking.",
+    "Blood in vomit or stool, or severe persistent pain, needs prompt medical attention."
+  ]);
+
+  setList("questions",[
+    "Could this pattern fit reflux, indigestion or another digestive cause?",
+    "What features in my history would make you look for another cause?",
+    "Would an examination or test be useful?",
+    "What changes should make me seek care sooner?"
+  ]);
+
+  concern.placeholder=demo[language.value];
+
+  if(results.style.display==="block"){
+    fillPersonalisedContent();
+  }
+}
+
+
+language.addEventListener(
+  "change",
+  applyLanguage
+);
+
+
+/* =========================================================
+   PERSONALIZED CONTENT
+   ========================================================= */
+
+function fillPersonalisedContent(){
+
+  const l=lists[language.value];
+
+  setText("modernContrib",l.modernContrib);
+  setText("modernEvidence",l.modernEvidence);
+
+  setText("ayurRead",l.ayurRead);
+  setText("ayurTraditional",l.ayurTraditional);
+  setText("ayurEvidence",l.ayurEvidence);
+
+  setText("homeoRead",l.homeoRead);
+  setText("homeoTraditional",l.homeoTraditional);
+  setText("homeoEvidence",l.homeoEvidence);
+
+  $("insights").innerHTML=
+    observations[language.value]
+      .map(([heading,text])=>`
+        <div class="card insight">
+          <h3>${heading}</h3>
+          <p>${text}</p>
+        </div>
+      `)
+      .join("");
+}
+
+
+/* =========================================================
+   EXAMPLE
+   ========================================================= */
+
+$("example").onclick=()=>{
+
+  concern.value=demo[language.value];
+
+  concern.focus();
+
+};
+
+
+/* =========================================================
+   EXPLORE
+   ========================================================= */
+
+$("explore").onclick=()=>{
+
+  const value=concern.value.trim();
+
+  if(!value){
+
+    showToast(
+      language.value==="en"
+      ? "Tell us a little about what you've been feeling."
+      : "कृपया तुम्हाला काय जाणवतंय त्याबद्दल थोडं सांगा."
+    );
+
+    concern.focus();
+
+    return;
+  }
+
+
+  $("storyText").textContent=value;
+
+
+  $("storyFacts").innerHTML=
+    copy[language.value]
+      .facts
+      .map(item=>`<span class="fact">${item}</span>`)
+      .join("");
+
+
+  fillPersonalisedContent();
+
+
+  results.style.display="block";
+
+
+  $("accountBox").style.display="block";
+
+
+  results.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+};
+
+
+/* =========================================================
+   VOICE INPUT
+   ========================================================= */
+
+const SpeechRecognition=
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+
+$("speak").onclick=()=>{
+
+  if(!SpeechRecognition){
+
+    showToast(
+      "Voice input is not supported in this browser."
+    );
+
+    return;
+  }
+
+
+  const recognition=
+    new SpeechRecognition();
+
+
+  if(
+    language.value==="mr" ||
+    language.value==="mr-en"
+  ){
+
+    recognition.lang="mr-IN";
+
+  }else if(
+    language.value==="hi" ||
+    language.value==="hi-en"
+  ){
+
+    recognition.lang="hi-IN";
+
+  }else{
+
+    recognition.lang="en-IN";
+
+  }
+
+
+  recognition.interimResults=false;
+  recognition.continuous=false;
+
+
+  recognition.onstart=()=>{
+
+    $("speak").innerHTML=
+      "🎙 Listening…";
+
+  };
+
+
+  recognition.onresult=(event)=>{
+
+    const transcript=
+      event.results[0][0].transcript;
+
+
+    concern.value=
+      (
+        concern.value
+        ? concern.value+" "
+        : ""
+      ) + transcript;
+
+  };
+
+
+  recognition.onerror=()=>{
+
+    showToast(
+      "Voice input stopped. You can type instead."
+    );
+
+  };
+
+
+  recognition.onend=()=>{
+
+    $("speak").innerHTML=
+      `🎙 <span id="speakText">${copy[language.value].speak}</span>`;
+
+  };
+
+
+  recognition.start();
+
+};
+
+
+/* =========================================================
+   ACCOUNT PLACEHOLDER
+   ========================================================= */
+
+$("accountBtn").onclick=()=>{
+
+  showToast(
+    "Account storage is intentionally not connected in this prototype."
+  );
+
+};
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message){
+
+  toast.textContent=message;
+
+  toast.style.display="block";
+
+
+  setTimeout(()=>{
+
+    toast.style.display="none";
+
+  },
+
+
+  
