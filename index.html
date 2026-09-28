@@ -3,154 +3,901 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Integrative Health Intelligence — an evidence-aware health reasoning prototype by Dr. Vedanti Shah.">
-<title>Integrative Health Intelligence</title>
+<title>IHI — Understand Your Health</title>
+<meta name="description" content="IHI helps you make sense of a health concern through modern medicine, Ayurveda and homeopathy as distinct perspectives.">
+
 <style>
 :root{
- --ink:#17312f;--muted:#617370;--teal:#087b78;--teal2:#0e918c;--mint:#eaf6f4;
- --line:#dbe7e5;--bg:#f6faf9;--white:#fff;--amber:#9a650f;--amberbg:#fff6df;
- --red:#9f3131;--redbg:#fff0f0;--shadow:0 20px 60px rgba(23,49,47,.10)
+  --wine:#8d1f32;
+  --wine2:#a52b42;
+  --gold:#b88a3b;
+  --goldsoft:#f5ead3;
+  --cream:#fbf8f1;
+  --paper:#fffdf9;
+  --ink:#2c2524;
+  --muted:#756c67;
+  --green:#55745e;
+  --line:#e8dfd4;
+  --shadow:0 18px 50px rgba(65,35,25,.08);
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:inherit}.container{max-width:1120px;margin:auto;padding:0 24px}
-header{position:sticky;top:0;z-index:20;background:rgba(246,250,249,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--teal)}
-.navlinks{display:flex;gap:22px;font-size:13px;color:var(--muted)}.navlinks a{text-decoration:none}
-.hero{padding:88px 0 72px}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--teal);margin-bottom:14px}
-h1{font-size:clamp(42px,7vw,72px);line-height:1.0;letter-spacing:-.055em;max-width:850px;margin:0 0 24px}
-.lead{font-size:20px;line-height:1.55;color:var(--muted);max-width:760px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:12px;text-decoration:none;font-weight:750;font-size:14px;border:1px solid var(--teal);cursor:pointer}
-.primary{background:var(--teal);color:#fff}.secondary{background:#fff;color:var(--teal)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:end}.hero-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
-.hero-card .mini{font-size:12px;color:var(--muted);margin-bottom:16px}.signal{font-size:18px;font-weight:750;line-height:1.35}
-section.block{padding:72px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
-h2{font-size:36px;letter-spacing:-.04em;margin:0 0 10px}.section-head p{max-width:570px;color:var(--muted);line-height:1.55}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.flow div{background:var(--mint);border:1px solid #cde4e1;padding:15px 12px;border-radius:14px;font-weight:750;font-size:13px}.flow small{display:block;color:var(--muted);font-weight:500;margin-top:6px}
-.evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tier{display:flex;gap:12px;align-items:flex-start}.dot{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:6px;flex:none}.dot.amber{background:#c58a25}.dot.gray{background:#879795}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.metric b{font-size:28px;display:block;margin-bottom:4px}.metric span{font-size:12px;color:var(--muted)}
-#demo{background:#eef6f5}.demo-wrap{display:grid;grid-template-columns:280px 1fr;gap:24px}.steps{display:flex;flex-direction:column;gap:8px}.stepbtn{text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--muted)}.stepbtn.active{border-color:var(--teal);color:var(--teal);font-weight:800;background:var(--mint)}
-.phone{max-width:620px;min-height:600px;background:var(--bg);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:28px;position:relative}
-.screen{display:none}.screen.active{display:block}.top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:26px}.screen h3{font-size:30px;line-height:1.12;margin:0 0 12px;letter-spacing:-.035em}.screen p{color:var(--muted);line-height:1.5}
-.demo-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px;margin:12px 0}.demo-card strong{display:block;margin-bottom:6px}.tag{display:inline-block;border-radius:999px;padding:5px 8px;background:var(--mint);color:var(--teal);font-size:11px;font-weight:800;margin:3px 4px 0 0}
-.demo-actions{display:flex;gap:8px;margin-top:18px}.demo-actions button{flex:1;height:46px;border-radius:11px;border:1px solid var(--teal);font-weight:750;cursor:pointer}.next{background:var(--teal);color:#fff}.back{background:#fff;color:var(--teal)}
-.notice{border-left:3px solid var(--amber);background:var(--amberbg);padding:14px;border-radius:0 12px 12px 0;font-size:13px;line-height:1.45}.danger{border-left-color:var(--red);background:var(--redbg)}
-.footer{padding:44px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media(max-width:800px){.hero-grid,.demo-wrap,.evidence{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.navlinks{display:none}}
-@media(max-width:520px){.container{padding:0 17px}.hero{padding:62px 0}.grid3,.metrics{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.phone{padding:20px}.hero-card{display:none}}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55;
+}
+
+button,textarea,select{font:inherit}
+button{cursor:pointer}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:0 22px;
+}
+
+header{
+  padding:22px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--wine);
+}
+
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.14em;
+  font-weight:600;
+  margin-top:1px;
+}
+
+.lang{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:999px;
+  padding:9px 13px;
+  color:var(--ink);
+}
+
+.hero{
+  padding:62px 0 45px;
+  text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  background:var(--goldsoft);
+  color:#795c28;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:700;
+}
+
+h1,h2,h3{
+  font-family:Georgia,serif;
+  font-weight:500;
+  line-height:1.12;
+}
+
+h1{
+  font-size:clamp(42px,7vw,76px);
+  max-width:850px;
+  margin:20px auto 16px;
+  letter-spacing:-.035em;
+}
+
+.hero p{
+  max-width:680px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.input-card{
+  max-width:820px;
+  margin:38px auto 0;
+  padding:24px;
+  text-align:left;
+}
+
+label{
+  font-weight:750;
+  display:block;
+  margin-bottom:10px;
+}
+
+textarea{
+  width:100%;
+  min-height:145px;
+  resize:vertical;
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:16px;
+  background:#fff;
+  color:var(--ink);
+  outline:none;
+}
+
+textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(184,138,59,.12);
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:750;
+}
+
+.primary{
+  background:var(--wine);
+  color:white;
+}
+
+.secondary{
+  background:var(--goldsoft);
+  color:#6d5225;
+}
+
+.ghost{
+  background:transparent;
+  border:1px solid var(--line);
+}
+
+.hint{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:13px;
+}
+
+.disclaimer{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:15px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+
+.example{
+  margin-top:14px;
+  font-size:13px;
+  color:var(--wine);
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+main{
+  display:none;
+  padding-bottom:80px;
+}
+
+.section{
+  padding:34px 0;
+}
+
+.section h2{
+  font-size:36px;
+  margin:0 0 10px;
+}
+
+.section-intro{
+  color:var(--muted);
+  max-width:720px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+
+.mini{
+  padding:22px;
+}
+
+.mini h3{
+  font-size:24px;
+  margin:0 0 8px;
+}
+
+.tag{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  border-radius:999px;
+  padding:5px 9px;
+  background:#f0ece7;
+  color:#685f5a;
+  margin-bottom:13px;
+}
+
+.tag.evidence{
+  background:#e8f0e9;
+  color:#46634d;
+}
+
+.tag.trad{
+  background:var(--goldsoft);
+  color:#755a2b;
+}
+
+.mini p{
+  font-size:14px;
+  color:var(--muted);
+  margin:0;
+}
+
+.note{
+  margin-top:20px;
+  padding:20px;
+  border-left:4px solid var(--gold);
+  background:var(--goldsoft);
+  border-radius:0 15px 15px 0;
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.list-card{
+  padding:22px;
+}
+
+.list-card h3{
+  font-size:25px;
+  margin:0 0 12px;
+}
+
+ul{
+  margin:0;
+  padding-left:20px;
+}
+
+li{
+  margin:8px 0;
+  color:var(--muted);
+}
+
+.safety{
+  border-color:#e7c9c9;
+  background:#fffafa;
+}
+
+.safety h3{
+  color:var(--wine);
+}
+
+.brief{
+  padding:25px;
+  background:var(--ink);
+  color:white;
+  border-radius:24px;
+}
+
+.brief p,
+.brief li{
+  color:#ddd;
+}
+
+.brief .tag{
+  background:#fff1d6;
+  color:#735624;
+}
+
+footer{
+  padding:35px 0 55px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  background:var(--ink);
+  color:#fff;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:13px;
+  display:none;
+  z-index:5;
+}
+
+@media(max-width:760px){
+
+  .grid,
+  .two,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:38px;
+  }
+
+  .input-card{
+    padding:18px;
+  }
+
+  h1{
+    font-size:46px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><div class="container nav">
-  <div class="brand">Integrative <span>Health Intelligence</span></div>
-  <nav class="navlinks"><a href="#problem">Problem</a><a href="#product">Product</a><a href="#evidence">Evidence</a><a href="#demo">Demo</a><a href="#evaluation">Evaluation</a></nav>
-</div></header>
 
-<main>
-<section class="hero"><div class="container hero-grid">
-  <div>
-    <div class="eyebrow">HEALTH REASONING · PRODUCT CASE STUDY</div>
-    <h1>Make confusing health information easier to reason about.</h1>
-    <p class="lead">An evidence-aware reasoning layer that helps people structure a messy health story, explore possible contributors, compare perspectives, understand uncertainty, and leave with better questions for a clinician — without pretending to diagnose.</p>
-    <div class="actions"><a class="btn primary" href="#demo">Try the interactive demo</a><a class="btn secondary" href="#evaluation">See how it is evaluated</a></div>
-  </div>
-  <div class="hero-card"><div class="mini">PRODUCT PROMISE</div><div class="signal">“What might matter, what does the evidence support, what remains uncertain, and what should I discuss next?”</div></div>
-</div></section>
+<div class="wrap">
 
-<section id="problem" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">01 · THE PROBLEM</div><h2>Health information is abundant. Sense-making is not.</h2></div><p>The opportunity is not another symptom checker or generic health chatbot. The harder problem is reasoning across fragmented stories, conflicting explanations, evidence quality and uncertainty.</p></div>
-  <div class="grid3">
-    <div class="card"><h3>Fragmented story</h3><p>Symptoms, triggers, medicines, routines and context often live in different places — and change over time.</p></div>
-    <div class="card"><h3>Conflicting explanations</h3><p>People can encounter biomedical, traditional and online explanations without a clear way to distinguish their evidence bases.</p></div>
-    <div class="card"><h3>Unclear next step</h3><p>The useful outcome is often not a diagnosis. It is knowing what matters, what is missing and what to ask a clinician.</p></div>
+<header>
+  <div class="brand">
+    IHI
+    <small>INTEGRATIVE HEALTH INTELLIGENCE</small>
   </div>
-</div></section>
 
-<section id="product" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">02 · PRODUCT</div><h2>Talk → Structure → Explore → Evidence → Decide</h2></div><p>The MVP is deliberately framed as a <strong>Health Concern Engine</strong>: a reasoning workflow, not an autonomous medical decision-maker.</p></div>
-  <div class="flow">
-    <div>Talk<small>Tell the story naturally</small></div><div>Structure<small>Build a timeline</small></div><div>Explore<small>Map possible contributors</small></div><div>Evidence<small>Label support & uncertainty</small></div><div>Decide<small>Create a clinician brief</small></div>
-  </div>
-  <div class="grid3" style="margin-top:16px">
-    <div class="card"><h3>Contributor Map</h3><p>Uses “possible contributor” language instead of declaring a root cause or diagnosis.</p></div>
-    <div class="card"><h3>Evidence Lens</h3><p>Separates established evidence, limited/mixed evidence, traditional frameworks and unsupported hypotheses.</p></div>
-    <div class="card"><h3>Decision Brief</h3><p>Converts uncertainty into practical questions and missing information for a clinical conversation.</p></div>
-  </div>
-</div></section>
+  <select class="lang" id="language" aria-label="Language">
+    <option value="en">English</option>
+    <option value="hinglish">Hinglish</option>
+    <option value="marathi">मराठी + English</option>
+  </select>
+</header>
 
-<section id="evidence" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">03 · EVIDENCE MODEL</div><h2>Different frameworks. Different evidence.</h2></div><p>The product does not flatten biomedical and traditional claims into one evidence bucket. Provenance and uncertainty are part of the interface.</p></div>
-  <div class="evidence">
-    <div class="card"><div class="tier"><span class="dot"></span><div><h3>Established / stronger support</h3><p>Guidelines, systematic reviews, clinical studies and other appropriate biomedical evidence.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot amber"></span><div><h3>Limited / mixed</h3><p>Evidence exists but is inconsistent, indirect, early or insufficient for a confident conclusion.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot gray"></span><div><h3>Traditional framework</h3><p>Traditional concepts are presented as traditional concepts, not silently converted into biomedical mechanisms.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot gray"></span><div><h3>Unsupported / insufficient</h3><p>The system should say when the available evidence cannot justify a claim rather than inventing certainty.</p></div></div></div>
-  </div>
-</div></section>
+<section class="hero">
 
-<section id="demo" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">04 · INTERACTIVE PROTOTYPE</div><h2>Walk through the core journey.</h2></div><p>This demo uses a fixed illustrative scenario. It is a product prototype, not a clinical tool and not medical advice.</p></div>
-  <div class="demo-wrap">
-    <div class="steps" id="stepNav">
-      <button class="stepbtn active" onclick="show(1)">01 · Your story</button>
-      <button class="stepbtn" onclick="show(2)">02 · Health story</button>
-      <button class="stepbtn" onclick="show(3)">03 · Contributor map</button>
-      <button class="stepbtn" onclick="show(4)">04 · Evidence lens</button>
-      <button class="stepbtn" onclick="show(5)">05 · Missing information</button>
-      <button class="stepbtn" onclick="show(6)">06 · Safety router</button>
-      <button class="stepbtn" onclick="show(7)">07 · Framework comparison</button>
-      <button class="stepbtn" onclick="show(8)">08 · Decision brief</button>
-      <button class="stepbtn" onclick="show(9)">09 · Follow-up</button>
+  <span class="eyebrow">Make sense of your health story</span>
+
+  <h1>Your health, in your own words.</h1>
+
+  <p>
+    Tell us what's happening. Type it, speak it, or mix languages naturally.
+    Explore modern medicine, Ayurveda and homeopathy as distinct perspectives —
+    with evidence and uncertainty kept clear.
+  </p>
+
+  <div class="card input-card">
+
+    <label for="concern">What's bothering you?</label>
+
+    <textarea
+      id="concern"
+      placeholder="Example: I've been getting headaches for a few weeks. They seem worse after poor sleep and on busy days."
+    ></textarea>
+
+    <div class="actions">
+
+      <button class="btn secondary" id="speak">
+        🎙 Speak
+      </button>
+
+      <button class="btn primary" id="explore">
+        Explore my concern →
+      </button>
+
     </div>
-    <div class="phone">
-      <div class="screen active" id="demo1"><div class="top"><span>HEALTH CONCERN ENGINE</span><span>1 / 9</span></div><div class="eyebrow">TELL YOUR STORY</div><h3>What has been happening?</h3><p>Describe the concern in your own words. The system should preserve what you mean before trying to interpret it.</p><div class="demo-card"><strong>Illustrative story</strong><p>“I keep getting headaches. They seem worse after poor sleep and on busy days. Sometimes I also feel nauseated.”</p></div><div class="notice">The prototype separates what you said from what the system later infers.</div><div class="demo-actions"><button class="back" onclick="show(1)">Edit</button><button class="next" onclick="show(2)">Structure story →</button></div></div>
-      <div class="screen" id="demo2"><div class="top"><span>YOUR HEALTH STORY</span><span>2 / 9</span></div><div class="eyebrow">STRUCTURE</div><h3>A clearer timeline emerges.</h3><div class="demo-card"><strong>Concern</strong><p>Recurring headache with nausea.</p></div><div class="demo-card"><strong>Context mentioned</strong><span class="tag">Poor sleep</span><span class="tag">Busy days</span></div><div class="demo-card"><strong>Still unclear</strong><p>Onset, duration, frequency, severity, associated neurological symptoms, medicines and other relevant history.</p></div><div class="demo-actions"><button class="back" onclick="show(1)">← Back</button><button class="next" onclick="show(3)">Explore →</button></div></div>
-      <div class="screen" id="demo3"><div class="top"><span>CONTRIBUTOR MAP</span><span>3 / 9</span></div><div class="eyebrow">POSSIBLE CONTRIBUTORS</div><h3>What may be worth exploring?</h3><div class="demo-card"><strong>Sleep / routine</strong><p>Temporal relationship was reported. This is a contributor to explore, not proof of causation.</p></div><div class="demo-card"><strong>Headache phenotype</strong><p>More clinical detail is needed to understand which explanations are plausible.</p></div><div class="demo-card"><strong>Medication / exposure context</strong><p>Frequency of pain-reliever use and other exposures could change interpretation.</p></div><div class="demo-actions"><button class="back" onclick="show(2)">← Back</button><button class="next" onclick="show(4)">See evidence →</button></div></div>
-      <div class="screen" id="demo4"><div class="top"><span>EVIDENCE LENS</span><span>4 / 9</span></div><div class="eyebrow">EVIDENCE + UNCERTAINTY</div><h3>Not every explanation has the same support.</h3><div class="demo-card"><span class="tag">Established / stronger</span><p>Clinical assessment of headache features can help distinguish common patterns and identify warning signs.</p></div><div class="demo-card"><span class="tag" style="background:#fff6df;color:#9a650f">Limited / context-dependent</span><p>Associations between sleep disruption and headache can be relevant, but the individual's pattern still needs assessment.</p></div><div class="notice">The interface should expose the evidence basis and source provenance rather than presenting one confident “cause.”</div><div class="demo-card" id="provenanceCard"><strong>Provenance check · PC04</strong><p><span class="tag">SOURCE FIT: INSUFFICIENT</span> The current WHO 2026 research agenda does not establish efficacy for a specific treatment.</p><button class="btn secondary" style="margin-top:10px;padding:9px 12px" onclick="toggleProv()">View claim → source → limitation</button><div id="provDetail" style="display:none;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.5"><strong style="color:var(--ink)">Claim:</strong> “WHO's 2026 agenda establishes that a particular herbal product is effective for diabetes.”<br><strong style="color:var(--ink)">Source:</strong> R01 — WHO global research priorities and agenda for traditional, complementary and integrative medicine 2025–2034.<br><strong style="color:var(--ink)">Fit:</strong> Insufficient for specific treatment efficacy; R01 explicitly cannot support that claim class.<br><strong style="color:var(--ink)">System action:</strong> Withhold the efficacy claim and retrieve claim-specific clinical evidence first.</div></div><div class="demo-actions"><button class="back" onclick="show(3)">← Back</button><button class="next" onclick="show(5)">Check gaps →</button></div></div>
-      <div class="screen" id="demo5"><div class="top"><span>MISSING INFORMATION</span><span>5 / 9</span></div><div class="eyebrow">UNCERTAINTY CHECK</div><h3>What information could change the picture?</h3><div class="demo-card"><strong>Ask next</strong><p>When did this start? How often? How long does each episode last? Any sudden onset, weakness, trouble speaking, fainting, fever, vision change or other warning signs?</p></div><div class="demo-card"><strong>Useful context</strong><p>Pregnancy possibility where relevant, current medicines, pain-reliever frequency, sleep pattern and other meaningful changes.</p></div><div class="demo-actions"><button class="back" onclick="show(4)">← Back</button><button class="next" onclick="show(6)">Safety check →</button></div></div>
-      <div class="screen" id="demo6"><div class="top"><span>SAFETY ROUTER</span><span>6 / 9</span></div><div class="eyebrow">SAFETY FIRST</div><h3>Some stories should interrupt exploration.</h3><div class="notice danger"><strong>Example urgent signal</strong><br>If someone suddenly develops trouble speaking or weakness on one side of the body, the experience should stop the normal reasoning flow and direct them toward urgent emergency care.</div><div class="demo-card"><strong>Design principle</strong><p>Safety routing has priority over contributor exploration. The system must not bury red flags beneath educational content.</p></div><div class="demo-actions"><button class="back" onclick="show(5)">← Back</button><button class="next" onclick="show(7)">Compare frameworks →</button></div></div>
-      <div class="screen" id="demo7"><div class="top"><span>FRAMEWORK COMPARISON</span><span>7 / 9</span></div><div class="eyebrow">SEPARATE THE LENSES</div><h3>Same concern, different frameworks.</h3><div class="demo-card"><span class="tag">Biomedical</span><p>Uses clinical mechanisms, risk factors, history and evidence-supported evaluation.</p></div><div class="demo-card"><span class="tag">Ayurveda</span><p>May describe the experience using traditional concepts. Those concepts remain labelled as traditional frameworks.</p></div><div class="demo-card"><span class="tag">Homeopathy</span><p>Uses a distinct traditional model. Claims are not treated as equivalent to established biomedical evidence.</p></div><div class="demo-actions"><button class="back" onclick="show(6)">← Back</button><button class="next" onclick="show(8)">Decision brief →</button></div></div>
-      <div class="screen" id="demo8"><div class="top"><span>DECISION BRIEF</span><span>8 / 9</span></div><div class="eyebrow">LEAVE WITH BETTER QUESTIONS</div><h3>A useful output does not need to be a diagnosis.</h3><div class="demo-card"><strong>What I understood</strong><p>Recurring headache with reported links to sleep and busy days, with important clinical details still missing.</p></div><div class="demo-card"><strong>Questions for my clinician</strong><p>What explanations should we consider? What information would help distinguish them? What should I monitor?</p></div><div class="demo-actions"><button class="back" onclick="show(7)">← Back</button><button class="next" onclick="show(9)">Follow up →</button></div></div>
-      <div class="screen" id="demo9"><div class="top"><span>FOLLOW-UP</span><span>9 / 9</span></div><div class="eyebrow">LONGITUDINAL LEARNING</div><h3>Observe patterns without turning them into proof.</h3><div class="demo-card"><strong>Pattern signal</strong><p>Two observations followed late nights. This is a temporal association only — not evidence that sleep caused the symptom.</p></div><div class="demo-card"><strong>Next review</strong><p>Update the contributor map when enough new observations accumulate or the concern meaningfully changes.</p></div><div class="notice">Prototype boundary: no diagnosis, prescribing, medication changes or fabricated evidence.</div><div class="demo-actions"><button class="back" onclick="show(8)">← Back</button><button class="next" onclick="show(1)">Restart journey</button></div></div>
+
+    <div class="example" id="example">
+      Try an example
     </div>
-  </div>
-</div></section>
 
-<section id="evaluation" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">05 · EVALUATION</div><h2>Designed to be tested, not merely presented.</h2></div><p>A 30-case evaluation fixture covers extraction, multilingual meaning, contributor mapping, evidence tiering, uncertainty, safety, medication boundaries, provenance, longitudinal reasoning and adversarial cases.</p></div>
-  <div class="metrics">
-    <div class="metric"><b>30</b><span>evaluation cases</span></div>
-    <div class="metric"><b>8</b><span>scoring dimensions</span></div>
-    <div class="metric"><b>5/5</b><span>provenance contract cases passed</span></div>
-    <div class="metric"><b>0</b><span>critical failures in reference baseline</span></div>
-  </div>
-  <div class="card" style="margin-top:16px"><h3>Important interpretation</h3><p>The reported baseline is a deterministic reference/rule-based engine used to exercise the evaluation harness. It is <strong>not</strong> evidence that a production AI model has been clinically validated. A real system would require model-specific testing, source-grounding evaluation, safety evaluation and appropriate clinical/regulatory review.</p></div>
-</div></section>
+    <div class="hint" id="voiceStatus">
+      You can use everyday language, including English + Hindi/Marathi mixed together.
+    </div>
 
-<section class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">06 · PRODUCT GUARDRAILS</div><h2>What the system deliberately refuses to do.</h2></div></div>
-  <div class="grid3">
-    <div class="card"><h3>No diagnosis as fact</h3><p>Possible contributors and uncertainty are not converted into a definitive diagnosis.</p></div>
-    <div class="card"><h3>No unsafe medication advice</h3><p>The system does not tell users to stop, start or change prescribed medication.</p></div>
-    <div class="card"><h3>No false equivalence</h3><p>Traditional frameworks are clearly separated from biomedical evidence and labelled according to support.</p></div>
-    <div class="card"><h3>No fabricated sources</h3><p>Evidence cards need provenance. When evidence is insufficient, the system says so.</p></div>
-    <div class="card"><h3>No correlation = causation</h3><p>Temporal patterns are presented as observations, not proof of cause.</p></div>
-    <div class="card"><h3>Safety before depth</h3><p>Urgent red flags and mental-health crisis signals interrupt the normal exploration journey.</p></div>
+    <div class="disclaimer">
+      IHI helps you understand information and prepare questions.
+      It does not diagnose, prescribe, or replace a clinician.
+    </div>
+
   </div>
-</div></section>
+
+</section>
+
+
+<main id="results">
+
+<section class="section">
+
+  <h2>I heard you.</h2>
+
+  <p class="section-intro">
+    Here's the story you shared, organized in simpler language.
+    IHI is helping structure the concern — not deciding what diagnosis you have.
+  </p>
+
+  <div class="card list-card">
+
+    <span class="tag">Your words</span>
+
+    <p id="story"></p>
+
+    <div class="note">
+      <strong>Simple view:</strong>
+      Your concern appears to involve a symptom or change that may be worth
+      observing over time, especially alongside sleep, routine, triggers and
+      other symptoms.
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>Three perspectives.</h2>
+
+  <p class="section-intro">
+    These frameworks ask different questions. They are shown separately rather
+    than treated as having the same evidence base.
+  </p>
+
+  <div class="grid">
+
+    <article class="card mini">
+
+      <span class="tag evidence">
+        CLINICAL PERSPECTIVE
+      </span>
+
+      <h3>Modern Medicine</h3>
+
+      <p>
+        Looks at symptoms, history, examination and tests where appropriate.
+        The focus is on explanations supported by clinical evidence and on
+        ruling out important causes.
+      </p>
+
+    </article>
+
+
+    <article class="card mini">
+
+      <span class="tag trad">
+        TRADITIONAL FRAMEWORK
+      </span>
+
+      <h3>Ayurveda</h3>
+
+      <p>
+        Uses its own traditional concepts for understanding health and
+        imbalance. These concepts should be understood as a traditional
+        framework, not automatically as clinical evidence.
+      </p>
+
+    </article>
+
+
+    <article class="card mini">
+
+      <span class="tag trad">
+        TRADITIONAL FRAMEWORK
+      </span>
+
+      <h3>Homeopathy</h3>
+
+      <p>
+        Uses a distinct traditional framework for interpreting symptoms.
+        Its explanations should not be presented as equivalent to
+        evidence-based clinical explanations.
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <div class="two" style="margin-top:16px">
+
+    <div class="card list-card">
+
+      <h3>Where they may overlap</h3>
+
+      <ul>
+        <li>Paying attention to the person's story and symptoms.</li>
+        <li>Looking at patterns over time.</li>
+        <li>Considering context, routine and individual experience.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card list-card">
+
+      <h3>Where they differ</h3>
+
+      <ul>
+        <li>They use different concepts and explanatory models.</li>
+        <li>The strength and type of evidence behind claims can differ substantially.</li>
+        <li>A traditional explanation is not automatically evidence of clinical effectiveness.</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>What do we actually know?</h2>
+
+  <p class="section-intro">
+    IHI separates evidence from tradition and uncertainty instead of blending them together.
+  </p>
+
+  <div class="grid">
+
+    <div class="card mini">
+
+      <span class="tag evidence">
+        WELL SUPPORTED
+      </span>
+
+      <h3>Known</h3>
+
+      <p>
+        Claims supported by stronger clinical or scientific evidence.
+      </p>
+
+    </div>
+
+
+    <div class="card mini">
+
+      <span class="tag">
+        SOME EVIDENCE
+      </span>
+
+      <h3>Still developing</h3>
+
+      <p>
+        Findings exist, but evidence may be limited, mixed or context-dependent.
+      </p>
+
+    </div>
+
+
+    <div class="card mini">
+
+      <span class="tag trad">
+        TRADITIONAL
+      </span>
+
+      <h3>Traditional explanation</h3>
+
+      <p>
+        A concept belongs to a traditional framework and should be labelled as such.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="note">
+
+    <strong>Not enough information</strong><br>
+
+    Sometimes the honest answer is that more context is needed before a
+    useful interpretation can be made.
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>Simple things you can consider.</h2>
+
+  <p class="section-intro">
+    These are general self-care ideas, not treatment instructions or cures.
+  </p>
+
+  <div class="two">
+
+    <div class="card list-card">
+
+      <h3>Comfort & self-care</h3>
+
+      <ul>
+        <li>Keep hydration and meals reasonably regular.</li>
+        <li>Notice whether sleep or routine changes affect the symptom.</li>
+        <li>Observe possible triggers rather than assuming a cause.</li>
+        <li>Avoid things you already know reliably make you feel worse.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="card list-card safety">
+
+      <h3>Safety first</h3>
+
+      <ul>
+        <li>Seek urgent medical help for sudden severe symptoms or rapidly worsening problems.</li>
+        <li>Examples include new one-sided weakness, trouble speaking, loss of consciousness or severe breathing difficulty.</li>
+        <li>When in doubt about a serious or worsening symptom, contact an appropriate healthcare professional.</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>What's missing?</h2>
+
+  <p class="section-intro">
+    Good health reasoning often depends on information that isn't in the first message.
+  </p>
+
+  <div class="card list-card">
+
+    <ul>
+      <li>When did it start?</li>
+      <li>How often does it happen, and how long does it last?</li>
+      <li>What else happens at the same time?</li>
+      <li>Any medicines, supplements, recent illness or major changes?</li>
+      <li>What makes it better or worse?</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="brief">
+
+    <span class="tag">
+      YOUR DECISION BRIEF
+    </span>
+
+    <h2>Make sense of it.</h2>
+
+    <p>
+      IHI's job is not to tell you what you have.
+      Its job is to help you walk into a healthcare conversation with a clearer story.
+    </p>
+
+    <ul>
+      <li>Bring the symptom timeline.</li>
+      <li>Share what seems to trigger or relieve it.</li>
+      <li>Ask which explanations need to be considered.</li>
+      <li>Ask what information or tests would change the interpretation.</li>
+      <li>Ask which options are evidence-supported and what their risks are.</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>Over time.</h2>
+
+  <p class="section-intro">
+    A useful next version of IHI could let you keep a lightweight timeline
+    of symptoms, observations and questions. A pattern can be worth noticing
+    without proving that one thing caused another.
+  </p>
+
+  <div class="card list-card">
+
+    <div class="note" style="margin-top:0">
+
+      <strong>Prototype boundary:</strong>
+      This version demonstrates the product experience and safety framing.
+      Full multilingual interpretation, AI-generated evidence retrieval,
+      personal timelines and framework-specific research require a backend
+      and validated data pipeline.
+
+    </div>
+
+  </div>
+
+</section>
+
 </main>
-<footer class="footer"><div class="container">Integrative Health Intelligence · Product prototype & case study · Built as a portfolio project by Dr. Vedanti Shah · Not a medical device or medical advice.</div></footer>
+
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div>
+      <strong>IHI — Integrative Health Intelligence</strong><br>
+      Designed to make confusing health information easier to reason about.
+    </div>
+
+    <div>
+      Not medical advice. Not a diagnostic or treatment system.
+      Traditional frameworks are kept distinct and should not be assumed
+      to have the same evidence base as modern clinical medicine.
+    </div>
+
+  </div>
+
+</footer>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
 <script>
-function toggleProv(){
- const el=document.getElementById('provDetail');
- if(el) el.style.display=el.style.display==='none'?'block':'none';
+
+const concern=document.getElementById('concern');
+const results=document.getElementById('results');
+const story=document.getElementById('story');
+const language=document.getElementById('language');
+const example=document.getElementById('example');
+const voiceStatus=document.getElementById('voiceStatus');
+const toast=document.getElementById('toast');
+
+
+const examples={
+  en:"I've been getting headaches for a few weeks. They seem worse after poor sleep and on busy days, and sometimes I feel nauseated.",
+
+  hinglish:"Mujhe 2 weeks se headache ho raha hai. Poor sleep ke baad aur busy days mein worse hota hai, kabhi kabhi nausea bhi hota hai.",
+
+  marathi:"Mala 2 weeks pasun headache hotoy. Poor sleep nantar ani busy days madhye jast hotoy, kahi vela nausea pan hota."
+};
+
+
+const placeholders={
+  en:"Example: I've been getting headaches for a few weeks. They seem worse after poor sleep and on busy days.",
+
+  hinglish:"Example: Mujhe 2 weeks se headache ho raha hai. Poor sleep ke baad worse hota hai.",
+
+  marathi:"Example: Mala 2 weeks pasun headache hotoy. Poor sleep nantar jast hotoy."
+};
+
+
+language.addEventListener('change',()=>{
+  concern.placeholder=placeholders[language.value];
+});
+
+
+example.onclick=()=>{
+  concern.value=examples[language.value];
+};
+
+
+document.getElementById('explore').onclick=()=>{
+
+  const value=concern.value.trim();
+
+  if(!value){
+    showToast('Tell me a little about what is bothering you.');
+    concern.focus();
+    return;
+  }
+
+  story.textContent=value;
+
+  results.style.display='block';
+
+  results.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+};
+
+
+function showToast(msg){
+
+  toast.textContent=msg;
+  toast.style.display='block';
+
+  setTimeout(()=>{
+    toast.style.display='none';
+  },2600);
+
 }
-function show(n){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById('demo'+n).classList.add('active');
- document.querySelectorAll('.stepbtn').forEach((b,i)=>b.classList.toggle('active',i===n-1));
- document.getElementById('demo').scrollIntoView({behavior:'smooth',block:'start'});
-}
+
+
+const SR=
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+
+document.getElementById('speak').onclick=()=>{
+
+  if(!SR){
+    showToast('Voice input is not supported in this browser.');
+    return;
+  }
+
+  const r=new SR();
+
+  r.lang='en-IN';
+  r.interimResults=false;
+  r.continuous=false;
+
+  voiceStatus.textContent='Listening… speak naturally.';
+
+  r.onresult=e=>{
+
+    const t=e.results[0][0].transcript;
+
+    concern.value=
+      (concern.value ? concern.value+' ' : '') + t;
+
+    voiceStatus.textContent=
+      'Got it. Review your words, then tap Explore.';
+  };
+
+  r.onerror=()=>{
+    voiceStatus.textContent=
+      'Voice input stopped. You can type instead.';
+  };
+
+  r.onend=()=>{
+
+    if(
+      voiceStatus.textContent===
+      'Listening… speak naturally.'
+    ){
+      voiceStatus.textContent=
+        'You can use everyday language, including English + Hindi/Marathi mixed together.';
+    }
+
+  };
+
+  r.start();
+
+};
+
 </script>
+
 </body>
 </html>
