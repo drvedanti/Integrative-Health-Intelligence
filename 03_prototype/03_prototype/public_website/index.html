@@ -3,154 +3,3991 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Integrative Health Intelligence — an evidence-aware health reasoning prototype by Dr. Vedanti Shah.">
-<title>Integrative Health Intelligence</title>
+
+<title>IHI — Integrative Health Intelligence</title>
+
+<meta name="description"
+content="Explore a health concern through modern medicine, Ayurveda and homeopathy.">
+
 <style>
 :root{
- --ink:#17312f;--muted:#617370;--teal:#087b78;--teal2:#0e918c;--mint:#eaf6f4;
- --line:#dbe7e5;--bg:#f6faf9;--white:#fff;--amber:#9a650f;--amberbg:#fff6df;
- --red:#9f3131;--redbg:#fff0f0;--shadow:0 20px 60px rgba(23,49,47,.10)
+  --wine:#8b2035;
+  --wine-dark:#681526;
+  --gold:#b88a3b;
+  --gold-soft:#f4e8d0;
+  --cream:#fbf8f1;
+  --paper:#fffdf9;
+  --ink:#2c2524;
+  --muted:#746b66;
+  --green:#58745e;
+  --red-soft:#fff4f3;
+  --line:#e7ddd1;
+  --shadow:0 16px 45px rgba(58,32,25,.08);
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:inherit}.container{max-width:1120px;margin:auto;padding:0 24px}
-header{position:sticky;top:0;z-index:20;background:rgba(246,250,249,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--teal)}
-.navlinks{display:flex;gap:22px;font-size:13px;color:var(--muted)}.navlinks a{text-decoration:none}
-.hero{padding:88px 0 72px}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--teal);margin-bottom:14px}
-h1{font-size:clamp(42px,7vw,72px);line-height:1.0;letter-spacing:-.055em;max-width:850px;margin:0 0 24px}
-.lead{font-size:20px;line-height:1.55;color:var(--muted);max-width:760px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:12px;text-decoration:none;font-weight:750;font-size:14px;border:1px solid var(--teal);cursor:pointer}
-.primary{background:var(--teal);color:#fff}.secondary{background:#fff;color:var(--teal)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:end}.hero-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
-.hero-card .mini{font-size:12px;color:var(--muted);margin-bottom:16px}.signal{font-size:18px;font-weight:750;line-height:1.35}
-section.block{padding:72px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
-h2{font-size:36px;letter-spacing:-.04em;margin:0 0 10px}.section-head p{max-width:570px;color:var(--muted);line-height:1.55}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.flow div{background:var(--mint);border:1px solid #cde4e1;padding:15px 12px;border-radius:14px;font-weight:750;font-size:13px}.flow small{display:block;color:var(--muted);font-weight:500;margin-top:6px}
-.evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tier{display:flex;gap:12px;align-items:flex-start}.dot{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:6px;flex:none}.dot.amber{background:#c58a25}.dot.gray{background:#879795}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.metric b{font-size:28px;display:block;margin-bottom:4px}.metric span{font-size:12px;color:var(--muted)}
-#demo{background:#eef6f5}.demo-wrap{display:grid;grid-template-columns:280px 1fr;gap:24px}.steps{display:flex;flex-direction:column;gap:8px}.stepbtn{text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--muted)}.stepbtn.active{border-color:var(--teal);color:var(--teal);font-weight:800;background:var(--mint)}
-.phone{max-width:620px;min-height:600px;background:var(--bg);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:28px;position:relative}
-.screen{display:none}.screen.active{display:block}.top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:26px}.screen h3{font-size:30px;line-height:1.12;margin:0 0 12px;letter-spacing:-.035em}.screen p{color:var(--muted);line-height:1.5}
-.demo-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px;margin:12px 0}.demo-card strong{display:block;margin-bottom:6px}.tag{display:inline-block;border-radius:999px;padding:5px 8px;background:var(--mint);color:var(--teal);font-size:11px;font-weight:800;margin:3px 4px 0 0}
-.demo-actions{display:flex;gap:8px;margin-top:18px}.demo-actions button{flex:1;height:46px;border-radius:11px;border:1px solid var(--teal);font-weight:750;cursor:pointer}.next{background:var(--teal);color:#fff}.back{background:#fff;color:var(--teal)}
-.notice{border-left:3px solid var(--amber);background:var(--amberbg);padding:14px;border-radius:0 12px 12px 0;font-size:13px;line-height:1.45}.danger{border-left-color:var(--red);background:var(--redbg)}
-.footer{padding:44px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media(max-width:800px){.hero-grid,.demo-wrap,.evidence{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.navlinks{display:none}}
-@media(max-width:520px){.container{padding:0 17px}.hero{padding:62px 0}.grid3,.metrics{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.phone{padding:20px}.hero-card{display:none}}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,
+  "Segoe UI",sans-serif;
+  line-height:1.58;
+}
+
+button,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.wrap{
+  max-width:1120px;
+  margin:auto;
+  padding:0 22px;
+}
+
+/* HEADER */
+
+header{
+  padding:20px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand{
+  color:var(--wine);
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:17px;
+}
+
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.12em;
+  margin-top:2px;
+}
+
+.lang{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:999px;
+  padding:9px 12px;
+  color:var(--ink);
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:58px 0 45px;
+}
+
+.kicker{
+  display:inline-block;
+  background:var(--gold-soft);
+  color:#725522;
+  border-radius:999px;
+  padding:7px 13px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+
+h1,h2,h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:500;
+  line-height:1.12;
+}
+
+h1{
+  font-size:clamp(43px,7vw,72px);
+  letter-spacing:-.035em;
+  max-width:880px;
+  margin:20px auto 17px;
+}
+
+.hero-copy{
+  max-width:730px;
+  margin:auto;
+  color:var(--muted);
+  font-size:18px;
+}
+
+/* CARDS */
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.input-card{
+  max-width:850px;
+  margin:34px auto 0;
+  padding:24px;
+  text-align:left;
+}
+
+.label{
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:9px;
+  display:block;
+}
+
+.helper{
+  font-size:13px;
+  color:var(--muted);
+  margin:-3px 0 12px;
+}
+
+textarea{
+  width:100%;
+  min-height:160px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:17px;
+  background:#fff;
+  color:var(--ink);
+  resize:vertical;
+  outline:none;
+}
+
+textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(184,138,59,.13);
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:800;
+}
+
+.primary{
+  background:var(--wine);
+  color:#fff;
+}
+
+.primary:hover{
+  background:var(--wine-dark);
+}
+
+.secondary{
+  background:var(--gold-soft);
+  color:#6c5124;
+}
+
+.outline{
+  background:transparent;
+  border:1px solid var(--line);
+}
+
+.example{
+  margin-top:14px;
+  color:var(--wine);
+  font-size:13px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.disclaimer{
+  border-top:1px solid var(--line);
+  margin-top:16px;
+  padding-top:13px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* RESULTS */
+
+main{
+  display:none;
+  padding-bottom:80px;
+}
+
+.section{
+  padding:38px 0;
+}
+
+.section h2{
+  font-size:38px;
+  margin:0 0 10px;
+}
+
+.section-intro{
+  max-width:760px;
+  color:var(--muted);
+  margin:0;
+}
+
+.story-card{
+  padding:25px;
+  margin-top:19px;
+}
+
+.story-text{
+  font-size:17px;
+  margin:10px 0 0;
+}
+
+.story-facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:17px;
+}
+
+.fact{
+  background:#f3eee8;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  color:#5f5752;
+}
+
+/* APPROACHES */
+
+.approach-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.approach{
+  padding:23px;
+  text-align:left;
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:24px;
+  transition:.15s ease;
+}
+
+.approach:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold);
+}
+
+.approach-icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.approach h3{
+  font-size:27px;
+  margin:8px 0 8px;
+}
+
+.approach p{
+  color:var(--muted);
+  font-size:14px;
+  margin:0;
+}
+
+.badge{
+  display:inline-block;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.04em;
+}
+
+.badge.modern{
+  background:#e7f0e9;
+  color:#45624d;
+}
+
+.badge.traditional{
+  background:var(--gold-soft);
+  color:#755a2b;
+}
+
+/* EXPLORER */
+
+.explorer{
+  display:none;
+}
+
+.explorer-card{
+  padding:27px;
+}
+
+.explorer-card h2{
+  margin-top:9px;
+}
+
+.question{
+  margin-top:26px;
+}
+
+.question h3{
+  font-size:22px;
+  margin:0 0 12px;
+}
+
+.answers{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.answer{
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  text-align:left;
+  color:var(--ink);
+}
+
+.answer:hover{
+  border-color:var(--gold);
+}
+
+.answer.selected{
+  border-color:var(--wine);
+  background:#fbeced;
+}
+
+.explorer-action{
+  margin-top:25px;
+}
+
+.explorer-result{
+  display:none;
+  margin-top:25px;
+}
+
+.result-card{
+  padding:24px;
+}
+
+.result-card h3{
+  font-size:28px;
+  margin:0 0 9px;
+}
+
+.result-card p{
+  color:var(--muted);
+}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pill{
+  padding:7px 10px;
+  border-radius:999px;
+  background:#f3eee8;
+  font-size:12px;
+}
+
+.evidence{
+  margin-top:15px;
+  padding:13px;
+  border-radius:14px;
+  background:#f6f1ea;
+  color:#665e58;
+  font-size:12px;
+}
+
+.next-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:17px;
+}
+
+.next-actions button{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:750;
+}
+
+/* CONNECTIONS */
+
+.connection-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.connection{
+  padding:19px;
+}
+
+.connection h3{
+  font-size:21px;
+  margin:0 0 6px;
+}
+
+.connection p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* COMFORT */
+
+.comfort{
+  padding:24px;
+}
+
+.comfort h3{
+  font-size:26px;
+  margin:0 0 10px;
+}
+
+.comfort p{
+  color:var(--muted);
+}
+
+/* SAFETY */
+
+.safety{
+  padding:24px;
+  background:var(--red-soft);
+  border-color:#e8cccc;
+}
+
+.safety h3{
+  color:var(--wine);
+  font-size:27px;
+  margin:0 0 10px;
+}
+
+.safety ul{
+  margin:0;
+  padding-left:20px;
+}
+
+.safety li{
+  margin:8px 0;
+  color:#655d59;
+}
+
+/* FOOTER */
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:34px 0 52px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.footer-name{
+  color:var(--ink);
+  font-weight:750;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  display:none;
+  background:var(--ink);
+  color:#fff;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:13px;
+  z-index:20;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .approach-grid{
+    grid-template-columns:1fr;
+  }
+
+  .connection-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .answers{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:38px;
+  }
+
+  .hero-copy{
+    font-size:16px;
+  }
+
+  h1{
+    font-size:46px;
+  }
+}
+
+@media(max-width:500px){
+
+  .connection-grid{
+    grid-template-columns:1fr;
+  }
+
+}
 </style>
 </head>
+
 <body>
-<header><div class="container nav">
-  <div class="brand">Integrative <span>Health Intelligence</span></div>
-  <nav class="navlinks"><a href="#problem">Problem</a><a href="#product">Product</a><a href="#evidence">Evidence</a><a href="#demo">Demo</a><a href="#evaluation">Evaluation</a></nav>
-</div></header>
 
-<main>
-<section class="hero"><div class="container hero-grid">
-  <div>
-    <div class="eyebrow">HEALTH REASONING · PRODUCT CASE STUDY</div>
-    <h1>Make confusing health information easier to reason about.</h1>
-    <p class="lead">An evidence-aware reasoning layer that helps people structure a messy health story, explore possible contributors, compare perspectives, understand uncertainty, and leave with better questions for a clinician — without pretending to diagnose.</p>
-    <div class="actions"><a class="btn primary" href="#demo">Try the interactive demo</a><a class="btn secondary" href="#evaluation">See how it is evaluated</a></div>
-  </div>
-  <div class="hero-card"><div class="mini">PRODUCT PROMISE</div><div class="signal">“What might matter, what does the evidence support, what remains uncertain, and what should I discuss next?”</div></div>
-</div></section>
+<div class="wrap">
 
-<section id="problem" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">01 · THE PROBLEM</div><h2>Health information is abundant. Sense-making is not.</h2></div><p>The opportunity is not another symptom checker or generic health chatbot. The harder problem is reasoning across fragmented stories, conflicting explanations, evidence quality and uncertainty.</p></div>
-  <div class="grid3">
-    <div class="card"><h3>Fragmented story</h3><p>Symptoms, triggers, medicines, routines and context often live in different places — and change over time.</p></div>
-    <div class="card"><h3>Conflicting explanations</h3><p>People can encounter biomedical, traditional and online explanations without a clear way to distinguish their evidence bases.</p></div>
-    <div class="card"><h3>Unclear next step</h3><p>The useful outcome is often not a diagnosis. It is knowing what matters, what is missing and what to ask a clinician.</p></div>
-  </div>
-</div></section>
+<header>
 
-<section id="product" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">02 · PRODUCT</div><h2>Talk → Structure → Explore → Evidence → Decide</h2></div><p>The MVP is deliberately framed as a <strong>Health Concern Engine</strong>: a reasoning workflow, not an autonomous medical decision-maker.</p></div>
-  <div class="flow">
-    <div>Talk<small>Tell the story naturally</small></div><div>Structure<small>Build a timeline</small></div><div>Explore<small>Map possible contributors</small></div><div>Evidence<small>Label support & uncertainty</small></div><div>Decide<small>Create a clinician brief</small></div>
+  <div class="brand">
+    IHI
+    <small>INTEGRATIVE HEALTH INTELLIGENCE</small>
   </div>
-  <div class="grid3" style="margin-top:16px">
-    <div class="card"><h3>Contributor Map</h3><p>Uses “possible contributor” language instead of declaring a root cause or diagnosis.</p></div>
-    <div class="card"><h3>Evidence Lens</h3><p>Separates established evidence, limited/mixed evidence, traditional frameworks and unsupported hypotheses.</p></div>
-    <div class="card"><h3>Decision Brief</h3><p>Converts uncertainty into practical questions and missing information for a clinical conversation.</p></div>
-  </div>
-</div></section>
 
-<section id="evidence" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">03 · EVIDENCE MODEL</div><h2>Different frameworks. Different evidence.</h2></div><p>The product does not flatten biomedical and traditional claims into one evidence bucket. Provenance and uncertainty are part of the interface.</p></div>
-  <div class="evidence">
-    <div class="card"><div class="tier"><span class="dot"></span><div><h3>Established / stronger support</h3><p>Guidelines, systematic reviews, clinical studies and other appropriate biomedical evidence.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot amber"></span><div><h3>Limited / mixed</h3><p>Evidence exists but is inconsistent, indirect, early or insufficient for a confident conclusion.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot gray"></span><div><h3>Traditional framework</h3><p>Traditional concepts are presented as traditional concepts, not silently converted into biomedical mechanisms.</p></div></div></div>
-    <div class="card"><div class="tier"><span class="dot gray"></span><div><h3>Unsupported / insufficient</h3><p>The system should say when the available evidence cannot justify a claim rather than inventing certainty.</p></div></div></div>
-  </div>
-</div></section>
+  <select class="lang" id="language" aria-label="Choose language">
+    <option value="en">English</option>
+    <option value="hi-en">हिंदी + English</option>
+    <option value="hi">हिंदी</option>
+    <option value="mr-en">मराठी + English</option>
+    <option value="mr">मराठी</option>
+  </select>
 
-<section id="demo" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">04 · INTERACTIVE PROTOTYPE</div><h2>Walk through the core journey.</h2></div><p>This demo uses a fixed illustrative scenario. It is a product prototype, not a clinical tool and not medical advice.</p></div>
-  <div class="demo-wrap">
-    <div class="steps" id="stepNav">
-      <button class="stepbtn active" onclick="show(1)">01 · Your story</button>
-      <button class="stepbtn" onclick="show(2)">02 · Health story</button>
-      <button class="stepbtn" onclick="show(3)">03 · Contributor map</button>
-      <button class="stepbtn" onclick="show(4)">04 · Evidence lens</button>
-      <button class="stepbtn" onclick="show(5)">05 · Missing information</button>
-      <button class="stepbtn" onclick="show(6)">06 · Safety router</button>
-      <button class="stepbtn" onclick="show(7)">07 · Framework comparison</button>
-      <button class="stepbtn" onclick="show(8)">08 · Decision brief</button>
-      <button class="stepbtn" onclick="show(9)">09 · Follow-up</button>
+</header>
+
+
+<section class="hero">
+
+  <span class="kicker" id="kicker">
+    UNDERSTAND WHAT'S HAPPENING
+  </span>
+
+  <h1 id="heroTitle">
+    Something doesn't feel right.<br>
+    Let's understand why.
+  </h1>
+
+  <p class="hero-copy" id="heroCopy">
+    Tell us what's happening in your own words.
+    Explore different ways of understanding it —
+    from modern medicine to Ayurveda and homeopathy.
+  </p>
+
+
+  <div class="card input-card">
+
+    <label class="label" id="inputLabel" for="concern">
+      What's happening?
+    </label>
+
+    <div class="helper" id="inputHelper">
+      Tell us what you've noticed. No medical words needed.
     </div>
-    <div class="phone">
-      <div class="screen active" id="demo1"><div class="top"><span>HEALTH CONCERN ENGINE</span><span>1 / 9</span></div><div class="eyebrow">TELL YOUR STORY</div><h3>What has been happening?</h3><p>Describe the concern in your own words. The system should preserve what you mean before trying to interpret it.</p><div class="demo-card"><strong>Illustrative story</strong><p>“I keep getting headaches. They seem worse after poor sleep and on busy days. Sometimes I also feel nauseated.”</p></div><div class="notice">The prototype separates what you said from what the system later infers.</div><div class="demo-actions"><button class="back" onclick="show(1)">Edit</button><button class="next" onclick="show(2)">Structure story →</button></div></div>
-      <div class="screen" id="demo2"><div class="top"><span>YOUR HEALTH STORY</span><span>2 / 9</span></div><div class="eyebrow">STRUCTURE</div><h3>A clearer timeline emerges.</h3><div class="demo-card"><strong>Concern</strong><p>Recurring headache with nausea.</p></div><div class="demo-card"><strong>Context mentioned</strong><span class="tag">Poor sleep</span><span class="tag">Busy days</span></div><div class="demo-card"><strong>Still unclear</strong><p>Onset, duration, frequency, severity, associated neurological symptoms, medicines and other relevant history.</p></div><div class="demo-actions"><button class="back" onclick="show(1)">← Back</button><button class="next" onclick="show(3)">Explore →</button></div></div>
-      <div class="screen" id="demo3"><div class="top"><span>CONTRIBUTOR MAP</span><span>3 / 9</span></div><div class="eyebrow">POSSIBLE CONTRIBUTORS</div><h3>What may be worth exploring?</h3><div class="demo-card"><strong>Sleep / routine</strong><p>Temporal relationship was reported. This is a contributor to explore, not proof of causation.</p></div><div class="demo-card"><strong>Headache phenotype</strong><p>More clinical detail is needed to understand which explanations are plausible.</p></div><div class="demo-card"><strong>Medication / exposure context</strong><p>Frequency of pain-reliever use and other exposures could change interpretation.</p></div><div class="demo-actions"><button class="back" onclick="show(2)">← Back</button><button class="next" onclick="show(4)">See evidence →</button></div></div>
-      <div class="screen" id="demo4"><div class="top"><span>EVIDENCE LENS</span><span>4 / 9</span></div><div class="eyebrow">EVIDENCE + UNCERTAINTY</div><h3>Not every explanation has the same support.</h3><div class="demo-card"><span class="tag">Established / stronger</span><p>Clinical assessment of headache features can help distinguish common patterns and identify warning signs.</p></div><div class="demo-card"><span class="tag" style="background:#fff6df;color:#9a650f">Limited / context-dependent</span><p>Associations between sleep disruption and headache can be relevant, but the individual's pattern still needs assessment.</p></div><div class="notice">The interface should expose the evidence basis and source provenance rather than presenting one confident “cause.”</div><div class="demo-card" id="provenanceCard"><strong>Provenance check · PC04</strong><p><span class="tag">SOURCE FIT: INSUFFICIENT</span> The current WHO 2026 research agenda does not establish efficacy for a specific treatment.</p><button class="btn secondary" style="margin-top:10px;padding:9px 12px" onclick="toggleProv()">View claim → source → limitation</button><div id="provDetail" style="display:none;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.5"><strong style="color:var(--ink)">Claim:</strong> “WHO's 2026 agenda establishes that a particular herbal product is effective for diabetes.”<br><strong style="color:var(--ink)">Source:</strong> R01 — WHO global research priorities and agenda for traditional, complementary and integrative medicine 2025–2034.<br><strong style="color:var(--ink)">Fit:</strong> Insufficient for specific treatment efficacy; R01 explicitly cannot support that claim class.<br><strong style="color:var(--ink)">System action:</strong> Withhold the efficacy claim and retrieve claim-specific clinical evidence first.</div></div><div class="demo-actions"><button class="back" onclick="show(3)">← Back</button><button class="next" onclick="show(5)">Check gaps →</button></div></div>
-      <div class="screen" id="demo5"><div class="top"><span>MISSING INFORMATION</span><span>5 / 9</span></div><div class="eyebrow">UNCERTAINTY CHECK</div><h3>What information could change the picture?</h3><div class="demo-card"><strong>Ask next</strong><p>When did this start? How often? How long does each episode last? Any sudden onset, weakness, trouble speaking, fainting, fever, vision change or other warning signs?</p></div><div class="demo-card"><strong>Useful context</strong><p>Pregnancy possibility where relevant, current medicines, pain-reliever frequency, sleep pattern and other meaningful changes.</p></div><div class="demo-actions"><button class="back" onclick="show(4)">← Back</button><button class="next" onclick="show(6)">Safety check →</button></div></div>
-      <div class="screen" id="demo6"><div class="top"><span>SAFETY ROUTER</span><span>6 / 9</span></div><div class="eyebrow">SAFETY FIRST</div><h3>Some stories should interrupt exploration.</h3><div class="notice danger"><strong>Example urgent signal</strong><br>If someone suddenly develops trouble speaking or weakness on one side of the body, the experience should stop the normal reasoning flow and direct them toward urgent emergency care.</div><div class="demo-card"><strong>Design principle</strong><p>Safety routing has priority over contributor exploration. The system must not bury red flags beneath educational content.</p></div><div class="demo-actions"><button class="back" onclick="show(5)">← Back</button><button class="next" onclick="show(7)">Compare frameworks →</button></div></div>
-      <div class="screen" id="demo7"><div class="top"><span>FRAMEWORK COMPARISON</span><span>7 / 9</span></div><div class="eyebrow">SEPARATE THE LENSES</div><h3>Same concern, different frameworks.</h3><div class="demo-card"><span class="tag">Biomedical</span><p>Uses clinical mechanisms, risk factors, history and evidence-supported evaluation.</p></div><div class="demo-card"><span class="tag">Ayurveda</span><p>May describe the experience using traditional concepts. Those concepts remain labelled as traditional frameworks.</p></div><div class="demo-card"><span class="tag">Homeopathy</span><p>Uses a distinct traditional model. Claims are not treated as equivalent to established biomedical evidence.</p></div><div class="demo-actions"><button class="back" onclick="show(6)">← Back</button><button class="next" onclick="show(8)">Decision brief →</button></div></div>
-      <div class="screen" id="demo8"><div class="top"><span>DECISION BRIEF</span><span>8 / 9</span></div><div class="eyebrow">LEAVE WITH BETTER QUESTIONS</div><h3>A useful output does not need to be a diagnosis.</h3><div class="demo-card"><strong>What I understood</strong><p>Recurring headache with reported links to sleep and busy days, with important clinical details still missing.</p></div><div class="demo-card"><strong>Questions for my clinician</strong><p>What explanations should we consider? What information would help distinguish them? What should I monitor?</p></div><div class="demo-actions"><button class="back" onclick="show(7)">← Back</button><button class="next" onclick="show(9)">Follow up →</button></div></div>
-      <div class="screen" id="demo9"><div class="top"><span>FOLLOW-UP</span><span>9 / 9</span></div><div class="eyebrow">LONGITUDINAL LEARNING</div><h3>Observe patterns without turning them into proof.</h3><div class="demo-card"><strong>Pattern signal</strong><p>Two observations followed late nights. This is a temporal association only — not evidence that sleep caused the symptom.</p></div><div class="demo-card"><strong>Next review</strong><p>Update the contributor map when enough new observations accumulate or the concern meaningfully changes.</p></div><div class="notice">Prototype boundary: no diagnosis, prescribing, medication changes or fabricated evidence.</div><div class="demo-actions"><button class="back" onclick="show(8)">← Back</button><button class="next" onclick="show(1)">Restart journey</button></div></div>
+
+    <textarea
+      id="concern"
+      placeholder="Example: I've been having acidity and bloating after meals..."
+    ></textarea>
+
+    <div class="actions">
+
+      <button class="btn secondary" id="speak">
+        🎙 <span id="speakText">Speak</span>
+      </button>
+
+      <button class="btn primary" id="explore">
+        Start exploring →
+      </button>
+
     </div>
-  </div>
-</div></section>
 
-<section id="evaluation" class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">05 · EVALUATION</div><h2>Designed to be tested, not merely presented.</h2></div><p>A 30-case evaluation fixture covers extraction, multilingual meaning, contributor mapping, evidence tiering, uncertainty, safety, medication boundaries, provenance, longitudinal reasoning and adversarial cases.</p></div>
-  <div class="metrics">
-    <div class="metric"><b>30</b><span>evaluation cases</span></div>
-    <div class="metric"><b>8</b><span>scoring dimensions</span></div>
-    <div class="metric"><b>5/5</b><span>provenance contract cases passed</span></div>
-    <div class="metric"><b>0</b><span>critical failures in reference baseline</span></div>
-  </div>
-  <div class="card" style="margin-top:16px"><h3>Important interpretation</h3><p>The reported baseline is a deterministic reference/rule-based engine used to exercise the evaluation harness. It is <strong>not</strong> evidence that a production AI model has been clinically validated. A real system would require model-specific testing, source-grounding evaluation, safety evaluation and appropriate clinical/regulatory review.</p></div>
-</div></section>
+    <div class="example" id="example">
+      Try an example
+    </div>
 
-<section class="block"><div class="container">
-  <div class="section-head"><div><div class="eyebrow">06 · PRODUCT GUARDRAILS</div><h2>What the system deliberately refuses to do.</h2></div></div>
-  <div class="grid3">
-    <div class="card"><h3>No diagnosis as fact</h3><p>Possible contributors and uncertainty are not converted into a definitive diagnosis.</p></div>
-    <div class="card"><h3>No unsafe medication advice</h3><p>The system does not tell users to stop, start or change prescribed medication.</p></div>
-    <div class="card"><h3>No false equivalence</h3><p>Traditional frameworks are clearly separated from biomedical evidence and labelled according to support.</p></div>
-    <div class="card"><h3>No fabricated sources</h3><p>Evidence cards need provenance. When evidence is insufficient, the system says so.</p></div>
-    <div class="card"><h3>No correlation = causation</h3><p>Temporal patterns are presented as observations, not proof of cause.</p></div>
-    <div class="card"><h3>Safety before depth</h3><p>Urgent red flags and mental-health crisis signals interrupt the normal exploration journey.</p></div>
+    <div class="disclaimer" id="disclaimer">
+      IHI is an exploration tool, not a diagnosis or treatment system.
+    </div>
+
   </div>
-</div></section>
+
+</section>
+
+
+<main id="results">
+
+  <!-- STORY -->
+
+  <section class="section">
+
+    <h2 id="understoodTitle">
+      Here's what we heard.
+    </h2>
+
+    <p class="section-intro" id="understoodIntro">
+      We picked out the main things you told us.
+      You can correct anything that doesn't sound right.
+    </p>
+
+    <div class="card story-card">
+
+      <span class="badge modern" id="storyBadge">
+        YOUR STORY
+      </span>
+
+      <p class="story-text" id="storyText"></p>
+
+      <div class="story-facts" id="storyFacts"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPROACH SELECTION -->
+
+  <section class="section">
+
+    <h2 id="chooseTitle">
+      What do you want to explore?
+    </h2>
+
+    <p class="section-intro" id="chooseIntro">
+      Choose one approach to start.
+      You can explore another one later.
+    </p>
+
+    <div class="approach-grid">
+
+
+      <button class="approach" data-approach="modern">
+
+        <div class="approach-icon">🩺</div>
+
+        <span class="badge modern">
+          MODERN MEDICINE
+        </span>
+
+        <h3 id="modernChoice">
+          Modern Medicine
+        </h3>
+
+        <p id="modernChoiceText">
+          How does modern medicine understand this?
+        </p>
+
+      </button>
+
+
+      <button class="approach" data-approach="ayur">
+
+        <div class="approach-icon">🌿</div>
+
+        <span class="badge traditional">
+          AYURVEDA
+        </span>
+
+        <h3 id="ayurChoice">
+          Ayurveda
+        </h3>
+
+        <p id="ayurChoiceText">
+          How does Ayurveda understand this?
+        </p>
+
+      </button>
+
+
+      <button class="approach" data-approach="homeo">
+
+        <div class="approach-icon">◌</div>
+
+        <span class="badge traditional">
+          HOMEOPATHY
+        </span>
+
+        <h3 id="homeoChoice">
+          Homeopathy
+        </h3>
+
+        <p id="homeoChoiceText">
+          How does Homeopathy understand this?
+        </p>
+
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- INTERACTIVE EXPLORER -->
+
+  <section class="section explorer" id="explorer">
+
+    <div class="card explorer-card">
+
+      <span class="badge" id="explorerBadge">
+        MODERN MEDICINE
+      </span>
+
+      <h2 id="explorerTitle">
+        What could be happening in the body?
+      </h2>
+
+      <p class="section-intro" id="explorerIntro">
+        Let's narrow down the pattern with a few simple questions.
+      </p>
+
+      <div id="questions"></div>
+
+      <div class="explorer-action">
+
+        <button class="btn primary" id="narrowBtn">
+          Explore this pattern →
+        </button>
+
+      </div>
+
+
+      <div class="explorer-result" id="explorerResult">
+
+        <div class="card result-card">
+
+          <h3 id="resultTitle">
+            What your answers suggest
+          </h3>
+
+          <p id="resultText"></p>
+
+          <div class="pills" id="resultPills"></div>
+
+          <div class="evidence" id="evidenceNote"></div>
+
+        </div>
+
+
+        <div class="next-actions">
+
+          <button id="anotherBtn">
+            Explore another approach
+          </button>
+
+          <button id="newBtn">
+            Start a new question
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONNECTIONS -->
+
+  <section class="section">
+
+    <h2 id="connectedTitle">
+      What might be connected?
+    </h2>
+
+    <p class="section-intro" id="connectedIntro">
+      These are clues to explore, not proof that one thing is causing another.
+    </p>
+
+    <div class="connection-grid" id="connections"></div>
+
+  </section>
+
+
+  <!-- COMFORT -->
+
+  <section class="section">
+
+    <h2 id="comfortTitle">
+      Things you can consider for comfort
+    </h2>
+
+    <p class="section-intro" id="comfortIntro">
+      Simple ideas and traditional practices, clearly labelled.
+      They are not cures.
+    </p>
+
+    <div class="card comfort" id="comfortCard"></div>
+
+  </section>
+
+
+  <!-- SAFETY -->
+
+  <section class="section">
+
+    <div class="card safety">
+
+      <h3 id="safetyTitle">
+        When to get urgent help
+      </h3>
+
+      <ul id="safetyList"></ul>
+
+    </div>
+
+  </section>
+
 </main>
-<footer class="footer"><div class="container">Integrative Health Intelligence · Product prototype & case study · Built as a portfolio project by Dr. Vedanti Shah · Not a medical device or medical advice.</div></footer>
+
+
+<footer class="footer">
+
+  <div class="footer-name">
+    IHI — Integrative Health Intelligence
+  </div>
+
+  <div style="margin-top:7px" id="footerLine">
+    Understand what's happening.
+    Explore what it could mean.
+  </div>
+
+  <div style="margin-top:10px">
+    A product concept by <strong>Dr. Vedanti Shah</strong>.
+  </div>
+
+  <div style="margin-top:12px">
+    IHI does not diagnose, prescribe, or replace qualified medical care.
+    Traditional frameworks are presented as distinct frameworks and
+    do not share the same evidence base.
+  </div>
+
+</footer>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+ <script>
+/* =========================================================
+   IHI — INTERACTIVE PRODUCT LOGIC
+   Chunk 2: language + exploration data
+   ========================================================= */
+
+const state = {
+  language: "en",
+  concern: "",
+  framework: null,
+  questionIndex: 0,
+  answers: {},
+  transcript: ""
+};
+
+
+/* ---------------------------------------------------------
+   LANGUAGE CONTENT
+   --------------------------------------------------------- */
+
+const LANG = {
+
+  en: {
+    heroKicker: "UNDERSTAND WHAT'S HAPPENING",
+    heroTitle: "Something doesn't feel right. Let's understand why.",
+    heroText:
+      "Tell us what's happening in your own words. Explore different ways of understanding it — from modern medicine to Ayurveda and homeopathy.",
+
+    concernLabel: "What's happening?",
+    concernHint: "Tell us what you've noticed. No medical words needed.",
+    placeholder:
+      "For example: I've been feeling bloated after meals and sometimes I get a burning feeling in my chest.",
+    speak: "Speak",
+    exploring: "Start exploring",
+    example: "Try an everyday description — you can mix languages naturally when speaking.",
+    disclaimer:
+      "IHI is an educational exploration tool, not a diagnosis or a substitute for medical care.",
+
+    heardTitle: "Here's what we heard.",
+    heardText:
+      "We picked out the main things you told us. You can correct anything that doesn't sound right.",
+
+    exploreTitle: "What do you want to explore?",
+    modern: "Modern Medicine",
+    modernSub: "How does modern medicine understand this?",
+    ayurveda: "Ayurveda",
+    ayurvedaSub: "How does Ayurveda understand this?",
+    homeopathy: "Homeopathy",
+    homeopathySub: "How does Homeopathy understand this?",
+
+    bodyTitle: "What could be happening in the body?",
+    bodyIntro:
+      "Let's narrow down the pattern with a few simple questions.",
+
+    connectedTitle: "What might be connected?",
+    connectedText:
+      "Health experiences can have several pieces. Explore the parts of your story that may be worth looking at together.",
+
+    comfortTitle: "Things you can consider for comfort",
+    comfortIntro:
+      "These are general, low-risk ideas for comfort and observation — not treatments or cures.",
+
+    safetyTitle: "Know when to get help",
+    safetyText:
+      "Some symptoms need medical attention rather than self-exploration. If something feels severe, sudden, or worrying, seek appropriate medical care.",
+
+    back: "Back",
+    next: "Next",
+    seeResult: "See what this may suggest",
+    startAgain: "Explore something else",
+    changeApproach: "Choose another approach",
+
+    traditional: "Traditional interpretation",
+    evidenceNote:
+      "This describes how this health framework traditionally interprets symptoms. It does not mean the explanation is medically established.",
+
+    modernEvidence:
+      "Possible contributors are not diagnoses. More information or clinical assessment may be needed to distinguish between them.",
+
+    comfortNote:
+      "If a practice causes discomfort, makes symptoms worse, or is unsuitable for you, stop and seek appropriate advice.",
+
+    urgent:
+      "Seek urgent medical care for severe trouble breathing, chest pressure or severe chest pain, fainting, confusion, sudden weakness, severe bleeding, or another symptom that feels like an emergency.",
+
+    footer:
+      "Your health story deserves more than a one-size-fits-all answer."
+  },
+
+
+  hiEn: {
+    heroKicker: "समझें कि क्या हो रहा है",
+    heroTitle: "कुछ ठीक नहीं लग रहा? आइए समझने की कोशिश करते हैं क्यों।",
+    heroText:
+      "जो हो रहा है उसे अपने शब्दों में बताइए। Modern Medicine, Ayurveda और Homeopathy के अलग-अलग तरीकों से इसे समझकर देखें।",
+
+    concernLabel: "क्या हो रहा है?",
+    concernHint: "जो आपने महसूस किया है, वैसे ही बताइए। Medical words की ज़रूरत नहीं है।",
+    placeholder:
+      "जैसे: मुझे पिछले 3 हफ्तों से acidity और bloating हो रही है। खाना खाने के बाद पेट भारी लगता है।",
+    speak: "बोलें",
+    exploring: "समझना शुरू करें",
+    example:
+      "आप बोलते समय Hindi और English को naturally mix कर सकते हैं।",
+    disclaimer:
+      "IHI एक educational exploration tool है। यह diagnosis या medical care का विकल्प नहीं है।",
+
+    heardTitle: "हमने आपकी बात इस तरह समझी।",
+    heardText:
+      "आपने जो बताया, उसमें से हमने मुख्य बातें निकाली हैं। अगर कुछ सही नहीं लगता, तो आप उसे बदल सकते हैं।",
+
+    exploreTitle: "आप किस तरीके से समझना चाहते हैं?",
+    modern: "Modern Medicine",
+    modernSub: "Modern Medicine इसे कैसे समझता है?",
+    ayurveda: "Ayurveda",
+    ayurvedaSub: "Ayurveda इसे कैसे समझता है?",
+    homeopathy: "Homeopathy",
+    homeopathySub: "Homeopathy इसे कैसे समझती है?",
+
+    bodyTitle: "शरीर में क्या हो सकता है?",
+    bodyIntro:
+      "कुछ आसान सवालों से pattern को थोड़ा और समझते हैं।",
+
+    connectedTitle: "और क्या इससे जुड़ा हो सकता है?",
+    connectedText:
+      "Health experiences में कई चीज़ें एक साथ जुड़ी हो सकती हैं। अपनी कहानी के अलग हिस्सों को explore करें।",
+
+    comfortTitle: "आराम के लिए कुछ चीज़ें जिन्हें आप आज़मा सकते हैं",
+    comfortIntro:
+      "ये general comfort और observation के लिए ideas हैं — treatment या cure नहीं।",
+
+    safetyTitle: "कब medical help लेनी चाहिए",
+    safetyText:
+      "कुछ symptoms में self-exploration के बजाय medical attention ज़रूरी हो सकती है। अगर कुछ बहुत तेज़, अचानक या चिंताजनक लगे, तो उचित medical care लें।",
+
+    back: "पीछे",
+    next: "आगे",
+    seeResult: "देखें इससे क्या समझ आता है",
+    startAgain: "कुछ और explore करें",
+    changeApproach: "दूसरा तरीका चुनें",
+
+    traditional: "Traditional interpretation",
+    evidenceNote:
+      "यह बताता है कि यह health framework परंपरागत रूप से symptoms को कैसे समझता है। इसका मतलब यह नहीं है कि यह explanation modern medicine में established है।",
+
+    modernEvidence:
+      "Possible contributors diagnosis नहीं हैं। इनके बीच अंतर समझने के लिए और information या clinical assessment की ज़रूरत हो सकती है।",
+
+    comfortNote:
+      "अगर किसी practice से discomfort हो, symptoms बढ़ें या वह आपके लिए suitable न हो, तो उसे रोक दें और उचित advice लें।",
+
+    urgent:
+      "अगर सांस लेने में बहुत परेशानी, chest pressure या severe chest pain, बेहोशी, confusion, अचानक कमजोरी, बहुत ज़्यादा bleeding या कोई और emergency जैसा symptom हो, तो तुरंत medical care लें।",
+
+    footer:
+      "आपकी health story सिर्फ एक one-size-fits-all answer से ज़्यादा deserve करती है।"
+  },
+
+
+  hi: {
+    heroKicker: "समझें कि क्या हो रहा है",
+    heroTitle: "कुछ ठीक नहीं लग रहा? आइए समझते हैं क्यों।",
+    heroText:
+      "जो हो रहा है उसे अपने शब्दों में बताइए। अलग-अलग स्वास्थ्य दृष्टिकोणों से इसे समझकर देखें — आधुनिक चिकित्सा, आयुर्वेद और होम्योपैथी।",
+
+    concernLabel: "क्या हो रहा है?",
+    concernHint: "जो आपने महसूस किया है, वैसे ही बताइए। कठिन चिकित्सीय शब्दों की ज़रूरत नहीं है।",
+    placeholder:
+      "जैसे: मुझे खाना खाने के बाद पेट फूलता है और कभी-कभी सीने में जलन होती है।",
+    speak: "बोलें",
+    exploring: "समझना शुरू करें",
+    example: "बोलते समय अपने रोज़मर्रा के शब्दों का इस्तेमाल करें।",
+    disclaimer:
+      "IHI एक शैक्षणिक खोज उपकरण है। यह किसी बीमारी का निदान या चिकित्सा का विकल्प नहीं है।",
+
+    heardTitle: "हमने आपकी बात इस तरह समझी।",
+    heardText:
+      "आपने जो बताया, उसमें से हमने मुख्य बातें निकाली हैं। अगर कुछ सही नहीं लगता, तो आप उसे बदल सकते हैं।",
+
+    exploreTitle: "आप किस तरीके से समझना चाहते हैं?",
+    modern: "आधुनिक चिकित्सा",
+    modernSub: "आधुनिक चिकित्सा इसे कैसे समझती है?",
+    ayurveda: "आयुर्वेद",
+    ayurvedaSub: "आयुर्वेद इसे कैसे समझता है?",
+    homeopathy: "होम्योपैथी",
+    homeopathySub: "होम्योपैथी इसे कैसे समझती है?",
+
+    bodyTitle: "शरीर में क्या हो सकता है?",
+    bodyIntro:
+      "कुछ आसान सवालों से इस अनुभव के पैटर्न को थोड़ा और समझते हैं।",
+
+    connectedTitle: "और क्या इससे जुड़ा हो सकता है?",
+    connectedText:
+      "शरीर से जुड़े अनुभवों में कई बातें एक साथ जुड़ी हो सकती हैं। अपनी कहानी के अलग हिस्सों को देखें।",
+
+    comfortTitle: "आराम के लिए कुछ चीज़ें जिन्हें आप आज़मा सकते हैं",
+    comfortIntro:
+      "ये सामान्य आराम और अपने अनुभव को देखने के लिए सुझाव हैं — उपचार या इलाज नहीं।",
+
+    safetyTitle: "कब चिकित्सा सहायता लेनी चाहिए",
+    safetyText:
+      "कुछ लक्षणों में खुद से खोज करने के बजाय चिकित्सा सहायता ज़रूरी हो सकती है। अगर कुछ बहुत तेज़, अचानक या चिंताजनक लगे, तो उचित चिकित्सा सहायता लें।",
+
+    back: "पीछे",
+    next: "आगे",
+    seeResult: "देखें इससे क्या समझ आता है",
+    startAgain: "कुछ और देखें",
+    changeApproach: "दूसरा तरीका चुनें",
+
+    traditional: "पारंपरिक व्याख्या",
+    evidenceNote:
+      "यह बताता है कि यह स्वास्थ्य दृष्टिकोण परंपरागत रूप से लक्षणों को कैसे समझता है। इसका अर्थ यह नहीं है कि यह व्याख्या आधुनिक चिकित्सा में स्थापित है।",
+
+    modernEvidence:
+      "संभावित कारण निदान नहीं हैं। इनके बीच अंतर समझने के लिए अधिक जानकारी या चिकित्सकीय मूल्यांकन की आवश्यकता हो सकती है।",
+
+    comfortNote:
+      "अगर किसी उपाय से परेशानी हो, लक्षण बढ़ें या वह आपके लिए उचित न हो, तो उसे रोक दें और उचित सलाह लें।",
+
+    urgent:
+      "अगर सांस लेने में बहुत परेशानी, सीने में दबाव या तेज़ दर्द, बेहोशी, भ्रम, अचानक कमजोरी, बहुत अधिक रक्तस्राव या कोई अन्य आपातकाल जैसा लक्षण हो, तो तुरंत चिकित्सा सहायता लें।",
+
+    footer:
+      "आपकी स्वास्थ्य कहानी केवल एक ही तरह के उत्तर से अधिक की हकदार है।"
+  },
+
+
+  mrEn: {
+    heroKicker: "काय होतंय ते समजून घ्या",
+    heroTitle: "काहीतरी ठीक वाटत नाही? चला, का होतंय ते समजून घेऊया.",
+    heroText:
+      "तुम्हाला काय होतंय ते तुमच्या शब्दांत सांगा. Modern Medicine, Ayurveda आणि Homeopathy या वेगवेगळ्या approaches मधून ते समजून घेऊया.",
+
+    concernLabel: "काय होतंय?",
+    concernHint: "तुम्हाला जे जाणवतंय ते जसं आहे तसं सांगा. Medical words वापरण्याची गरज नाही.",
+    placeholder:
+      "उदा.: मला गेल्या 3 आठवड्यांपासून acidity आणि bloating होत आहे. जेवल्यानंतर पोट जड वाटतं.",
+    speak: "बोला",
+    exploring: "समजून घ्यायला सुरुवात करा",
+    example:
+      "बोलताना Marathi आणि English naturally mix करू शकता.",
+    disclaimer:
+      "IHI हे educational exploration tool आहे. हे diagnosis किंवा medical care चा पर्याय नाही.",
+
+    heardTitle: "तुम्ही सांगितलेलं आम्ही असं समजलो.",
+    heardText:
+      "तुम्ही सांगितलेल्या गोष्टींमधून आम्ही मुख्य points वेगळे केले आहेत. काही चुकीचं वाटत असेल तर ते बदलू शकता.",
+
+    exploreTitle: "तुम्हाला कोणत्या पद्धतीने समजून घ्यायचं आहे?",
+    modern: "Modern Medicine",
+    modernSub: "Modern Medicine हे कसं समजून घेतं?",
+    ayurveda: "Ayurveda",
+    ayurvedaSub: "Ayurveda हे कसं समजून घेतं?",
+    homeopathy: "Homeopathy",
+    homeopathySub: "Homeopathy हे कसं समजून घेतं?",
+
+    bodyTitle: "शरीरामध्ये काय होत असू शकतं?",
+    bodyIntro:
+      "काही सोप्या questions मधून हा pattern थोडा अधिक समजून घेऊया.",
+
+    connectedTitle: "याच्याशी अजून काय related असू शकतं?",
+    connectedText:
+      "Health experiences मध्ये अनेक गोष्टी एकमेकांशी जोडलेल्या असू शकतात. तुमच्या story मधले वेगवेगळे parts explore करा.",
+
+    comfortTitle: "आरामासाठी काही गोष्टी तुम्ही try करू शकता",
+    comfortIntro:
+      "हे general comfort आणि observation साठी ideas आहेत — treatment किंवा cure नाहीत.",
+
+    safetyTitle: "कधी medical help घ्यावी",
+    safetyText:
+      "काही symptoms मध्ये स्वतः explore करण्यापेक्षा medical attention घेणं महत्त्वाचं असू शकतं. काहीतरी खूप severe, अचानक किंवा worrying वाटत असेल तर योग्य medical care घ्या.",
+
+    back: "मागे",
+    next: "पुढे",
+    seeResult: "यातून काय समजू शकतं ते पाहा",
+    startAgain: "काहीतरी वेगळं explore करा",
+    changeApproach: "दुसरी approach निवडा",
+
+    traditional: "Traditional interpretation",
+    evidenceNote:
+      "हे health framework परंपरेने symptoms कसे समजते हे सांगते. याचा अर्थ हा explanation modern medicine मध्ये established आहे असा नाही.",
+
+    modernEvidence:
+      "Possible contributors म्हणजे diagnosis नाही. त्यांच्यात फरक करण्यासाठी आणखी information किंवा clinical assessment लागू शकते.",
+
+    comfortNote:
+      "एखाद्या practice मुळे discomfort झाला, symptoms वाढले किंवा ती तुमच्यासाठी योग्य नसेल तर ती थांबवा आणि योग्य advice घ्या.",
+
+    urgent:
+      "श्वास घेण्यास खूप त्रास, chest pressure किंवा severe chest pain, बेशुद्ध पडणे, confusion, अचानक weakness, खूप bleeding किंवा emergency सारखं वाटणारं दुसरं symptom असल्यास तातडीने medical care घ्या.",
+
+    footer:
+      "तुमची health story फक्त one-size-fits-all answer पेक्षा जास्त deserve करते."
+  },
+
+
+  mr: {
+    heroKicker: "काय होतंय ते समजून घ्या",
+    heroTitle: "काहीतरी ठीक वाटत नाही? चला, का होतंय ते समजून घेऊया.",
+    heroText:
+      "तुम्हाला काय होतंय ते तुमच्या शब्दांत सांगा. आधुनिक वैद्यक, आयुर्वेद आणि होमिओपॅथी या वेगवेगळ्या दृष्टिकोनांतून ते समजून घेऊया.",
+
+    concernLabel: "काय होतंय?",
+    concernHint: "तुम्हाला जे जाणवतंय ते जसं आहे तसं सांगा. कठीण वैद्यकीय शब्दांची गरज नाही.",
+    placeholder:
+      "उदा.: मला जेवल्यानंतर पोट फुगतं आणि कधीकधी छातीत जळजळ होते.",
+    speak: "बोला",
+    exploring: "समजून घ्यायला सुरुवात करा",
+    example: "बोलताना तुमच्या रोजच्या भाषेत सांगा.",
+    disclaimer:
+      "IHI हे शैक्षणिक शोध साधन आहे. हे निदान किंवा वैद्यकीय उपचारांचा पर्याय नाही.",
+
+    heardTitle: "तुम्ही सांगितलेलं आम्ही असं समजलो.",
+    heardText:
+      "तुम्ही सांगितलेल्या गोष्टींमधून आम्ही मुख्य मुद्दे वेगळे केले आहेत. काही चुकीचं वाटत असेल तर ते बदलू शकता.",
+
+    exploreTitle: "तुम्हाला कोणत्या दृष्टिकोनातून समजून घ्यायचं आहे?",
+    modern: "आधुनिक वैद्यक",
+    modernSub: "आधुनिक वैद्यक हे कसं समजून घेतं?",
+    ayurveda: "आयुर्वेद",
+    ayurvedaSub: "आयुर्वेद हे कसं समजून घेतं?",
+    homeopathy: "होमिओपॅथी",
+    homeopathySub: "होमिओपॅथी हे कसं समजून घेतं?",
+
+    bodyTitle: "शरीरामध्ये काय होत असू शकतं?",
+    bodyIntro:
+      "काही सोप्या प्रश्नांमधून हा अनुभव थोडा अधिक समजून घेऊया.",
+
+    connectedTitle: "याच्याशी अजून काय संबंधित असू शकतं?",
+    connectedText:
+      "शरीराशी संबंधित अनुभवांमध्ये अनेक गोष्टी एकमेकांशी जोडलेल्या असू शकतात. तुमच्या अनुभवातील वेगवेगळे भाग पाहूया.",
+
+    comfortTitle: "आरामासाठी काही गोष्टी तुम्ही करून पाहू शकता",
+    comfortIntro:
+      "हे सामान्य आराम आणि निरीक्षणासाठीच्या कल्पना आहेत — उपचार किंवा बरे करण्याचे उपाय नाहीत.",
+
+    safetyTitle: "कधी वैद्यकीय मदत घ्यावी",
+    safetyText:
+      "काही लक्षणांमध्ये स्वतः शोध घेण्यापेक्षा वैद्यकीय मदत घेणे महत्त्वाचे असू शकते. काहीतरी खूप तीव्र, अचानक किंवा चिंताजनक वाटत असल्यास योग्य वैद्यकीय मदत घ्या.",
+
+    back: "मागे",
+    next: "पुढे",
+    seeResult: "यातून काय समजू शकतं ते पाहा",
+    startAgain: "काहीतरी वेगळं पाहा",
+    changeApproach: "दुसरा दृष्टिकोन निवडा",
+
+    traditional: "पारंपरिक व्याख्या",
+    evidenceNote:
+      "हा आरोग्यदृष्टिकोन परंपरेने लक्षणांकडे कसे पाहतो हे सांगते. याचा अर्थ ही व्याख्या आधुनिक वैद्यकात सिद्ध झालेली आहे असा नाही.",
+
+    modernEvidence:
+      "संभाव्य कारणे म्हणजे निदान नाही. त्यांच्यात फरक करण्यासाठी अधिक माहिती किंवा वैद्यकीय तपासणी आवश्यक असू शकते.",
+
+    comfortNote:
+      "एखाद्या उपायामुळे त्रास झाला, लक्षणे वाढली किंवा तो तुमच्यासाठी योग्य नसेल तर तो थांबवा आणि योग्य सल्ला घ्या.",
+
+    urgent:
+      "श्वास घेण्यास खूप त्रास, छातीत दडपण किंवा तीव्र वेदना, बेशुद्ध पडणे, गोंधळ, अचानक अशक्तपणा, खूप रक्तस्राव किंवा आपत्कालीन स्थितीसारखे वाटणारे दुसरे लक्षण असल्यास तातडीने वैद्यकीय मदत घ्या.",
+
+    footer:
+      "तुमची आरोग्यकथा फक्त एकाच प्रकारच्या उत्तरापेक्षा अधिक समजून घेण्यास पात्र आहे."
+  }
+
+};
+
+
+/* ---------------------------------------------------------
+   FRAMEWORK EXPLORATION DATA
+   --------------------------------------------------------- */
+
+const FRAMEWORKS = {
+
+  modern: {
+
+    icon: "🩺",
+
+    questions: {
+
+      en: [
+        {
+          text: "Where do you notice it most?",
+          options: [
+            "Upper stomach / chest",
+            "Lower stomach",
+            "Skin",
+            "More than one area",
+            "Not sure"
+          ]
+        },
+        {
+          text: "When did this start?",
+          options: [
+            "In the last few days",
+            "1–4 weeks ago",
+            "More than a month ago",
+            "It keeps coming back",
+            "Not sure"
+          ]
+        },
+        {
+          text: "Does anything seem to trigger or worsen it?",
+          options: [
+            "Food or meals",
+            "Stress or poor sleep",
+            "Movement or activity",
+            "Time of day",
+            "Nothing obvious",
+            "Not sure"
+          ]
+        },
+        {
+          text: "How much is it affecting your day?",
+          options: [
+            "Mild — noticeable but manageable",
+            "Moderate — affecting some activities",
+            "A lot — interfering with normal activities",
+            "It varies"
+          ]
+        }
+      ],
+
+      hiEn: [
+        {
+          text: "आपको यह सबसे ज़्यादा कहाँ महसूस होता है?",
+          options: [
+            "Upper stomach / chest",
+            "Lower stomach",
+            "Skin",
+            "एक से ज़्यादा जगह",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "यह कब से शुरू हुआ?",
+          options: [
+            "पिछले कुछ दिनों से",
+            "1–4 हफ्ते पहले",
+            "एक महीने से ज़्यादा समय से",
+            "बार-बार वापस आता है",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "क्या कोई चीज़ इसे trigger या worse करती है?",
+          options: [
+            "Food या meals",
+            "Stress या poor sleep",
+            "Movement या activity",
+            "दिन का कोई खास समय",
+            "कुछ साफ़ नहीं",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "इससे आपकी रोज़मर्रा की ज़िंदगी पर कितना असर पड़ रहा है?",
+          options: [
+            "हल्का — महसूस होता है लेकिन manage हो जाता है",
+            "मध्यम — कुछ activities प्रभावित होती हैं",
+            "ज़्यादा — normal activities में रुकावट होती है",
+            "कभी कम, कभी ज़्यादा"
+          ]
+        }
+      ],
+
+      hi: [
+        {
+          text: "आपको यह सबसे ज़्यादा कहाँ महसूस होता है?",
+          options: [
+            "ऊपरी पेट / छाती",
+            "निचला पेट",
+            "त्वचा",
+            "एक से अधिक जगह",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "यह कब से शुरू हुआ?",
+          options: [
+            "पिछले कुछ दिनों से",
+            "1–4 सप्ताह पहले",
+            "एक महीने से अधिक समय से",
+            "बार-बार वापस आता है",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "क्या कोई चीज़ इसे बढ़ाती है?",
+          options: [
+            "खाना या भोजन",
+            "तनाव या कम नींद",
+            "चलना-फिरना या गतिविधि",
+            "दिन का कोई खास समय",
+            "कुछ स्पष्ट नहीं",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "इसका आपकी रोज़मर्रा की ज़िंदगी पर कितना असर पड़ रहा है?",
+          options: [
+            "हल्का — महसूस होता है लेकिन संभालने योग्य है",
+            "मध्यम — कुछ काम प्रभावित होते हैं",
+            "ज़्यादा — सामान्य कामों में रुकावट होती है",
+            "कभी कम, कभी ज़्यादा"
+          ]
+        }
+      ],
+
+      mrEn: [
+        {
+          text: "हे तुम्हाला सगळ्यात जास्त कुठे जाणवतं?",
+          options: [
+            "Upper stomach / chest",
+            "Lower stomach",
+            "Skin",
+            "एकापेक्षा जास्त ठिकाणी",
+            "नक्की सांगता येत नाही"
+          ]
+        },
+        {
+          text: "हे कधीपासून सुरू झालं?",
+          options: [
+            "गेल्या काही दिवसांपासून",
+            "1–4 आठवड्यांपूर्वी",
+            "एका महिन्यापेक्षा जास्त काळ",
+            "वारंवार परत होतं",
+            "नक्की सांगता येत नाही"
+          ]
+        },
+        {
+          text: "कशामुळे हे trigger किंवा worse होतं असं वाटतं?",
+          options: [
+            "Food किंवा meals",
+            "Stress किंवा poor sleep",
+            "Movement किंवा activity",
+            "दिवसातील एखादा specific time",
+            "काही स्पष्ट नाही",
+            "नक्की सांगता येत नाही"
+          ]
+        },
+        {
+          text: "याचा तुमच्या रोजच्या आयुष्यावर किती परिणाम होतो?",
+          options: [
+            "थोडा — जाणवतो पण manage होतो",
+            "मध्यम — काही activities वर परिणाम होतो",
+            "जास्त — normal activities मध्ये अडथळा येतो",
+            कमी, कधी जास्त"
+          ]
+        }
+      ]
+
+    },
+
+    results: {
+
+      en: {
+        title: "What could be happening in the body?",
+        body:
+          "Your answers can help organise the pattern, but they cannot identify a diagnosis on their own. Different possibilities can become more or less relevant depending on timing, location, triggers and severity.",
+        categories: [
+          "More relevant to explore",
+          "Still possible",
+          "Not enough information yet"
+        ]
+      },
+
+      hiEn: {
+        title: "शरीर में क्या हो सकता है?",
+        body:
+          "आपके answers pattern को organise करने में मदद कर सकते हैं, लेकिन अकेले इनसे diagnosis तय नहीं किया जा सकता। Timing, location, triggers और severity के आधार पर अलग-अलग possibilities कम या ज़्यादा relevant हो सकती हैं।",
+        categories: [
+          "Explore करने के लिए ज़्यादा relevant",
+          "अभी भी possible",
+          "अभी enough information नहीं है"
+        ]
+      },
+
+      hi: {
+        title: "शरीर में क्या हो सकता है?",
+        body:
+          "आपके उत्तर अनुभव के पैटर्न को व्यवस्थित करने में मदद कर सकते हैं, लेकिन अकेले इनसे किसी बीमारी का निदान नहीं किया जा सकता। समय, स्थान, बढ़ाने वाली चीज़ों और लक्षण की तीव्रता के आधार पर अलग-अलग संभावनाएँ अधिक या कम महत्वपूर्ण हो सकती हैं।",
+        categories: [
+          "और समझने के लिए अधिक प्रासंगिक",
+          "अभी भी संभव",
+          "अभी पर्याप्त जानकारी नहीं है"
+        ]
+      },
+
+      mrEn: {
+        title: "शरीरामध्ये काय होत असू शकतं?",
+        body:
+          "तुमची answers pattern organise करायला मदत करू शकतात, पण त्यावरून diagnosis ठरवता येत नाही. Timing, location, triggers आणि severity नुसार काही possibilities अधिक किंवा कमी relevant होऊ शकतात.",
+        categories: [
+          "Explore करण्यासाठी अधिक relevant",
+          "अजूनही possible",
+          "अजून enough information नाही"
+        ]
+      },
+
+      mr: {
+        title: "शरीरामध्ये काय होत असू शकतं?",
+        body:
+          "तुमची उत्तरं अनुभवाचा pattern समजून घेण्यास मदत करू शकतात, पण त्यावरून आजाराचं निदान करता येत नाही. लक्षण कधी सुरू झालं, कुठे आहे, कशामुळे वाढतं आणि तीव्रता किती आहे यावर वेगवेगळ्या शक्यता कमी-जास्त महत्त्वाच्या ठरू शकतात.",
+        categories: [
+          "पुढे समजून घेण्यासाठी अधिक संबंधित",
+          "अजूनही शक्य",
+          "अजून पुरेशी माहिती नाही"
+        ]
+      }
+
+    }
+  },
+
+
+  ayurveda: {
+
+    icon: "🌿",
+
+    questions: {
+
+      en: [
+        {
+          text: "How has your digestion been lately?",
+          options: [
+            "Usually comfortable",
+            "Heavy or slow after meals",
+            "Bloating or gas is common",
+            "Burning or acidity is common",
+            "It changes from day to day"
+          ]
+        },
+        {
+          text: "How is your appetite?",
+          options: [
+            "Regular",
+            "Strong or frequent hunger",
+            "Low or irregular",
+            "It varies",
+            "Not sure"
+          ]
+        },
+        {
+          text: "Which sounds closer to your recent routine?",
+          options: [
+            "Regular meals and sleep",
+            "Irregular meals",
+            "Late meals or late nights",
+            "Stress has disrupted my routine",
+            "My routine is fairly steady"
+          ]
+        },
+        {
+          text: "What tends to change the symptom?",
+          options: [
+            "Certain foods",
+            "Heat or cold",
+            "Time of day",
+            "Rest or activity",
+            "I haven't noticed"
+          ]
+        }
+      ],
+
+      hiEn: [
+        {
+          text: "हाल में आपका digestion कैसा रहा है?",
+          options: [
+            "आमतौर पर ठीक",
+            "Meals के बाद heavy या slow",
+            "Bloating या gas अक्सर",
+            "Burning या acidity अक्सर",
+            "दिन-ब-दिन बदलता है"
+          ]
+        },
+        {
+          text: "आपकी appetite कैसी है?",
+          options: [
+            "Regular",
+            "ज़्यादा या बार-बार hunger",
+            "कम या irregular",
+            "बदलती रहती है",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "आपकी recent routine में क्या ज़्यादा करीब है?",
+          options: [
+            "Regular meals और sleep",
+            "Irregular meals",
+            "Late meals या late nights",
+            "Stress से routine बिगड़ी है",
+            "Routine काफी steady है"
+          ]
+        },
+        {
+          text: "Symptom में क्या बदलाव लाता है?",
+          options: [
+            "कुछ foods",
+            "Heat या cold",
+            "दिन का समय",
+            "Rest या activity",
+            "मैंने notice नहीं किया"
+          ]
+        }
+      ],
+
+      hi: [
+        {
+          text: "हाल में आपका पाचन कैसा रहा है?",
+          options: [
+            "आमतौर पर ठीक",
+            "खाने के बाद भारी या धीमा",
+            "पेट फूलना या गैस अक्सर",
+            "जलन या अम्लता अक्सर",
+            "दिन-ब-दिन बदलता है"
+          ]
+        },
+        {
+          text: "आपकी भूख कैसी है?",
+          options: [
+            "नियमित",
+            "ज़्यादा या बार-बार भूख",
+            "कम या अनियमित",
+            "बदलती रहती है",
+            "पता नहीं"
+          ]
+        },
+        {
+          text: "आपकी हाल की दिनचर्या में क्या अधिक करीब है?",
+          options: [
+            "नियमित भोजन और नींद",
+            "अनियमित भोजन",
+            "देर से खाना या देर रात तक जागना",
+            "तनाव से दिनचर्या प्रभावित हुई है",
+            "दिनचर्या काफी नियमित है"
+          ]
+        },
+        {
+          text: "लक्षण में किससे बदलाव आता है?",
+          options: [
+            "कुछ खास भोजन",
+            "गर्मी या ठंड",
+            "दिन का समय",
+            "आराम या गतिविधि",
+            "मैंने ध्यान नहीं दिया"
+          ]
+        }
+      ],
+
+      mrEn: [
+        {
+          text: "अलीकडे तुमचं digestion कसं आहे?",
+          options: [
+            "सहसा ठीक",
+            "Meals नंतर heavy किंवा slow",
+            "Bloating किंवा gas वारंवार",
+            "Burning किंवा acidity वारंवार",
+            "दिवसानुसार बदलतं"
+          ]
+        },
+        {
+          text: "तुमची appetite कशी आहे?",
+          options: [
+            "Regular",
+            "जास्त किंवा वारंवार hunger",
+            "कमी किंवा irregular",
+            "बदलत राहते",
+            "नक्की सांगता येत नाही"
+          ]
+        },
+        {
+          text: "तुमच्या recent routine शी काय जास्त जुळतं?",
+          options: [
+            "Regular meals आणि sleep",
+            "Irregular meals",
+            "Late meals किंवा late nights",
+            "Stress मुळे routine disturb झाली आहे",
+            "Routine बरीच steady आहे"
+          ]
+        },
+        {
+          text: "Symptom मध्ये कशामुळे बदल होतो?",
+          options: [
+            "काही foods",
+            "Heat किंवा cold",
+            "दिवसातील वेळ",
+            "Rest किंवा activity",
+            "मी notice केलेलं नाही"
+          ]
+        }
+      ],
+
+      mr: [
+        {
+          text: "अलीकडे तुमचं पचन कसं आहे?",
+          options: [
+            "सहसा ठीक",
+            "जेवल्यानंतर जड किंवा मंद",
+            "पोट फुगणे किंवा वायू वारंवार",
+            "जळजळ किंवा आम्लपित्त वारंवार",
+            "दिवसानुसार बदलतं"
+          ]
+        },
+        {
+          text: "तुमची भूक कशी आहे?",
+          options: [
+            "नियमित",
+            "जास्त किंवा वारंवार लागते",
+            "कमी किंवा अनियमित",
+            "बदलत राहते",
+            "नक्की सांगता येत नाही"
+          ]
+        },
+        {
+          text: "तुमच्या अलीकडच्या दिनचर्येशी काय जास्त जुळतं?",
+          options: [
+            "नियमित जेवण आणि झोप",
+            "अनियमित जेवण",
+            "उशिरा जेवण किंवा उशिरापर्यंत जागणं",
+            "ताणामुळे दिनचर्या बिघडली आहे",
+            "दिनचर्या बरीच नियमित आहे"
+          ]
+        },
+        {
+          text: "लक्षणात कशामुळे बदल होतो?",
+          options: [
+            "काही विशिष्ट पदार्थ",
+            "उष्णता किंवा थंडी",
+            "दिवसातील वेळ",
+            "विश्रांती किंवा हालचाल",
+            "मी लक्ष दिलेलं नाही"
+          ]
+        }
+      ]
+
+    },
+
+    results: {
+
+      en: {
+        title: "What might this mean in Ayurveda?",
+        body:
+          "Ayurveda traditionally looks at patterns involving digestion, appetite, daily routine, sleep and the qualities of symptoms. Your answers can show which parts of that framework may be relevant to explore further.",
+        label: "Traditional Ayurvedic interpretation"
+      },
+
+      hiEn: {
+        title: "Ayurveda में इसका क्या मतलब हो सकता है?",
+        body:
+          "Ayurveda परंपरागत रूप से digestion, appetite, daily routine, sleep और symptoms की qualities जैसे patterns को देखता है। आपके answers से इस framework के कौन से हिस्से आगे explore किए जा सकते हैं, यह समझने में मदद मिल सकती है।",
+        label: "Traditional Ayurvedic interpretation"
+      },
+
+      hi: {
+        title: "आयुर्वेद में इसका क्या अर्थ हो सकता है?",
+        body:
+          "आयुर्वेद परंपरागत रूप से पाचन, भूख, दिनचर्या, नींद और लक्षणों की प्रकृति जैसे पैटर्न को देखता है। आपके उत्तरों से इस दृष्टिकोण के किन हिस्सों को आगे समझना उपयोगी हो सकता है, यह देखा जा सकता है।",
+        label: "पारंपरिक आयुर्वेदिक व्याख्या"
+      },
+
+      mrEn: {
+        title: "Ayurveda मध्ये याचा काय अर्थ असू शकतो?",
+        body:
+          "Ayurveda परंपरेने digestion, appetite, daily routine, sleep आणि symptoms च्या qualities सारखे patterns पाहतो. तुमच्या answers मुळे या framework मधले कोणते parts पुढे explore करता येतील हे समजू शकतं.",
+        label: "Traditional Ayurvedic interpretation"
+      },
+
+      mr: {
+        title: "आयुर्वेदात याचा काय अर्थ असू शकतो?",
+        body:
+          "आयुर्वेद परंपरेने पचन, भूक, दिनचर्या, झोप आणि लक्षणांचे गुणधर्म यांसारखे नमुने पाहतो. तुमच्या उत्तरांमुळे या दृष्टिकोनातील कोणते भाग पुढे समजून घेता येतील हे पाहता येते.",
+        label: "पारंपरिक आयुर्वेदिक व्याख्या"
+      }
+
+    }
+  },
+
+
+  homeopathy: {
+
+    icon: "◌",
+
+    questions: {
+
+      en: [
+        {
+          text: "How would you describe the sensation?",
+          options: [
+            "Burning",
+            "Pressure or heaviness",
+            "Cramping",
+            "Itching or irritation",
+            "Something else / hard to describe"
+          ]
+        },
+        {
+          text: "When is it most noticeable?",
+          options: [
+            "At a particular time",
+            "After eating",
+            "During or after activity",
+            "When resting",
+            "It varies"
+          ]
+        },
+        {
+          text: "What seems to change the symptom?",
+          options: [
+            "Heat",
+            "Cold",
+            "Movement",
+            "Pressure or position",
+            "Nothing obvious"
+          ]
+        },
+        {
+          text: "What is most distinctive about your experience?",
+          options: [
+            "The exact sensation",
+            "The timing",
+            "What makes it better or worse",
+            "The way it comes and goes",
+            "I'm not sure"
+          ]
+        }
+      ],
+
+      hiEn: [
+        {
+          text: "आप इस sensation को कैसे describe करेंगे?",
+          options: [
+            "Burning",
+            "Pressure या heaviness",
+            "Cramping",
+            "Itching या irritation",
+            "कुछ और / बताना मुश्किल है"
+          ]
+        },
+        {
+          text: "यह सबसे ज़्यादा कब महसूस होता है?",
+          options: [
+            "किसी खास समय",
+            "खाने के बाद",
+            "Activity के दौरान या बाद में",
+            "Rest करते समय",
+            "बदलता रहता है"
+          ]
+        },
+        {
+          text: "क्या चीज़ symptom को बदलती हुई लगती है?",
+          options: [
+            "Heat",
+            "Cold",
+            "Movement",
+            "Pressure या position",
+            "कुछ साफ़ नहीं"
+          ]
+        },
+        {
+          text: "आपके अनुभव में सबसे खास बात क्या है?",
+          options: [
+            "Exact sensation",
+            "Timing",
+            "क्या इसे better या worse करता है",
+            "यह कैसे आता-जाता है",
+            "पता नहीं"
+          ]
+        }
+      ],
+
+      hi: [
+        {
+          text: "आप इस अनुभूति को कैसे बताएँगे?",
+          options: [
+            "जलन",
+            "दबाव या भारीपन",
+            "ऐंठन",
+            "खुजली या जलन",
+            "कुछ और / बताना कठिन है"
+          ]
+        },
+        {
+          text: "यह सबसे अधिक कब महसूस होता है?",
+          options: [
+            "किसी खास समय",
+            "खाने के बाद",
+            "गतिविधि के दौरान या बाद में",
+            "आराम करते समय",
+            "बदलता रहता है"
+          ]
+        },
+        {
+          text: "किस चीज़ से लक्षण में बदलाव आता है?",
+          options: [
+            "गर्मी",
+            "ठंड",
+            "चलना-फिरना",
+            "दबाव या शरीर की स्थिति",
+            "कुछ स्पष्ट नहीं"
+          ]
+        },
+        {
+          text: "आपके अनुभव में सबसे खास बात क्या है?",
+          options: [
+            "ठीक कैसी अनुभूति होती है",
+            "समय",
+            "किससे बेहतर या बदतर होता है",
+            "यह कैसे आता-जाता है",
+            "पता नहीं"
+          ]
+        }
+      ],
+
+      mrEn: [
+        {
+          text: "ही sensation तुम्ही कशी describe कराल?",
+          options: [
+            "Burning",
+            "Pressure किंवा heaviness",
+            "Cramping",
+            "Itching किंवा irritation",
+            "काहीतरी वेगळं / सांगणं कठीण आहे"
+          ]
+        },
+        {
+          text: "हे सगळ्यात जास्त कधी जाणवतं?",
+          options: [
+            "एखाद्या specific time ला",
+            "खाल्ल्यानंतर",
+            "Activity दरम्यान किंवा नंतर",
+            "Rest करताना",
+            "बदलत राहतं"
+          ]
+        },
+        {
+          text: "कशामुळे symptom बदलतं असं वाटतं?",
+          options: [
+            "Heat",
+            "Cold",
+            "Movement",
+            "Pressure किंवा position",
+            "काही स्पष्ट नाही"
+          ]
+        },
+        {
+          text: "तुमच्या experience मधली सगळ्यात distinctive गोष्ट कोणती?",
+          options: [
+            "Exact sensation",
+            "Timing",
+            "कशामुळे better किंवा worse होतं",
+            "ते कसं येतं आणि जातं",
+            "नक्की सांगता येत नाही"
+          ]
+        }
+      ],
+
+      mr: [
+        {
+          text: "ही जाणीव तुम्ही कशी सांगाल?",
+          options: [
+            "जळजळ",
+            "दाब किंवा जडपणा",
+            "गोळे येणे किंवा कळ",
+            "खाज किंवा चुरचुर",
+            "काहीतरी वेगळं / सांगणं कठीण आहे"
+          ]
+        },
+        {
+          text: "हे सगळ्यात जास्त कधी जाणवतं?",
+          options: [
+            "एखाद्या ठराविक वेळी",
+            "जेवल्यानंतर",
+            "हालचालीदरम्यान किंवा नंतर",
+            "विश्रांती घेताना",
+            "बदलत राहतं"
+          ]
+        },
+        {
+          text: "कशामुळे लक्षणात बदल होतो?",
+          options: [
+            "उष्णता",
+            "थंडी",
+            "हालचाल",
+            "दाब किंवा शरीराची स्थिती",
+            "काही स्पष्ट नाही"
+          ]
+        },
+        {
+          text: "तुमच्या अनुभवातील सर्वात खास गोष्ट कोणती?",
+          options: [
+            "नेमकी कशी जाणीव होते",
+            "कधी होते",
+            "कशामुळे बरं किंवा वाईट होतं",
+            "ते कसं येतं आणि जातं",
+            "नक्की सांगता येत नाही"
+          ]
+        }
+      ]
+
+    },
+
+    results: {
+
+      en: {
+        title: "How does Homeopathy understand this?",
+        body:
+          "Homeopathy traditionally places strong emphasis on the individual's detailed symptom pattern — including the sensation, timing and circumstances that change it. These questions reflect that framework; they should not be read as evidence that homeopathic explanations are medically established.",
+        label: "Homeopathic framework"
+      },
+
+      hiEn: {
+        title: "Homeopathy इसे कैसे समझती है?",
+        body:
+          "Homeopathy परंपरागत रूप से व्यक्ति के detailed symptom pattern पर ज़ोर देती है — जैसे sensation, timing और किन परिस्थितियों में symptom बदलता है। ये questions उसी framework को दिखाते हैं; इन्हें यह evidence नहीं समझना चाहिए कि homeopathic explanations medically established हैं।",
+        label: "Homeopathic framework"
+      },
+
+      hi: {
+        title: "होम्योपैथी इसे कैसे समझती है?",
+        body:
+          "होम्योपैथी परंपरागत रूप से व्यक्ति के विस्तृत लक्षण-पैटर्न पर ज़ोर देती है — जैसे अनुभूति, समय और किन परिस्थितियों में लक्षण बदलता है। ये प्रश्न उसी दृष्टिकोण को दर्शाते हैं; इन्हें इस बात का प्रमाण नहीं समझना चाहिए कि होम्योपैथिक व्याख्याएँ आधुनिक चिकित्सा में स्थापित हैं।",
+        label: "होम्योपैथिक दृष्टिकोण"
+      },
+
+      mrEn: {
+        title: "Homeopathy हे कसं समजून घेतं?",
+        body:
+          "Homeopathy परंपरेने व्यक्तीच्या detailed symptom pattern वर भर देते — sensation, timing आणि symptom कोणत्या परिस्थितीत बदलतं यासह. हे questions त्या framework ला reflect करतात; याचा अर्थ homeopathic explanations medically established आहेत असा evidence नाही.",
+        label: "Homeopathic framework"
+      },
+
+      mr: {
+        title: "होमिओपॅथी हे कसं समजून घेते?",
+        body:
+          "होमिओपॅथी परंपरेने व्यक्तीच्या सविस्तर लक्षणांच्या नमुन्यावर भर देते — जसे जाणीव, वेळ आणि कोणत्या परिस्थितीत लक्षण बदलते. हे प्रश्न त्या दृष्टिकोनाचे स्वरूप दाखवतात; याचा अर्थ होमिओपॅथिक व्याख्या आधुनिक वैद्यकात सिद्ध झालेल्या आहेत असा पुरावा नाही.",
+        label: "होमिओपॅथिक दृष्टिकोन"
+      }
+
+    }
+  }
+
+};
+
+  /* ---------------------------------------------------------
+   CONNECTED-PATTERN CONTENT
+   --------------------------------------------------------- */
+
+const CONNECTED = {
+
+  en: {
+    nodes: [
+      "What you noticed",
+      "When it happens",
+      "Food & meals",
+      "Stress & sleep",
+      "Daily routine"
+    ],
+    prompt: "Tap a part of the story to explore it further."
+  },
+
+  hiEn: {
+    nodes: [
+      "आपने क्या notice किया",
+      "कब होता है",
+      "Food & meals",
+      "Stress & sleep",
+      "Daily routine"
+    ],
+    prompt: "Story के किसी हिस्से पर tap करके उसे और explore करें।"
+  },
+
+  hi: {
+    nodes: [
+      "आपने क्या महसूस किया",
+      "कब होता है",
+      "भोजन",
+      "तनाव और नींद",
+      "दिनचर्या"
+    ],
+    prompt: "अपनी कहानी के किसी हिस्से को चुनकर उसे और समझें।"
+  },
+
+  mrEn: {
+    nodes: [
+      "तुम्ही काय notice केलं",
+      "कधी होतं",
+      "Food & meals",
+      "Stress & sleep",
+      "Daily routine"
+    ],
+    prompt: "Story मधल्या एखाद्या भागावर tap करून तो पुढे explore करा."
+  },
+
+  mr: {
+    nodes: [
+      "तुम्हाला काय जाणवलं",
+      "कधी होतं",
+      "अन्न आणि जेवण",
+      "ताण आणि झोप",
+      "दिनचर्या"
+    ],
+    prompt: "तुमच्या अनुभवातील एखादा भाग निवडून तो अधिक समजून घ्या."
+  }
+
+};
+
+
+/* ---------------------------------------------------------
+   COMFORT / SELF-CARE CONTENT
+   --------------------------------------------------------- */
+
+const COMFORT = {
+
+  en: [
+    {
+      title: "Everyday habits",
+      items: [
+        "Notice when the symptom appears instead of trying to remember it later.",
+        "Keep meals and sleep reasonably regular if that feels comfortable for you.",
+        "If you notice a clear trigger, consider reducing it temporarily and observe what changes."
+      ]
+    },
+    {
+      title: "Food & routine",
+      items: [
+        "Try smaller, comfortable meals if large meals seem to worsen the symptom.",
+        "Eat slowly and give yourself time to notice fullness.",
+        "Keep a simple note of food, timing and symptoms if patterns are hard to spot."
+      ]
+    },
+    {
+      title: "Traditional home practices",
+      items: [
+        "Ajwain water is a traditional home practice sometimes used for digestive comfort.",
+        "It should not be treated as a proven treatment or cure, and it may not suit everyone.",
+        "Stop if it causes discomfort and check with a healthcare professional if you have a medical condition, take medicines, are pregnant, or are unsure whether it is appropriate for you."
+      ]
+    }
+  ],
+
+  hiEn: [
+    {
+      title: "Everyday habits",
+      items: [
+        "Symptom कब आता है, उसे उसी समय note करने की कोशिश करें।",
+        "अगर comfortable लगे तो meals और sleep को reasonably regular रखें।",
+        "अगर कोई clear trigger दिखे, तो उसे कुछ समय कम करके देखें कि क्या बदलता है।"
+      ]
+    },
+    {
+      title: "Food & routine",
+      items: [
+        "अगर बड़े meals से symptom बढ़ता है, तो छोटे और comfortable meals try कर सकते हैं।",
+        "धीरे खाएँ और fullness notice करने का समय दें।",
+        "अगर pattern समझना मुश्किल हो, तो food, timing और symptoms का simple note रखें।"
+      ]
+    },
+    {
+      title: "Traditional home practices",
+      items: [
+        "Ajwain water एक traditional home practice है जिसे digestive comfort के लिए इस्तेमाल किया जाता है।",
+        "इसे proven treatment या cure नहीं मानना चाहिए, और यह हर व्यक्ति के लिए suitable नहीं हो सकता।",
+        "अगर discomfort हो तो इसे रोक दें। Medical condition, medicines, pregnancy या uncertainty की स्थिति में healthcare professional से पूछें।"
+      ]
+    }
+  ],
+
+  hi: [
+    {
+      title: "रोज़मर्रा की आदतें",
+      items: [
+        "लक्षण कब आता है, उसे उसी समय लिखने की कोशिश करें।",
+        "अगर आपको ठीक लगे तो भोजन और नींद का समय काफी नियमित रखें।",
+        "अगर कोई स्पष्ट कारण दिखे, तो उसे कुछ समय कम करके देखें और बदलाव पर ध्यान दें।"
+      ]
+    },
+    {
+      title: "भोजन और दिनचर्या",
+      items: [
+        "अगर बड़े भोजन से लक्षण बढ़ते हैं, तो छोटे और आरामदायक भोजन आज़माए जा सकते हैं।",
+        "धीरे खाएँ और पेट भरने का संकेत महसूस करने का समय दें।",
+        "अगर पैटर्न समझना मुश्किल हो, तो भोजन, समय और लक्षणों का छोटा-सा रिकॉर्ड रखें।"
+      ]
+    },
+    {
+      title: "पारंपरिक घरेलू अभ्यास",
+      items: [
+        "अजवाइन का पानी एक पारंपरिक घरेलू अभ्यास है जिसे पाचन संबंधी आराम के लिए इस्तेमाल किया जाता है।",
+        "इसे सिद्ध उपचार या इलाज नहीं मानना चाहिए और यह हर व्यक्ति के लिए उचित नहीं हो सकता।",
+        "अगर इससे परेशानी हो तो इसे रोक दें। किसी बीमारी, दवा, गर्भावस्था या असमंजस की स्थिति में स्वास्थ्य विशेषज्ञ से सलाह लें।"
+      ]
+    }
+  ],
+
+  mrEn: [
+    {
+      title: "Everyday habits",
+      items: [
+        "Symptom कधी येतो हे त्याच वेळी note करण्याचा प्रयत्न करा.",
+        "Comfortable वाटत असेल तर meals आणि sleep reasonably regular ठेवण्याचा प्रयत्न करा.",
+        "एखादा clear trigger दिसत असेल तर तो काही काळ कमी करून काय बदलतं ते observe करा."
+      ]
+    },
+    {
+      title: "Food & routine",
+      items: [
+        "मोठ्या meals मुळे symptom वाढत असेल तर smaller, comfortable meals try करू शकता.",
+        "हळू खा आणि fullness जाणवायला वेळ द्या.",
+        "Pattern लक्षात येत नसेल तर food, timing आणि symptoms ची simple note ठेवा."
+      ]
+    },
+    {
+      title: "Traditional home practices",
+      items: [
+        "Ajwain water ही एक traditional home practice आहे जी digestive comfort साठी वापरली जाते.",
+        "याला proven treatment किंवा cure समजू नका; ती प्रत्येकासाठी suitable असेलच असं नाही.",
+        "Discomfort झाल्यास थांबवा. Medical condition, medicines, pregnancy किंवा uncertainty असल्यास healthcare professional ला विचारा."
+      ]
+    }
+  ],
+
+  mr: [
+    {
+      title: "रोजच्या सवयी",
+      items: [
+        "लक्षण कधी येतं हे त्याच वेळी नोंदवण्याचा प्रयत्न करा.",
+        "तुम्हाला योग्य वाटत असेल तर जेवण आणि झोपेची वेळ शक्य तितकी नियमित ठेवा.",
+        "एखादा स्पष्ट कारणीभूत घटक दिसत असेल तर तो काही काळ कमी करून काय बदलतं ते पाहा."
+      ]
+    },
+    {
+      title: "अन्न आणि दिनचर्या",
+      items: [
+        "मोठ्या जेवणामुळे लक्षण वाढत असेल तर कमी प्रमाणात आणि आरामदायक जेवण करून पाहू शकता.",
+        "हळूहळू खा आणि पोट भरल्याची जाणीव होण्यासाठी वेळ द्या.",
+        "नमुना लक्षात येत नसेल तर अन्न, वेळ आणि लक्षणांची साधी नोंद ठेवा."
+      ]
+    },
+    {
+      title: "पारंपरिक घरगुती उपाय",
+      items: [
+        "अजवाइनचं पाणी हा पचनासाठी आराम मिळावा म्हणून वापरला जाणारा पारंपरिक घरगुती उपाय आहे.",
+        "याला सिद्ध उपचार किंवा आजार बरा करणारा उपाय समजू नका; तो प्रत्येकासाठी योग्य असेलच असं नाही.",
+        "त्रास झाल्यास तो थांबवा. काही वैद्यकीय समस्या, औषधे, गर्भावस्था किंवा शंका असल्यास आरोग्यतज्ज्ञांचा सल्ला घ्या."
+      ]
+    }
+  ]
+
+};
+
 <script>
-function toggleProv(){
- const el=document.getElementById('provDetail');
- if(el) el.style.display=el.style.display==='none'?'block':'none';
+
+/* =========================================================
+   IHI — INTERACTION ENGINE
+   CHUNK 3
+   ========================================================= */
+
+const state = {
+  language: "en",
+  concern: "",
+  framework: null,
+  questionIndex: 0,
+  answers: {}
+};
+
+const $ = (id) => document.getElementById(id);
+
+
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
+
+function getLang() {
+  return LANG[state.language] || LANG.en;
 }
-function show(n){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById('demo'+n).classList.add('active');
- document.querySelectorAll('.stepbtn').forEach((b,i)=>b.classList.toggle('active',i===n-1));
- document.getElementById('demo').scrollIntoView({behavior:'smooth',block:'start'});
+
+function applyLanguage() {
+
+  const l = getLang();
+
+  const textMap = {
+    heroKicker: l.heroKicker,
+    heroTitle: l.heroTitle,
+    heroText: l.heroText,
+    concernLabel: l.concernLabel,
+    concernHint: l.concernHint,
+    example: l.example,
+    disclaimer: l.disclaimer,
+    heardTitle: l.heardTitle,
+    heardText: l.heardText,
+    exploreTitle: l.exploreTitle,
+    bodyTitle: l.bodyTitle,
+    bodyIntro: l.bodyIntro,
+    connectedTitle: l.connectedTitle,
+    connectedText: l.connectedText,
+    comfortTitle: l.comfortTitle,
+    comfortIntro: l.comfortIntro,
+    safetyTitle: l.safetyTitle,
+    safetyText: l.safetyText,
+    footerText: l.footer
+  };
+
+  Object.entries(textMap).forEach(([id, value]) => {
+
+    const el = $(id);
+
+    if (el) {
+      el.textContent = value;
+    }
+
+  });
+
+  if ($("concernInput")) {
+    $("concernInput").placeholder = l.placeholder;
+  }
+
+  if ($("startBtn")) {
+    $("startBtn").textContent = l.exploring;
+  }
+
+  if ($("speakBtn")) {
+
+    const label =
+      $("speakBtn").querySelector(".speak-label");
+
+    if (label) {
+      label.textContent = l.speak;
+    }
+
+  }
+
+  updateFrameworkLabels();
+  renderConnected();
+  renderComfort();
+  updateSafety();
+
+  if (state.framework) {
+    renderFrameworkIntro();
+    renderQuestion();
+  }
+
 }
+
+
+/* =========================================================
+   FRAMEWORK LABELS
+   ========================================================= */
+
+function updateFrameworkLabels() {
+
+  const l = getLang();
+
+  if ($("modernTitle"))
+    $("modernTitle").textContent = l.modern;
+
+  if ($("modernSub"))
+    $("modernSub").textContent = l.modernSub;
+
+  if ($("ayurvedaTitle"))
+    $("ayurvedaTitle").textContent = l.ayurveda;
+
+  if ($("ayurvedaSub"))
+    $("ayurvedaSub").textContent = l.ayurvedaSub;
+
+  if ($("homeopathyTitle"))
+    $("homeopathyTitle").textContent = l.homeopathy;
+
+  if ($("homeopathySub"))
+    $("homeopathySub").textContent = l.homeopathySub;
+
+}
+
+
+/* =========================================================
+   START EXPLORATION
+   ========================================================= */
+
+function startExploration() {
+
+  const input = $("concernInput");
+
+  if (!input) return;
+
+  const text = input.value.trim();
+
+  if (!text) {
+
+    showToast(
+      state.language === "hi"
+        ? "कृपया पहले बताइए कि आपको क्या महसूस हो रहा है।"
+        : state.language === "mr"
+          ? "कृपया आधी तुम्हाला काय जाणवतंय ते सांगा."
+          : "Tell us what you've been noticing first."
+    );
+
+    input.focus();
+
+    return;
+  }
+
+  state.concern = text;
+  state.framework = null;
+  state.questionIndex = 0;
+  state.answers = {};
+
+  renderStory();
+
+  const sections = [
+    "resultSection",
+    "explorerSection",
+    "connectedSection",
+    "comfortSection",
+    "safetySection"
+  ];
+
+  sections.forEach(id => {
+
+    const el = $(id);
+
+    if (el) {
+      el.classList.add("visible");
+    }
+
+  });
+
+  const result =
+    $("resultSection");
+
+  if (result) {
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   "HERE'S WHAT WE HEARD"
+   ========================================================= */
+
+function renderStory() {
+
+  const storyText =
+    $("storyText");
+
+  if (!storyText) return;
+
+  const escaped =
+    escapeHTML(state.concern);
+
+  storyText.innerHTML = `
+    <div class="story-quote">
+      “${escaped}”
+    </div>
+
+    <div class="story-note">
+      ${
+        state.language === "en"
+          ? "This is your story in your own words. IHI does not turn it into a diagnosis."
+          : state.language === "hiEn"
+            ? "यह आपकी बात आपके अपने शब्दों में है। IHI इसे diagnosis में नहीं बदलता।"
+            : state.language === "hi"
+              ? "यह आपकी बात आपके अपने शब्दों में है। IHI इसे किसी निदान में नहीं बदलता।"
+              : state.language === "mrEn"
+                ? "ही तुमची story तुमच्या स्वतःच्या शब्दांत आहे. IHI तिला diagnosis मध्ये बदलत नाही."
+                : "ही तुमची आरोग्यकथा तुमच्या स्वतःच्या शब्दांत आहे. IHI तिचं निदानात रूपांतर करत नाही."
+      }
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   FRAMEWORK SELECTION
+   ========================================================= */
+
+document
+  .querySelectorAll(".framework-card")
+  .forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      const framework =
+        card.dataset.framework;
+
+      if (!framework) return;
+
+      if (!FRAMEWORKS[framework]) return;
+
+      state.framework = framework;
+      state.questionIndex = 0;
+      state.answers = {};
+
+      document
+        .querySelectorAll(".framework-card")
+        .forEach(item => {
+          item.classList.remove("selected");
+        });
+
+      card.classList.add("selected");
+
+      renderFrameworkIntro();
+      renderQuestion();
+
+      const explorer =
+        $("explorerSection");
+
+      if (explorer) {
+
+        explorer.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+    });
+
+  });
+
+
+/* =========================================================
+   FRAMEWORK INTRO
+   ========================================================= */
+
+function renderFrameworkIntro() {
+
+  if (!state.framework) return;
+
+  const title =
+    $("explorerFrameworkTitle");
+
+  const icon =
+    $("explorerFrameworkIcon");
+
+  const note =
+    $("frameworkEvidenceNote");
+
+  const framework =
+    FRAMEWORKS[state.framework];
+
+  if (!framework) return;
+
+  if (icon) {
+    icon.textContent =
+      framework.icon;
+  }
+
+  if (state.framework === "modern") {
+
+    if (title) {
+      title.textContent =
+        getLang().bodyTitle;
+    }
+
+    if (note) {
+      note.textContent =
+        getLang().modernEvidence;
+
+      note.className =
+        "evidence-note modern-note";
+    }
+
+  }
+
+  if (state.framework === "ayurveda") {
+
+    const data =
+      framework.results[state.language];
+
+    if (title) {
+      title.textContent =
+        data.title;
+    }
+
+    if (note) {
+      note.textContent =
+        data.body;
+
+      note.className =
+        "evidence-note traditional-note";
+    }
+
+  }
+
+  if (state.framework === "homeopathy") {
+
+    const data =
+      framework.results[state.language];
+
+    if (title) {
+      title.textContent =
+        data.title;
+    }
+
+    if (note) {
+      note.textContent =
+        data.body;
+
+      note.className =
+        "evidence-note traditional-note";
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   QUESTION RENDERING
+   ========================================================= */
+
+function renderQuestion() {
+
+  if (!state.framework) return;
+
+  const container =
+    $("questionContainer");
+
+  if (!container) return;
+
+  const questions =
+    FRAMEWORKS[state.framework]
+      .questions[state.language];
+
+  if (!questions) return;
+
+  const question =
+    questions[state.questionIndex];
+
+  if (!question) return;
+
+  const total =
+    questions.length;
+
+  const current =
+    state.questionIndex + 1;
+
+  const selected =
+    state.answers[state.questionIndex];
+
+  const l =
+    getLang();
+
+  container.innerHTML = `
+
+    <div class="question-progress">
+
+      <div class="progress-label">
+        ${current} / ${total}
+      </div>
+
+      <div class="progress-track">
+
+        <div
+          class="progress-fill"
+          style="width:${(current / total) * 100}%"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question-card">
+
+      <h3>
+        ${escapeHTML(question.text)}
+      </h3>
+
+
+      <div class="option-list">
+
+        ${question.options
+          .map((option, index) => `
+
+            <button
+              type="button"
+              class="option-button ${
+                selected === index
+                  ? "selected"
+                  : ""
+              }"
+              data-option="${index}"
+            >
+
+              <span class="option-dot"></span>
+
+              <span>
+                ${escapeHTML(option)}
+              </span>
+
+            </button>
+
+          `)
+          .join("")
+        }
+
+      </div>
+
+
+      <div class="question-actions">
+
+        ${
+          state.questionIndex > 0
+
+            ? `
+              <button
+                type="button"
+                class="text-button"
+                id="backQuestion"
+              >
+                ${escapeHTML(l.back)}
+              </button>
+            `
+
+            : `<span></span>`
+        }
+
+
+        <button
+          type="button"
+          class="primary-button small"
+          id="nextQuestion"
+          ${selected === undefined ? "disabled" : ""}
+        >
+
+          ${
+            current === total
+              ? escapeHTML(l.seeResult)
+              : escapeHTML(l.next)
+          }
+
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+
+  container
+    .querySelectorAll(".option-button")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const index =
+          Number(button.dataset.option);
+
+        state.answers[
+          state.questionIndex
+        ] = index;
+
+        container
+          .querySelectorAll(".option-button")
+          .forEach(item => {
+            item.classList.remove("selected");
+          });
+
+        button.classList.add("selected");
+
+        const next =
+          $("nextQuestion");
+
+        if (next) {
+          next.disabled = false;
+        }
+
+      });
+
+    });
+
+
+  const next =
+    $("nextQuestion");
+
+  if (next) {
+    next.addEventListener(
+      "click",
+      nextQuestion
+    );
+  }
+
+
+  const back =
+    $("backQuestion");
+
+  if (back) {
+
+    back.addEventListener(
+      "click",
+      () => {
+
+        if (state.questionIndex > 0) {
+
+          state.questionIndex--;
+
+          renderQuestion();
+
+        }
+
+      }
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
+
+function nextQuestion() {
+
+  if (!state.framework) return;
+
+  const questions =
+    FRAMEWORKS[state.framework]
+      .questions[state.language];
+
+  if (
+    state.answers[state.questionIndex]
+    === undefined
+  ) {
+    return;
+  }
+
+  if (
+    state.questionIndex <
+    questions.length - 1
+  ) {
+
+    state.questionIndex++;
+
+    renderQuestion();
+
+  } else {
+
+    renderFrameworkResult();
+
+  }
+
+}
+
+
+/* =========================================================
+   FRAMEWORK RESULT
+   ========================================================= */
+
+function renderFrameworkResult() {
+
+  const result =
+    $("explorerResult");
+
+  if (!result) return;
+
+  if (state.framework === "modern") {
+
+    renderModernResult();
+
+  }
+
+  if (state.framework === "ayurveda") {
+
+    renderAyurvedaResult();
+
+  }
+
+  if (state.framework === "homeopathy") {
+
+    renderHomeopathyResult();
+
+  }
+
+  result.classList.add("visible");
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
+
+/* =========================================================
+   MODERN MEDICINE RESULT
+   ========================================================= */
+
+function renderModernResult() {
+
+  const result =
+    $("explorerResult");
+
+  const l =
+    getLang();
+
+  const answers =
+    getAnswerText("modern");
+
+  result.innerHTML = `
+
+    <div class="result-panel">
+
+      <div class="result-kicker">
+        🩺 ${escapeHTML(l.modern)}
+      </div>
+
+      <h3>
+        ${escapeHTML(l.bodyTitle)}
+      </h3>
+
+      <p class="result-intro">
+        ${escapeHTML(l.modernEvidence)}
+      </p>
+
+
+      <div class="result-group">
+
+        <h4>
+          ${
+            state.language === "en"
+              ? "What your answers add"
+              : state.language === "hiEn"
+                ? "आपके answers से क्या पता चलता है"
+                : state.language === "hi"
+                  ? "आपके उत्तरों से क्या समझ आता है"
+                  : state.language === "mrEn"
+                    ? "तुमच्या answers मधून काय समजतं"
+                    : "तुमच्या उत्तरांमधून काय समजतं"
+          }
+        </h4>
+
+        <ul>
+
+          ${answers
+            .map(answer => `
+              <li>
+                ${escapeHTML(answer)}
+              </li>
+            `)
+            .join("")
+          }
+
+        </ul>
+
+      </div>
+
+
+      <div class="result-group">
+
+        <h4>
+          ${
+            state.language === "en"
+              ? "What might be relevant"
+              : state.language === "hiEn"
+                ? "क्या relevant हो सकता है"
+                : state.language === "hi"
+                  ? "क्या प्रासंगिक हो सकता है"
+                  : state.language === "mrEn"
+                    ? "काय relevant असू शकतं"
+                    : "काय संबंधित असू शकतं"
+          }
+        </h4>
+
+        <ul>
+
+          <li>
+            ${
+              state.language === "en"
+                ? "The pattern can be influenced by timing, meals, sleep, stress, activity and other factors."
+                : state.language === "hiEn"
+                  ? "Timing, meals, sleep, stress, activity और दूसरे factors इस pattern को influence कर सकते हैं।"
+                  : state.language === "hi"
+                    ? "समय, भोजन, नींद, तनाव, गतिविधि और अन्य कारक इस पैटर्न को प्रभावित कर सकते हैं।"
+                    : state.language === "mrEn"
+                      ? "Timing, meals, sleep, stress, activity आणि इतर factors या pattern वर influence करू शकतात."
+                      : "वेळ, जेवण, झोप, ताण, हालचाल आणि इतर घटक या नमुन्यावर परिणाम करू शकतात."
+            }
+          </li>
+
+          <li>
+            ${
+              state.language === "en"
+                ? "The information here is not enough to identify a diagnosis."
+                : state.language === "hiEn"
+                  ? "यह information किसी diagnosis की पहचान करने के लिए पर्याप्त नहीं है।"
+                  : state.language === "hi"
+                    ? "यह जानकारी किसी निदान की पहचान करने के लिए पर्याप्त नहीं है।"
+                    : state.language === "mrEn"
+                      ? "ही information diagnosis ओळखण्यासाठी पुरेशी नाही."
+                      : "ही माहिती निदान ओळखण्यासाठी पुरेशी नाही."
+            }
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="result-boundary">
+
+        <strong>
+          ${
+            state.language === "en"
+              ? "This is a starting point, not a diagnosis."
+              : state.language === "hiEn"
+                ? "यह starting point है, diagnosis नहीं।"
+                : state.language === "hi"
+                  ? "यह शुरुआत के लिए है, निदान के लिए नहीं।"
+                  : state.language === "mrEn"
+                    ? "हा starting point आहे, diagnosis नाही."
+                    : "हा सुरुवातीचा अंदाज आहे, निदान नाही."
+          }
+        </strong>
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   AYURVEDA RESULT
+   ========================================================= */
+
+function renderAyurvedaResult() {
+
+  const result =
+    $("explorerResult");
+
+  const data =
+    FRAMEWORKS.ayurveda
+      .results[state.language];
+
+  const answers =
+    getAnswerText("ayurveda");
+
+  result.innerHTML = `
+
+    <div class="result-panel traditional-panel">
+
+      <div class="result-kicker">
+        🌿 ${escapeHTML(data.label)}
+      </div>
+
+      <h3>
+        ${escapeHTML(data.title)}
+      </h3>
+
+      <p class="result-intro">
+        ${escapeHTML(data.body)}
+      </p>
+
+
+      <div class="result-group">
+
+        <h4>
+          ${
+            state.language === "en"
+              ? "Your selected pattern"
+              : state.language === "hiEn"
+                ? "आपके selected answers"
+                : state.language === "hi"
+                  ? "आपके चुने हुए उत्तर"
+                  : state.language === "mrEn"
+                    ? "तुमचे selected answers"
+                    : "तुमची निवडलेली उत्तरं"
+          }
+        </h4>
+
+        <ul>
+
+          ${answers
+            .map(answer => `
+              <li>
+                ${escapeHTML(answer)}
+              </li>
+            `)
+            .join("")
+          }
+
+        </ul>
+
+      </div>
+
+
+      <div class="framework-boundary">
+
+        <strong>
+          ${escapeHTML(
+            state.language === "en"
+              ? "Traditional Ayurvedic interpretation"
+              : state.language === "hiEn"
+                ? "Traditional Ayurvedic interpretation"
+                : state.language === "hi"
+                  ? "पारंपरिक आयुर्वेदिक व्याख्या"
+                  : state.language === "mrEn"
+                    ? "Traditional Ayurvedic interpretation"
+                    : "पारंपरिक आयुर्वेदिक व्याख्या"
+          )}
+        </strong>
+
+        <p>
+          ${escapeHTML(getLang().evidenceNote)}
+        </p>
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   HOMEOPATHY RESULT
+   ========================================================= */
+
+function renderHomeopathyResult() {
+
+  const result =
+    $("explorerResult");
+
+  const data =
+    FRAMEWORKS.homeopathy
+      .results[state.language];
+
+  const answers =
+    getAnswerText("homeopathy");
+
+  result.innerHTML = `
+
+    <div class="result-panel traditional-panel">
+
+      <div class="result-kicker">
+        ◌ ${escapeHTML(data.label)}
+      </div>
+
+      <h3>
+        ${escapeHTML(data.title)}
+      </h3>
+
+      <p class="result-intro">
+        ${escapeHTML(data.body)}
+      </p>
+
+
+      <div class="result-group">
+
+        <h4>
+          ${
+            state.language === "en"
+              ? "Your selected pattern"
+              : state.language === "hiEn"
+                ? "आपके selected answers"
+                : state.language === "hi"
+                  ? "आपके चुने हुए उत्तर"
+                  : state.language === "mrEn"
+                    ? "तुमचे selected answers"
+                    : "तुमची निवडलेली उत्तरं"
+          }
+        </h4>
+
+        <ul>
+
+          ${answers
+            .map(answer => `
+              <li>
+                ${escapeHTML(answer)}
+              </li>
+            `)
+            .join("")
+          }
+
+        </ul>
+
+      </div>
+
+
+      <div class="framework-boundary">
+
+        <strong>
+          ${escapeHTML(data.label)}
+        </strong>
+
+        <p>
+          ${escapeHTML(getLang().evidenceNote)}
+        </p>
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   GET SELECTED ANSWERS
+   ========================================================= */
+
+function getAnswerText(frameworkName) {
+
+  const framework =
+    FRAMEWORKS[frameworkName];
+
+  if (!framework) return [];
+
+  const questions =
+    framework.questions[state.language];
+
+  if (!questions) return [];
+
+  return questions
+    .map((question, index) => {
+
+      const selected =
+        state.answers[index];
+
+      if (selected === undefined) {
+        return null;
+      }
+
+      return question.options[selected];
+
+    })
+    .filter(Boolean);
+
+}
+
+
+/* =========================================================
+   CONNECTED PATTERN
+   ========================================================= */
+
+function renderConnected() {
+
+  const container =
+    $("connectedNodes");
+
+  if (!container) return;
+
+  const data =
+    CONNECTED[state.language];
+
+  container.innerHTML = `
+
+    <div class="connected-prompt">
+      ${escapeHTML(data.prompt)}
+    </div>
+
+    <div class="connected-grid">
+
+      ${data.nodes
+        .map((node, index) => `
+          <button
+            type="button"
+            class="connected-node"
+            
+            data-node="${index}"
+          >
+
+            <span class="node-number">
+              ${index + 1}
+            </span>
+
+            <span>
+              ${escapeHTML(node)}
+            </span>
+
+          </button>
+        `)
+        .join("")
+      }
+
+    </div>
+
+    <div
+      id="connectedDetail"
+      class="connected-detail"
+    ></div>
+  `;
+
+
+  container
+    .querySelectorAll(".connected-node")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          container
+            .querySelectorAll(".connected-node")
+            .forEach(item => {
+              item.classList.remove("selected");
+            });
+
+          button.classList.add("selected");
+
+          const detail =
+            $("connectedDetail");
+
+          if (detail) {
+
+            detail.innerHTML =
+              getConnectedDetail(
+                Number(button.dataset.node)
+              );
+
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   CONNECTED DETAILS
+   ========================================================= */
+
+function getConnectedDetail(index) {
+
+  const content = {
+
+    en: [
+      "Start with the symptom itself: what does it feel like, where is it, and how long has it been happening?",
+      "Timing can matter. Notice whether it appears before, during or after a particular activity or meal.",
+      "Food may be one factor among several. Look for a repeatable pattern rather than assuming one food is the cause.",
+      "Stress and sleep can influence how some symptoms are experienced, but they do not explain every symptom.",
+      "Routine gives context. Changes in meals, sleep, activity or daily schedule can sometimes coincide with symptom changes."
+    ],
+
+    hiEn: [
+      "सबसे पहले symptom को देखें: कैसा लगता है, कहाँ है और कब से है?",
+      "Timing important हो सकता है। देखें कि यह किसी activity या meal से पहले, दौरान या बाद में आता है।",
+      "Food कई factors में से एक हो सकता है। किसी एक food को cause मानने से पहले repeatable pattern देखें।",
+      "Stress और sleep कुछ symptoms के अनुभव को influence कर सकते हैं, लेकिन हर symptom को explain नहीं करते।",
+      "Routine context देती है। Meals, sleep, activity या daily schedule में बदलाव symptoms के बदलाव के साथ दिख सकते हैं।"
+    ],
+
+    hi: [
+      "सबसे पहले लक्षण को देखें: कैसा लगता है, कहाँ है और कब से है?",
+      "समय महत्वपूर्ण हो सकता है। देखें कि यह किसी गतिविधि या भोजन से पहले, दौरान या बाद में आता है।",
+      "भोजन कई कारकों में से एक हो सकता है। किसी एक भोजन को कारण मानने से पहले बार-बार दिखने वाला पैटर्न देखें।",
+      "तनाव और नींद कुछ लक्षणों के अनुभव को प्रभावित कर सकते हैं, लेकिन वे हर लक्षण की व्याख्या नहीं करते।",
+      "दिनचर्या संदर्भ देती है। भोजन, नींद, गतिविधि या दैनिक समय-सारणी में बदलाव लक्षणों में बदलाव के साथ दिख सकते हैं।"
+    ],
+
+    mrEn: [
+      "सुरुवात symptom पासून करा: तो कसा वाटतो, कुठे आहे आणि किती दिवसांपासून आहे?",
+      "Timing महत्त्वाचं असू शकतं. एखाद्या activity किंवा meal च्या आधी, दरम्यान किंवा नंतर ते होतं का ते पहा.",
+      "Food हा अनेक factors पैकी एक असू शकतो. एखाद्या food ला cause मानण्याआधी repeatable pattern पहा.",
+      "Stress आणि sleep काही symptoms च्या experience वर influence करू शकतात, पण प्रत्येक symptom explain करत नाहीत.",
+      "Routine context देते. Meals, sleep, activity किंवा daily schedule मधले changes symptoms मधल्या बदलांसोबत दिसू शकतात."
+    ],
+
+    mr: [
+      "सुरुवात लक्षणापासून करा: ते कसं वाटतं, कुठे आहे आणि किती दिवसांपासून आहे?",
+      "वेळ महत्त्वाचा असू शकतो. एखाद्या हालचालीच्या किंवा जेवणाच्या आधी, दरम्यान किंवा नंतर ते होतं का ते पाहा.",
+      "अन्न हा अनेक घटकांपैकी एक असू शकतो. एखाद्या पदार्थालाच कारण मानण्यापूर्वी वारंवार दिसणारा नमुना पाहा.",
+      "ताण आणि झोप काही लक्षणांचा अनुभव बदलू शकतात, पण प्रत्येक लक्षणाचं स्पष्टीकरण ते देत नाहीत.",
+      "दिनचर्या संदर्भ देते. जेवण, झोप, हालचाल किंवा दैनंदिन वेळापत्रकातील बदल लक्षणांमधील बदलांसोबत दिसू शकतात."
+    ]
+
+  };
+
+  return `
+    <p>
+      ${escapeHTML(
+        content[state.language][index]
+      )}
+    </p>
+  `;
+
+}
+
+
+/* =========================================================
+   COMFORT
+   ========================================================= */
+
+function renderComfort() {
+
+  const container =
+    $("comfortCards");
+
+  if (!container) return;
+
+  const groups =
+    COMFORT[state.language];
+
+  container.innerHTML =
+    groups
+      .map(group => `
+
+        <div class="comfort-card">
+
+          <h3>
+            ${escapeHTML(group.title)}
+          </h3>
+
+          <ul>
+
+            ${group.items
+              .map(item => `
+                <li>
+                  ${escapeHTML(item)}
+                </li>
+              `)
+              .join("")
+            }
+
+          </ul>
+
+        </div>
+
+      `)
+      .join("");
+
+
+  const note =
+    $("comfortNote");
+
+  if (note) {
+    note.textContent =
+      getLang().comfortNote;
+  }
+
+}
+
+
+/* =========================================================
+   SAFETY
+   ========================================================= */
+
+function updateSafety() {
+
+  const urgent =
+    $("urgentText");
+
+  if (urgent) {
+    urgent.textContent =
+      getLang().urgent;
+  }
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+function resetExperience() {
+
+  state.concern = "";
+  state.framework = null;
+  state.questionIndex = 0;
+  state.answers = {};
+
+  const input =
+    $("concernInput");
+
+  if (input) {
+    input.value = "";
+  }
+
+  [
+    "resultSection",
+    "explorerSection",
+    "connectedSection",
+    "comfortSection",
+    "safetySection"
+  ]
+  .forEach(id => {
+
+    const el = $(id);
+
+    if (el) {
+      el.classList.remove("visible");
+    }
+
+  });
+
+
+  const result =
+    $("explorerResult");
+
+  if (result) {
+    result.innerHTML = "";
+  }
+
+
+  document
+    .querySelectorAll(".framework-card")
+    .forEach(card => {
+      card.classList.remove("selected");
+    });
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   SPEECH INPUT
+   ========================================================= */
+
+let recognition = null;
+let isListening = false;
+
+function getSpeechLanguage() {
+
+  if (
+    state.language === "hi" ||
+    state.language === "hiEn"
+  ) {
+    return "hi-IN";
+  }
+
+  if (
+    state.language === "mr" ||
+    state.language === "mrEn"
+  ) {
+    return "mr-IN";
+  }
+
+  return "en-IN";
+
+}
+
+
+function setupSpeech() {
+
+  const button =
+    $("speakBtn");
+
+  if (!button) return;
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        showToast(
+          state.language === "hi"
+            ? "इस browser में voice input उपलब्ध नहीं है।"
+            : state.language === "mr"
+              ? "या browser मध्ये voice input उपलब्ध नाही."
+              : "Voice input is not available in this browser."
+        );
+
+      }
+    );
+
+    return;
+  }
+
+
+  recognition =
+    new SpeechRecognition();
+
+  recognition.continuous = false;
+  recognition.interimResults = true;
+
+
+  recognition.onstart = () => {
+
+    isListening = true;
+
+    button.classList.add(
+      "listening"
+    );
+
+    const label =
+      button.querySelector(
+        ".speak-label"
+      );
+
+    if (label) {
+
+      label.textContent =
+        state.language === "hi"
+          ? "सुन रहे हैं…"
+          : state.language === "mr"
+            ? "ऐकत आहोत…"
+            : "Listening…";
+
+    }
+
+  };
+
+
+  recognition.onresult =
+    (event) => {
+
+      let transcript = "";
+
+      for (
+        let i = event.resultIndex;
+        i < event.results.length;
+        i++
+      ) {
+
+        transcript +=
+          event.results[i][0]
+            .transcript;
+
+      }
+
+      if (transcript.trim()) {
+
+        const input =
+          $("concernInput");
+
+        if (input) {
+          input.value =
+            transcript.trim();
+        }
+
+      }
+
+    };
+
+
+  recognition.onerror =
+    () => {
+
+      showToast(
+        state.language === "hi"
+          ? "Voice input पूरा नहीं हो सका। आप type भी कर सकते हैं।"
+          : state.language === "mr"
+            ? "Voice input पूर्ण होऊ शकला नाही. तुम्ही type देखील करू शकता."
+            : "Voice input didn't work. You can type instead."
+      );
+
+    };
+
+
+  recognition.onend =
+    () => {
+
+      isListening = false;
+
+      button.classList.remove(
+        "listening"
+      );
+
+      const label =
+        button.querySelector(
+          ".speak-label"
+        );
+
+      if (label) {
+        label.textContent =
+          getLang().speak;
+      }
+
+    };
+
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      if (isListening) {
+
+        recognition.stop();
+
+        return;
+      }
+
+      recognition.lang =
+        getSpeechLanguage();
+
+      try {
+        recognition.start();
+      } catch (error) {
+        /* Browser may reject duplicate starts. */
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message) {
+
+  const toast =
+    $("toast");
+
+  if (!toast) return;
+
+  toast.textContent =
+    message;
+
+  toast.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    showToast.timeout
+  );
+
+  showToast.timeout =
+    setTimeout(
+      () => {
+        toast.classList.remove(
+          "show"
+        );
+      },
+      3200
+    );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPING
+   ========================================================= */
+
+function escapeHTML(value) {
+
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   EVENT LISTENERS
+   ========================================================= */
+
+const startButton =
+  $("startBtn");
+
+if (startButton) {
+
+  startButton.addEventListener(
+    "click",
+    startExploration
+  );
+
+}
+
+
+const concernInput =
+  $("concernInput");
+
+if (concernInput) {
+
+  concernInput.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        (event.ctrlKey ||
+          event.metaKey) &&
+        event.key === "Enter"
+      ) {
+
+        startExploration();
+
+      }
+
+    }
+  );
+
+}
+
+
+if ($("languageSelect")) {
+
+  $("languageSelect")
+    .addEventListener(
+      "change",
+      event => {
+
+        state.language =
+          event.target.value;
+
+        applyLanguage();
+
+      }
+    );
+
+}
+
+
+document
+  .querySelectorAll("[data-reset]")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      resetExperience
+    );
+
+  });
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+applyLanguage();
+renderConnected();
+renderComfort();
+updateSafety();
+setupSpeech();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+           
