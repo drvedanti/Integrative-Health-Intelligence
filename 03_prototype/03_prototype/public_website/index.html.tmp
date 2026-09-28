@@ -64,15 +64,16 @@ header{
 
 .brand{
   color:var(--wine);
-  font-weight:900;
+  font-weight:950;
   letter-spacing:.08em;
-  font-size:17px;
+  font-size:42px;
+  line-height:1;
 }
 
 .brand small{
   display:block;
   color:var(--muted);
-  font-size:9px;
+  font-size:11px;
   letter-spacing:.12em;
   margin-top:2px;
 }
@@ -195,6 +196,21 @@ textarea:focus{
 .secondary{
   background:var(--gold-soft);
   color:#6c5124;
+}
+
+#speak{
+  min-width:118px;
+}
+
+#speak.listening{
+  background:#f8dfe2;
+  color:var(--wine);
+  border:1px solid #e5b9c0;
+}
+
+#speak.listening::after{
+  content:" •";
+  font-weight:900;
 }
 
 .outline{
@@ -495,7 +511,7 @@ main{
 /* FOOTER */
 
 .footer{
-  border-top:1px solid var(--line);
+  border-top:0;
   padding:34px 0 52px;
   color:var(--muted);
   font-size:12px;
@@ -520,9 +536,109 @@ main{
   z-index:20;
 }
 
+/* UPGRADED INTERACTION LAYER */
+
+.health-terms{
+  margin-top:14px;
+  padding:18px 20px;
+  box-shadow:none;
+}
+
+.term-heading{
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.term-row{
+  display:grid;
+  grid-template-columns:minmax(180px,.55fr) 1fr;
+  gap:14px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
+  font-size:13px;
+}
+
+.term-row span,.term-empty{
+  color:var(--muted);
+}
+
+.framework-learning{
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  background:#f8f1e5;
+  border:1px solid #eadcc5;
+}
+
+.learning-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  margin-bottom:7px;
+}
+
+.learning-core,.learning-evidence{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.65);
+  font-size:12px;
+}
+
+.learning-evidence{
+  color:#665e58;
+}
+
+.question-progress{margin-bottom:18px}
+.progress-label{font-size:12px;color:var(--muted);margin-bottom:7px}
+.progress-track{height:6px;background:#eee5da;border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;background:var(--wine);transition:width .2s ease}
+.question-card{padding-top:4px}
+.question-why{margin:8px 0 14px;padding:10px 12px;border-left:3px solid var(--gold);background:#faf6ef;color:var(--muted);font-size:12px}
+.question-why strong{color:var(--ink);margin-right:4px}
+.option-list{display:grid;gap:9px;margin-top:15px}
+.option-button{display:flex;align-items:flex-start;gap:10px;width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;color:var(--ink);transition:.15s ease}
+.option-button:hover{border-color:var(--gold)}
+.option-button.selected{border-color:var(--wine);background:#fbeced}
+.option-dot{width:17px;height:17px;border:1px solid #b9aea5;border-radius:5px;flex:0 0 auto;margin-top:2px}
+.option-button.selected .option-dot{border:5px solid var(--wine);background:#fff}
+.question-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
+.primary-button{border:0;border-radius:999px;background:var(--wine);color:#fff;font-weight:800;padding:11px 16px}
+.primary-button:disabled{opacity:.45;cursor:not-allowed}
+.text-button{border:0;background:transparent;color:var(--muted);padding:10px}
+.result-panel{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+.result-kicker{font-size:11px;font-weight:850;letter-spacing:.05em;color:var(--wine);margin-bottom:8px}
+.result-panel h3{font-size:28px;margin:0 0 8px}
+.result-intro{color:var(--muted)}
+.result-group{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.result-group h4{margin:0 0 8px}
+.result-group li{margin:7px 0;color:#5f5752}
+.result-boundary,.framework-boundary{margin-top:18px;padding:13px;border-radius:14px;background:#f6f1ea;font-size:12px;color:#665e58}
+.result-boundary strong,.framework-boundary strong{color:var(--ink)}
+.connected-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.connected-node{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px;text-align:left;font-size:12px}
+.connected-node.selected{border-color:var(--wine);background:#fbeced}
+.node-number{display:block;font-weight:800;color:var(--gold);margin-bottom:5px}
+.connected-detail{margin-top:12px;padding:14px;border-radius:14px;background:#f7f1e9;color:#625a55;font-size:13px}
+.comfort-card{padding:16px;border:1px solid var(--line);border-radius:16px;margin-bottom:10px}
+.comfort-card h3{font-size:20px;margin:0 0 8px}
+.comfort-card li{margin:7px 0;color:#625a55;font-size:13px}
+.own-words{margin-top:14px;padding:14px;border-radius:14px;background:#faf6ef;border:1px solid var(--line)}
+.own-words label{display:block;font-weight:800;font-size:13px;margin-bottom:7px}
+.own-words textarea{min-height:92px;background:#fff}
+.selection-hint{font-size:12px;color:var(--muted);margin:7px 0 0}
+.dynamic-explanation{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.explanation-card{padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.explanation-card h3{font-size:19px;margin:0 0 7px}
+.explanation-card p{margin:0;color:var(--muted);font-size:13px}
+@media(max-width:800px){.dynamic-explanation{grid-template-columns:1fr}}
+body:before,body:after{display:none!important;content:none!important}
+
 /* MOBILE */
 
 @media(max-width:800px){
+
+  .brand{font-size:34px}
+  .brand small{font-size:9px}
 
   .approach-grid{
     grid-template-columns:1fr;
@@ -572,9 +688,9 @@ main{
 
   <select class="lang" id="language" aria-label="Choose language">
     <option value="en">English</option>
-    <option value="hi-en">हिंदी + English</option>
+    <option value="hiEn">हिंदी + English</option>
     <option value="hi">हिंदी</option>
-    <option value="mr-en">मराठी + English</option>
+    <option value="mrEn">मराठी + English</option>
     <option value="mr">मराठी</option>
   </select>
 
@@ -616,11 +732,11 @@ main{
 
     <div class="actions">
 
-      <button class="btn secondary" id="speak">
+      <button type="button" class="btn secondary" id="speak">
         🎙 <span id="speakText">Speak</span>
       </button>
 
-      <button class="btn primary" id="explore">
+      <button type="button" class="btn primary" id="explore">
         Start exploring →
       </button>
 
@@ -664,6 +780,11 @@ main{
 
       <div class="story-facts" id="storyFacts"></div>
 
+    </div>
+
+    <div class="card health-terms" id="healthTerms">
+      <div class="term-heading">What do these words mean?</div>
+      <div class="term-empty">We’ll explain familiar health terms when this prototype can confidently map them.</div>
     </div>
 
   </section>
@@ -765,15 +886,10 @@ main{
         Let's narrow down the pattern with a few simple questions.
       </p>
 
+      <div class="framework-learning" id="frameworkLearning"></div>
+
       <div id="questions"></div>
 
-      <div class="explorer-action">
-
-        <button class="btn primary" id="narrowBtn">
-          Explore this pattern →
-        </button>
-
-      </div>
 
 
       <div class="explorer-result" id="explorerResult">
@@ -812,19 +928,19 @@ main{
   </section>
 
 
-  <!-- CONNECTIONS -->
+  <!-- PATTERN EXPLANATION -->
 
   <section class="section">
 
     <h2 id="connectedTitle">
-      What might be connected?
+      What could help explain this pattern?
     </h2>
 
     <p class="section-intro" id="connectedIntro">
-      These are clues to explore, not proof that one thing is causing another.
+      A plain-language explanation of what may be involved, what can influence it, and what would change the interpretation.
     </p>
 
-    <div class="connection-grid" id="connections"></div>
+    <div class="dynamic-explanation" id="connections"></div>
 
   </section>
 
@@ -849,7 +965,7 @@ main{
 
   <!-- SAFETY -->
 
-  <section class="section">
+  <section class="section" id="safetySection" style="display:none">
 
     <div class="card safety">
 
@@ -934,9 +1050,289 @@ const LANG = {
 
     heardTitle: "Here's what we heard.",
     heardText:
+      "We picked out the main things you told us.
+You can correct anything that doesn't sound right.
+    </p>
+
+    <div class="card story-card">
+
+      <span class="badge modern" id="storyBadge">
+        YOUR STORY
+      </span>
+
+      <p class="story-text" id="storyText"></p>
+
+      <div class="story-facts" id="storyFacts"></div>
+
+    </div>
+
+    <div class="card health-terms" id="healthTerms">
+      <div class="term-heading">What do these words mean?</div>
+      <div class="term-empty">We’ll explain familiar health terms when this prototype can confidently map them.</div>
+    </div>
+</section>
+
+
+  <!-- APPROACH SELECTION -->
+
+  <section class="section">
+
+    <h2 id="chooseTitle">
+      What do you want to explore?
+    </h2>
+
+    <p class="section-intro" id="chooseIntro">
+      Choose one approach to start.
+      You can explore another one later.
+    </p>
+
+    <div class="approach-grid">
+
+
+      <button class="approach" data-approach="modern">
+
+        <div class="approach-icon">🩺</div>
+
+        <span class="badge modern">
+          MODERN MEDICINE
+        </span>
+
+        <h3 id="modernChoice">
+          Modern Medicine
+        </h3>
+
+        <p id="modernChoiceText">
+          How does modern medicine understand this?
+        </p>
+
+      </button>
+
+
+      <button class="approach" data-approach="ayur">
+
+        <div class="approach-icon">🌿</div>
+
+        <span class="badge traditional">
+          AYURVEDA
+        </span>
+
+        <h3 id="ayurChoice">
+          Ayurveda
+        </h3>
+
+        <p id="ayurChoiceText">
+          How does Ayurveda understand this?
+        </p>
+
+      </button>
+<button class="approach" data-approach="homeo">
+
+        <div class="approach-icon">◌</div>
+
+        <span class="badge traditional">
+          HOMEOPATHY
+        </span>
+
+        <h3 id="homeoChoice">
+          Homeopathy
+        </h3>
+
+        <p id="homeoChoiceText">
+          How does Homeopathy understand this?
+        </p>
+
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- INTERACTIVE EXPLORER -->
+
+  <section class="section explorer" id="explorer">
+
+    <div class="card explorer-card">
+
+      <span class="badge" id="explorerBadge">
+        MODERN MEDICINE
+      </span>
+
+      <h2 id="explorerTitle">
+        What could be happening in the body?
+      </h2>
+
+      <p class="section-intro" id="explorerIntro">
+        Let's narrow down the pattern with a few simple questions.
+      </p>
+
+      <div class="framework-learning" id="frameworkLearning"></div>
+
+      <div id="questions"></div>
+
+
+
+      <div class="explorer-result" id="explorerResult">
+
+        <div class="card result-card">
+
+          <h3 id="resultTitle">
+            What your answers suggest
+          </h3>
+
+          <p id="resultText"></p>
+
+          <div class="pills" id="resultPills"></div>
+
+          <div class="evidence" id="evidenceNote"></div>
+
+        </div>
+
+
+        <div class="next-actions">
+
+          <button id="anotherBtn">
+            Explore another approach
+          </button>
+
+          <button id="newBtn">
+            Start a new question
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- PATTERN EXPLANATION -->
+
+  <section class="section">
+
+    <h2 id="connectedTitle">
+      What could help explain this pattern?
+    </h2>
+
+    <p class="section-intro" id="connectedIntro">
+      A plain-language explanation of what may be involved, what can influence it, and what would change the interpretation.
+    </p>
+
+    <div class="dynamic-explanation" id="connections"></div>
+
+  </section>
+
+
+  <!-- COMFORT -->
+
+  <section class="section">
+
+    <h2 id="comfortTitle">
+      Things you can consider for comfort
+    </h2>
+
+    <p class="section-intro" id="comfortIntro">
+      Simple ideas and traditional practices, clearly labelled.
+      They are not cures.
+    </p>
+
+    <div class="card comfort" id="comfortCard"></div>
+
+  </section>
+
+
+  <!-- SAFETY -->
+
+  <section class="section" id="safetySection" style="display:none">
+
+    <div class="card safety">
+
+      <h3 id="safetyTitle">
+        When to get urgent help
+      </h3>
+
+      <ul id="safetyList"></ul>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="footer-name">
+    IHI — Integrative Health Intelligence
+  </div>
+
+  <div style="margin-top:7px" id="footerLine">
+    Understand what's happening.
+    Explore what it could mean.
+  </div>
+
+  <div style="margin-top:10px">
+    A product concept by <strong>Dr. Vedanti Shah</strong>.
+  </div>
+
+  <div style="margin-top:12px">
+    IHI does not diagnose, prescribe, or replace qualified medical care.
+    Traditional frameworks are presented as distinct frameworks and
+    do not share the same evidence base.
+  </div>
+
+</footer>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+ <script>
+/* =========================================================
+   IHI — INTERACTIVE PRODUCT LOGIC
+   Chunk 2: language + exploration data
+   ========================================================= */
+
+const state = {
+  language: "en",
+  concern: "",
+  framework: null,
+  questionIndex: 0,
+  answers: {},
+  transcript: ""
+};
+
+
+/* ---------------------------------------------------------
+   LANGUAGE CONTENT
+   --------------------------------------------------------- */
+
+const LANG = {
+
+  en: {
+    heroKicker: "UNDERSTAND WHAT'S HAPPENING",
+    heroTitle: "Something doesn't feel right. Let's understand why.",
+    heroText:
+      "Tell us what's happening in your own words. Explore different ways of understanding it — from modern medicine to Ayurveda and homeopathy.",
+concernLabel: "What's happening?",
+    concernHint: "Tell us what you've noticed. No medical words needed.",
+    placeholder:
+      "For example: I've been feeling bloated after meals and sometimes I get a burning feeling in my chest.",
+    speak: "Speak",
+    exploring: "Start exploring",
+    example: "Try an everyday description — you can mix languages naturally when speaking.",
+    disclaimer:
+      "IHI is an educational exploration tool, not a diagnosis or a substitute for medical care.",
+
+    heardTitle: "Here's what we heard.",
+    heardText:
       "We picked out the main things you told us. You can correct anything that doesn't sound right.",
 
     exploreTitle: "What do you want to explore?",
+    chooseIntro: "Choose one approach to start. You can explore another one later.",
     modern: "Modern Medicine",
     modernSub: "How does modern medicine understand this?",
     ayurveda: "Ayurveda",
@@ -979,6 +1375,7 @@ const LANG = {
     urgent:
       "Seek urgent medical care for severe trouble breathing, chest pressure or severe chest pain, fainting, confusion, sudden weakness, severe bleeding, or another symptom that feels like an emergency.",
 
+    termEmpty: "We’ll keep your own words when this prototype cannot confidently map them to a health term.",
     footer:
       "Your health story deserves more than a one-size-fits-all answer."
   },
@@ -1020,8 +1417,7 @@ const LANG = {
     connectedTitle: "और क्या इससे जुड़ा हो सकता है?",
     connectedText:
       "Health experiences में कई चीज़ें एक साथ जुड़ी हो सकती हैं। अपनी कहानी के अलग हिस्सों को explore करें।",
-
-    comfortTitle: "आराम के लिए कुछ चीज़ें जिन्हें आप आज़मा सकते हैं",
+comfortTitle: "आराम के लिए कुछ चीज़ें जिन्हें आप आज़मा सकते हैं",
     comfortIntro:
       "ये general comfort और observation के लिए ideas हैं — treatment या cure नहीं।",
 
@@ -1120,8 +1516,7 @@ const LANG = {
       "आपकी स्वास्थ्य कहानी केवल एक ही तरह के उत्तर से अधिक की हकदार है।"
   },
 
-
-  mrEn: {
+mrEn: {
     heroKicker: "काय होतंय ते समजून घ्या",
     heroTitle: "काहीतरी ठीक वाटत नाही? चला, का होतंय ते समजून घेऊया.",
     heroText:
@@ -1178,8 +1573,7 @@ const LANG = {
 
     modernEvidence:
       "Possible contributors म्हणजे diagnosis नाही. त्यांच्यात फरक करण्यासाठी आणखी information किंवा clinical assessment लागू शकते.",
-
-    comfortNote:
+comfortNote:
       "एखाद्या practice मुळे discomfort झाला, symptoms वाढले किंवा ती तुमच्यासाठी योग्य नसेल तर ती थांबवा आणि योग्य advice घ्या.",
 
     urgent:
@@ -1246,8 +1640,7 @@ const LANG = {
 
     modernEvidence:
       "संभाव्य कारणे म्हणजे निदान नाही. त्यांच्यात फरक करण्यासाठी अधिक माहिती किंवा वैद्यकीय तपासणी आवश्यक असू शकते.",
-
-    comfortNote:
+comfortNote:
       "एखाद्या उपायामुळे त्रास झाला, लक्षणे वाढली किंवा तो तुमच्यासाठी योग्य नसेल तर तो थांबवा आणि योग्य सल्ला घ्या.",
 
     urgent:
@@ -1357,8 +1750,7 @@ const FRAMEWORKS = {
           ]
         }
       ],
-
-      hi: [
+hi: [
         {
           text: "आपको यह सबसे ज़्यादा कहाँ महसूस होता है?",
           options: [
@@ -1439,7 +1831,7 @@ const FRAMEWORKS = {
             "थोडा — जाणवतो पण manage होतो",
             "मध्यम — काही activities वर परिणाम होतो",
             "जास्त — normal activities मध्ये अडथळा येतो",
-            कमी, कधी जास्त"
+            "कमी, कधी जास्त"
           ]
         }
       ]
@@ -1469,280 +1861,6 @@ const FRAMEWORKS = {
           "अभी enough information नहीं है"
         ]
       },
-
-      hi: {
-        title: "शरीर में क्या हो सकता है?",
-        body:
-          "आपके उत्तर अनुभव के पैटर्न को व्यवस्थित करने में मदद कर सकते हैं, लेकिन अकेले इनसे किसी बीमारी का निदान नहीं किया जा सकता। समय, स्थान, बढ़ाने वाली चीज़ों और लक्षण की तीव्रता के आधार पर अलग-अलग संभावनाएँ अधिक या कम महत्वपूर्ण हो सकती हैं।",
-        categories: [
-          "और समझने के लिए अधिक प्रासंगिक",
-          "अभी भी संभव",
-          "अभी पर्याप्त जानकारी नहीं है"
-        ]
-      },
-
-      mrEn: {
-        title: "शरीरामध्ये काय होत असू शकतं?",
-        body:
-          "तुमची answers pattern organise करायला मदत करू शकतात, पण त्यावरून diagnosis ठरवता येत नाही. Timing, location, triggers आणि severity नुसार काही possibilities अधिक किंवा कमी relevant होऊ शकतात.",
-        categories: [
-          "Explore करण्यासाठी अधिक relevant",
-          "अजूनही possible",
-          "अजून enough information नाही"
-        ]
-      },
-
-      mr: {
-        title: "शरीरामध्ये काय होत असू शकतं?",
-        body:
-          "तुमची उत्तरं अनुभवाचा pattern समजून घेण्यास मदत करू शकतात, पण त्यावरून आजाराचं निदान करता येत नाही. लक्षण कधी सुरू झालं, कुठे आहे, कशामुळे वाढतं आणि तीव्रता किती आहे यावर वेगवेगळ्या शक्यता कमी-जास्त महत्त्वाच्या ठरू शकतात.",
-        categories: [
-          "पुढे समजून घेण्यासाठी अधिक संबंधित",
-          "अजूनही शक्य",
-          "अजून पुरेशी माहिती नाही"
-        ]
-      }
-
-    }
-  },
-
-
-  ayurveda: {
-
-    icon: "🌿",
-
-    questions: {
-
-      en: [
-        {
-          text: "How has your digestion been lately?",
-          options: [
-            "Usually comfortable",
-            "Heavy or slow after meals",
-            "Bloating or gas is common",
-            "Burning or acidity is common",
-            "It changes from day to day"
-          ]
-        },
-        {
-          text: "How is your appetite?",
-          options: [
-            "Regular",
-            "Strong or frequent hunger",
-            "Low or irregular",
-            "It varies",
-            "Not sure"
-          ]
-        },
-        {
-          text: "Which sounds closer to your recent routine?",
-          options: [
-            "Regular meals and sleep",
-            "Irregular meals",
-            "Late meals or late nights",
-            "Stress has disrupted my routine",
-            "My routine is fairly steady"
-          ]
-        },
-        {
-          text: "What tends to change the symptom?",
-          options: [
-            "Certain foods",
-            "Heat or cold",
-            "Time of day",
-            "Rest or activity",
-            "I haven't noticed"
-          ]
-        }
-      ],
-
-      hiEn: [
-        {
-          text: "हाल में आपका digestion कैसा रहा है?",
-          options: [
-            "आमतौर पर ठीक",
-            "Meals के बाद heavy या slow",
-            "Bloating या gas अक्सर",
-            "Burning या acidity अक्सर",
-            "दिन-ब-दिन बदलता है"
-          ]
-        },
-        {
-          text: "आपकी appetite कैसी है?",
-          options: [
-            "Regular",
-            "ज़्यादा या बार-बार hunger",
-            "कम या irregular",
-            "बदलती रहती है",
-            "पता नहीं"
-          ]
-        },
-        {
-          text: "आपकी recent routine में क्या ज़्यादा करीब है?",
-          options: [
-            "Regular meals और sleep",
-            "Irregular meals",
-            "Late meals या late nights",
-            "Stress से routine बिगड़ी है",
-            "Routine काफी steady है"
-          ]
-        },
-        {
-          text: "Symptom में क्या बदलाव लाता है?",
-          options: [
-            "कुछ foods",
-            "Heat या cold",
-            "दिन का समय",
-            "Rest या activity",
-            "मैंने notice नहीं किया"
-          ]
-        }
-      ],
-
-      hi: [
-        {
-          text: "हाल में आपका पाचन कैसा रहा है?",
-          options: [
-            "आमतौर पर ठीक",
-            "खाने के बाद भारी या धीमा",
-            "पेट फूलना या गैस अक्सर",
-            "जलन या अम्लता अक्सर",
-            "दिन-ब-दिन बदलता है"
-          ]
-        },
-        {
-          text: "आपकी भूख कैसी है?",
-          options: [
-            "नियमित",
-            "ज़्यादा या बार-बार भूख",
-            "कम या अनियमित",
-            "बदलती रहती है",
-            "पता नहीं"
-          ]
-        },
-        {
-          text: "आपकी हाल की दिनचर्या में क्या अधिक करीब है?",
-          options: [
-            "नियमित भोजन और नींद",
-            "अनियमित भोजन",
-            "देर से खाना या देर रात तक जागना",
-            "तनाव से दिनचर्या प्रभावित हुई है",
-            "दिनचर्या काफी नियमित है"
-          ]
-        },
-        {
-          text: "लक्षण में किससे बदलाव आता है?",
-          options: [
-            "कुछ खास भोजन",
-            "गर्मी या ठंड",
-            "दिन का समय",
-            "आराम या गतिविधि",
-            "मैंने ध्यान नहीं दिया"
-          ]
-        }
-      ],
-
-      mrEn: [
-        {
-          text: "अलीकडे तुमचं digestion कसं आहे?",
-          options: [
-            "सहसा ठीक",
-            "Meals नंतर heavy किंवा slow",
-            "Bloating किंवा gas वारंवार",
-            "Burning किंवा acidity वारंवार",
-            "दिवसानुसार बदलतं"
-          ]
-        },
-        {
-          text: "तुमची appetite कशी आहे?",
-          options: [
-            "Regular",
-            "जास्त किंवा वारंवार hunger",
-            "कमी किंवा irregular",
-            "बदलत राहते",
-            "नक्की सांगता येत नाही"
-          ]
-        },
-        {
-          text: "तुमच्या recent routine शी काय जास्त जुळतं?",
-          options: [
-            "Regular meals आणि sleep",
-            "Irregular meals",
-            "Late meals किंवा late nights",
-            "Stress मुळे routine disturb झाली आहे",
-            "Routine बरीच steady आहे"
-          ]
-        },
-        {
-          text: "Symptom मध्ये कशामुळे बदल होतो?",
-          options: [
-            "काही foods",
-            "Heat किंवा cold",
-            "दिवसातील वेळ",
-            "Rest किंवा activity",
-            "मी notice केलेलं नाही"
-          ]
-        }
-      ],
-
-      mr: [
-        {
-          text: "अलीकडे तुमचं पचन कसं आहे?",
-          options: [
-            "सहसा ठीक",
-            "जेवल्यानंतर जड किंवा मंद",
-            "पोट फुगणे किंवा वायू वारंवार",
-            "जळजळ किंवा आम्लपित्त वारंवार",
-            "दिवसानुसार बदलतं"
-          ]
-        },
-        {
-          text: "तुमची भूक कशी आहे?",
-          options: [
-            "नियमित",
-            "जास्त किंवा वारंवार लागते",
-            "कमी किंवा अनियमित",
-            "बदलत राहते",
-            "नक्की सांगता येत नाही"
-          ]
-        },
-        {
-          text: "तुमच्या अलीकडच्या दिनचर्येशी काय जास्त जुळतं?",
-          options: [
-            "नियमित जेवण आणि झोप",
-            "अनियमित जेवण",
-            "उशिरा जेवण किंवा उशिरापर्यंत जागणं",
-            "ताणामुळे दिनचर्या बिघडली आहे",
-            "दिनचर्या बरीच नियमित आहे"
-          ]
-        },
-        {
-          text: "लक्षणात कशामुळे बदल होतो?",
-          options: [
-            "काही विशिष्ट पदार्थ",
-            "उष्णता किंवा थंडी",
-            "दिवसातील वेळ",
-            "विश्रांती किंवा हालचाल",
-            "मी लक्ष दिलेलं नाही"
-          ]
-        }
-      ]
-
-    },
-
-    results: {
-
-      en: {
-        title: "What might this mean in Ayurveda?",
-        body:
-          "Ayurveda traditionally looks at patterns involving digestion, appetite, daily routine, sleep and the qualities of symptoms. Your answers can show which parts of that framework may be relevant to explore further.",
-        label: "Traditional Ayurvedic interpretation"
-      },
-
-      hiEn: {
-        title: "Ayurveda में इसका क्या मतलब हो सकता है?",
-        body:
-          "Ayurveda परंपरागत रूप से digestion, appetite, daily routine, sleep और symptoms की qualities जैसे patterns को देखता है। आपके answers से इस framework के कौन से हिस्से आगे explore किए जा सकते हैं, यह समझने में मदद मिल सकती है।",
         label: "Traditional Ayurvedic interpretation"
       },
 
@@ -2037,8 +2155,74 @@ const FRAMEWORKS = {
 };
 
   /* ---------------------------------------------------------
-   CONNECTED-PATTERN CONTENT
+   FRAMEWORK LEARNING + EVERYDAY → HEALTH TERMS
    --------------------------------------------------------- */
+
+const FRAMEWORK_LEARNING = {
+  en: {
+    modern: {
+      title: "How Modern Medicine thinks",
+      story: "Think of it like working through clues: start with what you feel, understand how the body could produce it, consider several possibilities, then use history, examination or tests to narrow them down.",
+      core: "Symptoms → possible explanations → evidence → clinical assessment",
+      evidence: "Evidence-based clinical framework"
+    },
+    ayurveda: {
+      title: "How Ayurveda thinks",
+      story: "Ayurveda looks at health through a traditional whole-person framework. A central idea is balance among three doshas: Vata, Pitta and Kapha. Agni is a key Ayurvedic concept related to digestion and transformation.",
+      core: "Vata = movement • Pitta = transformation • Kapha = structure/stability • Agni = digestion/transformation",
+      evidence: "Traditional Ayurvedic framework — not the same evidence base as modern clinical medicine"
+    },
+    homeopathy: {
+      title: "How Homeopathy thinks",
+      story: "Homeopathy is built around the Law of Similars — ‘like cures like’. In homeopathic practice, a substance associated with a pattern of symptoms is used as the basis for selecting a highly individualized remedy. The person's detailed symptom pattern and what changes it are considered important.",
+      core: "Symptom pattern → similarity → individualized remedy selection",
+      evidence: "Traditional homeopathic framework — its principles should not be confused with established evidence of clinical effectiveness"
+    }
+  },
+
+  hiEn: {
+    modern: {
+      title: "Modern Medicine कैसे सोचती है",
+      story: "इसे clues की तरह समझें: पहले आप क्या महसूस कर रहे हैं, फिर body में यह कैसे हो सकता है, फिर अलग possibilities को compare करके history, examination या tests से उन्हें narrow किया जाता है।",
+      core: "Symptoms → possible explanations → evidence → clinical assessment",
+      evidence: "Evidence-based clinical framework"
+    },
+    ayurveda: {
+      title: "Ayurveda कैसे सोचता है",
+      story: "Ayurveda एक traditional whole-person framework है। इसके central ideas में Vata, Pitta और Kapha तीन doshas हैं। Agni digestion और transformation से जुड़ा एक महत्वपूर्ण Ayurvedic concept है।",
+      core: "Vata = movement • Pitta = transformation • Kapha = structure/stability • Agni = digestion/transformation",
+      evidence: "Traditional Ayurvedic framework — modern clinical medicine जैसी evidence base नहीं"
+    },
+    homeopathy: {
+      title: "Homeopathy कैसे सोचती है",
+      story: "Homeopathy का core Law of Similars है — ‘like cures like’। Homeopathic practice में किसी व्यक्ति के detailed symptom pattern और उसे बदलने वाली परिस्थितियों को remedy selection में महत्वपूर्ण माना जाता है।",
+      core: "Symptom pattern → similarity → individualized remedy selection",
+      evidence: "Traditional homeopathic framework — इसके principles को established clinical effectiveness के evidence से अलग समझें"
+    }
+  },
+
+  hi: {
+    modern: {
+      title: "आधुनिक चिकित्सा कैसे सोचती है",
+      story:"इसे सुरागों की तरह समझें: पहले आप क्या महसूस कर रहे हैं, फिर शरीर में यह कैसे हो सकता है, फिर अलग संभावनाओं को देखकर इतिहास, जांच या tests से उन्हें समझने की कोशिश की जाती है।",
+core:"लक्षण → संभावित व्याख्याएँ → प्रमाण → चिकित्सकीय मूल्यांकन",
+evidence:"Evidence-based clinical framework"
+},
+
+ayurveda:{
+title:"आयुर्वेद कैसे सोचता है",
+story:"आयुर्वेद स्वास्थ्य को एक पारंपरिक समग्र दृष्टिकोण से देखता है। इसके प्रमुख विचारों में Vata, Pitta और Kapha तीन doshas हैं। Agni पाचन और transformation से जुड़ा महत्वपूर्ण Ayurvedic concept है।",
+core:"Vata = movement • Pitta = transformation • Kapha = structure/stability • Agni = digestion/transformation",
+evidence:"पारंपरिक आयुर्वेदिक दृष्टिकोण — आधुनिक चिकित्सा जैसी evidence base नहीं"
+},
+
+homeopathy:{
+title:"होम्योपैथी कैसे सोचती है",
+story:"होम्योपैथी का मुख्य सिद्धांत Law of Similars है — ‘like cures like’। होम्योपैथिक practice में व्यक्ति के विस्तृत लक्षण-पैटर्न और उन्हें बदलने वाली परिस्थितियों को remedy selection में महत्वपूर्ण माना जाता है।",
+core:"लक्षण-पैटर्न → समानता → व्यक्तिगत remedy selection",
+evidence:"पारंपरिक होम्योपैथिक दृष्टिकोण — इसके सिद्धांतों को स्थापित clinical effectiveness के प्रमाण से अलग समझें"
+}
+};
 
 const CONNECTED = {
 
@@ -2098,8 +2282,6 @@ const CONNECTED = {
   }
 
 };
-
-
 /* ---------------------------------------------------------
    COMFORT / SELF-CARE CONTENT
    --------------------------------------------------------- */
@@ -2242,347 +2424,295 @@ const COMFORT = {
   ]
 
 };
+const UI_COPY = {
+  en: {
+    resultTitle:"What could explain this?",
+    answersTitle:"What your answers add",
+    whyItMayHappen:"What may be involved",
+    notDiagnosis:"This is an explanation, not a diagnosis.",
+    clinicalNarrow:"A clinician may use examination, history or tests to narrow the cause when needed.",
+    whatItIs:"What it is",
+    whatCanInfluence:"What can influence it",
+    whatChangesIt:"What would change the picture",
+    ownLabel:"Your words"
+  },
 
-<script>
+  hiEn: {
+    resultTitle:"यह क्या समझा सकता है?",
+    answersTitle:"आपके answers से क्या जुड़ता है",
+    whyItMayHappen:"क्या-क्या शामिल हो सकता है",
+    notDiagnosis:"यह समझाने के लिए है, diagnosis के लिए नहीं।",
+    clinicalNarrow:"ज़रूरत होने पर clinician history, examination या tests से कारण को और narrow कर सकता है।",
+    whatItIs:"यह क्या है",
+    whatCanInfluence:"इसे क्या प्रभावित कर सकता है",
+    whatChangesIt:"क्या जानकारी तस्वीर बदल सकती है",
+    ownLabel:"आपके शब्द"
+  },
 
-/* =========================================================
-   IHI — INTERACTION ENGINE
-   CHUNK 3
-   ========================================================= */
+  hi: {
+    resultTitle:"यह क्या समझा सकता है?",
+    answersTitle:"आपके उत्तरों से क्या समझ आता है",
+    whyItMayHappen:"क्या-क्या शामिल हो सकता है",
+    notDiagnosis:"यह केवल समझाने के लिए है, निदान के लिए नहीं।",
+    clinicalNarrow:"ज़रूरत होने पर चिकित्सक इतिहास, शारीरिक जाँच या जाँचों से कारण को और स्पष्ट कर सकता है।",
+    whatItIs:"यह क्या है",
+    whatCanInfluence:"इसे क्या प्रभावित कर सकता है",
+    whatChangesIt:"क्या जानकारी तस्वीर बदल सकती है",
+    ownLabel:"आपके शब्द"
+  },
 
-const state = {
-  language: "en",
-  concern: "",
-  framework: null,
-  questionIndex: 0,
-  answers: {}
+  mrEn: {
+    resultTitle:"हे काय समजावून सांगू शकतं?",
+    answersTitle:"तुमच्या उत्तरांतून काय समजतं",
+    whyItMayHappen:"यात काय असू शकतं",
+    notDiagnosis:"हे समजावण्यासाठी आहे, diagnosis साठी नाही.",
+    clinicalNarrow:"गरज असल्यास डॉक्टर history, तपासणी किंवा tests मधून कारण अधिक स्पष्ट करू शकतात.",
+    whatItIs:"हे काय आहे",
+    whatCanInfluence:"यावर काय परिणाम करू शकतं",
+    whatChangesIt:"काय माहिती चित्र बदलू शकते",
+    ownLabel:"तुमचे शब्द"
+  },
+
+  mr: {
+    resultTitle:"हे काय समजावून सांगू शकतं?",
+    answersTitle:"तुमच्या उत्तरांतून काय समजतं",
+    whyItMayHappen:"यात काय असू शकतं",
+    notDiagnosis:"हे फक्त समजावण्यासाठी आहे, निदानासाठी नाही.",
+    clinicalNarrow:"गरज असल्यास डॉक्टर इतिहास, तपासणी किंवा चाचण्यांमधून कारण अधिक स्पष्ट करू शकतात.",
+    whatItIs:"हे काय आहे",
+    whatCanInfluence:"यावर काय परिणाम करू शकतं",
+    whatChangesIt:"काय माहिती चित्र बदलू शकते",
+    ownLabel:"तुमचे शब्द"
+  }
 };
 
-const $ = (id) => document.getElementById(id);
+const COMPLAINT_PROFILES = {
+  general: {
+    key:"general",
+    simple:"तुमच्या शब्दांवरून नेमकं कारण ठरवता येत नाही. लक्षण कुठे आहे, कधी होतं, कशामुळे बदलतं आणि त्याचा किती परिणाम होतो यामुळे शक्यता वेगळ्या करता येतात.",
+    contributors:[
+      "लक्षणाचा प्रकार आणि त्याची जागा",
+      "वेळ, कालावधी आणि पुन्हा होण्याची पद्धत",
+      "अन्न, झोप, ताण, हालचाल, औषधे किंवा इतर संदर्भ"
+    ],
+    influences:"वेळ, दैनंदिन सवयी, वातावरण, औषधे आणि इतर आरोग्यविषयक घटक परिणाम करू शकतात.",
+    changes:"लक्षण अचानक सुरू होणे, वाढत जाणे, नवीन गंभीर लक्षण येणे किंवा रोजच्या कामांवर मोठा परिणाम होणे यामुळे पुढील तपासणीची गरज बदलू शकते.",
+    modern:"तुमचा अनुभव अनेक कारणांशी संबंधित असू शकतो. IHI लक्षणांच्या नमुन्यातील माहिती व्यवस्थित करते; निदान करण्यासाठी वैद्यकीय इतिहास, तपासणी आणि कधी कधी चाचण्या आवश्यक असतात."
+  },
 
+  acne: {
+    key:"acne",
+    simple:"मुरुम म्हणजे त्वचेतील केसांच्या मुळांभोवतीचे छिद्र तेल (sebum), मृत पेशी आणि दाहामुळे बंद होऊन तयार होणारे दाणे. काहींमध्ये हार्मोन्स आणि त्वचेतील सूक्ष्मजीवांची भूमिका असू शकते.",
+    contributors:[
+      "तेल आणि मृत त्वचेमुळे छिद्र बंद होणे",
+      "हार्मोनल बदलांमुळे तेलाचे उत्पादन वाढणे",
+      "दाह आणि त्वचेच्या भागातील Cutibacterium acnes शी संबंधित प्रक्रिया"
+    ],
+    influences:"हार्मोनल बदल, काही औषधे, घर्षण किंवा occlusive products आणि वैयक्तिक त्वचेची प्रवृत्ती परिणाम करू शकते.",
+    changes:"खूप वेदनादायक खोल दाणे, व्रण पडणे, अचानक मोठ्या प्रमाणात वाढणे किंवा इतर त्वचेची लक्षणे असल्यास साध्या मुरुमांपेक्षा वेगळे कारण विचारात घ्यावे लागू शकते.",
+    modern:"मुरुम हे सामान्यतः hair follicles आणि oil glands शी संबंधित त्वचेचे विकार आहेत. नेमका प्रकार आणि तीव्रता पाहून उपचाराची गरज ठरते; IHI येथे निदान करत नाही."
+  }
+};
+const COMPLAINT_TRANSLATIONS = {
+  en: p => p,
+  hiEn: p => p,
+  mrEn: p => p,
 
-/* =========================================================
-   LANGUAGE
-   ========================================================= */
-
-function getLang() {
-  return LANG[state.language] || LANG.en;
-}
-
-function applyLanguage() {
-
-  const l = getLang();
-
-  const textMap = {
-    heroKicker: l.heroKicker,
-    heroTitle: l.heroTitle,
-    heroText: l.heroText,
-    concernLabel: l.concernLabel,
-    concernHint: l.concernHint,
-    example: l.example,
-    disclaimer: l.disclaimer,
-    heardTitle: l.heardTitle,
-    heardText: l.heardText,
-    exploreTitle: l.exploreTitle,
-    bodyTitle: l.bodyTitle,
-    bodyIntro: l.bodyIntro,
-    connectedTitle: l.connectedTitle,
-    connectedText: l.connectedText,
-    comfortTitle: l.comfortTitle,
-    comfortIntro: l.comfortIntro,
-    safetyTitle: l.safetyTitle,
-    safetyText: l.safetyText,
-    footerText: l.footer
-  };
-
-  Object.entries(textMap).forEach(([id, value]) => {
-
-    const el = $(id);
-
-    if (el) {
-      el.textContent = value;
+  hi: p => ({
+    acne: {
+      simple:"मुँहासे तब बन सकते हैं जब त्वचा के रोमछिद्र तेल, मृत कोशिकाओं और सूजन के कारण बंद हो जाते हैं। हार्मोन भी भूमिका निभा सकते हैं।",
+      contributors:["तेल और मृत कोशिकाओं से रोमछिद्र बंद होना","हार्मोनल बदलाव से तेल का बढ़ना","सूजन और त्वचा में Cutibacterium acnes से जुड़ी प्रक्रिया"],
+      influences:"हार्मोनल बदलाव, कुछ दवाएँ, घर्षण और कुछ त्वचा-उत्पाद असर डाल सकते हैं।",
+      changes:"बहुत दर्द वाले गहरे दाने, दाग पड़ना या अचानक बहुत बढ़ जाना तस्वीर बदल सकता है।",
+      modern:"मुँहासे त्वचा के रोमछिद्रों और तेल बनाने वाली ग्रंथियों से जुड़े होते हैं। प्रकार और गंभीरता देखकर आगे की देखभाल तय होती है।"
     }
+  }[p.key] || null) || p,
 
-  });
-
-  if ($("concernInput")) {
-    $("concernInput").placeholder = l.placeholder;
-  }
-
-  if ($("startBtn")) {
-    $("startBtn").textContent = l.exploring;
-  }
-
-  if ($("speakBtn")) {
-
-    const label =
-      $("speakBtn").querySelector(".speak-label");
-
-    if (label) {
-      label.textContent = l.speak;
+  mr: p => ({
+    acne: {
+      simple:"मुरुम त्वचेतील केसांच्या मुळांभोवतीची छिद्रं तेल, मृत पेशी आणि दाहामुळे बंद झाल्याने होऊ शकतात. हार्मोन्सचीही भूमिका असू शकते.",
+      contributors:["तेल आणि मृत पेशींमुळे छिद्रं बंद होणे","हार्मोनल बदलांमुळे तेल वाढणे","दाह आणि Cutibacterium acnes शी संबंधित प्रक्रिया"],
+      influences:"हार्मोनल बदल, काही औषधे, घर्षण आणि काही त्वचा-उत्पादने परिणाम करू शकतात.",
+      changes:"खोल वेदनादायक मुरुम, व्रण पडणे किंवा अचानक मोठी वाढ होणे यामुळे पुढील तपासणीची गरज बदलू शकते.",
+      modern:"मुरुम हे त्वचेतील रोमछिद्रं आणि तेल तयार करणाऱ्या ग्रंथींशी संबंधित असतात. प्रकार आणि तीव्रता पाहून पुढची काळजी ठरवली जाते."
     }
+  }[p.key] || null) || p
+};
 
+const AYURVEDA_INTERPRETATION = {
+  en:{
+    general:"Ayurveda would traditionally look at the person's overall pattern, including digestion, appetite, routine, sleep and qualities of the symptom. It may describe this through Vata, Pitta and Kapha rather than a modern disease label.",
+    acne:"For skin complaints, an Ayurvedic view may traditionally consider the qualities of the skin, digestion, routine and the balance of Vata, Pitta and Kapha. This is a traditional interpretation, not a biomedical explanation.",
+    headache:"A traditional Ayurvedic interpretation may consider the nature of the headache, routine, sleep, digestion and whether features are described as more Vata-, Pitta- or Kapha-like.",
+    cough:"A traditional Ayurvedic view may describe cough patterns using qualities such as dryness, heaviness, irritation and the person's broader Vata, Pitta and Kapha pattern.",
+    fever:"Ayurveda traditionally describes fever through patterns and qualities of the experience and the person's overall state rather than using the same disease categories as modern medicine.",
+    rash:"A traditional Ayurvedic interpretation may consider the qualities of the skin complaint together with digestion, routine and Vata, Pitta and Kapha patterns.",
+    digestive:"Digestion and Agni are central concepts in Ayurveda. A traditional interpretation may also consider Vata, Pitta and Kapha patterns alongside appetite, meals and routine."
+  },
+
+  hi:{
+    general:"आयुर्वेद परंपरागत रूप से पूरे अनुभव को देखता है — पाचन, भूख, दिनचर्या, नींद और लक्षण के गुणों सहित। इसे आधुनिक बीमारी के नाम के बजाय वात, पित्त और कफ के संतुलन जैसे विचारों से समझाया जा सकता है।",
+    acne:"त्वचा की शिकायत में आयुर्वेद परंपरागत रूप से त्वचा के गुणों, पाचन, दिनचर्या और वात, पित्त तथा कफ के संतुलन को देख सकता है। यह पारंपरिक व्याख्या है, आधुनिक जैव-चिकित्सकीय व्याख्या नहीं।",
+    headache:"परंपरागत आयुर्वेदिक दृष्टिकोण में सिरदर्द की प्रकृति, दिनचर्या, नींद, पाचन और वात, पित्त या कफ जैसे गुणों को देखा जा सकता है।",
+    cough:"आयुर्वेद खाँसी के पैटर्न को सूखापन, भारीपन और जलन जैसे गुणों तथा व्यक्ति के वात, पित्त और कफ के पैटर्न के संदर्भ में देख सकता है।",
+    fever:"आयुर्वेद परंपरागत रूप से बुखार को अनुभव के पैटर्न और व्यक्ति की पूरी स्थिति के आधार पर देखता है, आधुनिक चिकित्सा जैसी बीमारी की श्रेणियों से नहीं।",
+    rash:"त्वचा की शिकायत में आयुर्वेद परंपरागत रूप से त्वचा के गुणों के साथ पाचन, दिनचर्या और वात, पित्त तथा कफ के पैटर्न को देख सकता है।",
+    digestive:"पाचन और अग्नि आयुर्वेद की महत्वपूर्ण संकल्पनाएँ हैं। परंपरागत व्याख्या में भूख, भोजन और दिनचर्या के साथ वात, पित्त और कफ के पैटर्न भी देखे जा सकते हैं।"
+  },
+
+  mr:{
+    general:"आयुर्वेद परंपरेने व्यक्तीचा संपूर्ण नमुना पाहतो — पचन, भूक, दिनचर्या, झोप आणि लक्षणांचे गुणधर्म यांसह. हे आधुनिक रोगाच्या नावाऐवजी वात, पित्त आणि कफ यांच्या संकल्पनांमधून समजावले जाऊ शकते.",
+    acne:"त्वचेच्या तक्रारीत आयुर्वेद परंपरेने त्वचेचे गुणधर्म, पचन, दिनचर्या आणि वात, पित्त व कफ यांचा नमुना पाहू शकतो. ही पारंपरिक व्याख्या आहे; आधुनिक जैव-वैद्यकीय स्पष्टीकरण नाही.",
+    headache:"परंपरागत आयुर्वेदिक दृष्टिकोनात डोकेदुखीचा प्रकार, दिनचर्या, झोप, पचन आणि वात, पित्त किंवा कफसारखे गुण पाहिले जाऊ शकतात.",
+    cough:"आयुर्वेद खोकल्याच्या नमुन्यात कोरडेपणा, जडपणा, चुरचुर आणि व्यक्तीच्या वात, पित्त व कफच्या नमुन्यांचा विचार करू शकतो.",
+    fever:"आयुर्वेद परंपरेने तापाकडे अनुभवाचा नमुना आणि व्यक्तीची संपूर्ण स्थिती पाहून पाहतो; आधुनिक वैद्यकातील रोगांच्या त्याच श्रेणी वापरत नाही.",
+    rash:"त्वचेच्या तक्रारीत आयुर्वेद परंपरेने त्वचेचे गुणधर्म, पचन, दिनचर्या आणि वात, पित्त व कफचे नमुने पाहू शकतो.",
+    digestive:"पचन आणि अग्नी या आयुर्वेदातील महत्त्वाच्या संकल्पना आहेत. पारंपरिक व्याख्येत भूक, जेवण आणि दिनचर्येसोबत वात, पित्त व कफचे नमुनेही पाहिले जाऊ शकतात."
   }
+};
+const COMFORT_TITLES = {
+  en:{
+    general:"Simple things to consider",
+    acne:"For your skin complaint",
+    headache:"For headache comfort",
+    cough:"For cough comfort",
+    fever:"While you are monitoring a fever",
+    rash:"For skin comfort",
+    digestive:"For digestive comfort"
+  },
 
-  updateFrameworkLabels();
-  renderConnected();
-  renderComfort();
-  updateSafety();
+  hiEn:{
+    general:"Simple things to consider",
+    acne:"आपकी skin complaint के लिए",
+    headache:"Headache में comfort के लिए",
+    cough:"Cough में comfort के लिए",
+    fever:"Fever को देखते समय",
+    rash:"Skin comfort के लिए",
+    digestive:"Digestive comfort के लिए"
+  },
 
-  if (state.framework) {
-    renderFrameworkIntro();
-    renderQuestion();
+  hi:{
+    general:"कुछ सरल बातें जिन पर विचार कर सकते हैं",
+    acne:"त्वचा की इस समस्या में",
+    headache:"सिरदर्द में आराम के लिए",
+    cough:"खाँसी में आराम के लिए",
+    fever:"बुखार के दौरान ध्यान रखने के लिए",
+    rash:"त्वचा को आराम देने के लिए",
+    digestive:"पाचन संबंधी आराम के लिए"
+  },
+
+  mrEn:{
+    general:"काही सोप्या गोष्टी",
+    acne:"तुमच्या skin complaint साठी",
+    headache:"Headache मध्ये comfort साठी",
+    cough:"Cough मध्ये comfort साठी",
+    fever:"Fever observe करताना",
+    rash:"Skin comfort साठी",
+    digestive:"Digestive comfort साठी"
+  },
+
+  mr:{
+    general:"काही सोप्या गोष्टी",
+    acne:"त्वचेच्या या तक्रारीसाठी",
+    headache:"डोकेदुखीत आरामासाठी",
+    cough:"खोकल्यात आरामासाठी",
+    fever:"ताप पाहताना लक्षात ठेवण्यासाठी",
+    rash:"त्वचेला आराम देण्यासाठी",
+    digestive:"पचनाच्या तक्रारीत आरामासाठी"
   }
+};
 
-}
+const COMFORT_INTROS = {
+  en:"Low-risk comfort and observation ideas, not treatments or cures.",
+  hiEn:"ये comfort और observation के लिए सामान्य ideas हैं, treatment या cure नहीं।",
+  hi:"ये सामान्य आराम और अपने अनुभव को देखने के लिए बातें हैं, उपचार या इलाज नहीं।",
+  mrEn:"हे comfort आणि observation साठी सामान्य ideas आहेत, treatment किंवा cure नाहीत.",
+  mr:"या सामान्य आराम आणि निरीक्षणासाठीच्या गोष्टी आहेत; उपचार किंवा बरे करण्याचा उपाय नाहीत."
+};
 
+const COMFORT_DYNAMIC = {
 
-/* =========================================================
-   FRAMEWORK LABELS
-   ========================================================= */
+  en:{
+    general:[{
+      title:"Observe the pattern",
+      items:[
+        "Note when it happens, what changes it and how long it lasts.",
+        "If it keeps returning or is getting worse, consider medical evaluation."
+      ]
+    }],
 
-function updateFrameworkLabels() {
+    acne:[{
+      title:"Skin basics",
+      items:[
+        "Use a gentle cleanser and avoid picking or squeezing spots.",
+        "Notice whether a new product, friction or another clear trigger coincides with flare-ups."
+      ]
+    }],
 
-  const l = getLang();
+    headache:[{
+      title:"Everyday comfort",
+      items:[
+        "Hydration, regular meals and adequate sleep can be reasonable comfort measures when appropriate for you.",
+        "Reduce a clear trigger such as intense light or prolonged screen strain if you notice one."
+      ]
+    }]
+  },
 
-  if ($("modernTitle"))
-    $("modernTitle").textContent = l.modern;
+  hi:{
+    general:[{
+      title:"पैटर्न पर ध्यान दें",
+      items:[
+        "लक्षण कब होता है, किससे बदलता है और कितनी देर रहता है, इसे लिखें।",
+        "अगर यह बार-बार हो रहा है या बढ़ रहा है, तो चिकित्सकीय जाँच पर विचार करें।"
+      ]
+    }],
 
-  if ($("modernSub"))
-    $("modernSub").textContent = l.modernSub;
+    acne:[{
+      title:"त्वचा की देखभाल",
+      items:[
+        "हल्का cleanser इस्तेमाल करें और दानों को दबाने या फोड़ने से बचें।",
+        "नया product, घर्षण या कोई स्पष्ट कारण दाने बढ़ने के साथ जुड़ा है या नहीं, ध्यान दें।"
+      ]
+    }],
 
-  if ($("ayurvedaTitle"))
-    $("ayurvedaTitle").textContent = l.ayurveda;
+    headache:[{
+      title:"आराम के लिए",
+      items:[
+        "पानी, नियमित भोजन और पर्याप्त नींद कुछ लोगों के लिए मददगार सामान्य कदम हो सकते हैं।",
+        "अगर तेज़ रोशनी या लंबे समय तक स्क्रीन देखने से बढ़ता है, तो उस कारण को कम करके देखें।"
+      ]
+    }]
+  },
 
-  if ($("ayurvedaSub"))
-    $("ayurvedaSub").textContent = l.ayurvedaSub;
+  mr:{
+    general:[{
+      title:"नमुना पाहा",
+      items:[
+        "लक्षण कधी होतं, कशामुळे बदलतं आणि किती वेळ राहतं याची नोंद ठेवा.",
+        "लक्षण वारंवार होत असेल किंवा वाढत असेल तर वैद्यकीय तपासणीचा विचार करा."
+      ]
+    }],
 
-  if ($("homeopathyTitle"))
-    $("homeopathyTitle").textContent = l.homeopathy;
+    acne:[{
+      title:"त्वचेची काळजी",
+      items:[
+        "सौम्य cleanser वापरा आणि मुरुम दाबणे किंवा फोडणे टाळा.",
+        "नवीन product, घर्षण किंवा एखादा स्पष्ट घटक मुरुम वाढण्यासोबत संबंधित आहे का ते पाहा."
+      ]
+    }],
 
-  if ($("homeopathySub"))
-    $("homeopathySub").textContent = l.homeopathySub;
-
-}
-
-
-/* =========================================================
-   START EXPLORATION
-   ========================================================= */
-
-function startExploration() {
-
-  const input = $("concernInput");
-
-  if (!input) return;
-
-  const text = input.value.trim();
-
-  if (!text) {
-
-    showToast(
-      state.language === "hi"
-        ? "कृपया पहले बताइए कि आपको क्या महसूस हो रहा है।"
-        : state.language === "mr"
-          ? "कृपया आधी तुम्हाला काय जाणवतंय ते सांगा."
-          : "Tell us what you've been noticing first."
-    );
-
-    input.focus();
-
-    return;
+    headache:[{
+      title:"आरामासाठी",
+      items:[
+        "पाणी, नियमित जेवण आणि पुरेशी झोप काही लोकांसाठी सामान्यतः उपयुक्त ठरू शकते.",
+        "तीव्र प्रकाश किंवा जास्त screen time मुळे वाढत असेल तर तो घटक कमी करून पाहा."
+      ]
+    }]
   }
+};
 
-  state.concern = text;
-  state.framework = null;
-  state.questionIndex = 0;
-  state.answers = {};
-
-  renderStory();
-
-  const sections = [
-    "resultSection",
-    "explorerSection",
-    "connectedSection",
-    "comfortSection",
-    "safetySection"
-  ];
-
-  sections.forEach(id => {
-
-    const el = $(id);
-
-    if (el) {
-      el.classList.add("visible");
-    }
-
-  });
-
-  const result =
-    $("resultSection");
-
-  if (result) {
-
-    result.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-}
-
-
-/* =========================================================
-   "HERE'S WHAT WE HEARD"
-   ========================================================= */
-
-function renderStory() {
-
-  const storyText =
-    $("storyText");
-
-  if (!storyText) return;
-
-  const escaped =
-    escapeHTML(state.concern);
-
-  storyText.innerHTML = `
-    <div class="story-quote">
-      “${escaped}”
-    </div>
-
-    <div class="story-note">
-      ${
-        state.language === "en"
-          ? "This is your story in your own words. IHI does not turn it into a diagnosis."
-          : state.language === "hiEn"
-            ? "यह आपकी बात आपके अपने शब्दों में है। IHI इसे diagnosis में नहीं बदलता।"
-            : state.language === "hi"
-              ? "यह आपकी बात आपके अपने शब्दों में है। IHI इसे किसी निदान में नहीं बदलता।"
-              : state.language === "mrEn"
-                ? "ही तुमची story तुमच्या स्वतःच्या शब्दांत आहे. IHI तिला diagnosis मध्ये बदलत नाही."
-                : "ही तुमची आरोग्यकथा तुमच्या स्वतःच्या शब्दांत आहे. IHI तिचं निदानात रूपांतर करत नाही."
-      }
-    </div>
-  `;
-
-}
-
-
-/* =========================================================
-   FRAMEWORK SELECTION
-   ========================================================= */
-
-document
-  .querySelectorAll(".framework-card")
-  .forEach(card => {
-
-    card.addEventListener("click", () => {
-
-      const framework =
-        card.dataset.framework;
-
-      if (!framework) return;
-
-      if (!FRAMEWORKS[framework]) return;
-
-      state.framework = framework;
-      state.questionIndex = 0;
-      state.answers = {};
-
-      document
-        .querySelectorAll(".framework-card")
-        .forEach(item => {
-          item.classList.remove("selected");
-        });
-
-      card.classList.add("selected");
-
-      renderFrameworkIntro();
-      renderQuestion();
-
-      const explorer =
-        $("explorerSection");
-
-      if (explorer) {
-
-        explorer.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }
-
-    });
-
-  });
-
-
-/* =========================================================
-   FRAMEWORK INTRO
-   ========================================================= */
-
-function renderFrameworkIntro() {
-
-  if (!state.framework) return;
-
-  const title =
-    $("explorerFrameworkTitle");
-
-  const icon =
-    $("explorerFrameworkIcon");
-
-  const note =
-    $("frameworkEvidenceNote");
-
-  const framework =
-    FRAMEWORKS[state.framework];
-
-  if (!framework) return;
-
-  if (icon) {
-    icon.textContent =
-      framework.icon;
-  }
-
-  if (state.framework === "modern") {
-
-    if (title) {
-      title.textContent =
-        getLang().bodyTitle;
-    }
-
-    if (note) {
-      note.textContent =
-        getLang().modernEvidence;
-
-      note.className =
-        "evidence-note modern-note";
-    }
-
-  }
-
-  if (state.framework === "ayurveda") {
-
-    const data =
-      framework.results[state.language];
-
-    if (title) {
-      title.textContent =
-        data.title;
-    }
-
-    if (note) {
-      note.textContent =
-        data.body;
-
-      note.className =
-        "evidence-note traditional-note";
-    }
-
-  }
-
+COMFORT_DYNAMIC.hiEn = COMFORT_DYNAMIC.en;
+COMFORT_DYNAMIC.mrEn = COMFORT_DYNAMIC.en;
   if (state.framework === "homeopathy") {
 
     const data =
@@ -2603,162 +2733,146 @@ function renderFrameworkIntro() {
 
   }
 
+  if (learning) {
+
+    const learningData =
+      FRAMEWORK_LEARNING[state.language]?.[state.framework] ||
+      FRAMEWORK_LEARNING.en[state.framework];
+
+    if (learningData) {
+
+      learning.innerHTML = `
+        <div class="learning-title">
+          ${escapeHTML(learningData.title)}
+        </div>
+
+        <div class="learning-story">
+          ${escapeHTML(learningData.story)}
+        </div>
+
+        <div class="learning-core">
+          <strong>${escapeHTML(learningData.coreLabel || "Core idea")}</strong>
+          <span>${escapeHTML(learningData.core)}</span>
+        </div>
+
+        <div class="learning-evidence">
+          ${escapeHTML(learningData.evidence)}
+        </div>
+      `;
+
+    }
+
+  }
+
 }
 
 
 /* =========================================================
-   QUESTION RENDERING
+   QUESTIONS
    ========================================================= */
 
 function renderQuestion() {
 
   if (!state.framework) return;
 
-  const container =
-    $("questionContainer");
-
-  if (!container) return;
+  const framework =
+    FRAMEWORKS[state.framework];
 
   const questions =
-    FRAMEWORKS[state.framework]
-      .questions[state.language];
-
-  if (!questions) return;
+    framework.questions[state.language] ||
+    framework.questions.en;
 
   const question =
     questions[state.questionIndex];
 
-  if (!question) return;
+  const container =
+    $("questionContainer");
+
+  if (!container || !question) return;
 
   const total =
     questions.length;
 
-  const current =
-    state.questionIndex + 1;
-
-  const selected =
-    state.answers[state.questionIndex];
-
-  const l =
-    getLang();
-
   container.innerHTML = `
-
     <div class="question-progress">
-
-      <div class="progress-label">
-        ${current} / ${total}
-      </div>
-
-      <div class="progress-track">
-
-        <div
-          class="progress-fill"
-          style="width:${(current / total) * 100}%"
-        ></div>
-
-      </div>
-
+      ${escapeHTML(String(state.questionIndex + 1))} / ${escapeHTML(String(total))}
     </div>
 
+    <h3>
+      ${escapeHTML(question.text)}
+    </h3>
 
-    <div class="question-card">
-
-      <h3>
-        ${escapeHTML(question.text)}
-      </h3>
-
-
-      <div class="option-list">
-
-        ${question.options
-          .map((option, index) => `
-
-            <button
-              type="button"
-              class="option-button ${
-                selected === index
-                  ? "selected"
-                  : ""
-              }"
-              data-option="${index}"
-            >
-
-              <span class="option-dot"></span>
-
-              <span>
-                ${escapeHTML(option)}
-              </span>
-
-            </button>
-
-          `)
-          .join("")
-        }
-
-      </div>
-
-
-      <div class="question-actions">
-
-        ${
-          state.questionIndex > 0
-
-            ? `
-              <button
-                type="button"
-                class="text-button"
-                id="backQuestion"
-              >
-                ${escapeHTML(l.back)}
-              </button>
-            `
-
-            : `<span></span>`
-        }
-
-
+    <div class="question-options">
+      ${question.options.map((option,index)=>`
         <button
           type="button"
-          class="primary-button small"
-          id="nextQuestion"
-          ${selected === undefined ? "disabled" : ""}
+          class="question-option"
+          data-option="${index}"
         >
-
-          ${
-            current === total
-              ? escapeHTML(l.seeResult)
-              : escapeHTML(l.next)
-          }
-
+          ${escapeHTML(option)}
         </button>
+      `).join("")}
+    </div>
 
-      </div>
+    <div class="question-actions">
+      <button
+        type="button"
+        class="secondary-btn"
+        id="backQuestion"
+        ${state.questionIndex === 0 ? "disabled" : ""}
+      >
+        ${
+          state.language === "hi"
+            ? "पीछे"
+            : state.language === "mr"
+              ? "मागे"
+              : "Back"
+        }
+      </button>
 
+      <button
+        type="button"
+        class="primary-btn"
+        id="nextQuestion"
+        disabled
+      >
+        ${
+          state.questionIndex === total - 1
+            ? (
+              state.language === "hi"
+                ? "परिणाम देखें"
+                : state.language === "mr"
+                  ? "परिणाम पाहा"
+                  : "See what this may suggest"
+            )
+            : (
+              state.language === "hi"
+                ? "आगे"
+                : state.language === "mr"
+                  ? "पुढे"
+                  : "Next"
+            )
+        }
+      </button>
     </div>
   `;
 
-
   container
-    .querySelectorAll(".option-button")
+    .querySelectorAll(".question-option")
     .forEach(button => {
 
       button.addEventListener("click", () => {
 
-        const index =
-          Number(button.dataset.option);
-
-        state.answers[
-          state.questionIndex
-        ] = index;
-
         container
-          .querySelectorAll(".option-button")
+          .querySelectorAll(".question-option")
           .forEach(item => {
             item.classList.remove("selected");
           });
 
         button.classList.add("selected");
+
+        state.answers[state.questionIndex] =
+          button.textContent.trim();
 
         const next =
           $("nextQuestion");
@@ -2771,928 +2885,564 @@ function renderQuestion() {
 
     });
 
-
   const next =
     $("nextQuestion");
 
   if (next) {
-    next.addEventListener(
-      "click",
-      nextQuestion
-    );
-  }
 
+    next.addEventListener("click", () => {
+
+      if (
+        state.questionIndex <
+        total - 1
+      ) {
+
+        state.questionIndex++;
+
+        renderQuestion();
+
+      } else {
+
+        renderFrameworkResult();
+
+      }
+
+    });
+
+  }
 
   const back =
     $("backQuestion");
 
   if (back) {
 
-    back.addEventListener(
-      "click",
-      () => {
+    back.addEventListener("click", () => {
 
-        if (state.questionIndex > 0) {
+      if (state.questionIndex > 0) {
 
-          state.questionIndex--;
+        state.questionIndex--;
 
-          renderQuestion();
-
-        }
+        renderQuestion();
 
       }
-    );
+
+    });
 
   }
 
 }
-
-
-/* =========================================================
-   NEXT QUESTION
-   ========================================================= */
-
-function nextQuestion() {
-
-  if (!state.framework) return;
-
-  const questions =
-    FRAMEWORKS[state.framework]
-      .questions[state.language];
-
-  if (
-    state.answers[state.questionIndex]
-    === undefined
-  ) {
-    return;
-  }
-
-  if (
-    state.questionIndex <
-    questions.length - 1
-  ) {
-
-    state.questionIndex++;
-
-    renderQuestion();
-
-  } else {
-
-    renderFrameworkResult();
-
-  }
-
-}
-
-
 /* =========================================================
    FRAMEWORK RESULT
    ========================================================= */
 
 function renderFrameworkResult() {
 
+  const framework =
+    FRAMEWORKS[state.framework];
+
+  if (!framework) return;
+
   const result =
+    framework.results[state.language] ||
+    framework.results.en;
+
+  const output =
     $("explorerResult");
 
-  if (!result) return;
+  if (!output) return;
 
-  if (state.framework === "modern") {
+  output.innerHTML = `
+    <div class="framework-result-card">
 
-    renderModernResult();
+      <div class="result-label">
+        ${escapeHTML(result.label)}
+      </div>
 
-  }
+      <h3>
+        ${escapeHTML(result.title)}
+      </h3>
 
-  if (state.framework === "ayurveda") {
+      <p>
+        ${escapeHTML(result.body)}
+      </p>
 
-    renderAyurvedaResult();
+      <div class="answer-summary">
 
-  }
+        <strong>
+          ${
+            UI_COPY[state.language]?.answersTitle ||
+            UI_COPY.en.answersTitle
+          }
+        </strong>
 
-  if (state.framework === "homeopathy") {
+        <ul>
+          ${
+            Object.values(state.answers).length
+              ? Object.values(state.answers)
+                  .map(answer =>
+                    `<li>${escapeHTML(answer)}</li>`
+                  )
+                  .join("")
+              : `<li>${
+                  state.language === "hi"
+                    ? "अभी कोई अतिरिक्त उत्तर नहीं चुना गया।"
+                    : state.language === "mr"
+                      ? "अजून कोणताही अतिरिक्त उत्तर निवडलेला नाही."
+                      : "No additional answers selected yet."
+                }</li>`
+          }
+        </ul>
 
-    renderHomeopathyResult();
+      </div>
 
-  }
+    </div>
+  `;
+
+  output.style.display = "block";
+
+  output.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+function getComplaintProfile(){
+  const t=(state.concern||"").toLowerCase();
+  if(/pimple|pimples|acne|मुंहासे|मुँहासे|पिंपल|पुरळ|acne/.test(t)) return COMPLAINT_PROFILES.acne;
+  if(/headache|migraine|सिर दर्द|सिरदर्द|डोकेदुखी|अर्धशिशी/.test(t)) return COMPLAINT_PROFILES.headache;
+  if(/cough|खांसी|खोकला/.test(t)) return COMPLAINT_PROFILES.cough;
+  if(/fever|बुखार|ताप/.test(t)) return COMPLAINT_PROFILES.fever;
+  if(/rash|रैश|पुरळ|त्वचेवर पुरळ/.test(t)) return COMPLAINT_PROFILES.rash;
+  if(/acidity|bloating|gas|indigestion|अपच|एसिडिटी|गैस|फुलना|आम्लपित्त|पोट फुगणे/.test(t)) return COMPLAINT_PROFILES.digestive;
+  return COMPLAINT_PROFILES.general;
+}
+
+function renderConnectedPattern(){
+  renderPatternExplanation();
+
+  const result=$("connections");
+  if(!result) return;
 
   result.classList.add("visible");
 
   result.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
+    behavior:"smooth",
+    block:"center"
   });
-
 }
 
 
 /* =========================================================
-   MODERN MEDICINE RESULT
+   COMFORT & SELF-CARE
    ========================================================= */
 
-function renderModernResult() {
+function renderComfort(){
 
-  const result =
-    $("explorerResult");
+  const container=$("comfortCard");
 
-  const l =
-    getLang();
+  if(!container) return;
 
-  const answers =
-    getAnswerText("modern");
+  const profile=getComplaintProfile();
+  const lang=state.language;
 
-  result.innerHTML = `
+  const items =
+    COMFORT_DYNAMIC[lang]?.[profile.key] ||
+    COMFORT_DYNAMIC.en[profile.key] ||
+    COMFORT_DYNAMIC.en.general;
 
-    <div class="result-panel">
+  const title =
+    COMFORT_TITLES[lang] ||
+    COMFORT_TITLES.en;
 
-      <div class="result-kicker">
-        🩺 ${escapeHTML(l.modern)}
+  const intro =
+    COMFORT_INTROS[lang] ||
+    COMFORT_INTROS.en;
+
+  container.innerHTML=`
+    <div class="comfort-header">
+      <div>
+        <div class="section-kicker">${escapeHTML(title)}</div>
+        <h3>${escapeHTML(intro)}</h3>
       </div>
-
-      <h3>
-        ${escapeHTML(l.bodyTitle)}
-      </h3>
-
-      <p class="result-intro">
-        ${escapeHTML(l.modernEvidence)}
-      </p>
-
-
-      <div class="result-group">
-
-        <h4>
-          ${
-            state.language === "en"
-              ? "What your answers add"
-              : state.language === "hiEn"
-                ? "आपके answers से क्या पता चलता है"
-                : state.language === "hi"
-                  ? "आपके उत्तरों से क्या समझ आता है"
-                  : state.language === "mrEn"
-                    ? "तुमच्या answers मधून काय समजतं"
-                    : "तुमच्या उत्तरांमधून काय समजतं"
-          }
-        </h4>
-
-        <ul>
-
-          ${answers
-            .map(answer => `
-              <li>
-                ${escapeHTML(answer)}
-              </li>
-            `)
-            .join("")
-          }
-
-        </ul>
-
-      </div>
-
-
-      <div class="result-group">
-
-        <h4>
-          ${
-            state.language === "en"
-              ? "What might be relevant"
-              : state.language === "hiEn"
-                ? "क्या relevant हो सकता है"
-                : state.language === "hi"
-                  ? "क्या प्रासंगिक हो सकता है"
-                  : state.language === "mrEn"
-                    ? "काय relevant असू शकतं"
-                    : "काय संबंधित असू शकतं"
-          }
-        </h4>
-
-        <ul>
-
-          <li>
-            ${
-              state.language === "en"
-                ? "The pattern can be influenced by timing, meals, sleep, stress, activity and other factors."
-                : state.language === "hiEn"
-                  ? "Timing, meals, sleep, stress, activity और दूसरे factors इस pattern को influence कर सकते हैं।"
-                  : state.language === "hi"
-                    ? "समय, भोजन, नींद, तनाव, गतिविधि और अन्य कारक इस पैटर्न को प्रभावित कर सकते हैं।"
-                    : state.language === "mrEn"
-                      ? "Timing, meals, sleep, stress, activity आणि इतर factors या pattern वर influence करू शकतात."
-                      : "वेळ, जेवण, झोप, ताण, हालचाल आणि इतर घटक या नमुन्यावर परिणाम करू शकतात."
-            }
-          </li>
-
-          <li>
-            ${
-              state.language === "en"
-                ? "The information here is not enough to identify a diagnosis."
-                : state.language === "hiEn"
-                  ? "यह information किसी diagnosis की पहचान करने के लिए पर्याप्त नहीं है।"
-                  : state.language === "hi"
-                    ? "यह जानकारी किसी निदान की पहचान करने के लिए पर्याप्त नहीं है।"
-                    : state.language === "mrEn"
-                      ? "ही information diagnosis ओळखण्यासाठी पुरेशी नाही."
-                      : "ही माहिती निदान ओळखण्यासाठी पुरेशी नाही."
-            }
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <div class="result-boundary">
-
-        <strong>
-          ${
-            state.language === "en"
-              ? "This is a starting point, not a diagnosis."
-              : state.language === "hiEn"
-                ? "यह starting point है, diagnosis नहीं।"
-                : state.language === "hi"
-                  ? "यह शुरुआत के लिए है, निदान के लिए नहीं।"
-                  : state.language === "mrEn"
-                    ? "हा starting point आहे, diagnosis नाही."
-                    : "हा सुरुवातीचा अंदाज आहे, निदान नाही."
-          }
-        </strong>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* =========================================================
-   AYURVEDA RESULT
-   ========================================================= */
-
-function renderAyurvedaResult() {
-
-  const result =
-    $("explorerResult");
-
-  const data =
-    FRAMEWORKS.ayurveda
-      .results[state.language];
-
-  const answers =
-    getAnswerText("ayurveda");
-
-  result.innerHTML = `
-
-    <div class="result-panel traditional-panel">
-
-      <div class="result-kicker">
-        🌿 ${escapeHTML(data.label)}
-      </div>
-
-      <h3>
-        ${escapeHTML(data.title)}
-      </h3>
-
-      <p class="result-intro">
-        ${escapeHTML(data.body)}
-      </p>
-
-
-      <div class="result-group">
-
-        <h4>
-          ${
-            state.language === "en"
-              ? "Your selected pattern"
-              : state.language === "hiEn"
-                ? "आपके selected answers"
-                : state.language === "hi"
-                  ? "आपके चुने हुए उत्तर"
-                  : state.language === "mrEn"
-                    ? "तुमचे selected answers"
-                    : "तुमची निवडलेली उत्तरं"
-          }
-        </h4>
-
-        <ul>
-
-          ${answers
-            .map(answer => `
-              <li>
-                ${escapeHTML(answer)}
-              </li>
-            `)
-            .join("")
-          }
-
-        </ul>
-
-      </div>
-
-
-      <div class="framework-boundary">
-
-        <strong>
-          ${escapeHTML(
-            state.language === "en"
-              ? "Traditional Ayurvedic interpretation"
-              : state.language === "hiEn"
-                ? "Traditional Ayurvedic interpretation"
-                : state.language === "hi"
-                  ? "पारंपरिक आयुर्वेदिक व्याख्या"
-                  : state.language === "mrEn"
-                    ? "Traditional Ayurvedic interpretation"
-                    : "पारंपरिक आयुर्वेदिक व्याख्या"
-          )}
-        </strong>
-
-        <p>
-          ${escapeHTML(getLang().evidenceNote)}
-        </p>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* =========================================================
-   HOMEOPATHY RESULT
-   ========================================================= */
-
-function renderHomeopathyResult() {
-
-  const result =
-    $("explorerResult");
-
-  const data =
-    FRAMEWORKS.homeopathy
-      .results[state.language];
-
-  const answers =
-    getAnswerText("homeopathy");
-
-  result.innerHTML = `
-
-    <div class="result-panel traditional-panel">
-
-      <div class="result-kicker">
-        ◌ ${escapeHTML(data.label)}
-      </div>
-
-      <h3>
-        ${escapeHTML(data.title)}
-      </h3>
-
-      <p class="result-intro">
-        ${escapeHTML(data.body)}
-      </p>
-
-
-      <div class="result-group">
-
-        <h4>
-          ${
-            state.language === "en"
-              ? "Your selected pattern"
-              : state.language === "hiEn"
-                ? "आपके selected answers"
-                : state.language === "hi"
-                  ? "आपके चुने हुए उत्तर"
-                  : state.language === "mrEn"
-                    ? "तुमचे selected answers"
-                    : "तुमची निवडलेली उत्तरं"
-          }
-        </h4>
-
-        <ul>
-
-          ${answers
-            .map(answer => `
-              <li>
-                ${escapeHTML(answer)}
-              </li>
-            `)
-            .join("")
-          }
-
-        </ul>
-
-      </div>
-
-
-      <div class="framework-boundary">
-
-        <strong>
-          ${escapeHTML(data.label)}
-        </strong>
-
-        <p>
-          ${escapeHTML(getLang().evidenceNote)}
-        </p>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* =========================================================
-   GET SELECTED ANSWERS
-   ========================================================= */
-
-function getAnswerText(frameworkName) {
-
-  const framework =
-    FRAMEWORKS[frameworkName];
-
-  if (!framework) return [];
-
-  const questions =
-    framework.questions[state.language];
-
-  if (!questions) return [];
-
-  return questions
-    .map((question, index) => {
-
-      const selected =
-        state.answers[index];
-
-      if (selected === undefined) {
-        return null;
-      }
-
-      return question.options[selected];
-
-    })
-    .filter(Boolean);
-
-}
-
-
-/* =========================================================
-   CONNECTED PATTERN
-   ========================================================= */
-
-function renderConnected() {
-
-  const container =
-    $("connectedNodes");
-
-  if (!container) return;
-
-  const data =
-    CONNECTED[state.language];
-
-  container.innerHTML = `
-
-    <div class="connected-prompt">
-      ${escapeHTML(data.prompt)}
     </div>
 
-    <div class="connected-grid">
+    <div class="comfort-list">
+      ${items.map(item=>`
+        <div class="comfort-item">
+          <div class="comfort-item-title">
+            ${escapeHTML(item.title)}
+          </div>
 
-      ${data.nodes
-        .map((node, index) => `
-          <button
-            type="button"
-            class="connected-node"
-            
-            data-node="${index}"
-          >
+          <div class="comfort-item-text">
+            ${escapeHTML(item.text)}
+          </div>
 
-            <span class="node-number">
-              ${index + 1}
-            </span>
-
-            <span>
-              ${escapeHTML(node)}
-            </span>
-
-          </button>
-        `)
-        .join("")
-      }
-
-    </div>
-
-    <div
-      id="connectedDetail"
-      class="connected-detail"
-    ></div>
-  `;
-
-
-  container
-    .querySelectorAll(".connected-node")
-    .forEach(button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          container
-            .querySelectorAll(".connected-node")
-            .forEach(item => {
-              item.classList.remove("selected");
-            });
-
-          button.classList.add("selected");
-
-          const detail =
-            $("connectedDetail");
-
-          if (detail) {
-
-            detail.innerHTML =
-              getConnectedDetail(
-                Number(button.dataset.node)
-              );
-
+          ${
+            item.note
+              ? `<div class="comfort-item-note">${escapeHTML(item.note)}</div>`
+              : ""
           }
-
-        }
-      );
-
-    });
-
-}
-
-
-/* =========================================================
-   CONNECTED DETAILS
-   ========================================================= */
-
-function getConnectedDetail(index) {
-
-  const content = {
-
-    en: [
-      "Start with the symptom itself: what does it feel like, where is it, and how long has it been happening?",
-      "Timing can matter. Notice whether it appears before, during or after a particular activity or meal.",
-      "Food may be one factor among several. Look for a repeatable pattern rather than assuming one food is the cause.",
-      "Stress and sleep can influence how some symptoms are experienced, but they do not explain every symptom.",
-      "Routine gives context. Changes in meals, sleep, activity or daily schedule can sometimes coincide with symptom changes."
-    ],
-
-    hiEn: [
-      "सबसे पहले symptom को देखें: कैसा लगता है, कहाँ है और कब से है?",
-      "Timing important हो सकता है। देखें कि यह किसी activity या meal से पहले, दौरान या बाद में आता है।",
-      "Food कई factors में से एक हो सकता है। किसी एक food को cause मानने से पहले repeatable pattern देखें।",
-      "Stress और sleep कुछ symptoms के अनुभव को influence कर सकते हैं, लेकिन हर symptom को explain नहीं करते।",
-      "Routine context देती है। Meals, sleep, activity या daily schedule में बदलाव symptoms के बदलाव के साथ दिख सकते हैं।"
-    ],
-
-    hi: [
-      "सबसे पहले लक्षण को देखें: कैसा लगता है, कहाँ है और कब से है?",
-      "समय महत्वपूर्ण हो सकता है। देखें कि यह किसी गतिविधि या भोजन से पहले, दौरान या बाद में आता है।",
-      "भोजन कई कारकों में से एक हो सकता है। किसी एक भोजन को कारण मानने से पहले बार-बार दिखने वाला पैटर्न देखें।",
-      "तनाव और नींद कुछ लक्षणों के अनुभव को प्रभावित कर सकते हैं, लेकिन वे हर लक्षण की व्याख्या नहीं करते।",
-      "दिनचर्या संदर्भ देती है। भोजन, नींद, गतिविधि या दैनिक समय-सारणी में बदलाव लक्षणों में बदलाव के साथ दिख सकते हैं।"
-    ],
-
-    mrEn: [
-      "सुरुवात symptom पासून करा: तो कसा वाटतो, कुठे आहे आणि किती दिवसांपासून आहे?",
-      "Timing महत्त्वाचं असू शकतं. एखाद्या activity किंवा meal च्या आधी, दरम्यान किंवा नंतर ते होतं का ते पहा.",
-      "Food हा अनेक factors पैकी एक असू शकतो. एखाद्या food ला cause मानण्याआधी repeatable pattern पहा.",
-      "Stress आणि sleep काही symptoms च्या experience वर influence करू शकतात, पण प्रत्येक symptom explain करत नाहीत.",
-      "Routine context देते. Meals, sleep, activity किंवा daily schedule मधले changes symptoms मधल्या बदलांसोबत दिसू शकतात."
-    ],
-
-    mr: [
-      "सुरुवात लक्षणापासून करा: ते कसं वाटतं, कुठे आहे आणि किती दिवसांपासून आहे?",
-      "वेळ महत्त्वाचा असू शकतो. एखाद्या हालचालीच्या किंवा जेवणाच्या आधी, दरम्यान किंवा नंतर ते होतं का ते पाहा.",
-      "अन्न हा अनेक घटकांपैकी एक असू शकतो. एखाद्या पदार्थालाच कारण मानण्यापूर्वी वारंवार दिसणारा नमुना पाहा.",
-      "ताण आणि झोप काही लक्षणांचा अनुभव बदलू शकतात, पण प्रत्येक लक्षणाचं स्पष्टीकरण ते देत नाहीत.",
-      "दिनचर्या संदर्भ देते. जेवण, झोप, हालचाल किंवा दैनंदिन वेळापत्रकातील बदल लक्षणांमधील बदलांसोबत दिसू शकतात."
-    ]
-
-  };
-
-  return `
-    <p>
-      ${escapeHTML(
-        content[state.language][index]
-      )}
-    </p>
-  `;
-
-}
-
-
-/* =========================================================
-   COMFORT
-   ========================================================= */
-
-function renderComfort() {
-
-  const container =
-    $("comfortCards");
-
-  if (!container) return;
-
-  const groups =
-    COMFORT[state.language];
-
-  container.innerHTML =
-    groups
-      .map(group => `
-
-        <div class="comfort-card">
-
-          <h3>
-            ${escapeHTML(group.title)}
-          </h3>
-
-          <ul>
-
-            ${group.items
-              .map(item => `
-                <li>
-                  ${escapeHTML(item)}
-                </li>
-              `)
-              .join("")
-            }
-
-          </ul>
-
         </div>
+      `).join("")}
+    </div>
+  `;
 
-      `)
-      .join("");
-
-
-  const note =
-    $("comfortNote");
-
-  if (note) {
-    note.textContent =
-      getLang().comfortNote;
-  }
-
+  container.classList.add("visible");
 }
-
-
 /* =========================================================
    SAFETY
    ========================================================= */
 
-function updateSafety() {
+function renderSafety(){
 
-  const urgent =
-    $("urgentText");
+  const container=$("safetyList");
 
-  if (urgent) {
-    urgent.textContent =
-      getLang().urgent;
-  }
+  if(!container) return;
 
+  const profile=getComplaintProfile();
+
+  const safety =
+    profile.safety ||
+    COMPLAINT_PROFILES.general.safety;
+
+  const title =
+    state.language === "hi"
+      ? "कब तुरंत मदद लेनी चाहिए"
+      : state.language === "mr"
+        ? "कधी तातडीने मदत घ्यावी"
+        : "When to seek urgent help";
+
+  container.innerHTML=`
+    <div class="safety-card">
+      <h3>${escapeHTML(title)}</h3>
+
+      <ul>
+        ${safety.map(item=>`
+          <li>${escapeHTML(item)}</li>
+        `).join("")}
+      </ul>
+    </div>
+  `;
+
+  container.classList.add("visible");
 }
 
 
 /* =========================================================
-   RESET
+   EXPLORE ANOTHER PATTERN
    ========================================================= */
 
-function resetExperience() {
+const anotherBtn=$("anotherBtn");
 
-  state.concern = "";
-  state.framework = null;
-  state.questionIndex = 0;
-  state.answers = {};
+if(anotherBtn){
 
-  const input =
-    $("concernInput");
+  anotherBtn.addEventListener("click",()=>{
 
-  if (input) {
-    input.value = "";
-  }
+    state.framework=null;
+    state.questionIndex=0;
+    state.answers={};
+    state.ownWords={};
 
-  [
-    "resultSection",
-    "explorerSection",
-    "connectedSection",
-    "comfortSection",
-    "safetySection"
-  ]
-  .forEach(id => {
+    document
+      .querySelectorAll(".approach")
+      .forEach(card=>{
+        card.classList.remove("selected");
+      });
 
-    const el = $(id);
+    const explorer=$("explorer");
 
-    if (el) {
-      el.classList.remove("visible");
+    if(explorer){
+      explorer.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
     }
 
   });
 
-
-  const result =
-    $("explorerResult");
-
-  if (result) {
-    result.innerHTML = "";
-  }
-
-
-  document
-    .querySelectorAll(".framework-card")
-    .forEach(card => {
-      card.classList.remove("selected");
-    });
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
 }
 
 
 /* =========================================================
-   SPEECH INPUT
+   NEW STORY
    ========================================================= */
 
-let recognition = null;
-let isListening = false;
+const newBtn=$("newBtn");
 
-function getSpeechLanguage() {
+if(newBtn){
 
-  if (
-    state.language === "hi" ||
-    state.language === "hiEn"
-  ) {
-    return "hi-IN";
-  }
+  newBtn.addEventListener("click",()=>{
 
-  if (
-    state.language === "mr" ||
-    state.language === "mrEn"
-  ) {
-    return "mr-IN";
-  }
+    state.concern="";
+    state.framework=null;
+    state.questionIndex=0;
+    state.answers={};
+    state.ownWords={};
+    state.transcript="";
 
-  return "en-IN";
+    const input=$("concern");
+
+    if(input){
+      input.value="";
+    }
+
+    const results=$("results");
+
+    if(results){
+      results.style.display="none";
+    }
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  });
 
 }
+recognition.continuous = false;
+recognition.interimResults = true;
+recognition.lang = getSpeechLanguage();
+
+recognition.onstart = () => {
+
+  isListening = true;
+
+  button.classList.add("listening");
+  button.setAttribute("aria-pressed","true");
+
+  const message =
+    state.language === "hi"
+      ? "सुन रहा हूँ…"
+      : state.language === "mr"
+        ? "ऐकतोय…"
+        : "Listening…";
+
+  showToast(message);
+
+};
 
 
-function setupSpeech() {
+recognition.onresult = event => {
 
-  const button =
-    $("speakBtn");
+  let transcript = "";
 
-  if (!button) return;
+  for (
+    let i = event.resultIndex;
+    i < event.results.length;
+    i++
+  ) {
 
-  const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+    transcript +=
+      event.results[i][0].transcript;
 
-  if (!SpeechRecognition) {
+  }
 
-    button.addEventListener(
-      "click",
-      () => {
+  state.transcript = transcript;
 
-        showToast(
-          state.language === "hi"
-            ? "इस browser में voice input उपलब्ध नहीं है।"
-            : state.language === "mr"
-              ? "या browser मध्ये voice input उपलब्ध नाही."
-              : "Voice input is not available in this browser."
-        );
+  const input =
+    $("concern");
 
-      }
+  if (input) {
+    input.value = transcript;
+  }
+
+};
+
+
+recognition.onerror = event => {
+
+  isListening = false;
+
+  button.classList.remove("listening");
+  button.setAttribute("aria-pressed","false");
+
+  let message =
+    state.language === "hi"
+      ? "आवाज़ समझने में समस्या हुई। आप टाइप भी कर सकते हैं।"
+      : state.language === "mr"
+        ? "आवाज समजण्यात अडचण आली. तुम्ही टाइपही करू शकता."
+        : "I couldn't understand the voice input. You can type instead.";
+
+  if (event.error === "not-allowed") {
+
+    message =
+      state.language === "hi"
+        ? "Microphone की अनुमति दें, फिर दोबारा कोशिश करें।"
+        : state.language === "mr"
+          ? "Microphone ची परवानगी द्या आणि पुन्हा प्रयत्न करा."
+          : "Allow microphone access and try again.";
+
+  }
+
+  showToast(message);
+
+};
+
+
+recognition.onend = () => {
+
+  isListening = false;
+
+  button.classList.remove("listening");
+  button.setAttribute("aria-pressed","false");
+
+};
+
+
+button.addEventListener("click", () => {
+
+  if (isListening) {
+
+    recognition.stop();
+
+    return;
+
+  }
+
+  recognition.lang =
+    getSpeechLanguage();
+
+  try {
+
+    recognition.start();
+
+  } catch(error) {
+
+    showToast(
+      state.language === "hi"
+        ? "Voice input शुरू नहीं हो सका।"
+        : state.language === "mr"
+          ? "Voice input सुरू करता आला नाही."
+          : "Voice input could not start."
     );
+
+  }
+
+});
+
+}
+/* =========================================================
+   MAIN EXPLORATION
+   ========================================================= */
+
+function startExploration(){
+
+  const input =
+    $("concern");
+
+  if(!input) return;
+
+  const concern =
+    input.value.trim();
+
+  if(!concern){
+
+    showToast(
+      state.language === "hi"
+        ? "पहले बताएं कि क्या हो रहा है।"
+        : state.language === "mr"
+          ? "आधी काय होतंय ते सांगा."
+          : "Tell us what's happening first."
+    );
+
+    input.focus();
 
     return;
   }
 
+  state.concern =
+    concern;
 
-  recognition =
-    new SpeechRecognition();
+  state.framework =
+    null;
 
-  recognition.continuous = false;
-  recognition.interimResults = true;
+  state.questionIndex =
+    0;
 
+  state.answers =
+    {};
 
-  recognition.onstart = () => {
+  state.ownWords =
+    {};
 
-    isListening = true;
+  renderStory();
 
-    button.classList.add(
-      "listening"
+  const results =
+    $("results");
+
+  if(results){
+
+    results.style.display =
+      "block";
+
+    results.classList.add(
+      "visible"
     );
 
-    const label =
-      button.querySelector(
-        ".speak-label"
-      );
+  }
 
-    if (label) {
+  const explorer =
+    $("explorer");
 
-      label.textContent =
-        state.language === "hi"
-          ? "सुन रहे हैं…"
-          : state.language === "mr"
-            ? "ऐकत आहोत…"
-            : "Listening…";
+  if(explorer){
 
-    }
+    explorer.style.display =
+      "block";
 
-  };
+  }
+
+  updateSafetyVisibility();
+
+  renderComfort();
+
+  renderSafety();
+
+  results?.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
 
 
-  recognition.onresult =
-    (event) => {
+/* =========================================================
+   LANGUAGE CHANGE
+   ========================================================= */
 
-      let transcript = "";
+const languageSelect =
+  $("language");
 
-      for (
-        let i = event.resultIndex;
-        i < event.results.length;
-        i++
-      ) {
+if(languageSelect){
 
-        transcript +=
-          event.results[i][0]
-            .transcript;
+  languageSelect.addEventListener(
+    "change",
+    () => {
 
+      state.language =
+        languageSelect.value;
+
+      if(recognition){
+        recognition.lang =
+          getSpeechLanguage();
       }
 
-      if (transcript.trim()) {
+      applyLanguage();
 
-        const input =
-          $("concernInput");
+      if(state.concern){
 
-        if (input) {
-          input.value =
-            transcript.trim();
+        renderStory();
+
+        if(state.framework){
+
+          renderFrameworkIntro();
+          renderQuestion();
+
         }
 
-      }
+        renderComfort();
+        updateSafetyVisibility();
 
-    };
-
-
-  recognition.onerror =
-    () => {
-
-      showToast(
-        state.language === "hi"
-          ? "Voice input पूरा नहीं हो सका। आप type भी कर सकते हैं।"
-          : state.language === "mr"
-            ? "Voice input पूर्ण होऊ शकला नाही. तुम्ही type देखील करू शकता."
-            : "Voice input didn't work. You can type instead."
-      );
-
-    };
-
-
-  recognition.onend =
-    () => {
-
-      isListening = false;
-
-      button.classList.remove(
-        "listening"
-      );
-
-      const label =
-        button.querySelector(
-          ".speak-label"
-        );
-
-      if (label) {
-        label.textContent =
-          getLang().speak;
-      }
-
-    };
-
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      if (isListening) {
-
-        recognition.stop();
-
-        return;
-      }
-
-      recognition.lang =
-        getSpeechLanguage();
-
-      try {
-        recognition.start();
-      } catch (error) {
-        /* Browser may reject duplicate starts. */
       }
 
     }
@@ -3702,137 +3452,221 @@ function setupSpeech() {
 
 
 /* =========================================================
-   TOAST
+   START BUTTON
    ========================================================= */
 
-function showToast(message) {
+const exploreButton =
+  $("explore");
 
-  const toast =
-    $("toast");
+if(exploreButton){
 
-  if (!toast) return;
-
-  toast.textContent =
-    message;
-
-  toast.classList.add(
-    "show"
-  );
-
-  clearTimeout(
-    showToast.timeout
-  );
-
-  showToast.timeout =
-    setTimeout(
-      () => {
-        toast.classList.remove(
-          "show"
-        );
-      },
-      3200
-    );
-
-}
-
-
-/* =========================================================
-   HTML ESCAPING
-   ========================================================= */
-
-function escapeHTML(value) {
-
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-/* =========================================================
-   EVENT LISTENERS
-   ========================================================= */
-
-const startButton =
-  $("startBtn");
-
-if (startButton) {
-
-  startButton.addEventListener(
+  exploreButton.addEventListener(
     "click",
     startExploration
   );
 
 }
+function applyLanguage(){
 
+  const l =
+    getLang();
 
-const concernInput =
-  $("concernInput");
+  const title =
+    $("heroTitle");
 
-if (concernInput) {
+  if(title)
+    title.textContent =
+      l.heroTitle;
 
-  concernInput.addEventListener(
-    "keydown",
-    event => {
+  const subtitle =
+    $("heroSubtitle");
 
-      if (
-        (event.ctrlKey ||
-          event.metaKey) &&
-        event.key === "Enter"
-      ) {
+  if(subtitle)
+    subtitle.textContent =
+      l.heroSubtitle;
 
-        startExploration();
+  const inputLabel =
+    $("inputLabel");
 
-      }
+  if(inputLabel)
+    inputLabel.textContent =
+      l.inputLabel;
+
+  const input =
+    $("concern");
+
+  if(input)
+    input.placeholder =
+      l.placeholder;
+
+  const speakLabel =
+    document.querySelector(
+      ".speak-label"
+    );
+
+  if(speakLabel)
+    speakLabel.textContent =
+      l.speak;
+
+  const explore =
+    $("explore");
+
+  if(explore)
+    explore.textContent =
+      l.explore;
+
+  updateFrameworkLabels();
+
+  if(state.concern){
+
+    renderStory();
+
+    if(state.framework){
+
+      renderFrameworkIntro();
+      renderQuestion();
 
     }
-  );
+
+    renderComfort();
+    updateSafetyVisibility();
+
+  }
 
 }
 
 
-if ($("languageSelect")) {
+/* =========================================================
+   FRAMEWORK LABELS
+   ========================================================= */
 
-  $("languageSelect")
-    .addEventListener(
-      "change",
-      event => {
+function updateFrameworkLabels(){
 
-        state.language =
-          event.target.value;
-
-        applyLanguage();
-
-      }
+  const cards =
+    document.querySelectorAll(
+      ".approach"
     );
 
-}
+  cards.forEach(card => {
 
+    const framework =
+      card.dataset.approach === "ayur"
+        ? "ayurveda"
+        : card.dataset.approach === "homeo"
+          ? "homeopathy"
+          : "modern";
 
-document
-  .querySelectorAll("[data-reset]")
-  .forEach(button => {
+    const data =
+      FRAMEWORKS[framework];
 
-    button.addEventListener(
-      "click",
-      resetExperience
-    );
+    if(!data) return;
+
+    const title =
+      card.querySelector(
+        ".approach-title"
+      );
+
+    const description =
+      card.querySelector(
+        ".approach-description"
+      );
+
+    const localized =
+      data.ui?.[state.language] ||
+      data.ui?.en;
+
+    if(title && localized)
+      title.textContent =
+        localized.title;
+
+    if(description && localized)
+      description.textContent =
+        localized.description;
 
   });
 
-
+}
 /* =========================================================
    INITIALISE
    ========================================================= */
 
-applyLanguage();
-renderConnected();
-renderComfort();
-updateSafety();
-setupSpeech();
+function init(){
+
+  const selector =
+    $("language");
+
+  if(selector){
+
+    selector.value =
+      state.language;
+
+  }
+
+  applyLanguage();
+
+  setupSpeech();
+
+  const input =
+    $("concern");
+
+  if(input){
+
+    input.addEventListener(
+      "input",
+      () => {
+
+        state.concern =
+          input.value;
+
+        if(state.concern.trim()){
+          updateSafetyVisibility();
+        }
+
+      }
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   DOM READY
+   ========================================================= */
+
+if(
+  document.readyState ===
+  "loading"
+){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
+  );
+
+} else {
+
+  init();
+
+}
+  /* =========================================================
+     END OF INTERACTION ENGINE
+     ========================================================= */
+
+  /* Keep the final initialisation here.
+     The page is now ready for interaction. */
+
+  applyLanguage();
+  updateFrameworkLabels();
+
+  if (state.concern) {
+    renderStory();
+    updateSafetyVisibility();
+  }
+  /* =========================================================
+     END
+     ========================================================= */
+
 </script>
 </body>
 </html>
@@ -3888,106 +3722,3 @@ setupSpeech();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-           
