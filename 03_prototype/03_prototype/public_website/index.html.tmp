@@ -66,7 +66,7 @@ header{
   color:var(--wine);
   font-weight:950;
   letter-spacing:.08em;
-  font-size:42px;
+  font-size:56px;
   line-height:1;
 }
 
@@ -2217,11 +2217,33 @@ evidence:"पारंपरिक आयुर्वेदिक दृष्�
 },
 
 homeopathy:{
-title:"होम्योपैथी कैसे सोचती है",
-story:"होम्योपैथी का मुख्य सिद्धांत Law of Similars है — ‘like cures like’। होम्योपैथिक practice में व्यक्ति के विस्तृत लक्षण-पैटर्न और उन्हें बदलने वाली परिस्थितियों को remedy selection में महत्वपूर्ण माना जाता है।",
-core:"लक्षण-पैटर्न → समानता → व्यक्तिगत remedy selection",
-evidence:"पारंपरिक होम्योपैथिक दृष्टिकोण — इसके सिद्धांतों को स्थापित clinical effectiveness के प्रमाण से अलग समझें"
+  title:"होम्योपैथी कैसे सोचती है",
+  story:"होम्योपैथी का मुख्य सिद्धांत ‘समान समान से ठीक होता है’ है। इसके पारंपरिक दृष्टिकोण में व्यक्ति के लक्षणों की पूरी तस्वीर और उन्हें बदलने वाली परिस्थितियों को किसी औषधि के चुनाव में महत्वपूर्ण माना जाता है।",
+  core:"लक्षणों का पैटर्न → समानता → व्यक्ति के अनुसार औषधि का चुनाव",
+  evidence:"पारंपरिक होम्योपैथिक दृष्टिकोण — इसे चिकित्सकीय प्रभावशीलता के स्थापित प्रमाण से अलग समझें"
 }
+const FRAMEWORK_LEARNING.mr = {
+  modern:{
+    title:"आधुनिक वैद्यक कसं विचार करतं",
+    story:"हे सुरागांसारखं समजा: आधी लक्षण समजून घेतलं जातं, मग शरीरात काय होत असू शकतं हे पाहिलं जातं आणि नंतर इतिहास, तपासणी किंवा चाचण्यांमधून वेगवेगळ्या शक्यता वेगळ्या केल्या जातात.",
+    core:"लक्षणं → संभाव्य स्पष्टीकरणं → पुरावे → वैद्यकीय मूल्यांकन",
+    evidence:"आधुनिक वैद्यकाचा पुराव्यावर आधारित दृष्टिकोन",
+    coreLabel:"मुख्य कल्पना"
+  },
+  ayurveda:{
+    title:"आयुर्वेद कसा विचार करतो",
+    story:"आयुर्वेद आरोग्याकडे पारंपरिक समग्र दृष्टिकोनातून पाहतो. वात, पित्त आणि कफ हे तीन दोष त्यातील महत्त्वाचे विचार आहेत. अग्नी ही पचन आणि शरीरातील रूपांतरणाशी संबंधित महत्त्वाची आयुर्वेदिक संकल्पना आहे.",
+    core:"वात = हालचाल • पित्त = रूपांतरण • कफ = रचना आणि स्थिरता • अग्नी = पचन आणि रूपांतरण",
+    evidence:"पारंपरिक आयुर्वेदिक दृष्टिकोन — याचा पुराव्याचा आधार आधुनिक वैद्यकापेक्षा वेगळा आहे",
+    coreLabel:"मुख्य कल्पना"
+  },
+  homeopathy:{
+    title:"होमिओपॅथी कशी विचार करते",
+    story:"होमिओपॅथीचा मुख्य सिद्धांत ‘समान समानाने बरे होते’ हा आहे. या पारंपरिक दृष्टिकोनात व्यक्तीच्या लक्षणांची संपूर्ण पद्धत आणि लक्षणांमध्ये बदल घडवणाऱ्या परिस्थितींना औषध निवडताना महत्त्व दिलं जातं.",
+    core:"लक्षणांचा नमुना → समानता → व्यक्तीनुसार औषधाची निवड",
+    evidence:"पारंपरिक होमिओपॅथिक दृष्टिकोन — याला स्थापित चिकित्सकीय परिणामकारकतेचा पुरावा समजू नये",
+    coreLabel:"मुख्य कल्पना"
+  }
 };
 
 const CONNECTED = {
@@ -2786,7 +2808,7 @@ function renderQuestion() {
     questions[state.questionIndex];
 
   const container =
-    $("questionContainer");
+    $("questions");
 
   if (!container || !question) return;
 
@@ -3022,7 +3044,40 @@ function renderConnectedPattern(){
 
   const result=$("connections");
   if(!result) return;
+const concernSummary = document.createElement("div");
 
+concernSummary.className = "concern-summary";
+
+concernSummary.innerHTML = `
+  <div class="result-group">
+    <h4>
+      ${
+        state.language === "en"
+          ? "Based on what you told us"
+          : state.language === "hiEn"
+            ? "आपने जो बताया, उसके आधार पर"
+            : state.language === "hi"
+              ? "आपने जो बताया, उसके आधार पर"
+              : state.language === "mrEn"
+                ? "तुम्ही जे सांगितलं त्यावर आधारित"
+                : "तुम्ही जे सांगितलं त्यावर आधारित"
+      }
+    </h4>
+
+    <p>
+      ${escapeHTML(state.concern)}
+    </p>
+  </div>
+`;
+
+const panel = result.querySelector(".result-panel");
+
+if (panel) {
+  panel.insertBefore(
+    concernSummary,
+    panel.children[1] || null
+  );
+}
   result.classList.add("visible");
 
   result.scrollIntoView({
@@ -3468,72 +3523,63 @@ if(exploreButton){
 }
 function applyLanguage(){
 
-  const l =
-    getLang();
+  const l = getLang();
 
-  const title =
-    $("heroTitle");
+  const setText = (id, value) => {
+    const el = $(id);
+    if (el && value) el.textContent = value;
+  };
 
-  if(title)
-    title.textContent =
-      l.heroTitle;
+  setText("kicker", l.heroKicker);
+  setText("heroTitle", l.heroTitle);
+  setText("heroCopy", l.heroText);
 
-  const subtitle =
-    $("heroSubtitle");
+  setText("inputLabel", l.concernLabel);
+  setText("inputHelper", l.concernHint);
 
-  if(subtitle)
-    subtitle.textContent =
-      l.heroSubtitle;
+  const input = $("concern");
+  if (input) input.placeholder = l.placeholder;
 
-  const inputLabel =
-    $("inputLabel");
+  setText("speakText", l.speak);
+  setText("explore", l.exploring);
+  setText("example", l.example);
+  setText("disclaimer", l.disclaimer);
 
-  if(inputLabel)
-    inputLabel.textContent =
-      l.inputLabel;
+  setText("understoodTitle", l.heardTitle);
+  setText("understoodIntro", l.heardText);
 
-  const input =
-    $("concern");
+  setText("chooseTitle", l.exploreTitle);
+  setText("chooseIntro", l.chooseIntro);
 
-  if(input)
-    input.placeholder =
-      l.placeholder;
+  setText("modernChoice", l.modern);
+  setText("modernChoiceText", l.modernSub);
 
-  const speakLabel =
-    document.querySelector(
-      ".speak-label"
-    );
+  setText("ayurChoice", l.ayurveda);
+  setText("ayurChoiceText", l.ayurvedaSub);
 
-  if(speakLabel)
-    speakLabel.textContent =
-      l.speak;
+  setText("homeoChoice", l.homeopathy);
+  setText("homeoChoiceText", l.homeopathySub);
 
-  const explore =
-    $("explore");
+  setText("comfortTitle", l.comfortTitle);
+  setText("comfortIntro", l.comfortIntro);
 
-  if(explore)
-    explore.textContent =
-      l.explore;
+  setText("safetyTitle", l.safetyTitle);
 
   updateFrameworkLabels();
 
-  if(state.concern){
-
+  if (state.concern) {
     renderStory();
 
-    if(state.framework){
-
+    if (state.framework) {
       renderFrameworkIntro();
       renderQuestion();
-
     }
 
     renderComfort();
     updateSafetyVisibility();
-
   }
-
 }
+
 
 
 /* =========================================================
@@ -3543,9 +3589,35 @@ function applyLanguage(){
 function updateFrameworkLabels(){
 
   const cards =
-    document.querySelectorAll(
-      ".approach"
-    );
+    document.querySelectorAll(".approach");
+
+  const labels = {
+    en: {
+      modern: "MODERN MEDICINE",
+      ayurveda: "AYURVEDA",
+      homeopathy: "HOMEOPATHY"
+    },
+    hiEn: {
+      modern: "MODERN MEDICINE",
+      ayurveda: "AYURVEDA",
+      homeopathy: "HOMEOPATHY"
+    },
+    hi: {
+      modern: "आधुनिक चिकित्सा",
+      ayurveda: "आयुर्वेद",
+      homeopathy: "होम्योपैथी"
+    },
+    mrEn: {
+      modern: "MODERN MEDICINE",
+      ayurveda: "AYURVEDA",
+      homeopathy: "HOMEOPATHY"
+    },
+    mr: {
+      modern: "आधुनिक वैद्यक",
+      ayurveda: "आयुर्वेद",
+      homeopathy: "होमिओपॅथी"
+    }
+  };
 
   cards.forEach(card => {
 
@@ -3559,29 +3631,31 @@ function updateFrameworkLabels(){
     const data =
       FRAMEWORKS[framework];
 
-    if(!data) return;
-
-    const title =
-      card.querySelector(
-        ".approach-title"
-      );
-
-    const description =
-      card.querySelector(
-        ".approach-description"
-      );
+    if (!data) return;
 
     const localized =
       data.ui?.[state.language] ||
       data.ui?.en;
 
-    if(title && localized)
-      title.textContent =
-        localized.title;
+    const title =
+      card.querySelector(".approach-title");
 
-    if(description && localized)
-      description.textContent =
-        localized.description;
+    const description =
+      card.querySelector(".approach-description");
+
+    const badge =
+      card.querySelector(".badge");
+
+    if (title && localized)
+      title.textContent = localized.title;
+
+    if (description && localized)
+      description.textContent = localized.description;
+
+    if (badge)
+      badge.textContent =
+        labels[state.language]?.[framework] ||
+        labels.en[framework];
 
   });
 
