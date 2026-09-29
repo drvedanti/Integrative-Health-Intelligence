@@ -686,7 +686,7 @@ body:before,body:after{display:none!important;content:none!important}
     <small>INTEGRATIVE HEALTH INTELLIGENCE</small>
   </div>
 
-  <select class="lang" id="language" aria-label="Choose language">
+  <select class="lang" id="languageSelect" aria-label="Choose language">
     <option value="en">English</option>
     <option value="hiEn">हिंदी + English</option>
     <option value="hi">हिंदी</option>
@@ -725,18 +725,17 @@ body:before,body:after{display:none!important;content:none!important}
       Tell us what you've noticed. No medical words needed.
     </div>
 
-    <textarea
-      id="concern"
+    <textarea id="concernInput"
       placeholder="Example: I've been having acidity and bloating after meals..."
     ></textarea>
 
     <div class="actions">
 
-      <button type="button" class="btn secondary" id="speak">
-        🎙 <span id="speakText">Speak</span>
+      <button type="button" class="btn secondary" id="speakBtn">
+        🎙 <span class="speak-label" id="speakText">Speak</span>
       </button>
 
-      <button type="button" class="btn primary" id="explore">
+      <button type="button" class="btn primary" id="startBtn"
         Start exploring →
       </button>
 
