@@ -178,7 +178,7 @@ async function askIHI(){
   }
 }
 
-exploreButton.onclick=()=>{
+exploreButton.addEventListener("click",(event)=>{ event.preventDefault(); event.stopImmediatePropagation();
   const value=concern.value.trim();
   if(!value){
     concern.focus();
@@ -186,4 +186,4 @@ exploreButton.onclick=()=>{
   }
   ihiState={complaint:value,framework:"",answers:[],history:[]};
   chooseFramework();
-};
+},true);
