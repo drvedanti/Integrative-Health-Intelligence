@@ -3,8 +3,8 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: "POST only" });
   }
 
-  if (!process.env.GROQ_API_KEY) {
-    return res.status(500).json({ error: "Gemini API key missing" });
+  if (!process.env.ihi) {
+    return res.status(500).json({ error: "Groq API key missing" });
   }
 
   const b = req.body || {};
@@ -186,7 +186,7 @@ ${lang}
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + process.env.GROQ_API_KEY
+          "Authorization": "Bearer " + process.env.ihi
         },
         body: JSON.stringify({
           model: "openai/gpt-oss-120b",
