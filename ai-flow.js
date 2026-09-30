@@ -78,6 +78,61 @@ async function ihiCall(action, extra = {}) {
   return data;
 }
 
+
+function setupVoiceInput(textareaId, buttonId) {
+  const textarea = document.getElementById(textareaId);
+  const button = document.getElementById(buttonId);
+  if (!textarea || !button) return;
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    button.style.display = "none";
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const recognition = new SpeechRecognition();
+    const selected = language?.value || "en";
+
+    recognition.lang =
+      selected === "hi" || selected === "hi-en" ? "hi-IN" :
+      selected === "mr" || selected === "mr-en" ? "mr-IN" :
+      "en-IN";
+
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    button.textContent = "🎙 Listening…";
+    button.disabled = true;
+
+    recognition.onresult = event => {
+      const spoken = event.results?.[0]?.[0]?.transcript || "";
+      textarea.value = textarea.value.trim()
+        ? textarea.value.trim() + " " + spoken
+        : spoken;
+    };
+
+    recognition.onerror = () => {
+      button.textContent = "🎙 Speak";
+      button.disabled = false;
+    };
+
+    recognition.onend = () => {
+      button.textContent = "🎙 Speak";
+      button.disabled = false;
+    };
+
+    recognition.start();
+  });
+}
+
+function voiceButton(id) {
+  return '<button type="button" class="btn option" id="' +
+    id + '" style="margin-top:10px">🎙 Speak</button>';
+}
+
 function chooseFramework() {
 
   show(`
@@ -379,15 +434,10 @@ function list(items) {
 }
 
 async function showAnalysis() {
-
-  busy(
-    "Putting your story together…"
-  );
+  busy("Putting your story together…");
 
   try {
-
-    const data =
-      await ihiCall("analysis");
+    const data = await ihiCall("analysis");
 
     ihiState.history.push({
       type: "analysis",
@@ -396,64 +446,31 @@ async function showAnalysis() {
 
     show(`
       <section class="section">
-
         <div class="eyebrow">
-          Step 3 · ${esc(
-            frameworkNames[ihiState.framework]
-          )}
+          Step 3 · ${esc(frameworkNames[ihiState.framework])}
         </div>
 
-        <h2>
-          What may be happening?
-        </h2>
+        <h2>What may be happening?</h2>
 
         <div class="card">
-          <p>
-            ${esc(
-              data.whatMayBeHappening
-            )}
-          </p>
+          <h3>${esc(data.headline || "A possible explanation")}</h3>
+          <p>${esc(data.whatMayBeHappening || "")}</p>
         </div>
 
-        <div
-          class="card"
-          style="margin-top:16px"
-        >
-          <h3>
-            Why might this be happening?
-          </h3>
-
-          <p>
-            ${esc(data.why)}
-          </p>
+        <div class="card" style="margin-top:16px">
+          <h3>Why might this be happening?</h3>
+          <ul class="list">${list(data.why)}</ul>
         </div>
 
-        <div
-          class="card"
-          style="margin-top:16px"
-        >
-          <h3>
-            Going deeper
-          </h3>
-
-          <p>
-            ${esc(data.rootCause)}
-          </p>
+        <div class="card" style="margin-top:16px">
+          <h3>Going a little deeper</h3>
+          <ul class="list">${list(data.deeperExplanation)}</ul>
         </div>
 
-        <div
-          class="card"
-          style="margin-top:24px"
-        >
-
-          <h3>
-            Ask IHI
-          </h3>
-
+        <div class="card" style="margin-top:24px">
+          <h3>Ask IHI</h3>
           <p class="notice">
-            Ask another question without restarting.
-            IHI keeps your original complaint,
-            framework and conversation context.
+            Ask a follow-up without starting over. IHI keeps your original story and framework.
           </p>
 
           <textarea
@@ -461,95 +478,48 @@ async function showAnalysis() {
             placeholder="What would you like to understand next?"
           ></textarea>
 
-          <div class="actions">
+          ${voiceButton("ihiFollowupVoice")}
 
-            <button
-              type="button"
-              class="btn primary"
-              id="ihiAsk"
-            >
+          <div class="actions">
+            <button type="button" class="btn primary" id="ihiAsk">
               Ask IHI →
             </button>
-
           </div>
-
         </div>
 
-        <div
-          class="grid two"
-          style="margin-top:16px"
-        >
-
+        <div class="grid two" style="margin-top:16px">
           <div class="card">
-
-            <h3>
-              What you can try
-            </h3>
-
-            <ul class="list">
-              ${list(data.try)}
-            </ul>
-
+            <h3>What you can try</h3>
+            <ul class="list">${list(data.try)}</ul>
           </div>
 
           <div class="card">
-
-            <h3>
-              What to avoid
-            </h3>
-
-            <ul class="list">
-              ${list(data.avoid)}
-            </ul>
-
+            <h3>What to avoid</h3>
+            <ul class="list">${list(data.avoid)}</ul>
           </div>
-
         </div>
 
-        <div
-          class="card safety"
-          style="margin-top:16px"
-        >
-
-          <h3>
-            Safety
-          </h3>
-
-          <ul class="list">
-            ${list(data.safety)}
-          </ul>
-
+        <div class="card safety" style="margin-top:16px">
+          <h3>Safety</h3>
+          <ul class="list">${list(data.safety)}</ul>
         </div>
-
       </section>
     `);
 
+    setupVoiceInput("ihiFollowup", "ihiFollowupVoice");
+
     document
       .getElementById("ihiAsk")
-      .addEventListener(
-        "click",
-        askIHI
-      );
+      .addEventListener("click", askIHI);
 
   } catch (error) {
-
-    showError(
-      error.message,
-      showAnalysis
-    );
-
+    showError(error.message, showAnalysis);
   }
 }
 
 async function askIHI() {
-
-  const input =
-    document.getElementById(
-      "ihiFollowup"
-    );
-
-  const question =
-    input?.value.trim() || "";
+  const input = document.getElementById("ihiFollowup");
+  const question = input?.value.trim() || "";
 
   if (!question) {
     input?.focus();
@@ -561,106 +531,100 @@ async function askIHI() {
     question
   });
 
-  busy(
-    "IHI is thinking…"
-  );
+  busy("IHI is thinking…");
 
   try {
-
-    const data =
-      await ihiCall(
-        "ask",
-        { question }
-      );
+    const data = await ihiCall("ask", { question });
 
     ihiState.history.push({
       type: "assistant",
       answer: data.answer
     });
 
+    const answer =
+      data.answer && typeof data.answer === "object"
+        ? data.answer
+        : {
+            headline: "Here is what IHI found",
+            whatItAdds: String(data.answer || "")
+          };
+
     show(`
       <section class="section">
-
         <div class="eyebrow">
-          Ask IHI · ${esc(
-            frameworkNames[ihiState.framework]
-          )}
+          Ask IHI · ${esc(frameworkNames[ihiState.framework])}
         </div>
 
-        <h2>
-          Your question
-        </h2>
+        <h2>Your question</h2>
 
         <div class="card">
-
-          <p>
-            ${esc(question)}
-          </p>
-
+          <p>${esc(question)}</p>
         </div>
 
-        <div
-          class="card"
-          style="margin-top:16px"
-        >
+        <div class="card" style="margin-top:16px">
+          <h3>${esc(answer.headline || "What this means")}</h3>
 
-          <h3>
-            IHI
-          </h3>
+          ${answer.whatItAdds
+            ? "<p>" + esc(answer.whatItAdds) + "</p>"
+            : ""}
 
-          <p>
-            ${esc(data.answer)}
-          </p>
+          ${answer.whatItMeans
+            ? "<h4>What this means</h4><p>" +
+              esc(answer.whatItMeans) + "</p>"
+            : ""}
 
+          ${Array.isArray(answer.why) && answer.why.length
+            ? "<h4>Why this may connect</h4><ul class=\"list\">" +
+              list(answer.why) + "</ul>"
+            : ""}
+
+          ${Array.isArray(answer.deeperExplanation) &&
+          answer.deeperExplanation.length
+            ? "<h4>Going one level deeper</h4><ul class=\"list\">" +
+              list(answer.deeperExplanation) + "</ul>"
+            : ""}
+
+          ${Array.isArray(answer.whatYouCanTry) &&
+          answer.whatYouCanTry.length
+            ? "<h4>What you can try next</h4><ul class=\"list\">" +
+              list(answer.whatYouCanTry) + "</ul>"
+            : ""}
+
+          ${Array.isArray(answer.whatToWatch) &&
+          answer.whatToWatch.length
+            ? "<h4>What to watch for</h4><ul class=\"list\">" +
+              list(answer.whatToWatch) + "</ul>"
+            : ""}
         </div>
 
-        <div
-          class="card"
-          style="margin-top:24px"
-        >
-
-          <h3>
-            Ask another question
-          </h3>
+        <div class="card" style="margin-top:24px">
+          <h3>Ask another question</h3>
 
           <textarea
             id="ihiFollowup"
             placeholder="What else would you like to understand?"
           ></textarea>
 
-          <div class="actions">
+          ${voiceButton("ihiFollowupVoice")}
 
-            <button
-              type="button"
-              class="btn primary"
-              id="ihiAsk"
-            >
+          <div class="actions">
+            <button type="button" class="btn primary" id="ihiAsk">
               Ask IHI →
             </button>
-
           </div>
-
         </div>
-
       </section>
     `);
 
+    setupVoiceInput("ihiFollowup", "ihiFollowupVoice");
+
     document
       .getElementById("ihiAsk")
-      .addEventListener(
-        "click",
-        askIHI
-      );
+      .addEventListener("click", askIHI);
 
   } catch (error) {
-
     ihiState.history.pop();
-
-    showError(
-      error.message,
-      askIHI
-    );
-
+    showError(error.message, askIHI);
   }
 }
 
@@ -744,3 +708,20 @@ concern.addEventListener(
 
   }
 );
+window.addEventListener("load", () => {
+  if (
+    !document.getElementById("concern") ||
+    document.getElementById("ihiComplaintVoice")
+  ) return;
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.id = "ihiComplaintVoice";
+  button.className = "btn option";
+  button.style.marginTop = "10px";
+  button.textContent = "🎙 Speak";
+
+  concern.insertAdjacentElement("afterend", button);
+
+  setupVoiceInput("concern", "ihiComplaintVoice");
+});
