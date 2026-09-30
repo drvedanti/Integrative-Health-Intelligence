@@ -48,13 +48,13 @@ Only introduce Agni, Ama or Nidana when the user's complaint and answers provide
 All Ayurvedic explanations are traditional-framework interpretations, not established biomedical diagnoses or causes.`,
 
     homeopathy:
-      "Use Homeopathic theory only for this framework, including the whole symptom pattern and individualization. Clearly state that these are theoretical concepts, not established biomedical causes."
+      "Use Homeopathic theory only for this framework, including the whole symptom pattern, individualization and the way a homeopath may interpret a combination of symptoms as reflecting an underlying disturbance. Clearly state that these are theoretical concepts, not established biomedical causes. If the user asks why, how, root cause, what is causing this, or what part/pattern it relates to, explain that framework interpretation first and do not jump to remedies."
   };
 
   const lang = {
     en: "Write ONLY in simple, natural English. No Hindi or Marathi.",
     hi: "Write ONLY in easy everyday Hindi in Devanagari. Avoid formal or Sanskrit-heavy Hindi. Explain difficult terms immediately in simple Hindi.",
-    mr: "Write ONLY in easy everyday Marathi in Devanagari. Avoid formal or bookish Marathi. Explain difficult terms immediately in simple Marathi.",
+    mr: "Write ONLY in natural, clear Marathi in Devanagari. Use everyday educated Marathi, including natural Pune-style conversational Marathi where appropriate. Avoid Sanskrit-heavy, literary, overly formal or textbook Marathi. Explain difficult terms immediately in simple Marathi.",
     "hi-en": "Write natural conversational Hinglish: easy Hindi sentence structure with simple familiar English words mixed naturally. Do NOT translate Hindi into English. Do NOT create separate Hindi and English sections.",
     "mr-en": "Write natural conversational Minglish: easy Marathi sentence structure with simple familiar English words mixed naturally. Do NOT translate Marathi into English. Do NOT create separate Marathi and English sections."
   }[language] || "Write ONLY in simple, natural English.";
@@ -78,7 +78,7 @@ Return ONLY valid JSON:
   ]
 }
 
-Generate 3 to 5 high-value questions tailored to the exact complaint and selected framework.
+Generate 5 to 6 high-value questions tailored to the exact complaint and selected framework.
 Questions must genuinely differ between frameworks.
 Questions must collect information that is actually useful for reasoning within that framework.
 
@@ -88,7 +88,7 @@ For Ayurveda specifically:
 - Ask about observable symptoms, timing, digestion, appetite, bowel pattern, triggers, sleep, stress, food patterns or other factors only when relevant.
 - Do not ask "Which Dosha do you think you have?" as a default question.
 - Do not assume the user knows Ayurvedic terminology.
-- If an Ayurvedic term is necessary in a question, explain it immediately in plain everyday language.
+- If an Ayurvedic term is necessary in a question, explain it immediately in plain everyday language. When asking about Dosha or Agni, explain what the option means through simple observable experiences in brackets rather than asking the user to identify a Dosha by name alone.
 - Questions should gather enough information to consider Vata, Pitta, Kapha or a combination without making the user diagnose themselves.
 
 Allow the user to type their own answer.
@@ -179,12 +179,19 @@ Return ONLY valid JSON:
   }
 }
 
+IMPORTANT:
+- Answer the user's actual question FIRST.
+- If the user asks WHY, HOW, ROOT CAUSE, WHAT IS CAUSING THIS, or WHAT PART/PATTERN THIS MAY RELATE TO, focus on that explanation before anything else.
+- For Homeopathy, explain how the user's specific combination of symptoms may be interpreted within Homeopathic theory, including the relevant symptom pattern, individualization and possible underlying disturbance as that framework describes it. Do not jump straight to a remedy.
+- Remedies or practical actions may be included only after the question has been answered and only when useful; they must never replace the requested explanation.
+- The user must be able to stop asking questions and continue to the practical/safety section.
+
 Write for a normal person, not a clinician or textbook reader.
 
 Style:
 - Use short sentences.
 - Use everyday language.
-- Explain technical terms immediately in plain language.
+- Explain technical terms immediately in plain language. Never mix Hindi into Minglish. Minglish = Marathi + simple English only. Never translate Marathi sentence-by-sentence into English.
 - Tell a clear mini-story: what changed → what it may mean → why → what to do next.
 - Do not dump framework terminology.
 - Do not use markdown symbols such as **, ## or bullet characters inside the strings.

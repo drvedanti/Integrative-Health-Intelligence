@@ -79,6 +79,8 @@ async function ihiCall(action, extra = {}) {
 }
 
 
+const activeRecognitions = new WeakMap();
+
 function setupVoiceInput(textareaId, buttonId) {
   const textarea = document.getElementById(textareaId);
   const button = document.getElementById(buttonId);
@@ -92,7 +94,14 @@ function setupVoiceInput(textareaId, buttonId) {
     return;
   }
 
-  button.addEventListener("click", () => {
+  if (button.dataset.voiceReady === "1") return;
+  button.dataset.voiceReady = "1";
+
+  button.addEventListener("click", event => {
+    event.preventDefault();
+
+    if (button.disabled || activeRecognitions.has(button)) return;
+
     const recognition = new SpeechRecognition();
     const selected = language?.value || "en";
 
@@ -103,28 +112,54 @@ function setupVoiceInput(textareaId, buttonId) {
 
     recognition.interimResults = false;
     recognition.continuous = false;
+    recognition.maxAlternatives = 1;
 
+    activeRecognitions.set(button, recognition);
     button.textContent = "🎙 Listening…";
     button.disabled = true;
 
+    let captured = "";
+
     recognition.onresult = event => {
-      const spoken = event.results?.[0]?.[0]?.transcript || "";
-      textarea.value = textarea.value.trim()
-        ? textarea.value.trim() + " " + spoken
-        : spoken;
+      const result =
+        event.results?.[event.results.length - 1]?.[0];
+
+      const spoken =
+        result?.transcript?.trim() || "";
+
+      if (spoken && !captured) captured = spoken;
     };
 
     recognition.onerror = () => {
+      activeRecognitions.delete(button);
       button.textContent = "🎙 Speak";
       button.disabled = false;
     };
 
     recognition.onend = () => {
+      if (captured) {
+        const existing = textarea.value.trim();
+
+        textarea.value =
+          existing ? existing + " " + captured : captured;
+
+        textarea.dispatchEvent(
+          new Event("input", { bubbles: true })
+        );
+      }
+
+      activeRecognitions.delete(button);
       button.textContent = "🎙 Speak";
       button.disabled = false;
     };
 
-    recognition.start();
+    try {
+      recognition.start();
+    } catch (_) {
+      activeRecognitions.delete(button);
+      button.textContent = "🎙 Speak";
+      button.disabled = false;
+    }
   });
 }
 
@@ -433,45 +468,83 @@ function list(items) {
   .join("");
 }
 
-async function showAnalysis() {
-  busy("Putting your story together…");
+function getInitialAnalysis() {
+  return ihiState.history.find(
+    item => item.type === "analysis"
+  )?.data || null;
+}
 
-  try {
-    const data = await ihiCall("analysis");
+function renderPractical(data) {
+  show(`
+    <section class="section">
 
-    ihiState.history.push({
-      type: "analysis",
-      data
-    });
+      <div class="eyebrow">
+        Next steps · ${esc(frameworkNames[ihiState.framework])}
+      </div>
 
-    show(`
-      <section class="section">
-        <div class="eyebrow">
-          Step 3 · ${esc(frameworkNames[ihiState.framework])}
+      <h2>What you can do next</h2>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>What you can try</h3>
+          <ul class="list">${list(data?.try)}</ul>
         </div>
-
-        <h2>What may be happening?</h2>
 
         <div class="card">
-          <h3>${esc(data.headline || "A possible explanation")}</h3>
-          <p>${esc(data.whatMayBeHappening || "")}</p>
+          <h3>What to avoid</h3>
+          <ul class="list">${list(data?.avoid)}</ul>
+        </div>
+      </div>
+
+      <div class="card safety" style="margin-top:16px">
+        <h3>Safety</h3>
+        <ul class="list">${list(data?.safety)}</ul>
+      </div>
+
+    </section>
+  `);
+}
+
+function renderAnalysisPage(data) {
+  show(`
+    <section class="section">
+
+      <div class="eyebrow">
+        Step 3 · ${esc(frameworkNames[ihiState.framework])}
+      </div>
+
+      <h2>What may be happening?</h2>
+
+      <div class="card">
+        <h3>${esc(data.headline || "A possible explanation")}</h3>
+        <p>${esc(data.whatMayBeHappening || "")}</p>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h3>Why might this be happening?</h3>
+        <ul class="list">${list(data.why)}</ul>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h3>Going a little deeper</h3>
+        <ul class="list">${list(data.deeperExplanation)}</ul>
+      </div>
+
+      <div class="card" style="margin-top:24px">
+        <h3>What next?</h3>
+
+        <p class="notice">
+          You can ask IHI something more, or continue directly to practical next steps.
+        </p>
+
+        <div class="actions">
+          <button type="button" class="btn primary" id="ihiContinue">
+            Continue → What you can try
+          </button>
         </div>
 
-        <div class="card" style="margin-top:16px">
-          <h3>Why might this be happening?</h3>
-          <ul class="list">${list(data.why)}</ul>
-        </div>
-
-        <div class="card" style="margin-top:16px">
-          <h3>Going a little deeper</h3>
-          <ul class="list">${list(data.deeperExplanation)}</ul>
-        </div>
-
-        <div class="card" style="margin-top:24px">
-          <h3>Ask IHI</h3>
-          <p class="notice">
-            Ask a follow-up without starting over. IHI keeps your original story and framework.
-          </p>
+        <div style="margin-top:18px">
+          <h4>Ask IHI</h4>
 
           <textarea
             id="ihiFollowup"
@@ -486,31 +559,58 @@ async function showAnalysis() {
             </button>
           </div>
         </div>
+      </div>
 
-        <div class="grid two" style="margin-top:16px">
-          <div class="card">
-            <h3>What you can try</h3>
-            <ul class="list">${list(data.try)}</ul>
-          </div>
-
-          <div class="card">
-            <h3>What to avoid</h3>
-            <ul class="list">${list(data.avoid)}</ul>
-          </div>
+      <div id="ihiPractical" class="grid two" style="margin-top:24px">
+        <div class="card">
+          <h3>What you can try</h3>
+          <ul class="list">${list(data.try)}</ul>
         </div>
 
-        <div class="card safety" style="margin-top:16px">
-          <h3>Safety</h3>
-          <ul class="list">${list(data.safety)}</ul>
+        <div class="card">
+          <h3>What to avoid</h3>
+          <ul class="list">${list(data.avoid)}</ul>
         </div>
-      </section>
-    `);
+      </div>
 
-    setupVoiceInput("ihiFollowup", "ihiFollowupVoice");
+      <div class="card safety" style="margin-top:16px">
+        <h3>Safety</h3>
+        <ul class="list">${list(data.safety)}</ul>
+      </div>
 
-    document
-      .getElementById("ihiAsk")
-      .addEventListener("click", askIHI);
+    </section>
+  `);
+
+  setupVoiceInput("ihiFollowup", "ihiFollowupVoice");
+
+  document
+    .getElementById("ihiAsk")
+    .addEventListener("click", askIHI);
+
+  document
+    .getElementById("ihiContinue")
+    .addEventListener("click", () => {
+      document
+        .getElementById("ihiPractical")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+    });
+}
+
+async function showAnalysis() {
+  busy("Putting your story together…");
+
+  try {
+    const data = await ihiCall("analysis");
+
+    ihiState.history.push({
+      type: "analysis",
+      data
+    });
+
+    renderAnalysisPage(data);
 
   } catch (error) {
     showError(error.message, showAnalysis);
@@ -551,6 +651,7 @@ async function askIHI() {
 
     show(`
       <section class="section">
+
         <div class="eyebrow">
           Ask IHI · ${esc(frameworkNames[ihiState.framework])}
         </div>
@@ -598,21 +699,36 @@ async function askIHI() {
         </div>
 
         <div class="card" style="margin-top:24px">
-          <h3>Ask another question</h3>
+          <h3>What next?</h3>
 
-          <textarea
-            id="ihiFollowup"
-            placeholder="What else would you like to understand?"
-          ></textarea>
-
-          ${voiceButton("ihiFollowupVoice")}
+          <p class="notice">
+            You can ask another question, or continue to the practical and safety section.
+          </p>
 
           <div class="actions">
-            <button type="button" class="btn primary" id="ihiAsk">
-              Ask IHI →
+            <button type="button" class="btn primary" id="ihiContinue">
+              Continue → What you can try
             </button>
           </div>
+
+          <div style="margin-top:18px">
+            <h4>Ask another question</h4>
+
+            <textarea
+              id="ihiFollowup"
+              placeholder="What else would you like to understand?"
+            ></textarea>
+
+            ${voiceButton("ihiFollowupVoice")}
+
+            <div class="actions">
+              <button type="button" class="btn primary" id="ihiAsk">
+                Ask IHI →
+              </button>
+            </div>
+          </div>
         </div>
+
       </section>
     `);
 
@@ -621,6 +737,16 @@ async function askIHI() {
     document
       .getElementById("ihiAsk")
       .addEventListener("click", askIHI);
+
+    document
+      .getElementById("ihiContinue")
+      .addEventListener("click", () => {
+        const analysis = getInitialAnalysis();
+
+        if (analysis) {
+          renderPractical(analysis);
+        }
+      });
 
   } catch (error) {
     ihiState.history.pop();
@@ -708,7 +834,93 @@ concern.addEventListener(
 
   }
 );
+
+function setupIHISpark() {
+  if (document.getElementById("ihiSpark")) return;
+
+  const sparks = {
+    en: [
+      ["Tiny curiosity", "Why does IHI ask about timing?", "Because when something happens can be as useful as what happens."],
+      ["Tiny curiosity", "One symptom can have many explanations.", "Good questions help narrow the story."],
+      ["Tiny curiosity", "Why ask \"why\"?", "Because understanding the reasoning can be more useful than seeing an answer alone."]
+    ],
+    hi: [
+      ["छोटी-सी जिज्ञासा", "IHI समय के बारे में क्यों पूछता है?", "क्योंकि कोई चीज़ कब होती है, यह भी उतना ही काम का हो सकता है जितना कि वह क्या है।"],
+      ["छोटी-सी जिज्ञासा", "एक लक्षण के कई कारण हो सकते हैं।", "सही सवाल कहानी को समझने में मदद करते हैं।"]
+    ],
+    mr: [
+      ["छोटीशी उत्सुकता", "IHI वेळेबद्दल का विचारतो?", "एखादी गोष्ट कधी होते, हे कशामुळे होते हे समजून घेण्यासाठी महत्त्वाचं ठरू शकतं."],
+      ["छोटीशी उत्सुकता", "एका लक्षणामागे अनेक शक्यता असू शकतात.", "योग्य प्रश्न विचारल्यामुळे नेमकं काय चाललंय हे समजायला मदत होते."]
+    ],
+    "hi-en": [
+      ["Tiny curiosity", "IHI timing ke baare mein kyun poochta hai?", "Kyuki kuch kab hota hai, ye bhi utna hi useful ho sakta hai jitna ki kya ho raha hai."],
+      ["Tiny curiosity", "Ek symptom ke peeche kai explanations ho sakte hain.", "Good questions story ko narrow karne mein help karte hain."]
+    ],
+    "mr-en": [
+      ["Tiny curiosity", "IHI timing बद्दल का विचारतो?", "कारण काही कधी होतं, हे काय होतंय इतकंच useful ठरू शकतं."],
+      ["Tiny curiosity", "एका symptom मागे अनेक explanations असू शकतात.", "Good questions मुळे नेमकं काय चाललंय हे समजायला help होते."]
+    ]
+  };
+
+  let index = 0;
+
+  const wrap = document.createElement("aside");
+  wrap.id = "ihiSpark";
+  wrap.innerHTML = `
+    <div class="ihi-spark-card">
+      <button type="button" class="ihi-spark-close" aria-label="Minimize IHI Spark">×</button>
+      <div class="ihi-spark-label">✨ IHI Spark</div>
+      <div class="ihi-spark-kicker"></div>
+      <h4 class="ihi-spark-title"></h4>
+      <p class="ihi-spark-text"></p>
+      <button type="button" class="ihi-spark-next">Another spark →</button>
+    </div>
+    <button type="button" class="ihi-spark-mini" aria-label="Open IHI Spark">✨</button>
+  `;
+
+  document.body.appendChild(wrap);
+
+  const card = wrap.querySelector(".ihi-spark-card");
+  const mini = wrap.querySelector(".ihi-spark-mini");
+  const close = wrap.querySelector(".ihi-spark-close");
+  const next = wrap.querySelector(".ihi-spark-next");
+  const kicker = wrap.querySelector(".ihi-spark-kicker");
+  const title = wrap.querySelector(".ihi-spark-title");
+  const text = wrap.querySelector(".ihi-spark-text");
+
+  function render() {
+    const selected = language?.value || "en";
+    const items = sparks[selected] || sparks.en;
+    const item = items[index % items.length];
+
+    kicker.textContent = item[0];
+    title.textContent = item[1];
+    text.textContent = item[2];
+  }
+
+  next.addEventListener("click", () => {
+    index += 1;
+    render();
+  });
+
+  close.addEventListener("click", () => {
+    card.style.display = "none";
+    mini.style.display = "flex";
+  });
+
+  mini.addEventListener("click", () => {
+    card.style.display = "block";
+    mini.style.display = "none";
+    render();
+  });
+
+  language?.addEventListener("change", render);
+
+  render();
+}
+
 window.addEventListener("load", () => {
+  setupIHISpark();
   if (
     !document.getElementById("concern") ||
     document.getElementById("ihiComplaintVoice")
