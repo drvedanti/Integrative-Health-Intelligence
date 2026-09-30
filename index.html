@@ -1990,55 +1990,6 @@ $("example").onclick=()=>{
 
 
 /* =========================================================
-   EXPLORE
-   ========================================================= */
-
-$("explore").onclick=()=>{
-
-  const value=concern.value.trim();
-
-  if(!value){
-
-    showToast(
-      language.value==="en"
-      ? "Tell us a little about what you've been feeling."
-      : "कृपया तुम्हाला काय जाणवतंय त्याबद्दल थोडं सांगा."
-    );
-
-    concern.focus();
-
-    return;
-  }
-
-
-  $("storyText").textContent=value;
-
-
-  $("storyFacts").innerHTML=
-    copy[language.value]
-      .facts
-      .map(item=>`<span class="fact">${item}</span>`)
-      .join("");
-
-
-  fillPersonalisedContent();
-
-
-  results.style.display="block";
-
-
-  $("accountBox").style.display="block";
-
-
-  results.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-};
-
-
-/* =========================================================
    VOICE INPUT
    ========================================================= */
 
