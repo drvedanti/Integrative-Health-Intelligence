@@ -516,8 +516,9 @@ h3{
 }
 
 
-/* ============================================================
-   ABOUT — EDITORIAL LAYOUT
+
+   /* ============================================================
+   ABOUT — FINAL TYPOGRAPHY
    ============================================================ */
 
 .about-page{
@@ -529,117 +530,164 @@ h3{
 }
 
 .about-heading .eyebrow{
-  margin-bottom:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  line-height:1.1;
+  letter-spacing:-.02em;
+  text-transform:none;
+  font-weight:400;
+  color:var(--ink);
+  margin:0;
 }
 
 .about-grid{
   display:grid;
-  grid-template-columns:1fr 1.18fr;
-  gap:24px;
-  align-items:stretch;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  align-items:start;
 }
 
 .about-column{
   border:1px solid var(--line);
-  padding:42px 42px 48px;
-  background:transparent;
+  padding:48px 44px 52px;
+  background:var(--paper);
 }
 
-/* LEFT — CREATOR */
 
-.creator{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:620px;
-}
+/* SECTION HEADINGS */
 
 .story-title{
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  color:var(--wine);
-  font-weight:700;
-  margin-bottom:42px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:35px;
+  line-height:1.08;
+  letter-spacing:-.035em;
+  font-weight:400;
+  color:var(--ink);
+  margin-bottom:38px;
+}
+
+
+/* CREATOR */
+
+.creator{
+  min-height:650px;
+  display:flex;
+  flex-direction:column;
+}
+
+.creator h3,
+.creator p{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  line-height:1.55;
+  font-weight:400;
+  letter-spacing:0;
+  color:var(--ink);
+  max-width:560px;
 }
 
 .creator h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:34px;
-  line-height:1.12;
-  font-weight:400;
-  letter-spacing:-.04em;
-  max-width:500px;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 .creator p{
+  margin-bottom:27px;
+}
+
+.creator p strong{
+  font-weight:600;
+}
+
+
+/* PHOTO AREA */
+
+.creator-photo{
+  width:100%;
+  height:250px;
+  margin-bottom:38px;
+  border:1px solid var(--line);
+  background:#eeeae3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.creator-photo-placeholder{
+  font-family:Inter,ui-sans-serif,sans-serif;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
   color:var(--muted);
-  font-size:15px;
-  line-height:1.75;
-  max-width:500px;
-  margin-bottom:21px;
 }
 
-.creator-name-block{
-  margin-top:45px;
-  padding-top:20px;
-  border-top:1px solid var(--line);
-}
 
-.creator-name{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:21px;
-}
-
-.creator-role{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:4px;
-}
-
-/* RIGHT — WHY IHI */
+/* WHY IHI */
 
 .about-grid > .about-column:last-child{
-  min-height:620px;
+  min-height:650px;
 }
 
 .story{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:18px;
-  line-height:1.68;
+  font-size:22px;
+  line-height:1.55;
+  font-weight:400;
+  color:var(--ink);
   max-width:680px;
 }
 
 .story p{
-  margin-bottom:23px;
+  font-size:22px;
+  margin-bottom:27px;
 }
 
 .story ul{
-  margin:0 0 27px 23px;
+  margin:0 0 30px 25px;
 }
 
 .story li{
-  margin-bottom:8px;
-  padding-left:4px;
-}
-
-.about-column:last-child .story-title{
-  margin-bottom:34px;
-}
-
-.about-column:last-child .story p:last-child{
-  margin-top:35px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  line-height:1.55;
+  font-weight:400;
+  margin-bottom:12px;
+  padding-left:5px;
 }
 
 
-/* TABLET */
+/* CREATOR IDENTITY — RIGHT PANEL */
+
+.about-identity{
+  margin-top:55px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+
+.about-identity-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:30px;
+  line-height:1.2;
+  font-weight:400;
+}
+
+.about-identity-role{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+  line-height:1.3;
+  font-weight:400;
+  color:var(--ink);
+  margin-top:7px;
+}
+
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
   .about-grid{
     grid-template-columns:1fr;
-    gap:20px;
+    gap:25px;
   }
 
   .creator,
@@ -648,9 +696,6 @@ h3{
   }
 
 }
-
-
-/* MOBILE */
 
 @media(max-width:600px){
 
@@ -662,25 +707,40 @@ h3{
     margin-bottom:42px;
   }
 
+  .about-heading .eyebrow{
+    font-size:25px;
+  }
+
   .about-column{
-    padding:30px 25px 34px;
+    padding:32px 25px 38px;
   }
 
   .story-title{
-    margin-bottom:30px;
+    font-size:31px;
+    margin-bottom:28px;
   }
 
-  .creator h3{
-    font-size:29px;
+  .creator h3,
+  .creator p,
+  .story,
+  .story p,
+  .story li{
+    font-size:19px;
   }
 
-  .story{
-    font-size:17px;
-    line-height:1.65;
+  .about-identity-name{
+    font-size:27px;
+  }
+
+  .about-identity-role{
+    font-size:25px;
+  }
+
+  .creator-photo{
+    height:210px;
   }
 
 }
-
 /* SPARK */
 
 #ihi-spark{
