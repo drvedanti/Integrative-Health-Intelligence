@@ -1,2077 +1,1345 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IHI — Make Sense of What You're Feeling</title>
-<meta name="description" content="IHI helps you explore a health concern through clearly separated health frameworks.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integrative Health Intelligence — IHI</title>
+
+<meta name="description" content="IHI helps you explore health questions through different healthcare frameworks and understand your experience more clearly.">
 
 <style>
 :root{
- --wine:#8b2035;
- --wine-dark:#681526;
- --gold:#b88a3b;
- --cream:#fbf8f1;
- --paper:#fffdf9;
- --ink:#2c2524;
- --muted:#746b66;
- --line:#e7ddd1;
- --red:#a33a36;
- --shadow:0 18px 50px rgba(58,32,25,.08)
+  --bg:#f7f5f0;
+  --paper:#fbfaf7;
+  --ink:#171616;
+  --muted:#6f6a64;
+  --line:#dcd7cf;
+  --wine:#5a2632;
+  --wine-dark:#421c25;
+  --gold:#9b8051;
+  --white:#fffdf9;
+  --radius:22px;
+  --max:1180px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
- margin:0;
- background:var(--cream);
- color:var(--ink);
- font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- line-height:1.6
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
 }
 
-button,textarea,select{font:inherit}
-button{cursor:pointer}
-
-.wrap{
- max-width:1080px;
- margin:auto;
- padding:0 22px
-}
-
-header{
- padding:22px 0;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
-}
-
-.brand{
- color:var(--wine);
- font-weight:850;
- letter-spacing:.08em;
- font-size:17px
-}
-
-.brand small{
- display:block;
- color:var(--muted);
- font-size:9px;
- font-weight:600;
- letter-spacing:.14em;
- margin-top:2px
-}
-
+button,
+textarea,
 select{
- border:1px solid var(--line);
- background:var(--paper);
- border-radius:10px;
- padding:9px 12px;
- color:var(--ink)
+  font:inherit;
 }
 
-.hero{
- padding:58px 0 42px
-}
-
-.eyebrow{
- color:var(--gold);
- font-size:12px;
- font-weight:800;
- letter-spacing:.16em;
- text-transform:uppercase
-}
-
-h1{
- font-size:clamp(38px,7vw,68px);
- line-height:1.02;
- letter-spacing:-.045em;
- max-width:800px;
- margin:14px 0 20px
-}
-
-.hero p{
- max-width:680px;
- color:var(--muted);
- font-size:18px;
- margin:0
-}
-
-.explore-card{
- margin:18px 0 55px;
- background:var(--paper);
- border:1px solid var(--line);
- border-radius:24px;
- padding:26px;
- box-shadow:var(--shadow)
-}
-
-label{
- display:block;
- font-weight:750;
- margin-bottom:10px
-}
-
-textarea{
- width:100%;
- min-height:116px;
- resize:vertical;
- border:1px solid var(--line);
- border-radius:14px;
- background:#fff;
- padding:15px;
- color:var(--ink);
- outline:none
-}
-
-textarea:focus,
-select:focus{
- border-color:var(--gold);
- box-shadow:0 0 0 3px rgba(184,138,59,.12)
-}
-
-.actions{
- display:flex;
- gap:12px;
- flex-wrap:wrap;
- margin-top:14px
-}
-
-.btn{
- border:1px solid var(--line);
- border-radius:12px;
- padding:11px 17px;
- background:#fff;
- color:var(--ink);
- font-weight:750
-}
-
-.btn.primary{
- background:var(--wine);
- color:#fff;
- border-color:var(--wine)
-}
-
-.btn.primary:hover{
- background:var(--wine-dark)
-}
-
-.btn:disabled{
- opacity:.55;
- cursor:wait
-}
-
-.results{
- padding:0 0 70px
-}
-
-.section{
- border-top:1px solid var(--line);
- padding:42px 0
-}
-
-.section h2{
- font-size:32px;
- line-height:1.15;
- margin:0 0 10px
-}
-
-.section-intro{
- color:var(--muted);
- max-width:700px
-}
-
-.grid{
- display:grid;
- grid-template-columns:repeat(3,minmax(0,1fr));
- gap:16px;
- margin-top:24px
-}
-
-.grid.two{
- grid-template-columns:repeat(2,minmax(0,1fr))
-}
-
-.card{
- background:var(--paper);
- border:1px solid var(--line);
- border-radius:18px;
- padding:20px
-}
-
-.card.clickable{
- text-align:left;
- width:100%;
- transition:.15s
-}
-
-.card.clickable:hover{
- transform:translateY(-2px);
- border-color:var(--gold)
-}
-
-.card h3{
- margin:8px 0 7px;
- font-size:19px
-}
-
-.card p{
- margin:0;
- color:var(--muted)
-}
-
-.badge{
- display:inline-block;
- font-size:10px;
- font-weight:850;
- letter-spacing:.12em;
- padding:5px 8px;
- border-radius:999px;
- background:#f4e8d0;
- color:#735018
-}
-
-.badge.clinical{
- background:#eee8f1;
- color:#633c72
-}
-
-.question{
- margin:18px 0
-}
-
-.question h3{
- margin-top:0
-}
-
-.options{
- display:grid;
- gap:9px;
- margin-top:13px
-}
-
-.option{
- width:100%;
- text-align:left
-}
-
-.option.selected{
- border-color:var(--wine);
- background:#fff5f7
-}
-
-.list{
- margin:10px 0 0;
- padding-left:20px
-}
-
-.list li{
- margin:7px 0
-}
-
-.safety{
- border-color:#e9c8c5;
- background:#fff8f7
-}
-
-.notice{
- color:var(--muted);
- font-size:14px
-}
-
-.loading{
- padding:30px 0;
- color:var(--muted)
-}
-
-.error{
- border-color:#e9c8c5;
- background:#fff8f7
-}
-
-
-/* IHI Spark */
-#ihiSpark{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:50;
-  max-width:290px;
-  font-size:14px;
-}
-.ihi-spark-card{
-  position:relative;
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px 18px 16px;
-  box-shadow:var(--shadow);
-}
-.ihi-spark-close{
-  position:absolute;
-  top:8px;
-  right:10px;
-  border:0;
-  background:transparent;
-  color:var(--muted);
-  font-size:20px;
+button{
   cursor:pointer;
 }
-.ihi-spark-label{
-  color:var(--wine);
-  font-weight:700;
-  margin-bottom:10px;
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
-.ihi-spark-kicker{
-  color:var(--muted);
-  font-size:12px;
-  margin-bottom:5px;
-}
-.ihi-spark-title{
-  margin:0 20px 7px 0;
-  font-size:15px;
-}
-.ihi-spark-text{
-  margin:0 0 12px;
-  color:var(--muted);
-  line-height:1.5;
-}
-.ihi-spark-next{
-  border:0;
-  background:none;
-  padding:0;
-  color:var(--wine);
-  font-weight:700;
-  cursor:pointer;
-}
-.ihi-spark-mini{
+
+.page{
   display:none;
-  width:46px;
-  height:46px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  background:var(--paper);
-  box-shadow:var(--shadow);
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  cursor:pointer;
-}
-@media(max-width:600px){
-  #ihiSpark{
-    right:12px;
-    bottom:12px;
-    max-width:250px;
-  }
 }
 
-footer{
- border-top:1px solid var(--line);
- padding:28px 0 50px;
- color:var(--muted);
- font-size:13px
+.page.active{
+  display:block;
 }
 
-@media(max-width:760px){
- .grid,
- .grid.two{
-  grid-template-columns:1fr
- }
-
- .hero{
-  padding-top:35px
- }
-
- .explore-card{
-  padding:19px
- }
+.container{
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;
 }
 
+/* NAV */
 
-/* IHI WEBSITE SHELL — visual pass */
-:root{
-  --wine:#8b2035;
-  --wine-dark:#681526;
-  --gold:#b88a3b;
-  --cream:#fbf8f1;
-  --paper:#fffdf9;
-  --ink:#2c2524;
-  --muted:#746b66;
-  --line:#e7ddd1;
-  --soft:#f3ece2;
-  --shadow:0 24px 70px rgba(58,32,25,.10);
-}
-
-.site-shell{
-  position:fixed;
-  inset:0 auto 0 0;
-  width:205px;
-  padding:34px 24px 28px;
-  border-right:1px solid var(--line);
-  background:rgba(251,248,241,.94);
-  backdrop-filter:blur(14px);
+.nav{
+  position:sticky;
+  top:0;
   z-index:100;
-  display:flex;
-  flex-direction:column;
+  background:rgba(247,245,240,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(220,215,207,.7);
 }
 
-.shell-brand{
-  color:var(--wine);
-  font-size:36px;
-  font-weight:900;
-  letter-spacing:.075em;
-  line-height:.9;
-}
-
-.shell-brand span{
-  display:block;
-  margin-top:10px;
-  color:var(--muted);
-  font-size:8px;
-  line-height:1.45;
-  letter-spacing:.15em;
-}
-
-.shell-nav{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  margin-top:62px;
-}
-
-.shell-nav button{
-  border:0;
-  background:transparent;
-  text-align:left;
-  padding:11px 13px;
-  border-radius:11px;
-  color:var(--muted);
-  font-weight:700;
-  transition:.2s ease;
-}
-
-.shell-nav button:hover{
-  color:var(--wine);
-  background:rgba(184,138,59,.07);
-}
-
-.shell-nav button.active{
-  color:var(--wine);
-  background:#f1e7d9;
-}
-
-.shell-main{
-  margin-left:205px;
-  min-height:100vh;
-}
-
-.shell-page{
-  display:none;
-  min-height:100vh;
-}
-
-.shell-page.active{
-  display:block;
-}
-
-.shell-tools{
-  position:absolute;
-  top:28px;
-  right:34px;
-  z-index:20;
-}
-
-.shell-tools select{
-  border:1px solid var(--line);
-  background:rgba(255,253,249,.9);
-  border-radius:999px;
-  padding:8px 13px;
-  font-size:13px;
-}
-
-.home-wrap{
-  max-width:1180px;
+.nav-inner{
+  min-height:76px;
+  width:min(calc(100% - 48px),var(--max));
   margin:auto;
-  padding:0 46px;
-}
-
-.home-hero{
-  min-height:620px;
-  display:grid;
-  grid-template-columns:minmax(0,1.05fr) minmax(300px,.75fr);
-  align-items:center;
-  gap:50px;
-  padding:95px 0 75px;
-}
-
-.hero-copy{
-  position:relative;
-  z-index:2;
-}
-
-.hero-kicker{
-  color:var(--gold);
-  font-size:11px;
-  font-weight:850;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-
-.hero-title{
-  max-width:760px;
-  font-size:clamp(54px,7vw,88px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  margin:18px 0 25px;
-}
-
-.hero-copy p{
-  max-width:610px;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
-}
-
-.home-cta{
-  margin-top:30px;
-}
-
-.hero-visual{
-  position:relative;
-  height:430px;
   display:flex;
   align-items:center;
-  justify-content:center;
-}
-
-.hero-orbit{
-  width:330px;
-  height:330px;
-  border:1px solid #decdb7;
-  border-radius:50%;
-  position:relative;
-  animation:floatOrb 7s ease-in-out infinite;
-}
-
-.hero-orbit:before,
-.hero-orbit:after{
-  content:"";
-  position:absolute;
-  border-radius:50%;
-}
-
-.hero-orbit:before{
-  width:210px;
-  height:210px;
-  left:59px;
-  top:59px;
-  background:radial-gradient(circle at 35% 30%,#fffdf9,#eee1d0);
-  box-shadow:0 25px 60px rgba(104,21,38,.10);
-}
-
-.hero-orbit:after{
-  width:14px;
-  height:14px;
-  background:var(--wine);
-  top:27px;
-  left:158px;
-  box-shadow:105px 80px 0 var(--gold),-85px 120px 0 #cda99d;
-}
-
-.hero-core{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  color:var(--wine);
-  font-size:42px;
-  font-weight:900;
-  letter-spacing:.06em;
-}
-
-@keyframes floatOrb{
-  0%,100%{transform:translateY(0) rotate(0)}
-  50%{transform:translateY(-9px) rotate(2deg)}
-}
-
-.home-section{
-  padding:88px 0;
-  border-top:1px solid var(--line);
-}
-
-.section-heading{
-  max-width:690px;
-  margin-bottom:38px;
-}
-
-.section-label{
-  color:var(--gold);
-  font-size:11px;
-  font-weight:850;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-}
-
-.section-heading h2{
-  font-size:clamp(36px,5vw,58px);
-  line-height:1.02;
-  letter-spacing:-.04em;
-  margin:10px 0 14px;
-}
-
-.section-heading p{
-  color:var(--muted);
-  font-size:17px;
-  margin:0;
-}
-
-.approach-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.approach-card{
-  min-height:235px;
-  padding:27px;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:var(--paper);
-  position:relative;
-  overflow:hidden;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
-}
-
-.approach-card:hover{
-  transform:translateY(-5px);
-  border-color:#d8c5ae;
-  box-shadow:var(--shadow);
-}
-
-.approach-symbol{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f2e7d9;
-  color:var(--wine);
-  font-weight:900;
-  font-size:17px;
-  margin-bottom:38px;
-}
-
-.approach-card:nth-child(2) .approach-symbol{
-  background:#eee8df;
-  color:#7a5b31;
-}
-
-.approach-card:nth-child(3) .approach-symbol{
-  background:#eee5e8;
-  color:#704354;
-}
-
-.approach-card h3{
-  font-size:23px;
-  margin:0 0 8px;
-}
-
-.approach-card p{
-  color:var(--muted);
-  margin:0;
-}
-
-.approach-card .corner{
-  position:absolute;
-  width:110px;
-  height:110px;
-  right:-45px;
-  bottom:-45px;
-  border:1px solid #eadccd;
-  border-radius:50%;
-}
-
-.journey{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:0;
-  margin-top:48px;
-}
-
-.journey:before{
-  content:"";
-  position:absolute;
-  top:25px;
-  left:5%;
-  right:5%;
-  height:1px;
-  background:#d9c8b4;
-}
-
-.journey-step{
-  position:relative;
-  text-align:center;
-  padding:0 8px;
-}
-
-.journey-number{
-  width:50px;
-  height:50px;
-  margin:0 auto 18px;
-  border:1px solid #d9c8b4;
-  background:var(--cream);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--wine);
-  font-size:12px;
-  font-weight:850;
-  position:relative;
-  z-index:2;
-}
-
-.journey-step h3{
-  font-size:16px;
-  margin:0 0 5px;
-}
-
-.journey-step p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.45;
-  margin:0 auto;
-  max-width:130px;
-}
-
-.home-note{
-  margin-top:48px;
-  padding:23px 25px;
-  border-left:3px solid var(--gold);
-  background:#f5eee5;
-  color:var(--muted);
-  border-radius:0 16px 16px 0;
-}
-
-.about-hero{
-  padding:125px 46px 75px;
-  max-width:1000px;
-  margin:auto;
-}
-
-.about-hero h1{
-  max-width:850px;
-  font-size:clamp(50px,7vw,82px);
-  line-height:1;
-  letter-spacing:-.05em;
-  margin:16px 0 20px;
-}
-
-.about-hero p{
-  max-width:650px;
-  color:var(--muted);
-  font-size:18px;
-}
-
-.about-section{
-  max-width:1000px;
-  margin:auto;
-  padding:65px 46px;
-  border-top:1px solid var(--line);
-}
-
-.about-section h2{
-  font-size:42px;
-  letter-spacing:-.035em;
-  margin:0 0 15px;
-}
-
-.about-section > p{
-  max-width:700px;
-  color:var(--muted);
-  font-size:17px;
-}
-
-.creator-card{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:130px 1fr;
+  justify-content:space-between;
   gap:30px;
-  padding:30px;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:var(--paper);
-  box-shadow:var(--shadow);
 }
 
-.creator-mark{
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  background:linear-gradient(145deg,#ead7ca,#f7eee5);
+.logo{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:-.04em;
+}
+
+.logo span{
+  color:var(--wine);
+}
+
+.nav-links{
   display:flex;
   align-items:center;
-  justify-content:center;
-  color:var(--wine);
-  font-size:28px;
-  font-weight:900;
+  gap:30px;
 }
 
-.creator-card h3{
-  margin:0 0 8px;
-  font-size:25px;
-}
-
-.creator-card p{
-  color:var(--muted);
-  margin:8px 0;
-}
-
-.explore-page{
-  position:relative;
-}
-
-.explore-page .wrap{
-  max-width:1000px;
-  padding-top:90px;
-}
-
-.explore-page .brand{
-  display:none;
-}
-
-.explore-page .hero{
-  padding-top:45px;
-}
-
-.explore-page .hero h1{
-  max-width:760px;
-}
-
-.explore-page .explore-card{
-  margin-bottom:45px;
-}
-
-#ihiSpark{
-  position:fixed;
-  right:28px;
-  bottom:26px;
-  z-index:120;
-  max-width:285px;
-}
-
-.ihi-spark-card{
-  background:rgba(255,253,249,.97);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 20px 55px rgba(58,32,25,.13);
-}
-
-.ihi-spark-label{
-  color:var(--wine);
-  font-weight:800;
-  margin-bottom:9px;
-}
-
-.ihi-spark-kicker{
-  color:var(--muted);
-  font-size:11px;
-  margin-bottom:4px;
-}
-
-.ihi-spark-title{
-  margin:0 20px 6px 0;
-  font-size:15px;
-}
-
-.ihi-spark-text{
-  margin:0 0 11px;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-.ihi-spark-next{
+.nav-btn{
   border:0;
   background:none;
-  padding:0;
-  color:var(--wine);
-  font-weight:750;
-}
-
-.ihi-spark-close{
-  position:absolute;
-  top:8px;
-  right:10px;
-  border:0;
-  background:transparent;
   color:var(--muted);
-  font-size:20px;
+  font-size:14px;
+  padding:8px 0;
+  position:relative;
 }
 
-.ihi-spark-mini{
-  display:none;
-}
-
-@media(max-width:900px){
-  .site-shell{
-    position:relative;
-    width:auto;
-    height:auto;
-    border-right:0;
-    border-bottom:1px solid var(--line);
-    padding:20px;
-  }
-
-  .shell-nav{
-    flex-direction:row;
-    margin-top:25px;
-    overflow-x:auto;
-  }
-
-  .shell-main{
-    margin-left:0;
-  }
-
-  .shell-tools{
-    top:20px;
-    right:20px;
-  }
-
-  .home-wrap{
-    padding:0 24px;
-  }
-
-  .home-hero{
-    grid-template-columns:1fr;
-    min-height:auto;
-    padding-top:75px;
-  }
-
-  .hero-visual{
-    height:300px;
-  }
-
-  .approach-grid{
-    grid-template-columns:1fr;
-  }
-
-  .journey{
-    grid-template-columns:repeat(3,1fr);
-    gap:30px 0;
-  }
-
-  .journey:before{
-    display:none;
-  }
-
-  .about-hero,
-  .about-section{
-    padding-left:24px;
-    padding-right:24px;
-  }
-}
-
-@media(max-width:600px){
-  .shell-brand{
-    font-size:31px;
-  }
-
-  .shell-brand span{
-    display:none;
-  }
-
-  .shell-tools{
-    position:relative;
-    top:auto;
-    right:auto;
-    margin-top:15px;
-  }
-
-  .home-hero{
-    padding-top:55px;
-  }
-
-  .hero-title{
-    font-size:clamp(47px,14vw,66px);
-  }
-
-  .hero-visual{
-    height:250px;
-  }
-
-  .hero-orbit{
-    width:230px;
-    height:230px;
-  }
-
-  .hero-orbit:before{
-    width:145px;
-    height:145px;
-    left:42px;
-    top:42px;
-  }
-
-  .hero-orbit:after{
-    top:18px;
-    left:108px;
-    box-shadow:72px 55px 0 var(--gold),-60px 82px 0 #cda99d;
-  }
-
-  .home-section{
-    padding:65px 0;
-  }
-
-  .journey{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .creator-card{
-    grid-template-columns:1fr;
-  }
-
-  #ihiSpark{
-    right:14px;
-    bottom:14px;
-    max-width:250px;
-  }
-}
-
-
-/* IHI — editorial visual system */
-
-:root{
-  --wine:#8b2035;
-  --wine-dark:#681526;
-  --gold:#b88a3b;
-  --cream:#fbf8f1;
-  --paper:#fffdf9;
-  --ink:#292322;
-  --muted:#756c67;
-  --line:#e5dbcf;
-}
-
-body{
-  background:var(--cream);
+.nav-btn:hover,
+.nav-btn.active{
   color:var(--ink);
 }
 
-.site-shell{
-  width:178px;
-  padding:30px 21px;
-  background:rgba(251,248,241,.94);
-  border-right:1px solid var(--line);
-  backdrop-filter:blur(16px);
+.nav-btn.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:var(--wine);
 }
 
-.shell-brand{
-  font-size:36px;
-  font-weight:900;
-  letter-spacing:.055em;
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:22px;
 }
 
-.shell-brand span{
-  font-size:7.5px;
-  letter-spacing:.14em;
-  margin-top:9px;
+/* TYPOGRAPHY */
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:11px;
+  font-weight:700;
+  color:var(--wine);
 }
 
-.shell-nav{
-  margin-top:70px;
-  gap:3px;
+h1,h2,h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+  letter-spacing:-.045em;
 }
 
-.shell-nav button{
-  padding:10px 11px;
-  border-radius:9px;
+h1{
+  font-size:clamp(54px,8vw,102px);
+  line-height:.95;
+}
+
+h2{
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.02;
+}
+
+h3{
+  font-size:28px;
+  line-height:1.15;
+}
+
+.lead{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.75;
+}
+
+.small{
+  color:var(--muted);
   font-size:14px;
 }
 
-.shell-nav button.active,
-.shell-nav button:hover{
-  color:var(--wine);
-  background:#f0e5d7;
-}
+/* BUTTONS */
 
-.shell-main{
-  margin-left:178px;
-}
-
-.shell-page{
-  min-height:100vh;
-}
-
-/* ---------- HOME ---------- */
-
-.home-wrap{
-  max-width:1240px;
-  margin:auto;
-  padding:0 58px;
-}
-
-.home-hero{
-  min-height:760px;
-  display:grid;
-  grid-template-columns:1.12fr .88fr;
+.btn{
+  display:inline-flex;
   align-items:center;
-  gap:30px;
-  padding:70px 0 85px;
+  justify-content:center;
+  gap:10px;
+  border:1px solid var(--ink);
+  padding:14px 21px;
+  border-radius:999px;
+  background:var(--ink);
+  color:white;
+  font-size:14px;
+  transition:.2s ease;
 }
 
-.hero-kicker{
-  color:var(--gold);
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-
-.hero-title{
-  max-width:850px;
-  font-size:clamp(58px,7.7vw,108px);
-  line-height:.89;
-  letter-spacing:-.065em;
-  margin:18px 0 30px;
-}
-
-.hero-copy p{
-  max-width:600px;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
-}
-
-.home-cta{
-  margin-top:31px;
-}
-
-.btn.primary{
+.btn:hover{
   background:var(--wine);
   border-color:var(--wine);
-  border-radius:13px;
-  padding:13px 19px;
-  font-weight:800;
+  transform:translateY(-1px);
 }
 
-.btn.primary:hover{
-  background:var(--wine-dark);
+.btn.secondary{
+  background:transparent;
+  color:var(--ink);
 }
 
-/* visual artwork */
-.hero-art{
-  height:470px;
-  position:relative;
-  display:flex;
+.btn.secondary:hover{
+  background:white;
+  color:var(--ink);
+}
+
+/* HOME */
+
+.hero{
+  min-height:calc(100vh - 76px);
+  display:grid;
   align-items:center;
-  justify-content:center;
+  padding:90px 0 110px;
 }
 
-.art-ring{
-  width:365px;
-  height:365px;
-  border:1px solid #d8c4aa;
-  border-radius:50%;
-  position:relative;
-  animation:ihiFloat 8s ease-in-out infinite;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:80px;
+  align-items:end;
 }
 
-.art-ring:before{
-  content:"";
-  position:absolute;
-  width:235px;
-  height:235px;
-  left:64px;
-  top:64px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 35% 30%,#fffdf9,#eadbca);
-  box-shadow:0 30px 75px rgba(104,21,38,.12);
+.hero-copy{
+  max-width:800px;
 }
 
-.art-ring:after{
-  content:"";
-  position:absolute;
-  width:14px;
-  height:14px;
-  top:25px;
-  left:175px;
-  border-radius:50%;
-  background:var(--wine);
-  box-shadow:
-    116px 90px 0 var(--gold),
-    -94px 137px 0 #caa39b;
+.hero-copy .eyebrow{
+  margin-bottom:28px;
 }
 
-.art-word{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
+.hero-copy h1{
+  max-width:900px;
+}
+
+.hero-copy h1 em{
   color:var(--wine);
-  font-size:46px;
-  font-weight:900;
-  letter-spacing:.08em;
+  font-style:normal;
 }
 
-@keyframes ihiFloat{
-  0%,100%{transform:translateY(0) rotate(0)}
-  50%{transform:translateY(-10px) rotate(2deg)}
+.hero-description{
+  max-width:560px;
+  margin:35px 0;
 }
 
-/* ---------- SECTIONS ---------- */
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
 
-.home-section{
-  padding:105px 0;
+.hero-note{
+  border-left:1px solid var(--wine);
+  padding-left:25px;
+  max-width:330px;
+  margin-bottom:8px;
+}
+
+.hero-note strong{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:25px;
+  font-weight:400;
+  margin-bottom:10px;
+}
+
+.hero-note p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* APPROACH */
+
+.section{
+  padding:120px 0;
+}
+
+.section-line{
   border-top:1px solid var(--line);
+  padding-top:22px;
 }
 
 .section-heading{
-  max-width:720px;
-  margin-bottom:45px;
+  display:grid;
+  grid-template-columns:.65fr 1.35fr;
+  gap:60px;
+  margin-bottom:65px;
 }
 
-.section-label{
-  color:var(--gold);
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:.19em;
-  text-transform:uppercase;
-}
-
-.section-heading h2{
-  font-size:clamp(42px,5.4vw,70px);
-  line-height:.95;
-  letter-spacing:-.05em;
-  margin:12px 0 17px;
-}
-
-.section-heading p{
-  color:var(--muted);
-  font-size:17px;
-}
-
-/* Three approaches */
-.approach-grid{
+.approaches{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.approach-card{
-  min-height:275px;
-  padding:29px;
+  gap:1px;
+  background:var(--line);
   border:1px solid var(--line);
-  border-radius:27px;
+}
+
+.approach{
   background:var(--paper);
-  position:relative;
-  overflow:hidden;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
+  padding:42px 35px;
+  min-height:270px;
+  transition:.25s ease;
 }
 
-.approach-card:hover{
-  transform:translateY(-6px);
-  border-color:#d4bea2;
-  box-shadow:0 25px 65px rgba(58,32,25,.10);
+.approach:hover{
+  background:white;
+  transform:translateY(-4px);
 }
 
-.approach-mark{
-  color:var(--wine);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.15em;
+.approach-number{
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:65px;
 }
 
-.approach-card h3{
-  font-size:26px;
-  margin:72px 0 10px;
+.approach h3{
+  margin-bottom:14px;
 }
 
-.approach-card p{
+.approach p{
   color:var(--muted);
-  max-width:270px;
-  margin:0;
+  font-size:14px;
+  max-width:290px;
 }
 
-.approach-orbit{
-  position:absolute;
-  width:140px;
-  height:140px;
-  right:-48px;
-  bottom:-48px;
-  border:1px solid #eadbca;
-  border-radius:50%;
-}
+/* JOURNEY */
 
-.approach-card:nth-child(2) .approach-orbit{
-  border-style:dashed;
-}
-
-.approach-card:nth-child(3) .approach-orbit{
-  width:100px;
-  height:100px;
-}
-
-/* How IHI works */
 .journey{
+  position:relative;
+}
+
+.journey-line{
+  height:1px;
+  background:var(--line);
+  position:absolute;
+  top:58px;
+  left:0;
+  right:0;
+}
+
+.journey-grid{
   display:grid;
   grid-template-columns:repeat(6,1fr);
   position:relative;
-  margin-top:55px;
+  gap:16px;
 }
 
-.journey:before{
+.step{
+  position:relative;
+  padding-top:85px;
+}
+
+.step-dot{
+  width:13px;
+  height:13px;
+  background:var(--bg);
+  border:1px solid var(--wine);
+  border-radius:50%;
+  position:absolute;
+  top:52px;
+  left:0;
+  z-index:2;
+}
+
+.step-number{
+  color:var(--wine);
+  font-size:11px;
+  letter-spacing:.12em;
+  margin-bottom:12px;
+}
+
+.step h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* TOOL */
+
+.tool-page{
+  padding:75px 0 120px;
+}
+
+.tool-intro{
+  max-width:760px;
+  margin-bottom:55px;
+}
+
+.tool-intro h2{
+  margin:14px 0 20px;
+}
+
+.tool-shell{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(25px,5vw,55px);
+  max-width:900px;
+}
+
+.tool-shell h3{
+  margin-bottom:12px;
+}
+
+#concern{
+  width:100%;
+  min-height:150px;
+  resize:vertical;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:white;
+  padding:18px;
+  margin:20px 0;
+  outline:none;
+  color:var(--ink);
+}
+
+#concern:focus{
+  border-color:var(--wine);
+}
+
+.tool-controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+#language{
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:white;
+  padding:13px 17px;
+  color:var(--ink);
+}
+
+#results{
+  margin-top:35px;
+}
+
+.results-empty{
+  color:var(--muted);
+}
+
+/* HOW */
+
+.how-page{
+  padding:80px 0 130px;
+}
+
+.how-intro{
+  max-width:760px;
+  margin-bottom:90px;
+}
+
+.how-intro h2{
+  margin:15px 0 20px;
+}
+
+.how-flow{
+  position:relative;
+  max-width:850px;
+  margin:auto;
+}
+
+.how-flow::before{
   content:"";
   position:absolute;
-  top:25px;
-  left:5%;
-  right:5%;
-  height:1px;
-  background:#d8c5ad;
+  left:28px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:var(--line);
 }
 
-.journey-step{
+.how-step{
   position:relative;
-  text-align:center;
-  padding:0 7px;
+  display:grid;
+  grid-template-columns:58px 1fr;
+  gap:35px;
+  padding-bottom:75px;
 }
 
-.journey-number{
-  width:50px;
-  height:50px;
-  margin:0 auto 18px;
+.how-marker{
+  width:57px;
+  height:57px;
+  border:1px solid var(--wine);
+  background:var(--bg);
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  border:1px solid #d8c5ad;
-  border-radius:50%;
-  background:var(--cream);
   color:var(--wine);
-  font-size:11px;
-  font-weight:900;
+  font-size:12px;
   position:relative;
   z-index:2;
 }
 
-.journey-step h3{
-  font-size:16px;
-  margin:0 0 5px;
+.how-content h3{
+  margin:3px 0 10px;
 }
 
-.journey-step p{
+.how-content p{
+  color:var(--muted);
+  max-width:550px;
+}
+
+/* ABOUT */
+
+.about-page{
+  padding:80px 0 130px;
+}
+
+.about-heading{
+  max-width:850px;
+  margin-bottom:80px;
+}
+
+.about-heading h2{
+  margin-top:15px;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:90px;
+}
+
+.story-title{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--wine);
+  margin-bottom:28px;
+}
+
+.story{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
+  line-height:1.75;
+}
+
+.story p{
+  margin-bottom:25px;
+}
+
+.story ul{
+  margin:0 0 28px 25px;
+}
+
+.creator{
+  border-top:1px solid var(--line);
+  padding-top:25px;
+}
+
+.creator h3{
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.creator p{
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+.creator-name{
+  margin-top:35px;
+  font-family:Georgia,serif;
+  font-size:21px;
+}
+
+.creator-role{
   color:var(--muted);
   font-size:13px;
-  line-height:1.45;
-  max-width:125px;
-  margin:auto;
 }
 
-.home-note{
-  margin-top:55px;
-  padding:20px 24px;
-  border-left:3px solid var(--gold);
-  border-radius:0 15px 15px 0;
-  background:#f4ede4;
-  color:var(--muted);
-}
+/* SPARK */
 
-/* ---------- ABOUT ---------- */
-
-.about-hero,
-.about-section{
-  max-width:1080px;
-  margin:auto;
-  padding-left:58px;
-  padding-right:58px;
-}
-
-.about-hero{
-  padding-top:135px;
-  padding-bottom:90px;
-}
-
-.about-hero h1{
-  max-width:900px;
-  font-size:clamp(58px,7.5vw,96px);
-  line-height:.9;
-  letter-spacing:-.065em;
-  margin:18px 0 25px;
-}
-
-.about-hero p{
-  max-width:680px;
-  color:var(--muted);
-  font-size:18px;
-}
-
-.about-section{
-  border-top:1px solid var(--line);
-  padding-top:78px;
-  padding-bottom:78px;
-}
-
-.about-section h2{
-  font-size:48px;
-  letter-spacing:-.045em;
-  margin:0 0 18px;
-}
-
-.about-section>p{
-  max-width:700px;
-  color:var(--muted);
-  font-size:17px;
-}
-
-.creator-card{
-  margin-top:32px;
-  padding:34px;
-  display:grid;
-  grid-template-columns:125px 1fr;
-  gap:30px;
-  border:1px solid var(--line);
-  border-radius:26px;
-  background:var(--paper);
-  box-shadow:0 22px 65px rgba(58,32,25,.08);
-}
-
-.creator-mark{
-  width:105px;
-  height:105px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(145deg,#ead7ca,#f7eee5);
-  color:var(--wine);
-  font-size:28px;
-  font-weight:900;
-}
-
-.creator-card h3{
-  font-size:27px;
-  margin:0 0 5px;
-}
-
-.creator-card p{
-  color:var(--muted);
-}
-
-/* ---------- EXPLORE ---------- */
-
-.explore-page .wrap{
-  max-width:1020px;
-  margin:auto;
-  padding:105px 35px 70px;
-}
-
-.explore-page .hero{
-  padding:45px 0;
-}
-
-.explore-page .hero h1{
-  max-width:800px;
-  font-size:clamp(50px,7vw,80px);
-  line-height:.94;
-  letter-spacing:-.055em;
-  margin:15px 0 20px;
-}
-
-.explore-page .hero p{
-  max-width:700px;
-  color:var(--muted);
-  font-size:18px;
-}
-
-.explore-page .explore-card{
-  border-radius:26px;
-  box-shadow:0 22px 65px rgba(58,32,25,.08);
-}
-
-/* ---------- SPARK ---------- */
-
-#ihiSpark{
-  position:fixed !important;
-  right:24px !important;
-  bottom:22px !important;
-  left:auto !important;
-  top:auto !important;
+#ihi-spark{
+  position:fixed;
+  right:25px;
+  bottom:25px;
   z-index:200;
-  max-width:275px;
 }
 
-.ihi-spark-card{
-  background:rgba(255,253,249,.97);
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:0 20px 60px rgba(58,32,25,.14);
-}
-
-/* kill any old shell spark */
-.shell-bottom,
 .spark-button{
-  display:none !important;
+  border:0;
+  background:var(--wine);
+  color:white;
+  border-radius:999px;
+  padding:13px 18px;
+  box-shadow:0 10px 35px rgba(0,0,0,.15);
+  font-size:13px;
 }
 
-@media(max-width:900px){
-  .site-shell{
-    position:relative;
-    width:auto;
-    height:auto;
-    border-right:0;
+.spark-button:hover{
+  background:var(--wine-dark);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .container,
+  .nav-inner{
+    width:min(calc(100% - 32px),var(--max));
+  }
+
+  .nav-inner{
+    min-height:68px;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    right:0;
+    background:var(--bg);
     border-bottom:1px solid var(--line);
-    padding:20px;
+    padding:15px 20px 25px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
   }
 
-  .shell-main{
-    margin-left:0;
+  .nav-links.open{
+    display:flex;
   }
 
-  .shell-nav{
-    flex-direction:row;
-    margin-top:25px;
-    overflow-x:auto;
+  .menu-btn{
+    display:block;
   }
 
-  .home-wrap{
-    padding:0 25px;
-  }
-
-  .home-hero{
-    grid-template-columns:1fr;
+  .hero{
     min-height:auto;
-    padding-top:75px;
+    padding:80px 0 90px;
   }
 
-  .hero-art{
-    height:310px;
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:55px;
   }
 
-  .approach-grid{
+  .hero-note{
+    margin-bottom:0;
+  }
+
+  .section{
+    padding:85px 0;
+  }
+
+  .section-heading,
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .approaches{
     grid-template-columns:1fr;
   }
 
-  .journey{
-    grid-template-columns:repeat(3,1fr);
-    gap:30px 0;
+  .journey-line{
+    display:none;
   }
 
-  .journey:before{
-    display:none;
+  .journey-grid{
+    grid-template-columns:1fr 1fr;
+    gap:45px 25px;
+  }
+
+  .step{
+    padding-top:45px;
+  }
+
+  .step-dot{
+    top:10px;
+  }
+
+  .how-step{
+    gap:20px;
+  }
+
+  .about-grid{
+    gap:65px;
   }
 }
 
-@media(max-width:600px){
-  .shell-brand{
-    font-size:30px;
+@media(max-width:520px){
+
+  h1{
+    font-size:53px;
   }
 
-  .shell-brand span{
-    display:none;
+  h2{
+    font-size:40px;
   }
 
-  .hero-title{
-    font-size:clamp(50px,14vw,70px);
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
   }
 
-  .art-ring{
-    width:240px;
-    height:240px;
+  .btn{
+    width:100%;
   }
 
-  .art-ring:before{
-    width:155px;
-    height:155px;
-    left:42px;
-    top:42px;
-  }
-
-  .art-ring:after{
-    top:17px;
-    left:113px;
-    box-shadow:
-      75px 58px 0 var(--gold),
-      -62px 90px 0 #caa39b;
-  }
-
-  .journey{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .creator-card{
+  .journey-grid{
     grid-template-columns:1fr;
   }
 
-  #ihiSpark{
-    right:12px !important;
-    bottom:12px !important;
+  .tool-shell{
+    padding:24px;
+  }
+
+  #ihi-spark{
+    right:15px;
+    bottom:15px;
   }
 }
-
 </style>
 </head>
 
-
-
-
 <body>
 
-<nav class="site-shell">
+<header class="nav">
+  <div class="nav-inner">
 
-  <div class="shell-brand">
-    IHI
-    <span>INTEGRATIVE HEALTH<br>INTELLIGENCE</span>
+    <button class="nav-btn logo" data-page="home">
+      I<span>HI</span>
+    </button>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <button class="nav-btn active" data-page="home">Home</button>
+      <button class="nav-btn" data-page="tool">Health Intelligence Tool</button>
+      <button class="nav-btn" data-page="how">How to Use IHI</button>
+      <button class="nav-btn" data-page="about">About</button>
+    </nav>
+
   </div>
+</header>
 
-  <div class="shell-nav">
-    <button class="active" data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="explore">Explore</button>
-  </div>
 
-</nav>
-
-<div class="shell-main">
+<main>
 
 <!-- HOME -->
-<section class="shell-page active" id="page-home">
 
-  <div class="home-wrap">
+<section class="page active" id="home">
 
-    <section class="home-hero">
+  <div class="hero">
+    <div class="container hero-grid">
 
       <div class="hero-copy">
 
-        <div class="hero-kicker">
-          Integrative Health Intelligence
-        </div>
+        <div class="eyebrow">Integrative Health Intelligence</div>
 
-        <h1 class="hero-title">
-          Make sense of what you're feeling.
+        <h1>
+          Health is full of questions.<br>
+          <em>Understanding shouldn't be.</em>
         </h1>
 
-        <p>
-          Start with your experience. Choose how you want to explore it.
-          IHI helps you understand a health concern through different
-          ways of looking at it — in plain language.
+        <p class="lead hero-description">
+          IHI helps you explore everyday health questions through different
+          healthcare approaches — so you can understand the reasoning behind
+          each perspective, clearly and thoughtfully.
         </p>
 
-        <div class="home-cta">
-          <button class="btn primary" data-page="explore">
-            Explore your health →
+        <div class="hero-actions">
+          <button class="btn" data-page="tool">
+            Explore the tool →
+          </button>
+
+          <button class="btn secondary" data-page="how">
+            How to use IHI
+          </button>
+
+          <button class="btn secondary" data-page="about">
+            About IHI
           </button>
         </div>
 
       </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-ring">
-          <div class="art-word">IHI</div>
-        </div>
-      </div>
-
-    </section>
-
-
-    <section class="home-section">
-
-      <div class="section-heading">
-
-        <div class="section-label">
-          One experience
-        </div>
-
-        <h2>
-          Three ways to explore it.
-        </h2>
-
+      <div class="hero-note">
+        <strong>Different questions can lead to different ways of understanding.</strong>
         <p>
-          Choose the perspective you want to use.
-          IHI keeps the approaches separate so you know
-          what kind of explanation you're receiving.
+          IHI gives you space to explore one healthcare framework at a time,
+          rather than mixing them together.
         </p>
-
       </div>
 
+    </div>
+  </div>
 
-      <div class="approach-grid">
 
-        <article class="approach-card">
+  <div class="section">
+    <div class="container">
 
-          <div class="approach-mark">
-            01 / MODERN
+      <div class="section-line">
+        <div class="section-heading">
+
+          <div class="eyebrow">Three perspectives</div>
+
+          <div>
+            <h2>One experience.<br>Different ways of understanding.</h2>
           </div>
 
-          <h3>
-            Modern Medicine
-          </h3>
-
-          <p>
-            Explore your experience through contemporary
-            clinical understanding.
-          </p>
-
-          <span class="approach-orbit"></span>
-
-        </article>
-
-
-        <article class="approach-card">
-
-          <div class="approach-mark">
-            02 / AYURVEDA
-          </div>
-
-          <h3>
-            Ayurveda
-          </h3>
-
-          <p>
-            Explore your experience through the
-            Ayurvedic framework.
-          </p>
-
-          <span class="approach-orbit"></span>
-
-        </article>
-
-
-        <article class="approach-card">
-
-          <div class="approach-mark">
-            03 / HOMEOPATHY
-          </div>
-
-          <h3>
-            Homeopathy
-          </h3>
-
-          <p>
-            Explore your experience through the
-            Homeopathic framework.
-          </p>
-
-          <span class="approach-orbit"></span>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <section class="home-section">
-
-      <div class="section-heading">
-
-        <div class="section-label">
-          The IHI journey
         </div>
+      </div>
 
-        <h2>
-          How IHI works.
-        </h2>
+      <div class="approaches">
 
-        <p>
-          A guided conversation that starts with what you're
-          experiencing and lets you keep asking questions
-          as you learn more.
-        </p>
+        <article class="approach">
+          <div class="approach-number">01</div>
+          <h3>Modern Medicine</h3>
+          <p>
+            Explore your experience through evidence-based clinical reasoning,
+            symptoms, patterns, mechanisms and possible causes.
+          </p>
+        </article>
+
+        <article class="approach">
+          <div class="approach-number">02</div>
+          <h3>Ayurveda</h3>
+          <p>
+            Explore your experience through Ayurvedic concepts such as
+            doshas, Agni, Nidana and patterns of imbalance.
+          </p>
+        </article>
+
+        <article class="approach">
+          <div class="approach-number">03</div>
+          <h3>Homeopathy</h3>
+          <p>
+            Explore your experience through the individual pattern of
+            symptoms, sensations, timing, triggers and associated experiences.
+          </p>
+        </article>
 
       </div>
 
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="container">
+
+      <div class="section-line">
+        <div class="section-heading">
+
+          <div class="eyebrow">The IHI journey</div>
+
+          <div>
+            <h2>From a question<br>to clearer understanding.</h2>
+          </div>
+
+        </div>
+      </div>
 
       <div class="journey">
 
-        <div class="journey-step">
-          <div class="journey-number">01</div>
-          <h3>Tell us</h3>
-          <p>Start with your experience.</p>
-        </div>
+        <div class="journey-line"></div>
 
-        <div class="journey-step">
-          <div class="journey-number">02</div>
-          <h3>Choose</h3>
-          <p>Pick how you want to explore it.</p>
-        </div>
+        <div class="journey-grid">
 
-        <div class="journey-step">
-          <div class="journey-number">03</div>
-          <h3>Answer</h3>
-          <p>Respond to relevant questions.</p>
-        </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">01</div>
+            <h3>Tell us</h3>
+            <p>Describe what you're experiencing in everyday language.</p>
+          </div>
 
-        <div class="journey-step">
-          <div class="journey-number">04</div>
-          <h3>Understand</h3>
-          <p>See what may be happening.</p>
-        </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">02</div>
+            <h3>Choose</h3>
+            <p>Select the healthcare approach you want to explore.</p>
+          </div>
 
-        <div class="journey-step">
-          <div class="journey-number">05</div>
-          <h3>Ask deeper</h3>
-          <p>Keep asking without restarting.</p>
-        </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">03</div>
+            <h3>Answer</h3>
+            <p>Respond to a few questions designed around your concern.</p>
+          </div>
 
-        <div class="journey-step">
-          <div class="journey-number">06</div>
-          <h3>What next</h3>
-          <p>Explore practical next steps.</p>
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">04</div>
+            <h3>Understand</h3>
+            <p>See how that framework makes sense of your experience.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">05</div>
+            <h3>Ask deeper</h3>
+            <p>Keep the conversation going with IHI.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-number">06</div>
+            <h3>What next</h3>
+            <p>Explore practical next steps, what to avoid and safety guidance.</p>
+          </div>
+
         </div>
 
       </div>
 
-
-      <div class="home-note">
-        IHI is designed for understanding and exploration —
-        not diagnosis or a replacement for professional medical care.
-      </div>
-
-    </section>
-
-  </div>
-
-
-  <footer>
-    <div class="home-wrap">
-      IHI · Integrative Health Intelligence
     </div>
-  </footer>
+  </div>
 
 </section>
 
 
-<!-- ABOUT -->
-<section class="shell-page" id="page-about">
+<!-- TOOL -->
 
-  <div class="about-hero">
+<section class="page" id="tool">
 
-    <div class="section-label">
-      About IHI
-    </div>
+  <div class="tool-page">
 
-    <h1>
-      Built around a simple question.
-    </h1>
+    <div class="container">
 
-    <p>
-      What if understanding your health started with understanding
-      the question you are actually trying to ask?
-    </p>
+      <div class="tool-intro">
 
-  </div>
+        <div class="eyebrow">Health Intelligence Tool</div>
 
+        <h2>What are you trying to understand?</h2>
 
-  <section class="about-section">
-
-    <h2>
-      Why IHI exists
-    </h2>
-
-    <p>
-      Health information can answer “What is it?” without always
-      helping people understand “Why might this be happening?”
-    </p>
-
-    <p>
-      IHI was created to make that exploration more understandable:
-      start with a person's own experience, ask better questions,
-      choose a framework, and build an explanation step by step.
-    </p>
-
-  </section>
-
-
-  <section class="about-section">
-
-    <h2>
-      Meet the creator
-    </h2>
-
-    <div class="creator-card">
-
-      <div class="creator-mark">
-        VS
-      </div>
-
-      <div>
-
-        <h3>
-          Dr. Vedanti Shah
-        </h3>
-
-        <p>
-          Dentist · Healthcare × Product × AI
-        </p>
-
-        <p>
-          IHI grew from my interest in what happens when clinical
-          understanding, different health frameworks, product thinking
-          and AI are brought together around a very human need:
-          wanting to understand what is happening to you.
-        </p>
-
-        <p>
-          I built IHI as an exploration of how health information
-          could become more conversational, contextual and easier
-          to understand.
+        <p class="lead">
+          Start with your own words. You don't need to know the medical term.
         </p>
 
       </div>
 
-    </div>
 
-  </section>
+      <div class="tool-shell">
 
-</section>
+        <h3>Tell IHI what you're experiencing.</h3>
 
-
-<!-- EXPLORE -->
-<section class="shell-page explore-page" id="page-explore">
-
-  <div class="wrap">
-
-    <main>
-
-      <section class="hero">
-
-        <div class="eyebrow">
-          Explore your experience
-        </div>
-
-        <h1>
-          Start with what is bothering you.
-        </h1>
-
-        <p>
-          Tell IHI what you are experiencing.
-          Then choose how you want to explore it.
-          Your questions, explanation and follow-ups stay connected
-          to the same health story.
+        <p class="small">
+          You can describe a symptom, a report finding, a health question,
+          or something you've been wondering about.
         </p>
-
-      </section>
-
-
-      <section class="explore-card">
-
-        <label for="concern">
-          What are you experiencing?
-        </label>
 
         <textarea
           id="concern"
-          placeholder="For example: I feel bloated after meals and it has been happening for a few weeks."
+          placeholder="For example: I've been feeling acidity after meals and I want to understand why..."
         ></textarea>
 
-        <div class="actions">
 
-          <button
-            class="btn primary"
-            id="explore"
-            type="button"
-          >
+        <div class="tool-controls">
+
+          <select id="language" aria-label="Language">
+            <option value="English">English</option>
+            <option value="Hindi+English">Hindi + English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Marathi+English">Marathi + English</option>
+            <option value="Marathi">Marathi</option>
+          </select>
+
+          <button class="btn" id="explore">
             Explore →
           </button>
 
         </div>
 
-        <p class="notice">
-          IHI is an educational exploration tool,
-          not a diagnosis or a substitute for medical care.
-        </p>
 
-      </section>
+        <div id="results">
+          <p class="results-empty">
+            Your exploration will appear here.
+          </p>
+        </div>
 
+      </div>
 
-      <section
-        id="results"
-        class="results"
-        aria-live="polite"
-      ></section>
-
-    </main>
+    </div>
 
   </div>
 
 </section>
 
-</div>
+
+<!-- HOW -->
+
+<section class="page" id="how">
+
+  <div class="how-page">
+
+    <div class="container">
+
+      <div class="how-intro">
+
+        <div class="eyebrow">How to Use IHI</div>
+
+        <h2>Don't search for an answer.<br>Explore the question.</h2>
+
+        <p class="lead">
+          IHI is designed as a guided exploration. You start with what you
+          know, choose a perspective, answer simple questions, and gradually
+          build a clearer picture.
+        </p>
+
+      </div>
 
 
-<script src="ai-flow.js?v=6"></script>
+      <div class="how-flow">
+
+        <div class="how-step">
+
+          <div class="how-marker">01</div>
+
+          <div class="how-content">
+            <h3>Tell us</h3>
+            <p>
+              Start with your experience in your own words. No medical
+              vocabulary is required.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="how-step">
+
+          <div class="how-marker">02</div>
+
+          <div class="how-content">
+            <h3>Choose</h3>
+            <p>
+              Explore Modern Medicine, Ayurveda or Homeopathy separately.
+              IHI does not blend the frameworks into one explanation.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="how-step">
+
+          <div class="how-marker">03</div>
+
+          <div class="how-content">
+            <h3>Answer</h3>
+            <p>
+              IHI asks a small number of questions relevant to your concern
+              and the framework you've chosen.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="how-step">
+
+          <div class="how-marker">04</div>
+
+          <div class="how-content">
+            <h3>Understand</h3>
+            <p>
+              See what may be happening and why that framework interprets
+              the experience in that way.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="how-step">
+
+          <div class="how-marker">05</div>
+
+          <div class="how-content">
+            <h3>Ask deeper</h3>
+            <p>
+              Ask IHI another question without restarting the entire
+              exploration. Your earlier context stays with the conversation.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="how-step">
+
+          <div class="how-marker">06</div>
+
+          <div class="how-content">
+            <h3>What next</h3>
+            <p>
+              Explore practical things you can try, what to avoid and
+              important safety or red-flag guidance.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="page" id="about">
+
+  <div class="about-page">
+
+    <div class="container">
+
+      <div class="about-heading">
+
+        <div class="eyebrow">About IHI</div>
+
+        <h2>
+          Built from a clinical question:
+          how can people make sense of health information without getting lost in it?
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <article>
+
+          <div class="story-title">Why IHI Exists</div>
+
+          <div class="story">
+
+            <p>
+              I spent years studying healthcare and practicing, and I realized something—people carry so much health confusion every single day. But it's not just a medical thing—it happens everywhere.
+            </p>
+
+            <p>
+              At family dinners, social gatherings, WhatsApp groups, or just sitting with a lab report at home—it’s the same story again and again:
+            </p>
+
+            <ul>
+              <li>“What does this medical term on my report actually mean?”</li>
+              <li>“I Googled my symptoms at 2 AM and now I’m terrified.”</li>
+              <li>“Skip those heavy pills, just try this home remedy!”</li>
+              <li>“My family says one thing, my doctor says another—who am I supposed to listen to?”</li>
+            </ul>
+
+            <p>
+              Everyone has an opinion, a natural cure, or a friend-of-a-friend story. Eventually, it leaves you exhausted, wondering what information you can actually trust.
+            </p>
+
+            <p>
+              As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves.
+            </p>
+
+            <p>
+              When it comes to your health, you deserve clarity—not noise.
+            </p>
+
+            <p>
+              That’s why I <strong>created IHI</strong>.
+            </p>
+
+            <p>
+              We bring different healthcare approaches together in one neutral space, breaking down how each system views your body so you can clear your doubts and choose what feels right for you.
+            </p>
+
+            <p>
+              Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.
+            </p>
+
+            <p><strong>Dr. Vedanti Shah</strong></p>
+
+          </div>
+
+        </article>
+
+
+        <aside class="creator">
+
+          <div class="story-title">About the Creator</div>
+
+          <h3>
+            Dr. Vedanti Shah is a dentist, creator, and curious mind exploring where healthcare, technology, research, and design meet.
+          </h3>
+
+          <p>
+            She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things.
+          </p>
+
+          <p>
+            Her interests span healthcare, research, technology, AI, product thinking, design, and art. She brings these interests together through <strong>building, experimenting, and creating products that turn ideas into experiences.</strong>
+          </p>
+
+          <p>
+            <strong>IHI is one of the products she created.</strong>
+          </p>
+
+          <div class="creator-name">
+            Dr. Vedanti Shah, BDS
+          </div>
+
+          <div class="creator-role">
+            Creator · Product Designer · Vibe Coder
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
 
 
 <script>
-(function(){
 
-  function showPage(name){
+/* PAGE NAVIGATION */
 
-    document
-      .querySelectorAll(".shell-page")
-      .forEach(function(page){
+const pages = document.querySelectorAll(".page");
+const navButtons = document.querySelectorAll("[data-page]");
+const navLinks = document.getElementById("navLinks");
+const menuBtn = document.getElementById("menuBtn");
 
-        page.classList.toggle(
-          "active",
-          page.id === "page-" + name
-        );
+function showPage(pageName){
 
-      });
+  pages.forEach(page => {
+    page.classList.toggle("active", page.id === pageName);
+  });
 
+  document.querySelectorAll(".nav-btn[data-page]").forEach(btn => {
+    btn.classList.toggle(
+      "active",
+      btn.dataset.page === pageName
+    );
+  });
 
-    document
-      .querySelectorAll(".shell-nav [data-page]")
-      .forEach(function(button){
+  navLinks.classList.remove("open");
 
-        button.classList.toggle(
-          "active",
-          button.dataset.page === name
-        );
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
 
-      });
+navButtons.forEach(button => {
 
+  button.addEventListener("click", () => {
 
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
+    const page = button.dataset.page;
 
-  }
+    if(page){
+      showPage(page);
+    }
 
+  });
 
-  document
-    .querySelectorAll("[data-page]")
-    .forEach(function(element){
-
-      element.addEventListener(
-        "click",
-        function(){
-
-          showPage(
-            element.dataset.page
-          );
-
-        }
-      );
-
-    });
+});
 
 
-  window.showIHIPage = showPage;
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
 
-})();
+
+/*
+IMPORTANT:
+The existing ai-flow.js owns the actual IHI interaction.
+Do not duplicate Explore logic here.
+*/
+
+</script>
+
+
+<!-- Existing AI engine -->
+<script src="ai-flow.js"></script>
+
+
+<script>
+
+/*
+IHI Spark
+A small persistent entry point.
+The actual AI conversation remains handled by ai-flow.js.
+*/
+
+window.addEventListener("load", () => {
+
+  if(document.getElementById("ihi-spark")) return;
+
+  const spark = document.createElement("div");
+
+  spark.id = "ihi-spark";
+
+  spark.innerHTML = `
+    <button class="spark-button" type="button">
+      ✦ Ask IHI
+    </button>
+  `;
+
+  document.body.appendChild(spark);
+
+  spark.querySelector("button").addEventListener("click", () => {
+
+    showPage("tool");
+
+    setTimeout(() => {
+
+      const concern = document.getElementById("concern");
+
+      if(concern){
+        concern.focus();
+      }
+
+    },400);
+
+  });
+
+});
+
 </script>
 
 </body>
-
 </html>
