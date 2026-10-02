@@ -798,5 +798,59 @@ footer{
 
 <script src="ai-flow.js?v=5"></script>
 
+
+<script>
+(function () {
+  function showPage(pageName) {
+    document.querySelectorAll(".shell-page").forEach(function(page) {
+      page.classList.remove("active");
+    });
+
+    var target = document.getElementById("page-" + pageName);
+
+    if (target) {
+      target.classList.add("active");
+    }
+
+    document.querySelectorAll(".shell-nav button[data-page]").forEach(function(btn) {
+      btn.classList.toggle("active", btn.dataset.page === pageName);
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.querySelectorAll("[data-page]").forEach(function(el) {
+    el.addEventListener("click", function () {
+      showPage(el.dataset.page);
+    });
+  });
+
+  window.showIHIPage = showPage;
+})();
+</script>
+
+
+<script>
+(function () {
+  function showIHIPage(name) {
+    document.querySelectorAll(".shell-page").forEach(function (page) {
+      page.classList.toggle("active", page.id === "page-" + name);
+    });
+
+    document.querySelectorAll(".shell-nav [data-page]").forEach(function (button) {
+      button.classList.toggle("active", button.dataset.page === name);
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.querySelectorAll("[data-page]").forEach(function (element) {
+    element.addEventListener("click", function () {
+      showIHIPage(element.dataset.page);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
