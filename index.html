@@ -966,6 +966,83 @@ h3{
 }
 
 </style>
+
+<style id="about-final-refinement">
+/* ABOUT — final spacing and typography */
+.about-page .about-heading .eyebrow {
+  font-size: 25px !important;
+}
+
+.about-page .about-grid {
+  gap: 25px !important;
+}
+
+.about-page .story-title {
+  font-size: 35px !important;
+}
+
+.about-page .creator h3,
+.about-page .creator p,
+.about-page .story,
+.about-page .story p,
+.about-page .story li {
+  font-size: 22px !important;
+}
+
+/* No gaps between story paragraphs */
+.about-page .story p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.about-page .story ul {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.about-page .story li {
+  margin-bottom: 7px !important;
+}
+
+/* Creator identity at bottom of Why IHI Exists */
+.about-page .about-identity-name {
+  font-size: 30px !important;
+  font-weight: 400 !important;
+}
+
+.about-page .about-identity-role {
+  font-size: 29px !important;
+  font-weight: 400 !important;
+}
+
+/* No highlighted/bold text inside About */
+.about-page strong,
+.about-page b,
+.about-page em {
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* Remove the large IHI Spark card */
+#ihiSpark {
+  display: none !important;
+}
+
+/* Keep only the bottom-right Ask IHI button */
+#ihi-spark {
+  position: fixed !important;
+  right: 25px !important;
+  bottom: 25px !important;
+  z-index: 9999 !important;
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+#ihi-spark .spark-button {
+  cursor: pointer !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -1449,21 +1526,17 @@ h3{
 
             <p>
               Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.
+
+<div class="about-identity">
+  <div class="about-identity-name">Dr. Vedanti Shah, BDS</div>
+  <div class="about-identity-role">Creator · Product Designer · Vibe Coder</div>
+</div>
+
             </p>
 
           </div>
 
-          <div class="about-identity">
-
-            <div class="about-identity-name">
-              Dr. Vedanti Shah, BDS
-            </div>
-
-            <div class="about-identity-role">
-              Creator · Product Designer · Vibe Coder
-            </div>
-
-          </div>
+          
 
         </article>
 
