@@ -53,10 +53,10 @@ All Ayurvedic explanations are traditional-framework interpretations, not establ
 
   const lang = {
     en: "Write ONLY in simple, natural English. No Hindi or Marathi.",
-    hi: "Write ONLY in easy everyday Hindi in Devanagari. Avoid formal or Sanskrit-heavy Hindi. Explain difficult terms immediately in simple Hindi.",
-    mr: "Write ONLY in natural, clear Marathi in Devanagari. Use everyday educated Marathi, including natural Pune-style conversational Marathi where appropriate. Avoid Sanskrit-heavy, literary, overly formal or textbook Marathi. Explain difficult terms immediately in simple Marathi.",
-    "hi-en": "Write natural conversational Hinglish: easy Hindi sentence structure with simple familiar English words mixed naturally. Do NOT translate Hindi into English. Do NOT create separate Hindi and English sections.",
-    "mr-en": "Write natural conversational Minglish: easy Marathi sentence structure with simple familiar English words mixed naturally. Do NOT translate Marathi into English. Do NOT create separate Marathi and English sections."
+    hi: "Write ONLY pure, easy, everyday Hindi in Devanagari. Avoid unnecessary English, formal Hindi, Sanskrit-heavy words and textbook language. Write the way a normal person naturally speaks.",
+    mr: "Write ONLY easy, natural everyday Marathi in Devanagari. Use conversational Pune-style Marathi where appropriate. Avoid Sanskrit-heavy, literary, overly formal or textbook Marathi. Write the way a normal person in Pune naturally speaks."
+    "hi-en": "Write natural everyday Hinglish. Use Hindi sentence structure. Keep only English words that people naturally use in everyday Hinglish. Do not add unnecessary English. Never use Marathi and never write separate Hindi and English versions.",
+    "mr-en": "Write natural everyday Minglish in conversational Pune-style Marathi. Use Marathi sentence structure. Keep only English words that people naturally use in everyday Marathi conversation, such as health, report, symptom, app, doctor, test, stress and food. Translate everything else into Marathi. Do not add unnecessary English. Never use Hindi and never write separate Marathi and English versions."
   }[language] || "Write ONLY in simple, natural English.";
 
   const languageGuard =

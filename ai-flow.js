@@ -216,12 +216,48 @@ const IHI_TRANSLATIONS = {
   }
 };
 
+const IHI_ORIGINAL_TEXT = new WeakMap();
+const IHI_ORIGINAL_ATTRS = new WeakMap();
+
+function ihiDictionary() {
+  const lang = document.getElementById("siteLanguage")?.value || "en";
+  return IHI_TRANSLATIONS[lang] || {};
+}
+
+function ihiTranslateString(source, dictionary) {
+  if (!source || !Object.keys(dictionary).length) return source;
+
+  const leading = source.match(/^\s*/)?.[0] || "";
+  const trailing = source.match(/\s*$/)?.[0] || "";
+  const core = source.slice(leading.length, source.length - trailing.length);
+
+  if (dictionary[core]) {
+    return leading + dictionary[core] + trailing;
+  }
+
+  let translated = core;
+
+  Object.keys(dictionary)
+    .sort((a, b) => b.length - a.length)
+    .forEach(key => {
+      if (key && translated.includes(key)) {
+        translated = translated.split(key).join(dictionary[key]);
+      }
+    });
+
+  return leading + translated + trailing;
+}
+
+function ihiT(value) {
+  return ihiTranslateString(value, ihiDictionary());
+}
+
 function applySiteLanguage() {
   const select = document.getElementById("siteLanguage");
   if (!select) return;
 
   const lang = select.value || "en";
-  const dictionary = IHI_TRANSLATIONS[lang] || {};
+  const dictionary = ihiDictionary();
 
   document.documentElement.lang =
     lang === "hi" ? "hi" :
@@ -233,35 +269,117 @@ function applySiteLanguage() {
     NodeFilter.SHOW_TEXT
   );
 
-  const nodes = [];
-
   while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
+    const node = walker.currentNode;
+
+    if (!IHI_ORIGINAL_TEXT.has(node)) {
+      IHI_ORIGINAL_TEXT.set(node, node.nodeValue);
+    }
+
+    node.nodeValue = ihiTranslateString(
+      IHI_ORIGINAL_TEXT.get(node),
+      dictionary
+    );
   }
 
-  nodes.forEach(node => {
-    const value = node.nodeValue.trim();
-    if (!value) return;
+  document
+    .querySelectorAll("[placeholder],[aria-label],[title]")
+    .forEach(element => {
 
-    if (dictionary[value]) {
-      node.nodeValue =
-        node.nodeValue.replace(value, dictionary[value]);
-    }
-  });
+      if (!IHI_ORIGINAL_ATTRS.has(element)) {
+        IHI_ORIGINAL_ATTRS.set(element, {
+          placeholder: element.getAttribute("placeholder"),
+          "aria-label": element.getAttribute("aria-label"),
+          title: element.getAttribute("title")
+        });
+      }
 
-  const concern = document.getElementById("concern");
+      const original = IHI_ORIGINAL_ATTRS.get(element);
 
-  const placeholders = {
-    en: "For example: I've been feeling acidity after meals and I want to understand why...",
-    "hi-en": "Example: Meals ke baad acidity feel hoti hai aur main samajhna chahta/chahti hoon kyun...",
-    hi: "उदाहरण: खाना खाने के बाद acidity होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
-    "mr-en": "Example: Meals नंतर acidity feel होते आणि मला समजून घ्यायचं आहे का...",
-    mr: "उदाहरण: जेवल्यानंतर acidity होते आणि असं का होतं हे मला समजून घ्यायचं आहे..."
+      ["placeholder","aria-label","title"].forEach(attr => {
+        if (original[attr] !== null) {
+          element.setAttribute(
+            attr,
+            ihiTranslateString(original[attr], dictionary)
+          );
+        }
+      });
+    });
+
+  const optionLabels = {
+    en: [
+      "English",
+      "Hindi + English",
+      "Hindi",
+      "Marathi + English",
+      "Marathi"
+    ],
+
+    "hi-en": [
+      "English",
+      "Hindi + English",
+      "Hindi",
+      "Marathi + English",
+      "Marathi"
+    ],
+
+    hi: [
+      "अंग्रेज़ी",
+      "हिंदी + अंग्रेज़ी",
+      "हिंदी",
+      "मराठी + अंग्रेज़ी",
+      "मराठी"
+    ],
+
+    "mr-en": [
+      "English",
+      "Hindi + English",
+      "Hindi",
+      "Marathi + English",
+      "Marathi"
+    ],
+
+    mr: [
+      "इंग्रजी",
+      "हिंदी + इंग्रजी",
+      "हिंदी",
+      "मराठी + इंग्रजी",
+      "मराठी"
+    ]
   };
 
-  if (concern) {
-    concern.placeholder =
+  [...select.options].forEach((option, index) => {
+    option.textContent =
+      (optionLabels[lang] || optionLabels.en)[index];
+  });
+
+  const placeholders = {
+
+    en:
+      "For example: I've been feeling acidity after meals and I want to understand why...",
+
+    "hi-en":
+      "Example: खाना खाने के बाद acidity होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
+
+    hi:
+      "उदाहरण: खाना खाने के बाद अम्लता होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
+
+    "mr-en":
+      "उदाहरण: जेवल्यानंतर acidity होते आणि मला हे का होतंय ते समजून घ्यायचं आहे...",
+
+    mr:
+      "उदाहरण: जेवल्यानंतर आम्लपित्त होतं आणि असं का होतं हे मला समजून घ्यायचं आहे..."
+  };
+
+  const input = document.getElementById("concern");
+
+  if (input) {
+    input.placeholder =
       placeholders[lang] || placeholders.en;
+  }
+
+  if (typeof window.ihiSparkRender === "function") {
+    window.ihiSparkRender();
   }
 
   localStorage.setItem("ihiLanguage", lang);
@@ -381,7 +499,7 @@ function setupVoiceInput(textareaId, buttonId) {
     recognition.maxAlternatives = 1;
 
     activeRecognitions.set(button, recognition);
-    button.textContent = "🎙 Listening…";
+    button.textContent = ihiT("🎙 Listening…");
     button.disabled = true;
 
     let captured = "";
@@ -398,7 +516,7 @@ function setupVoiceInput(textareaId, buttonId) {
 
     recognition.onerror = () => {
       activeRecognitions.delete(button);
-      button.textContent = "🎙 Speak";
+      button.textContent = ihiT("🎙 Speak");
       button.disabled = false;
     };
 
@@ -415,7 +533,7 @@ function setupVoiceInput(textareaId, buttonId) {
       }
 
       activeRecognitions.delete(button);
-      button.textContent = "🎙 Speak";
+      button.textContent = ihiT("🎙 Speak");
       button.disabled = false;
     };
 
@@ -423,7 +541,7 @@ function setupVoiceInput(textareaId, buttonId) {
       recognition.start();
     } catch (_) {
       activeRecognitions.delete(button);
-      button.textContent = "🎙 Speak";
+      button.textContent = ihiT("🎙 Speak");
       button.disabled = false;
     }
   });
@@ -1191,7 +1309,7 @@ function setupIHISpark() {
   const text = wrap.querySelector(".ihi-spark-text");
 
   function render() {
-    const selected = language?.value || "English";
+    const selected = language?.value || "en";
     const items = sparks[selected] || sparks.en;
     const item = items[index % items.length];
 
@@ -1216,7 +1334,12 @@ function setupIHISpark() {
     render();
   });
 
-  language?.addEventListener("change", render);
+  window.ihiSparkRender = render;
+
+  language?.addEventListener("change", () => {
+    render();
+    applySiteLanguage();
+  });
 
   render();
 }
