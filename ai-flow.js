@@ -15,7 +15,7 @@ const IHI_TRANSLATIONS = {
     "Home": "Home",
     "Health Intelligence Tool": "Health Intelligence Tool",
     "How to Use IHI": "IHI kaise use karein",
-    "About": "माहिती",
+    "About": "IHI ke baare mein",
     "Integrative Health Intelligence": "Integrative Health Intelligence",
     "Understanding your health shouldn't feel overwhelming.": "Apni health ko samajhna overwhelming nahi hona chahiye.",
     "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care aur lifestyle guidance ke through health questions explore karein—sab kuch simple language mein.",
@@ -155,7 +155,7 @@ const IHI_TRANSLATIONS = {
     "Home": "मुखपृष्ठ",
     "Health Intelligence Tool": "आरोग्य समजण्याचं साधन",
     "How to Use IHI": "IHI कसं वापरायचं",
-    "About": "माहिती",
+    "About": "IHI ke baare mein",
     "Integrative Health Intelligence": "इंटिग्रेटिव्ह हेल्थ इंटेलिजन्स",
     "Understanding your health shouldn't feel overwhelming.": "तुमचं आरोग्य समजून घेणं इतकं अवघड वाटायला नको.",
     "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care आणि lifestyle guidance मधून health questions सोप्या भाषेत समजून घ्या.",
@@ -274,7 +274,7 @@ Object.assign(IHI_TRANSLATIONS.mr, {
   "Home": "मुखपृष्ठ",
   "Health Intelligence Tool": "आरोग्य समजण्याचं साधन",
   "How to Use IHI": "IHI कसं वापरायचं",
-  "About": "माहिती",
+  "About": "IHI ke baare mein",
   "Try the Tool →": "साधन वापरा →",
   "Compare medical perspectives with clarity.": "आरोग्याकडे पाहण्याचे वेगवेगळे दृष्टिकोन स्पष्टपणे समजून घ्या.",
   "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "एका वेळी एक आरोग्यविषयक दृष्टिकोन समजून घ्या, म्हणजे माहिती सरळ आणि नेमकी राहील.",
@@ -568,6 +568,224 @@ IHI_TRANSLATIONS["mr-en"] = Object.assign({}, IHI_TRANSLATIONS.mr, {
 });
 
 
+
+/* ============================================================
+   HINDI + ENGLISH — COMPLETE COVERAGE
+   Natural everyday Hinglish. No Marathi.
+   ============================================================ */
+
+Object.assign(IHI_TRANSLATIONS["hi-en"], {
+
+  /* NAVIGATION */
+  "About": "IHI ke baare mein",
+  "Home": "Home",
+  "Health Intelligence Tool": "Health Intelligence Tool",
+  "How to Use IHI": "IHI kaise use karein",
+
+  /* HOME */
+  "Integrative Health Intelligence": "Integrative Health Intelligence",
+  "Understanding your health shouldn't feel overwhelming.":
+    "Apni health ko samajhna overwhelming nahi hona chahiye.",
+  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
+    "Modern Medicine, holistic care aur lifestyle guidance ke through health questions ko simple language mein samjhein.",
+  "Try the Tool →": "Tool try karein →",
+  "How to use IHI": "IHI kaise use karein",
+  "About IHI": "IHI ke baare mein",
+  "Compare medical perspectives with clarity.":
+    "Alag-alag medical perspectives ko clearly samjhein.",
+  "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.":
+    "Ek time par ek healthcare approach explore karein, taaki guidance clear aur focused rahe.",
+  "Three perspectives": "Teen perspectives",
+  "One experience.": "Ek experience.",
+  "Different ways of understanding.": "Samajhne ke alag tareeke.",
+
+  /* APPROACHES */
+  "Modern Medicine": "Modern Medicine",
+  "Ayurveda": "Ayurveda",
+  "Homeopathy": "Homeopathy",
+
+  "Explore your experience through evidence-based clinical reasoning, symptoms, patterns, mechanisms and possible causes.":
+    "Apne experience ko evidence-based clinical reasoning, symptoms, patterns, body mechanisms aur possible causes ke through samjhein.",
+
+  "Explore your experience through Ayurvedic concepts such as doshas, Agni, Nidana and patterns of imbalance.":
+    "Apne experience ko doshas, Agni, Nidana aur imbalance ke Ayurvedic concepts ke through samjhein.",
+
+  "Explore your experience through the individual pattern of symptoms, sensations, timing, triggers and associated experiences.":
+    "Symptoms, sensations, timing, triggers aur associated experiences ke individual pattern ko samjhein.",
+
+  /* JOURNEY */
+  "The IHI journey": "IHI ka journey",
+  "From a question to clearer understanding.": "Ek question se clearer understanding tak.",
+  "Tell us": "Humein batayein",
+  "Describe what you're experiencing in everyday language.":
+    "Aap kya experience kar rahe hain, use everyday language mein batayein.",
+  "Choose": "Choose karein",
+  "Select the healthcare approach you want to explore.":
+    "Jo healthcare approach explore karna hai, use choose karein.",
+  "Answer": "Answer karein",
+  "Respond to a few questions designed around your concern.":
+    "Aapke concern ke according kuch questions ke answers dein.",
+  "Understand": "Samjhein",
+  "See how that framework makes sense of your experience.":
+    "Dekhein ki chosen framework aapke experience ko kaise samajhta hai.",
+  "Ask deeper": "Aur poochhein",
+  "Keep the conversation going with IHI.":
+    "IHI ke saath conversation continue rakhein.",
+  "What next": "Aage kya?",
+  "Explore practical next steps, what to avoid and safety guidance.":
+    "Practical next steps, kya avoid karein aur safety guidance dekhein.",
+
+  /* TOOL */
+  "What are you trying to understand?":
+    "Aap kya samajhna chahte hain?",
+  "Start with your own words. You don't need to know the medical term.":
+    "Apne words mein shuru karein. Medical term pata hona zaroori nahi hai.",
+  "Tell IHI what you're experiencing.":
+    "IHI ko batayein ki aap kya experience kar rahe hain.",
+  "You can describe a symptom, a report finding, a health question, or something you've been wondering about.":
+    "Aap symptom, report finding, health question ya koi bhi doubt describe kar sakte hain.",
+  "Your exploration will appear here.":
+    "Aapki exploration yahan dikhegi.",
+  "Explore →": "Explore karein →",
+  "🎙 Speak": "🎙 Bolein",
+  "🎙 Listening…": "🎙 Sun raha hai…",
+
+  /* FRAMEWORK SELECTION */
+  "Step 1": "Step 1",
+  "Choose how you want to explore this.":
+    "Aap ise kis tarah explore karna chahte hain, choose karein.",
+  "The questions and interpretation change with the framework you choose.":
+    "Aap jo framework choose karte hain, uske according questions aur interpretation change hote hain.",
+
+  "Evidence-based biomedical reasoning and plausible medical causes.":
+    "Evidence-based medical reasoning aur possible medical causes ko samjhein.",
+
+  "Explore the concern through Ayurvedic concepts and traditional reasoning.":
+    "Apne concern ko Ayurvedic concepts aur traditional reasoning ke through samjhein.",
+
+  "Explore the individual symptom pattern through Homeopathic theory.":
+    "Symptoms ke individual pattern, sensations, timing aur triggers ko samjhein.",
+
+  /* QUESTIONS */
+  "A few questions before we interpret it.":
+    "Interpret karne se pehle kuch questions.",
+  "Answer what fits. Every question also lets you describe your experience in your own words.":
+    "Jo aap par fit hota hai uska answer dein. Aap har question mein apna experience apne words mein bhi bata sakte hain.",
+  "Continue →": "Continue karein →",
+  "Or tell us in your own words…":
+    "Ya apne words mein batayein…",
+
+  /* ANALYSIS */
+  "What may be happening?": "Kya ho sakta hai?",
+  "Why might this be happening?": "Aisa kyun ho sakta hai?",
+  "Going a little deeper": "Thoda aur deeper samjhein",
+  "What next?": "Aage kya?",
+  "What you can try": "Aap kya try kar sakte hain",
+  "What to avoid": "Kya avoid karein",
+  "Safety": "Safety",
+  "Ask IHI": "IHI se poochhein",
+  "Ask another question": "Ek aur question poochhein",
+  "What would you like to understand next?":
+    "Aap next kya samajhna chahte hain?",
+  "What else would you like to understand?":
+    "Aap aur kya samajhna chahte hain?",
+  "Continue → What you can try":
+    "Continue karein → Aap kya try kar sakte hain",
+  "Ask IHI →": "IHI se poochhein →",
+
+  /* HOW TO USE */
+  "Don't search for an answer. Explore the question.":
+    "Sirf answer search mat karein. Question ko explore karein.",
+  "IHI is designed as a guided exploration. You start with what you know, choose a perspective, answer simple questions, and gradually build a clearer picture.":
+    "IHI ek guided exploration hai. Jo aapko pata hai usse shuru karein, ek perspective choose karein, simple questions ke answers dein aur dheere-dheere clearer picture samjhein.",
+  "Start with your experience in your own words. No medical vocabulary is required.":
+    "Apne experience ko apne words mein batayein. Medical vocabulary ki zaroorat nahi hai.",
+  "Explore Modern Medicine, Ayurveda or Homeopathy separately. IHI does not blend the frameworks into one explanation.":
+    "Modern Medicine, Ayurveda ya Homeopathy ko separately explore karein. IHI in frameworks ko ek explanation mein mix nahi karta.",
+  "IHI asks a small number of questions relevant to your concern and the framework you've chosen.":
+    "IHI aapke concern aur chosen framework ke according kuch relevant questions poochta hai.",
+  "See what may be happening and why that framework interprets the experience in that way.":
+    "Dekhein kya ho sakta hai aur chosen framework aapke experience ko us tarah kyun samajhta hai.",
+  "Ask IHI another question without restarting the entire exploration. Your earlier context stays with the conversation.":
+    "Puri exploration restart kiye bina IHI se ek aur question poochhein. Aapka pehle ka context conversation mein bana rehta hai.",
+  "Explore practical things you can try, what to avoid and important safety or red-flag guidance.":
+    "Practical cheezein explore karein, kya avoid karein aur important safety ya red-flag guidance dekhein.",
+
+  /* ABOUT */
+  "About IHI": "IHI ke baare mein",
+  "About the Creator": "Creator ke baare mein",
+
+  "Dr. Vedanti Shah is a dentist, creator, and curious mind exploring where healthcare, technology, research, and design meet.":
+    "Dr. Vedanti Shah dentist, creator aur curious mind hain. Woh healthcare, technology, research aur design ke intersection ko explore karti hain.",
+
+  "She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things.":
+    "Unhe ideas mein deeply jaana, problems par research karna, different perspectives ko connect karna aur complex cheezon ko samajhne ke creative tareeke dhoondhna pasand hai.",
+
+  "Her interests span healthcare, research, technology, AI, product thinking, design, and art. She brings these interests together through building, experimenting, and creating products that turn ideas into experiences.":
+    "Unki interests healthcare, research, technology, AI, product thinking, design aur art tak hain. Woh building, experimenting aur products create karne ke through in interests ko ek saath laati hain, jo ideas ko real experiences mein badalte hain.",
+
+  "IHI is one of the products she created.":
+    "IHI unke banaye hue products mein se ek hai.",
+
+  "Why IHI Exists": "IHI kyun bana",
+
+  "I spent years studying healthcare and practicing, and I realized something—people carry so much health confusion every single day. But it's not just a medical thing—it happens everywhere.":
+    "Maine healthcare ki padhai aur practice mein kai saal bitaye, aur mujhe ek cheez samajh aayi—log har din health ko lekar bahut confusion ke saath jeete hain. Aur ye sirf medical problem nahi hai—ye har jagah hota hai.",
+
+  "At family dinners, social gatherings, WhatsApp groups, or just sitting with a lab report at home—it’s the same story again and again:":
+    "Family dinner mein, social gatherings mein, WhatsApp groups mein, ya ghar par lab report lekar baithe hue—story baar-baar wahi hoti hai:",
+
+  "What does this medical term on my report actually mean?":
+    "Meri report mein likhe is medical term ka actual matlab kya hai?",
+
+  "I Googled my symptoms at 2 AM and now I’m terrified.":
+    "Maine raat ke 2 baje apne symptoms Google kiye aur ab main dar gaya hoon.",
+
+  "Skip those heavy pills, just try this home remedy!":
+    "Itni medicines mat lo, bas ye home remedy try karo!",
+
+  "My family says one thing, my doctor says another—who am I supposed to listen to?":
+    "Meri family kuch aur bolti hai, mere doctor kuch aur—main kiski baat sunu?",
+
+  "Everyone has an opinion, a natural cure, or a friend-of-a-friend story. Eventually, it leaves you exhausted, wondering what information you can actually trust.":
+    "Har kisi ke paas apni opinion, koi natural cure ya friend-of-a-friend ki story hoti hai. Aakhir mein insaan thak jaata hai aur sochta hai ki actually kis information par trust karein.",
+
+  "As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves.":
+    "Clinician ke roop mein mujhe samajh aaya ki logon ko aur loud opinions nahi chahiye. Unhe clear aur unbiased information chahiye, taaki woh khud decision le sakein.",
+
+  "When it comes to your health, you deserve clarity—not noise.":
+    "Health ki baat aati hai, toh aap clarity deserve karte hain—noise nahi.",
+
+  "That’s why I created IHI.":
+    "Isi liye maine IHI create kiya.",
+
+  "We bring different healthcare approaches together in one neutral space, breaking down how each system views your body so you can clear your doubts and choose what feels right for you.":
+    "Hum different healthcare approaches ko ek neutral space mein samjhate hain aur batate hain ki har approach aapke body aur experience ko kaise dekhti hai, taaki aapke doubts clear ho sakein aur aap khud decide kar sakein ki aapke liye kya right lagta hai.",
+
+  "Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.":
+    "Kyuki health ki baat aati hai, toh aapko lost feel nahi hona chahiye. Aapko apni care mein informed partner feel karna chahiye.",
+
+  "Dr. Vedanti Shah, BDS":
+    "Dr. Vedanti Shah, BDS",
+
+  "Creator · Product Designer · Vibe Coder":
+    "Creator · Product Designer · Vibe Coder",
+
+  /* STATUS / SPARK */
+  "Something went wrong": "Kuch problem ho gayi",
+  "Try again": "Dobara try karein",
+  "Building questions around your complaint…":
+    "Aapke concern ke according questions ban rahe hain…",
+  "Putting your story together…":
+    "Aapki story ko samjha ja raha hai…",
+  "IHI is thinking…":
+    "IHI soch raha hai…",
+  "Another spark →":
+    "Ek aur spark →",
+  "✦ IHI Spark":
+    "✦ IHI Spark"
+});
+
 const IHI_ORIGINAL_TEXT = new WeakMap();
 const IHI_ORIGINAL_ATTRS = new WeakMap();
 
@@ -621,6 +839,114 @@ function ihiTranslateString(source, dictionary) {
 
 function ihiT(value) {
   return ihiTranslateString(value, ihiDictionary());
+}
+
+
+function applyHinglishAbout() {
+  const select = document.getElementById("siteLanguage");
+  if (!select || select.value !== "hi-en") return;
+
+  const about = document.querySelector(".about-page");
+  if (!about) return;
+
+  const eyebrow = about.querySelector(".about-heading .eyebrow");
+  const titles = about.querySelectorAll(".story-title");
+  const creator = about.querySelector(".about-column.creator");
+  const creatorHeading = creator?.querySelector("h3");
+  const creatorPs = creator?.querySelectorAll("p");
+  const story = about.querySelector(".about-column:not(.creator) .story");
+  const storyPs = story?.querySelectorAll("p");
+  const bullets = story?.querySelectorAll("li");
+
+  if (eyebrow) eyebrow.textContent = "IHI ke baare mein";
+
+  if (titles[0]) titles[0].textContent = "Creator ke baare mein";
+  if (titles[1]) titles[1].textContent = "IHI kyun bana";
+
+  if (creatorHeading) {
+    creatorHeading.textContent =
+      "Dr. Vedanti Shah dentist, creator aur curious mind hain. Woh healthcare, technology, research aur design ke intersection ko explore karti hain.";
+  }
+
+  if (creatorPs?.[0]) {
+    creatorPs[0].textContent =
+      "Unhe ideas mein deeply jaana, problems par research karna, different perspectives ko connect karna aur complex cheezon ko samajhne ke creative tareeke dhoondhna pasand hai.";
+  }
+
+  if (creatorPs?.[1]) {
+    creatorPs[1].textContent =
+      "Unki interests healthcare, research, technology, AI, product thinking, design aur art tak hain. Woh building, experimenting aur products create karne ke through in interests ko ek saath laati hain, jo ideas ko real experiences mein badalte hain.";
+  }
+
+  if (creatorPs?.[2]) {
+    creatorPs[2].textContent =
+      "IHI unke banaye hue products mein se ek hai.";
+  }
+
+  if (storyPs?.[0]) {
+    storyPs[0].textContent =
+      "Maine healthcare ki padhai aur practice mein kai saal bitaye, aur mujhe ek cheez samajh aayi—log har din health ko lekar bahut confusion ke saath jeete hain. Aur ye sirf medical problem nahi hai—ye har jagah hota hai.";
+  }
+
+  if (storyPs?.[1]) {
+    storyPs[1].textContent =
+      "Family dinner mein, social gatherings mein, WhatsApp groups mein, ya ghar par lab report lekar baithe hue—story baar-baar wahi hoti hai:";
+  }
+
+  if (bullets?.[0]) {
+    bullets[0].textContent =
+      "Meri report mein likhe is medical term ka actual matlab kya hai?";
+  }
+
+  if (bullets?.[1]) {
+    bullets[1].textContent =
+      "Maine raat ke 2 baje apne symptoms Google kiye aur ab main dar gaya hoon.";
+  }
+
+  if (bullets?.[2]) {
+    bullets[2].textContent =
+      "Itni medicines mat lo, bas ye home remedy try karo!";
+  }
+
+  if (bullets?.[3]) {
+    bullets[3].textContent =
+      "Meri family kuch aur bolti hai, mere doctor kuch aur—main kiski baat sunu?";
+  }
+
+  if (storyPs?.[2]) {
+    storyPs[2].textContent =
+      "Har kisi ke paas apni opinion, koi natural cure ya friend-of-a-friend ki story hoti hai. Aakhir mein insaan thak jaata hai aur sochta hai ki actually kis information par trust karein.";
+  }
+
+  if (storyPs?.[3]) {
+    storyPs[3].textContent =
+      "Clinician ke roop mein mujhe samajh aaya ki logon ko aur loud opinions nahi chahiye. Unhe clear aur unbiased information chahiye, taaki woh khud decision le sakein.";
+  }
+
+  if (storyPs?.[4]) {
+    storyPs[4].textContent =
+      "Health ki baat aati hai, toh aap clarity deserve karte hain—noise nahi.";
+  }
+
+  if (storyPs?.[5]) {
+    storyPs[5].textContent =
+      "Isi liye maine IHI create kiya.";
+  }
+
+  if (storyPs?.[6]) {
+    storyPs[6].textContent =
+      "Hum different healthcare approaches ko ek neutral space mein samjhate hain aur batate hain ki har approach aapke body aur experience ko kaise dekhti hai, taaki aapke doubts clear ho sakein aur aap khud decide kar sakein ki aapke liye kya right lagta hai.";
+  }
+
+  if (storyPs?.[7]) {
+    const textNode = Array.from(storyPs[7].childNodes)
+      .find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+
+    if (textNode) {
+      textNode.textContent =
+        "\n              Kyuki health ki baat aati hai, toh aapko lost feel nahi hona chahiye. Aapko apni care mein informed partner feel karna chahiye.\n\n              ";
+    }
+  }
 }
 
 function applySiteLanguage() {
@@ -754,6 +1080,8 @@ function applySiteLanguage() {
   }
 
   localStorage.setItem("ihiLanguage", lang);
+
+  applyHinglishAbout();
 }
 
 
@@ -919,8 +1247,8 @@ function setupVoiceInput(textareaId, buttonId) {
 }
 
 function voiceButton(id) {
-  return '<button type="button" class="btn option" id="' +
-    id + '" style="margin-top:10px">🎙 Speak</button>';
+  return `<button type="button" class="btn option" id="` +
+    id + `" style="margin-top:10px">${ihi("🎙 Speak")}</button>`;
 }
 
 function chooseFramework() {
@@ -947,10 +1275,6 @@ function chooseFramework() {
           class="card clickable framework-choice"
           data-framework="modern"
         >
-          <span class="badge clinical">
-            MODERN MEDICINE
-          </span>
-
           <h3>
             Modern Medicine
           </h3>
@@ -965,10 +1289,6 @@ function chooseFramework() {
           class="card clickable framework-choice"
           data-framework="ayurveda"
         >
-          <span class="badge">
-            AYURVEDA
-          </span>
-
           <h3>
             Ayurveda
           </h3>
@@ -983,10 +1303,6 @@ function chooseFramework() {
           class="card clickable framework-choice"
           data-framework="homeopathy"
         >
-          <span class="badge">
-            HOMEOPATHY
-          </span>
-
           <h3>
             Homeopathy
           </h3>
