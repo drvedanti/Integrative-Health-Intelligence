@@ -930,39 +930,114 @@ h3{
 
 
 
-/* IHI Spark card removed from page.
-   Keep the Ask IHI entry point only. */
 
+
+
+
+/* IHI SPARK */
 #ihiSpark{
-  display:none !important;
+  position:fixed;
+  left:25px;
+  bottom:25px;
+  z-index:9999;
 }
 
-/* Bottom-right Ask IHI button */
-#ihi-spark{
-  position:fixed !important;
-  right:25px !important;
-  bottom:25px !important;
-  z-index:9999 !important;
-  display:block !important;
-  pointer-events:auto !important;
+.ihi-spark-card{
+  width:320px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 14px 45px rgba(0,0,0,.12);
 }
 
-#ihi-spark .spark-button{
-  display:block !important;
-  pointer-events:auto !important;
-  cursor:pointer !important;
-  border:0 !important;
-  background:var(--wine) !important;
-  color:#fff !important;
-  border-radius:999px !important;
-  padding:14px 20px !important;
-  font-size:13px !important;
-  line-height:1 !important;
-  box-shadow:0 10px 35px rgba(0,0,0,.15) !important;
+.ihi-spark-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  border:0;
+  background:none;
+  font-size:20px;
+  color:var(--muted);
+  cursor:pointer;
 }
 
-#ihi-spark .spark-button:hover{
-  background:var(--wine-dark) !important;
+.ihi-spark-label{
+  color:var(--wine);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.ihi-spark-kicker{
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:6px;
+}
+
+.ihi-spark-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:400;
+  margin-bottom:9px;
+}
+
+.ihi-spark-text{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  margin-bottom:16px;
+}
+
+.ihi-spark-next{
+  border:0;
+  background:none;
+  padding:0;
+  color:var(--wine);
+  font-size:13px;
+  cursor:pointer;
+}
+
+.ihi-spark-mini{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:var(--paper);
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.site-language{
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--paper);
+  color:var(--ink);
+  padding:8px 13px;
+  font-size:13px;
+  margin-left:auto;
+  margin-right:8px;
+}
+
+@media(max-width:850px){
+  .site-language{
+    margin-left:auto;
+    margin-right:10px;
+  }
+
+  #ihiSpark{
+    left:15px;
+    bottom:15px;
+  }
+
+  .ihi-spark-card{
+    width:285px;
+  }
 }
 
 </style>
@@ -1053,6 +1128,14 @@ h3{
     <button class="nav-btn logo" data-page="home">
       I<span>HI</span>
     </button>
+
+    <select id="siteLanguage" class="site-language" aria-label="Website language">
+      <option value="English">English</option>
+      <option value="Hindi+English">Hindi + English</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Marathi+English">Marathi + English</option>
+      <option value="Marathi">Marathi</option>
+    </select>
 
     <button class="menu-btn" id="menuBtn">☰</button>
 
@@ -1276,13 +1359,9 @@ h3{
 
         <div class="tool-controls">
 
-          <select id="language" aria-label="Language">
-            <option value="English">English</option>
-            <option value="Hindi+English">Hindi + English</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Marathi+English">Marathi + English</option>
-            <option value="Marathi">Marathi</option>
-          </select>
+          <button class="btn option" id="ihiComplaintVoice" type="button">
+            🎙 Speak
+          </button>
 
           <button class="btn" id="explore">
             Explore →
@@ -1610,49 +1689,7 @@ Do not duplicate Explore logic here.
 <script src="ai-flow.js"></script>
 
 
-<script>
 
-/*
-IHI Spark
-A small persistent entry point.
-The actual AI conversation remains handled by ai-flow.js.
-*/
-
-window.addEventListener("load", () => {
-
-  if(document.getElementById("ihi-spark")) return;
-
-  const spark = document.createElement("div");
-
-  spark.id = "ihi-spark";
-
-  spark.innerHTML = `
-    <button class="spark-button" type="button">
-      ✦ Ask IHI
-    </button>
-  `;
-
-  document.body.appendChild(spark);
-
-  spark.querySelector("button").addEventListener("click", () => {
-
-    showPage("tool");
-
-    setTimeout(() => {
-
-      const concern = document.getElementById("concern");
-
-      if(concern){
-        concern.focus();
-      }
-
-    },400);
-
-  });
-
-});
-
-</script>
 
 </body>
 </html>

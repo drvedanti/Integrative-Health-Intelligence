@@ -1,7 +1,7 @@
 const exploreButton = document.getElementById("explore");
 const concern = document.getElementById("concern");
 const results = document.getElementById("results");
-const language = document.getElementById("language");
+const language = document.getElementById("siteLanguage");
 
 let ihiState = {
   complaint: "",
@@ -921,19 +921,8 @@ function setupIHISpark() {
 
 window.addEventListener("load", () => {
   setupIHISpark();
-  if (
-    !document.getElementById("concern") ||
-    document.getElementById("ihiComplaintVoice")
-  ) return;
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.id = "ihiComplaintVoice";
-  button.className = "btn option";
-  button.style.marginTop = "10px";
-  button.textContent = "🎙 Speak";
-
-  concern.insertAdjacentElement("afterend", button);
+  if (!document.getElementById("concern")) return;
 
   setupVoiceInput("concern", "ihiComplaintVoice");
 });
