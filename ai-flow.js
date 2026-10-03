@@ -216,6 +216,113 @@ const IHI_TRANSLATIONS = {
   }
 };
 
+
+Object.assign(IHI_TRANSLATIONS.hi, {
+  "Home": "मुखपृष्ठ",
+  "Health Intelligence Tool": "स्वास्थ्य समझने का साधन",
+  "How to Use IHI": "IHI का उपयोग कैसे करें",
+  "About": "परिचय",
+  "Try the Tool →": "साधन आज़माएँ →",
+  "Compare medical perspectives with clarity.": "स्वास्थ्य को समझने के अलग-अलग दृष्टिकोणों को साफ़ तरीके से जानें।",
+  "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "एक समय में एक स्वास्थ्य दृष्टिकोण को समझें, ताकि जानकारी साफ़ और केंद्रित रहे।",
+  "Modern Medicine": "आधुनिक चिकित्सा",
+  "The IHI journey": "IHI की यात्रा",
+  "From a question to clearer understanding.": "एक सवाल से बेहतर समझ तक।",
+  "Select the healthcare approach you want to explore.": "जिस स्वास्थ्य दृष्टिकोण को समझना चाहते हैं, उसे चुनें।",
+  "See how that framework makes sense of your experience.": "देखें कि चुना हुआ दृष्टिकोण आपके अनुभव को कैसे समझता है।",
+  "Explore practical next steps, what to avoid and safety guidance.": "अगले कदम, किन चीज़ों से बचना है और सुरक्षा से जुड़ी जानकारी देखें।",
+  "Start with your own words. You don't need to know the medical term.": "अपने शब्दों में शुरू करें। आपको चिकित्सीय शब्द जानना ज़रूरी नहीं है।",
+  "Tell IHI what you're experiencing.": "IHI को बताएँ कि आप क्या अनुभव कर रहे हैं।",
+  "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "आप कोई लक्षण, जाँच रिपोर्ट की जानकारी, स्वास्थ्य से जुड़ा सवाल या मन में चल रही कोई बात बता सकते हैं।",
+  "Your exploration will appear here.": "आपकी खोज यहाँ दिखाई देगी।",
+  "IHI is designed as a guided exploration.": "IHI आपको कदम-दर-कदम समझने में मदद करने के लिए बनाया गया है।",
+  "Explore Modern Medicine, Ayurveda or Homeopathy separately.": "आधुनिक चिकित्सा, आयुर्वेद या होम्योपैथी में से किसी एक दृष्टिकोण को अलग-अलग समझें।",
+  "IHI does not blend the frameworks into one explanation.": "IHI अलग-अलग दृष्टिकोणों को एक ही व्याख्या में नहीं मिलाता।",
+  "IHI asks a small number of questions relevant to your concern and the framework you've chosen.": "IHI आपकी समस्या और चुने हुए दृष्टिकोण के अनुसार कुछ ज़रूरी सवाल पूछता है।",
+  "See what may be happening and why that framework interprets the experience in that way.": "देखें कि क्या हो सकता है और चुना हुआ दृष्टिकोण आपके अनुभव को उस तरह क्यों समझता है।",
+  "Ask IHI another question without restarting the entire exploration.": "पूरी प्रक्रिया फिर से शुरू किए बिना IHI से एक और सवाल पूछें।",
+  "About the Creator": "निर्मात्री के बारे में",
+  "Creator · Product Designer · Vibe Coder": "निर्मात्री · उत्पाद रचनाकार · तकनीकी सृजनकर्ता",
+  "Going a little deeper": "थोड़ा और गहराई से",
+  "What you can try": "आप क्या आज़मा सकते हैं",
+  "What to avoid": "किन चीज़ों से बचें",
+  "Ask IHI": "IHI से पूछें",
+  "Ask another question": "एक और सवाल पूछें",
+  "What would you like to understand next?": "आप आगे क्या समझना चाहते हैं?",
+  "What else would you like to understand?": "आप और क्या समझना चाहते हैं?",
+  "Step 1": "चरण १",
+  "Step 2": "चरण २",
+  "Step 3": "चरण ३",
+  "Choose how you want to explore this.": "आप इसे किस दृष्टिकोण से समझना चाहते हैं, चुनें।",
+  "The questions and interpretation change with the framework you choose.": "आपके चुने हुए दृष्टिकोण के अनुसार सवाल और समझने का तरीका बदल जाएगा।",
+  "Evidence-based biomedical reasoning and plausible medical causes.": "वैज्ञानिक प्रमाणों पर आधारित चिकित्सीय सोच और संभावित कारण।",
+  "Explore the concern through Ayurvedic concepts and traditional reasoning.": "आयुर्वेद के सिद्धांतों और पारंपरिक सोच के आधार पर अपनी समस्या को समझें।",
+  "Explore the individual symptom pattern through Homeopathic theory.": "लक्षणों के पूरे व्यक्तिगत ढंग और होम्योपैथी की मान्यताओं के आधार पर इसे समझें।",
+  "MODERN MEDICINE": "आधुनिक चिकित्सा",
+  "HOMEOPATHY": "होम्योपैथी",
+  "Or tell us in your own words…": "या अपने शब्दों में बताएँ…",
+  "Ask IHI →": "IHI से पूछें →",
+  "🎙 Speak": "🎙 बोलें",
+  "🎙 Listening…": "🎙 सुन रहा है…",
+  "Another spark →": "एक और जानकारी →",
+  "✦ IHI Spark": "✦ IHI की झलक",
+  "Something went wrong": "कुछ गड़बड़ हो गई",
+  "Try again": "फिर कोशिश करें"
+});
+
+Object.assign(IHI_TRANSLATIONS.mr, {
+  "Home": "मुखपृष्ठ",
+  "Health Intelligence Tool": "आरोग्य समजण्याचं साधन",
+  "How to Use IHI": "IHI कसं वापरायचं",
+  "About": "माहिती",
+  "Try the Tool →": "साधन वापरा →",
+  "Compare medical perspectives with clarity.": "आरोग्याकडे पाहण्याचे वेगवेगळे दृष्टिकोन स्पष्टपणे समजून घ्या.",
+  "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "एका वेळी एक आरोग्यविषयक दृष्टिकोन समजून घ्या, म्हणजे माहिती सरळ आणि नेमकी राहील.",
+  "Modern Medicine": "आधुनिक वैद्यक",
+  "The IHI journey": "IHI ची वाटचाल",
+  "From a question to clearer understanding.": "एका प्रश्नापासून अधिक स्पष्ट समजुतीपर्यंत.",
+  "Select the healthcare approach you want to explore.": "तुम्हाला समजून घ्यायचा आरोग्यविषयक दृष्टिकोन निवडा.",
+  "See how that framework makes sense of your experience.": "निवडलेला दृष्टिकोन तुमच्या अनुभवाकडे कसा पाहतो ते समजून घ्या.",
+  "Explore practical next steps, what to avoid and safety guidance.": "पुढे काय करता येईल, काय टाळायचं आणि सुरक्षिततेची माहिती पाहा.",
+  "Start with your own words. You don't need to know the medical term.": "तुमच्या शब्दांत सुरुवात करा. वैद्यकीय शब्द माहीत असण्याची गरज नाही.",
+  "Tell IHI what you're experiencing.": "तुम्हाला काय जाणवतंय ते IHI ला सांगा.",
+  "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "एखादं लक्षण, तपासणी अहवालातली माहिती, आरोग्याचा प्रश्न किंवा मनातला काही विचार तुम्ही सांगू शकता.",
+  "Your exploration will appear here.": "तुमची शोधयात्रा इथे दिसेल.",
+  "IHI is designed as a guided exploration.": "IHI तुम्हाला हळूहळू आणि सोप्या पद्धतीने समजून घेण्यासाठी तयार केलं आहे.",
+  "Explore Modern Medicine, Ayurveda or Homeopathy separately.": "आधुनिक वैद्यक, आयुर्वेद किंवा होमिओपॅथी यापैकी एक दृष्टिकोन वेगळा समजून घ्या.",
+  "IHI does not blend the frameworks into one explanation.": "IHI हे वेगवेगळे दृष्टिकोन एका स्पष्टीकरणात मिसळत नाही.",
+  "IHI asks a small number of questions relevant to your concern and the framework you've chosen.": "तुमची समस्या आणि तुम्ही निवडलेल्या दृष्टिकोनानुसार IHI काही महत्त्वाचे प्रश्न विचारतो.",
+  "See what may be happening and why that framework interprets the experience in that way.": "काय होत असू शकतं आणि निवडलेला दृष्टिकोन तुमच्या अनुभवाचा तसा अर्थ का लावतो ते पाहा.",
+  "Ask IHI another question without restarting the entire exploration.": "संपूर्ण प्रक्रिया पुन्हा सुरू न करता IHI ला आणखी एक प्रश्न विचारा.",
+  "About the Creator": "निर्मात्रीबद्दल",
+  "Creator · Product Designer · Vibe Coder": "निर्मात्री · उत्पादन रचनाकार · तंत्रसर्जक",
+  "Going a little deeper": "थोडं अधिक खोलात जाऊया",
+  "What you can try": "तुम्ही काय करून पाहू शकता",
+  "What to avoid": "काय टाळायचं",
+  "Ask IHI": "IHI ला विचारा",
+  "Ask another question": "आणखी एक प्रश्न विचारा",
+  "What would you like to understand next?": "आता तुम्हाला काय समजून घ्यायचं आहे?",
+  "What else would you like to understand?": "आणखी काय समजून घ्यायचं आहे?",
+  "Step 1": "टप्पा १",
+  "Step 2": "टप्पा २",
+  "Step 3": "टप्पा ३",
+  "Choose how you want to explore this.": "हे कोणत्या दृष्टिकोनातून समजून घ्यायचं ते निवडा.",
+  "The questions and interpretation change with the framework you choose.": "तुम्ही निवडलेल्या दृष्टिकोनानुसार प्रश्न आणि त्याचा अर्थ बदलतो.",
+  "Evidence-based biomedical reasoning and plausible medical causes.": "वैज्ञानिक पुराव्यांवर आधारित वैद्यकीय विचार आणि शक्य कारणं.",
+  "Explore the concern through Ayurvedic concepts and traditional reasoning.": "आयुर्वेदातील संकल्पना आणि पारंपरिक विचारांच्या आधाराने तुमची समस्या समजून घ्या.",
+  "Explore the individual symptom pattern through Homeopathic theory.": "लक्षणं, त्यांची रचना आणि होमिओपॅथीच्या मान्यतांनुसार तुमचा अनुभव समजून घ्या.",
+  "MODERN MEDICINE": "आधुनिक वैद्यक",
+  "HOMEOPATHY": "होमिओपॅथी",
+  "Or tell us in your own words…": "किंवा तुमच्या शब्दांत सांगा…",
+  "Ask IHI →": "IHI ला विचारा →",
+  "🎙 Speak": "🎙 बोला",
+  "🎙 Listening…": "🎙 ऐकत आहे…",
+  "Another spark →": "आणखी एक माहिती →",
+  "✦ IHI Spark": "✦ IHI ची झलक",
+  "Something went wrong": "काहीतरी चुकलं",
+  "Try again": "पुन्हा प्रयत्न करा"
+});
+
 const IHI_ORIGINAL_TEXT = new WeakMap();
 const IHI_ORIGINAL_ATTRS = new WeakMap();
 
@@ -224,29 +331,48 @@ function ihiDictionary() {
   return IHI_TRANSLATIONS[lang] || {};
 }
 
+function normalizeIHIText(value) {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
 function ihiTranslateString(source, dictionary) {
   if (!source || !Object.keys(dictionary).length) return source;
 
   const leading = source.match(/^\s*/)?.[0] || "";
   const trailing = source.match(/\s*$/)?.[0] || "";
   const core = source.slice(leading.length, source.length - trailing.length);
+  const normalized = normalizeIHIText(core);
 
-  if (dictionary[core]) {
-    return leading + dictionary[core] + trailing;
+  const exact = Object.keys(dictionary).find(
+    key => normalizeIHIText(key) === normalized
+  );
+
+  if (exact) {
+    return leading + dictionary[exact] + trailing;
   }
 
   let translated = core;
 
   Object.keys(dictionary)
-    .sort((a, b) => b.length - a.length)
+    .sort(
+      (a, b) =>
+        normalizeIHIText(b).length -
+        normalizeIHIText(a).length
+    )
     .forEach(key => {
-      if (key && translated.includes(key)) {
+      const normalizedKey = normalizeIHIText(key);
+
+      if (
+        normalizedKey &&
+        normalizeIHIText(translated).includes(normalizedKey)
+      ) {
         translated = translated.split(key).join(dictionary[key]);
       }
     });
 
   return leading + translated + trailing;
 }
+
 
 function ihiT(value) {
   return ihiTranslateString(value, ihiDictionary());

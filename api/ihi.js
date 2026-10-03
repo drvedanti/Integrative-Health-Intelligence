@@ -53,14 +53,11 @@ All Ayurvedic explanations are traditional-framework interpretations, not establ
 
   const lang = {
     en: "Write ONLY in simple, natural English. No Hindi or Marathi.",
-    hi: "Write ONLY pure, easy, everyday Hindi in Devanagari. Avoid unnecessary English, formal Hindi, Sanskrit-heavy words and textbook language. Write the way a normal person naturally speaks.",
-    mr: "Write ONLY easy, natural everyday Marathi in Devanagari. Use conversational Pune-style Marathi where appropriate. Avoid Sanskrit-heavy, literary, overly formal or textbook Marathi. Write the way a normal person in Pune naturally speaks."
-    "hi-en": "Write natural everyday Hinglish. Use Hindi sentence structure. Keep only English words that people naturally use in everyday Hinglish. Do not add unnecessary English. Never use Marathi and never write separate Hindi and English versions.",
-    "mr-en": "Write natural everyday Minglish in conversational Pune-style Marathi. Use Marathi sentence structure. Keep only English words that people naturally use in everyday Marathi conversation, such as health, report, symptom, app, doctor, test, stress and food. Translate everything else into Marathi. Do not add unnecessary English. Never use Hindi and never write separate Marathi and English versions."
+    hi: "Write ONLY pure, easy, everyday Hindi in Devanagari. Do not use English words or Latin-script English. Avoid formal, Sanskrit-heavy or textbook Hindi. Translate ordinary medical, technical and interface terms into easy everyday Hindi.",
+    mr: "Write ONLY pure, easy, conversational Marathi in Devanagari. Do not use English words, Latin-script English or Hindi. Use natural conversational Pune-style Marathi. Avoid formal, literary, Sanskrit-heavy or textbook Marathi. Translate ordinary medical, technical and interface terms into easy everyday Marathi.",
+    "hi-en": "Write natural everyday Hinglish. Use Hindi sentence structure. Keep only English words that people genuinely use in everyday Hinglish. Never use Marathi. Never write separate Hindi and English versions.",
+    "mr-en": "Write natural conversational Pune-style Minglish. Use Marathi sentence structure. Keep only English words that people genuinely use naturally in everyday Marathi conversation. Never use Hindi. Never write separate Marathi and English versions."
   }[language] || "Write ONLY in simple, natural English.";
-
-  const languageGuard =
-    "LANGUAGE IS A HARD REQUIREMENT. Every user-facing field must follow the selected language exactly. Never silently switch to English.";
 
   let prompt = "";
   let schema = "";
@@ -261,6 +258,10 @@ ${lang}
         body: JSON.stringify({
           model: "openai/gpt-oss-120b",
           messages: [
+            {
+              role: "system",
+              content: "You are IHI. Follow the selected language as a strict output constraint. " + lang + " " + languageGuard
+            },
             {
               role: "user",
               content: prompt
