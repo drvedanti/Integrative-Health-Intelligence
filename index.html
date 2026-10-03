@@ -1061,6 +1061,98 @@ h3{
   }
 }
 
+
+/* ============================================================
+   IHI QUESTIONS — UX REFINEMENT
+   ============================================================ */
+
+#ihiQuestions{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+#ihiQuestions .question{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px;
+  background:var(--paper);
+}
+
+#ihiQuestions .question h3{
+  font-size:32px;
+  line-height:1.2;
+  margin:0 0 22px;
+  letter-spacing:-.025em;
+}
+
+#ihiQuestions .options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+#ihiQuestions .ihi-option{
+  font-size:18px;
+  line-height:1.25;
+  padding:13px 19px;
+  cursor:pointer;
+  user-select:none;
+  transition:.18s ease;
+}
+
+#ihiQuestions .ihi-option:hover{
+  transform:translateY(-1px);
+}
+
+#ihiQuestions .ihi-option.selected{
+  background:var(--wine);
+  border-color:var(--wine);
+  color:white;
+  transform:none;
+}
+
+#ihiQuestions textarea{
+  width:100%;
+  min-height:90px;
+  margin-top:4px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:15px;
+  font-size:18px;
+  line-height:1.5;
+  resize:vertical;
+  background:white;
+  color:var(--ink);
+  outline:none;
+  box-sizing:border-box;
+}
+
+#ihiQuestions textarea:focus{
+  border-color:var(--wine);
+}
+
+#ihiQuestions .question + .question{
+  margin-top:0;
+}
+
+@media(max-width:600px){
+  #ihiQuestions .question{
+    padding:22px;
+  }
+
+  #ihiQuestions .question h3{
+    font-size:28px;
+  }
+
+  #ihiQuestions .ihi-option{
+    width:100%;
+    justify-content:flex-start;
+    font-size:18px;
+  }
+}
+
 </style>
 
 <style id="about-final-refinement">
@@ -1149,11 +1241,11 @@ h3{
     </button>
 
     <select id="siteLanguage" class="site-language" aria-label="Website language">
-      <option value="English">English</option>
-      <option value="Hindi+English">Hindi + English</option>
-      <option value="Hindi">Hindi</option>
-      <option value="Marathi+English">Marathi + English</option>
-      <option value="Marathi">Marathi</option>
+      <option value="en">English</option>
+      <option value="hi-en">Hindi + English</option>
+      <option value="hi">Hindi</option>
+      <option value="mr-en">Marathi + English</option>
+      <option value="mr">Marathi</option>
     </select>
 
     <button class="menu-btn" id="menuBtn">☰</button>

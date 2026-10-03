@@ -3,6 +3,271 @@ const concern = document.getElementById("concern");
 const results = document.getElementById("results");
 const language = document.getElementById("siteLanguage");
 
+
+/* ============================================================
+   GLOBAL IHI LANGUAGE
+   ============================================================ */
+
+const IHI_TRANSLATIONS = {
+  en: {},
+
+  "hi-en": {
+    "Home": "Home",
+    "Health Intelligence Tool": "Health Intelligence Tool",
+    "How to Use IHI": "IHI kaise use karein",
+    "About": "About",
+    "Integrative Health Intelligence": "Integrative Health Intelligence",
+    "Understanding your health shouldn't feel overwhelming.": "Apni health ko samajhna overwhelming nahi hona chahiye.",
+    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care aur lifestyle guidance ke through health questions explore karein—sab kuch simple language mein.",
+    "Try the Tool →": "Tool Try Karein →",
+    "How to use IHI": "IHI kaise use karein",
+    "About IHI": "IHI ke baare mein",
+    "Compare medical perspectives with clarity.": "Medical perspectives ko clarity ke saath compare karein.",
+    "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "Ek time par ek healthcare approach explore karein, taaki guidance clear aur focused rahe.",
+    "Three perspectives": "Teen perspectives",
+    "One experience.": "Ek experience.",
+    "Different ways of understanding.": "Samajhne ke alag tareeke.",
+    "Modern Medicine": "Modern Medicine",
+    "Ayurveda": "Ayurveda",
+    "Homeopathy": "Homeopathy",
+    "The IHI journey": "IHI journey",
+    "From a question to clearer understanding.": "Ek question se clearer understanding tak.",
+    "Tell us": "Humein batayein",
+    "Describe what you're experiencing in everyday language.": "Jo experience ho raha hai, use everyday language mein batayein.",
+    "Choose": "Choose karein",
+    "Select the healthcare approach you want to explore.": "Jo healthcare approach explore karna hai, use choose karein.",
+    "Answer": "Answer karein",
+    "Respond to a few questions designed around your concern.": "Aapke concern ke according kuch questions ka answer dein.",
+    "Understand": "Samjhein",
+    "See how that framework makes sense of your experience.": "Dekhein ki chosen framework aapke experience ko kaise samajhta hai.",
+    "Ask deeper": "Aur poochhein",
+    "Keep the conversation going with IHI.": "IHI ke saath conversation continue rakhein.",
+    "What next": "Aage kya?",
+    "Explore practical next steps, what to avoid and safety guidance.": "Practical next steps, kya avoid karein aur safety guidance dekhein.",
+    "What are you trying to understand?": "Aap kya samajhna chahte hain?",
+    "Start with your own words. You don't need to know the medical term.": "Apne words mein shuru karein. Medical term pata hona zaroori nahi hai.",
+    "Tell IHI what you're experiencing.": "IHI ko batayein ki aap kya experience kar rahe hain.",
+    "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "Aap symptom, report finding, health question ya koi bhi doubt describe kar sakte hain.",
+    "Your exploration will appear here.": "Aapki exploration yahan dikhegi.",
+    "Don't search for an answer. Explore the question.": "Sirf answer search na karein. Question ko explore karein.",
+    "IHI is designed as a guided exploration.": "IHI ek guided exploration ke liye design kiya gaya hai.",
+    "Start with your experience in your own words.": "Apne experience se shuru karein.",
+    "No medical vocabulary is required.": "Medical vocabulary ki zaroorat nahi hai.",
+    "Explore Modern Medicine, Ayurveda or Homeopathy separately.": "Modern Medicine, Ayurveda ya Homeopathy ko alag-alag explore karein.",
+    "IHI does not blend the frameworks into one explanation.": "IHI frameworks ko ek explanation mein mix nahi karta.",
+    "IHI asks a small number of questions relevant to your concern and the framework you've chosen.": "IHI aapke concern aur chosen framework ke according kuch relevant questions poochta hai.",
+    "See what may be happening and why that framework interprets the experience in that way.": "Dekhein kya ho sakta hai aur chosen framework us experience ko us tarah kyun samajhta hai.",
+    "Ask IHI another question without restarting the entire exploration.": "Puri exploration restart kiye bina IHI se ek aur question poochhein.",
+    "Your earlier context stays with the conversation.": "Aapka pehle ka context conversation mein bana rehta hai.",
+    "Explore practical things you can try, what to avoid and important safety or red-flag guidance.": "Practical cheezein explore karein, kya avoid karein aur important safety ya red-flag guidance dekhein.",
+    "About the Creator": "Creator ke baare mein",
+    "Why IHI Exists": "IHI kyun bana",
+    "Dr. Vedanti Shah, BDS": "Dr. Vedanti Shah, BDS",
+    "Creator · Product Designer · Vibe Coder": "Creator · Product Designer · Vibe Coder",
+    "A few questions before we interpret it.": "Interpret karne se pehle kuch questions.",
+    "Answer what fits. Every question also lets you describe your experience in your own words.": "Jo fit ho uska answer dein. Har question mein aap apna experience apne words mein bhi bata sakte hain.",
+    "Continue →": "Continue →",
+    "What may be happening?": "Kya ho sakta hai?",
+    "Why might this be happening?": "Aisa kyun ho sakta hai?",
+    "Going a little deeper": "Thoda aur deeper",
+    "What next?": "Aage kya?",
+    "What you can try": "Aap kya try kar sakte hain",
+    "What to avoid": "Kya avoid karein",
+    "Safety": "Safety",
+    "Ask IHI": "IHI se poochhein",
+    "Ask another question": "Ek aur question poochhein",
+    "What would you like to understand next?": "Aap next kya samajhna chahte hain?",
+    "What else would you like to understand?": "Aap aur kya samajhna chahte hain?",
+    "Continue → What you can try": "Continue → Aap kya try kar sakte hain",
+    "Something went wrong": "Kuch problem ho gayi",
+    "Try again": "Dobara try karein",
+    "Building questions around your complaint…": "Aapke concern ke around questions ban rahe hain…",
+    "Putting your story together…": "Aapki story ko samjha ja raha hai…",
+    "IHI is thinking…": "IHI soch raha hai…",
+    "Another spark →": "Another spark →"
+  },
+
+  hi: {
+    "Home": "होम",
+    "Health Intelligence Tool": "हेल्थ इंटेलिजेंस टूल",
+    "How to Use IHI": "IHI कैसे इस्तेमाल करें",
+    "About": "हमारे बारे में",
+    "Integrative Health Intelligence": "इंटीग्रेटिव हेल्थ इंटेलिजेंस",
+    "Understanding your health shouldn't feel overwhelming.": "अपनी सेहत को समझना इतना मुश्किल नहीं होना चाहिए।",
+    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "मॉडर्न मेडिसिन, होलिस्टिक केयर और लाइफस्टाइल गाइडेंस के ज़रिए अपने हेल्थ सवालों को आसान भाषा में समझें।",
+    "Try the Tool →": "टूल आज़माएँ →",
+    "How to use IHI": "IHI कैसे इस्तेमाल करें",
+    "About IHI": "IHI के बारे में",
+    "Compare medical perspectives with clarity.": "अलग-अलग मेडिकल दृष्टिकोणों को साफ़ तरीके से समझें।",
+    "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "एक समय में एक हेल्थकेयर दृष्टिकोण को समझें, ताकि जानकारी साफ़ और केंद्रित रहे।",
+    "Three perspectives": "तीन दृष्टिकोण",
+    "One experience.": "एक अनुभव।",
+    "Different ways of understanding.": "समझने के अलग तरीके।",
+    "Modern Medicine": "मॉडर्न मेडिसिन",
+    "Ayurveda": "आयुर्वेद",
+    "Homeopathy": "होम्योपैथी",
+    "The IHI journey": "IHI की यात्रा",
+    "From a question to clearer understanding.": "एक सवाल से बेहतर समझ तक।",
+    "Tell us": "बताएँ",
+    "Describe what you're experiencing in everyday language.": "आप क्या अनुभव कर रहे हैं, इसे रोज़मर्रा की भाषा में बताएँ।",
+    "Choose": "चुनें",
+    "Select the healthcare approach you want to explore.": "जिस हेल्थकेयर दृष्टिकोण को समझना चाहते हैं, उसे चुनें।",
+    "Answer": "जवाब दें",
+    "Respond to a few questions designed around your concern.": "अपने सवाल के अनुसार कुछ आसान प्रश्नों के जवाब दें।",
+    "Understand": "समझें",
+    "See how that framework makes sense of your experience.": "देखें कि चुना हुआ दृष्टिकोण आपके अनुभव को कैसे समझता है।",
+    "Ask deeper": "और पूछें",
+    "Keep the conversation going with IHI.": "IHI के साथ बातचीत जारी रखें।",
+    "What next": "आगे क्या?",
+    "Explore practical next steps, what to avoid and safety guidance.": "अगले कदम, क्या न करें और सुरक्षा संबंधी जानकारी देखें।",
+    "What are you trying to understand?": "आप क्या समझना चाहते हैं?",
+    "Start with your own words. You don't need to know the medical term.": "अपने शब्दों में शुरू करें। मेडिकल टर्म जानना ज़रूरी नहीं है।",
+    "Tell IHI what you're experiencing.": "IHI को बताएँ कि आप क्या अनुभव कर रहे हैं।",
+    "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "आप कोई लक्षण, रिपोर्ट की जानकारी, हेल्थ सवाल या कोई चिंता बता सकते हैं।",
+    "Your exploration will appear here.": "आपकी एक्सप्लोरेशन यहाँ दिखाई देगी।",
+    "Don't search for an answer. Explore the question.": "सिर्फ जवाब न खोजें। सवाल को समझें।",
+    "IHI is designed as a guided exploration.": "IHI एक guided exploration के लिए बनाया गया है।",
+    "About the Creator": "क्रिएटर के बारे में",
+    "Why IHI Exists": "IHI क्यों बना",
+    "Dr. Vedanti Shah, BDS": "Dr. Vedanti Shah, BDS",
+    "Creator · Product Designer · Vibe Coder": "Creator · Product Designer · Vibe Coder",
+    "A few questions before we interpret it.": "इसे समझने से पहले कुछ सवाल।",
+    "Answer what fits. Every question also lets you describe your experience in your own words.": "जो सही लगे उसका जवाब दें। आप अपना अनुभव अपने शब्दों में भी बता सकते हैं।",
+    "Continue →": "आगे बढ़ें →",
+    "What may be happening?": "क्या हो सकता है?",
+    "Why might this be happening?": "ऐसा क्यों हो सकता है?",
+    "Going a little deeper": "थोड़ा और गहराई से",
+    "What next?": "आगे क्या?",
+    "What you can try": "आप क्या आज़मा सकते हैं",
+    "What to avoid": "क्या न करें",
+    "Safety": "सुरक्षा",
+    "Ask IHI": "IHI से पूछें",
+    "Ask another question": "एक और सवाल पूछें",
+    "Continue → What you can try": "आगे बढ़ें → आप क्या आज़मा सकते हैं",
+    "Something went wrong": "कुछ गड़बड़ हो गई",
+    "Try again": "फिर कोशिश करें",
+    "Building questions around your complaint…": "आपकी समस्या के अनुसार सवाल तैयार हो रहे हैं…",
+    "Putting your story together…": "आपकी बात को समझा जा रहा है…",
+    "IHI is thinking…": "IHI सोच रहा है…"
+  },
+
+  mr: {
+    "Home": "होम",
+    "Health Intelligence Tool": "हेल्थ इंटेलिजन्स टूल",
+    "How to Use IHI": "IHI कसं वापरायचं",
+    "About": "About",
+    "Integrative Health Intelligence": "इंटिग्रेटिव्ह हेल्थ इंटेलिजन्स",
+    "Understanding your health shouldn't feel overwhelming.": "तुमचं आरोग्य समजून घेणं overwhelming वाटायला नको.",
+    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care आणि lifestyle guidance मधून health questions सोप्या भाषेत समजून घ्या.",
+    "Try the Tool →": "Tool वापरा →",
+    "How to use IHI": "IHI कसं वापरायचं",
+    "About IHI": "IHI बद्दल",
+    "Compare medical perspectives with clarity.": "वेगवेगळे medical perspectives स्पष्टपणे समजून घ्या.",
+    "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.": "एका वेळी एक healthcare approach समजून घ्या, म्हणजे guidance clear आणि focused राहील.",
+    "Three perspectives": "तीन perspectives",
+    "One experience.": "एक experience.",
+    "Different ways of understanding.": "समजून घेण्याचे वेगवेगळे मार्ग.",
+    "Modern Medicine": "Modern Medicine",
+    "Ayurveda": "आयुर्वेद",
+    "Homeopathy": "होमिओपॅथी",
+    "The IHI journey": "IHI journey",
+    "From a question to clearer understanding.": "एका प्रश्नापासून clearer understanding पर्यंत.",
+    "Tell us": "सांगा",
+    "Describe what you're experiencing in everyday language.": "तुम्हाला काय जाणवतंय ते रोजच्या भाषेत सांगा.",
+    "Choose": "निवडा",
+    "Select the healthcare approach you want to explore.": "तुम्हाला explore करायचा healthcare approach निवडा.",
+    "Answer": "उत्तर द्या",
+    "Respond to a few questions designed around your concern.": "तुमच्या concern नुसार काही questions ची उत्तरं द्या.",
+    "Understand": "समजून घ्या",
+    "See how that framework makes sense of your experience.": "तो framework तुमच्या experience कडे कसा पाहतो ते समजून घ्या.",
+    "Ask deeper": "आणखी विचारा",
+    "Keep the conversation going with IHI.": "IHI सोबत conversation पुढे चालू ठेवा.",
+    "What next": "पुढे काय?",
+    "Explore practical next steps, what to avoid and safety guidance.": "पुढचे practical steps, काय avoid करायचं आणि safety guidance पहा.",
+    "What are you trying to understand?": "तुम्हाला काय समजून घ्यायचं आहे?",
+    "Start with your own words. You don't need to know the medical term.": "तुमच्या शब्दांत सुरुवात करा. Medical term माहित असण्याची गरज नाही.",
+    "Tell IHI what you're experiencing.": "तुम्हाला काय जाणवतंय ते IHI ला सांगा.",
+    "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "तुम्ही symptom, report finding, health question किंवा मनातला doubt सांगू शकता.",
+    "Your exploration will appear here.": "तुमची exploration इथे दिसेल.",
+    "Don't search for an answer. Explore the question.": "फक्त answer शोधू नका. Question explore करा.",
+    "IHI is designed as a guided exploration.": "IHI guided exploration साठी design केलं आहे.",
+    "About the Creator": "Creator बद्दल",
+    "Why IHI Exists": "IHI का तयार केलं",
+    "Dr. Vedanti Shah, BDS": "Dr. Vedanti Shah, BDS",
+    "Creator · Product Designer · Vibe Coder": "Creator · Product Designer · Vibe Coder",
+    "A few questions before we interpret it.": "Interpret करण्याआधी काही questions.",
+    "Answer what fits. Every question also lets you describe your experience in your own words.": "जे fit होतं त्याचं answer द्या. तुमचा experience तुमच्या शब्दांतही सांगू शकता.",
+    "Continue →": "पुढे →",
+    "What may be happening?": "काय होत असू शकतं?",
+    "Why might this be happening?": "असं का होत असू शकतं?",
+    "Going a little deeper": "थोडं deeper समजून घेऊया",
+    "What next?": "पुढे काय?",
+    "What you can try": "तुम्ही काय try करू शकता",
+    "What to avoid": "काय avoid करायचं",
+    "Safety": "Safety",
+    "Ask IHI": "IHI ला विचारा",
+    "Ask another question": "आणखी एक question विचारा",
+    "Continue → What you can try": "पुढे → तुम्ही काय try करू शकता",
+    "Something went wrong": "काहीतरी problem झाली",
+    "Try again": "पुन्हा try करा",
+    "Building questions around your complaint…": "तुमच्या concern नुसार questions तयार होत आहेत…",
+    "Putting your story together…": "तुमचा experience समजून घेतला जात आहे…",
+    "IHI is thinking…": "IHI विचार करत आहे…"
+  }
+};
+
+function applySiteLanguage() {
+  const select = document.getElementById("siteLanguage");
+  if (!select) return;
+
+  const lang = select.value || "en";
+  const dictionary = IHI_TRANSLATIONS[lang] || {};
+
+  document.documentElement.lang =
+    lang === "hi" ? "hi" :
+    lang === "mr" ? "mr" :
+    "en";
+
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT
+  );
+
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+
+  nodes.forEach(node => {
+    const value = node.nodeValue.trim();
+    if (!value) return;
+
+    if (dictionary[value]) {
+      node.nodeValue =
+        node.nodeValue.replace(value, dictionary[value]);
+    }
+  });
+
+  const concern = document.getElementById("concern");
+
+  const placeholders = {
+    en: "For example: I've been feeling acidity after meals and I want to understand why...",
+    "hi-en": "Example: Meals ke baad acidity feel hoti hai aur main samajhna chahta/chahti hoon kyun...",
+    hi: "उदाहरण: खाना खाने के बाद acidity होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
+    "mr-en": "Example: Meals नंतर acidity feel होते आणि मला समजून घ्यायचं आहे का...",
+    mr: "उदाहरण: जेवल्यानंतर acidity होते आणि असं का होतं हे मला समजून घ्यायचं आहे..."
+  };
+
+  if (concern) {
+    concern.placeholder =
+      placeholders[lang] || placeholders.en;
+  }
+
+  localStorage.setItem("ihiLanguage", lang);
+}
+
+
 let ihiState = {
   complaint: "",
   framework: "",
@@ -31,6 +296,7 @@ function esc(value) {
 
 function show(html) {
   results.innerHTML = html;
+  applySiteLanguage();
   results.scrollIntoView({
     behavior: "smooth",
     block: "start"
@@ -335,6 +601,8 @@ async function loadQuestions() {
               <button
                 type="button"
                 class="btn option ihi-option"
+                type="button"
+                aria-pressed="false"
                 data-q="${index}"
                 data-value="${esc(option)}"
               >
@@ -375,30 +643,28 @@ async function loadQuestions() {
       }
     );
 
-    document
-      .querySelectorAll(".ihi-option")
-      .forEach(button => {
+    box.addEventListener("click", event => {
+      const button = event.target.closest(".ihi-option");
 
-        button.addEventListener(
-          "click",
-          () => {
+      if (!button || !box.contains(button)) return;
 
-            document
-              .querySelectorAll(
-                `.ihi-option[data-q="${button.dataset.q}"]`
-              )
-              .forEach(x =>
-                x.classList.remove("selected")
-              );
+      event.preventDefault();
+      event.stopPropagation();
 
-            button.classList.add(
-              "selected"
-            );
+      const questionIndex = button.dataset.q;
 
-          }
-        );
+      box
+        .querySelectorAll(
+          `.ihi-option[data-q="${questionIndex}"]`
+        )
+        .forEach(option => {
+          option.classList.remove("selected");
+          option.setAttribute("aria-pressed", "false");
+        });
 
-      });
+      button.classList.add("selected");
+      button.setAttribute("aria-pressed", "true");
+    });
 
     document
       .getElementById("ihiAnalyze")
@@ -957,6 +1223,25 @@ function setupIHISpark() {
 
 
 window.addEventListener("load", () => {
+  const siteLanguage = document.getElementById("siteLanguage");
+
+  if (siteLanguage) {
+    const savedLanguage =
+      localStorage.getItem("ihiLanguage") || "en";
+
+    if (
+      [...siteLanguage.options]
+        .some(option => option.value === savedLanguage)
+    ) {
+      siteLanguage.value = savedLanguage;
+    }
+
+    siteLanguage.addEventListener("change", () => {
+      applySiteLanguage();
+    });
+  }
+
+  applySiteLanguage();
   setupIHISpark();
 
   if (!document.getElementById("concern")) return;
