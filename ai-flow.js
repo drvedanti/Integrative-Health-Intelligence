@@ -840,25 +840,42 @@ function setupIHISpark() {
 
   const sparks = {
     en: [
-      ["Tiny curiosity", "Why does IHI ask about timing?", "Because when something happens can be as useful as what happens."],
-      ["Tiny curiosity", "One symptom can have many explanations.", "Good questions help narrow the story."],
-      ["Tiny curiosity", "Why ask \"why\"?", "Because understanding the reasoning can be more useful than seeing an answer alone."]
+      ["🧠 Interesting Health Fact", "Your brain uses a surprising amount of energy.", "Although it makes up only a small part of your body weight, the brain uses roughly one-fifth of the body's energy at rest."],
+      ["💡 Did You Know?", "Your stomach doesn't digest itself.", "Its protective mucus lining and other defenses help shield the stomach wall from its own acid and digestive enzymes."],
+      ["😄 Health Joke", "Why did the cell break up with the virus?", "Because it needed some space. 🦠"],
+      ["🚀 Health Innovation", "Smart contact lenses are being researched for more than vision.", "Researchers have explored contact lenses that could potentially monitor biological signals or deliver medicines."],
+      ["🧠 Interesting Health Fact", "Your bones are living tissue.", "Bone is continuously broken down and rebuilt throughout life. Your skeleton is constantly adapting."],
+      ["💡 Did You Know?", "Your skin is an organ.", "In fact, it is the body's largest organ and acts as a barrier between you and the outside world."],
+      ["😄 Health Joke", "Why did the doctor carry a red pen?", "In case they needed to draw blood. 🩸"],
+      ["🚀 Health Innovation", "3D printing is being explored in medicine.", "Researchers are developing ways to use 3D printing for customized prosthetics, surgical planning and experimental tissue engineering."]
     ],
-    hi: [
-      ["छोटी-सी जिज्ञासा", "IHI समय के बारे में क्यों पूछता है?", "क्योंकि कोई चीज़ कब होती है, यह भी उतना ही काम का हो सकता है जितना कि वह क्या है।"],
-      ["छोटी-सी जिज्ञासा", "एक लक्षण के कई कारण हो सकते हैं।", "सही सवाल कहानी को समझने में मदद करते हैं।"]
+
+    "hi": [
+      ["🧠 रोचक स्वास्थ्य तथ्य", "आपका दिमाग काफी ऊर्जा इस्तेमाल करता है।", "आराम की स्थिति में भी शरीर की कुल ऊर्जा का लगभग पाँचवाँ हिस्सा दिमाग इस्तेमाल करता है।"],
+      ["💡 क्या आपको पता है?", "आपका पेट खुद को पचा नहीं लेता।", "पेट की सुरक्षात्मक परत और दूसरी प्राकृतिक सुरक्षा उसे अपने ही एसिड से बचाती हैं।"],
+      ["😄 हेल्थ जोक", "सेल ने वायरस से ब्रेकअप क्यों किया?", "क्योंकि उसे थोड़ी space चाहिए थी। 🦠"],
+      ["🚀 हेल्थ इनोवेशन", "मेडिसिन में 3D printing का इस्तेमाल खोजा जा रहा है।", "3D printing से customized prosthetics, surgical planning और tissue engineering जैसे क्षेत्रों में नए प्रयोग हो रहे हैं।"]
     ],
-    mr: [
-      ["छोटीशी उत्सुकता", "IHI वेळेबद्दल का विचारतो?", "एखादी गोष्ट कधी होते, हे कशामुळे होते हे समजून घेण्यासाठी महत्त्वाचं ठरू शकतं."],
-      ["छोटीशी उत्सुकता", "एका लक्षणामागे अनेक शक्यता असू शकतात.", "योग्य प्रश्न विचारल्यामुळे नेमकं काय चाललंय हे समजायला मदत होते."]
+
+    "mr": [
+      ["🧠 मजेदार आरोग्य तथ्य", "आपला मेंदू खूप ऊर्जा वापरतो.", "शरीराच्या वजनाचा छोटासा भाग असूनही, विश्रांतीच्या वेळी मेंदू शरीराच्या एकूण ऊर्जेपैकी सुमारे एक-पंचमांश ऊर्जा वापरतो."],
+      ["💡 तुम्हाला माहित आहे का?", "आपले पोट स्वतःला पचवत नाही.", "पोटातील protective mucus layer आणि इतर नैसर्गिक संरक्षण आपल्याला पोटाच्या acid पासून वाचवतात."],
+      ["😄 हेल्थ जोक", "Cell ने virus सोबत breakup का केलं?", "कारण त्याला थोडी space हवी होती. 🦠"],
+      ["🚀 हेल्थ इनोव्हेशन", "Medicine मध्ये 3D printing वर प्रयोग होत आहेत.", "Customized prosthetics, surgical planning आणि tissue engineering सारख्या क्षेत्रांमध्ये 3D printing चा शोध घेतला जात आहे."]
     ],
+
     "hi-en": [
-      ["Tiny curiosity", "IHI timing ke baare mein kyun poochta hai?", "Kyuki kuch kab hota hai, ye bhi utna hi useful ho sakta hai jitna ki kya ho raha hai."],
-      ["Tiny curiosity", "Ek symptom ke peeche kai explanations ho sakte hain.", "Good questions story ko narrow karne mein help karte hain."]
+      ["🧠 Interesting Health Fact", "Brain surprisingly zyada energy use karta hai.", "Rest ke time bhi brain body ki total energy ka roughly one-fifth use karta hai."],
+      ["💡 Did You Know?", "Stomach khud ko digest nahi karta.", "Uski protective lining aur natural defenses stomach ko uske own acid se protect karte hain."],
+      ["😄 Health Joke", "Cell ne virus se breakup kyun kiya?", "Because usse thodi space chahiye thi. 🦠"],
+      ["🚀 Health Innovation", "Medicine mein 3D printing ka use explore ho raha hai.", "Customized prosthetics, surgical planning aur tissue engineering jaise areas mein researchers 3D printing explore kar rahe hain."]
     ],
+
     "mr-en": [
-      ["Tiny curiosity", "IHI timing बद्दल का विचारतो?", "कारण काही कधी होतं, हे काय होतंय इतकंच useful ठरू शकतं."],
-      ["Tiny curiosity", "एका symptom मागे अनेक explanations असू शकतात.", "Good questions मुळे नेमकं काय चाललंय हे समजायला help होते."]
+      ["🧠 Interesting Health Fact", "आपला brain surprisingly खूप energy वापरतो.", "Resting state मध्येही brain body च्या total energy पैकी roughly one-fifth वापरतो."],
+      ["💡 Did You Know?", "आपलं stomach स्वतःला digest करत नाही.", "त्याची protective lining आणि natural defenses त्याला own acid पासून protect करतात."],
+      ["😄 Health Joke", "Cell ने virus सोबत breakup का केलं?", "Because त्याला थोडी space हवी होती. 🦠"],
+      ["🚀 Health Innovation", "Medicine मध्ये 3D printing explore होत आहे.", "Customized prosthetics, surgical planning आणि tissue engineering सारख्या areas मध्ये 3D printing चा वापर शोधला जात आहे."]
     ]
   };
 
@@ -866,22 +883,41 @@ function setupIHISpark() {
 
   const wrap = document.createElement("aside");
   wrap.id = "ihiSpark";
+
   wrap.innerHTML = `
-    <div class="ihi-spark-card">
-      <button type="button" class="ihi-spark-close" aria-label="Minimize IHI Spark">×</button>
-      <div class="ihi-spark-label">✨ IHI Spark</div>
+    <button
+      type="button"
+      class="ihi-spark-tab"
+      aria-label="Open IHI Spark"
+    >
+      ✦ IHI Spark
+    </button>
+
+    <div class="ihi-spark-card" style="display:none">
+      <button
+        type="button"
+        class="ihi-spark-close"
+        aria-label="Close IHI Spark"
+      >×</button>
+
+      <div class="ihi-spark-label">✦ IHI Spark</div>
       <div class="ihi-spark-kicker"></div>
       <h4 class="ihi-spark-title"></h4>
       <p class="ihi-spark-text"></p>
-      <button type="button" class="ihi-spark-next">Another spark →</button>
+
+      <button
+        type="button"
+        class="ihi-spark-next"
+      >
+        Another spark →
+      </button>
     </div>
-    <button type="button" class="ihi-spark-mini" aria-label="Open IHI Spark">✨</button>
   `;
 
   document.body.appendChild(wrap);
 
+  const tab = wrap.querySelector(".ihi-spark-tab");
   const card = wrap.querySelector(".ihi-spark-card");
-  const mini = wrap.querySelector(".ihi-spark-mini");
   const close = wrap.querySelector(".ihi-spark-close");
   const next = wrap.querySelector(".ihi-spark-next");
   const kicker = wrap.querySelector(".ihi-spark-kicker");
@@ -889,7 +925,7 @@ function setupIHISpark() {
   const text = wrap.querySelector(".ihi-spark-text");
 
   function render() {
-    const selected = language?.value || "en";
+    const selected = language?.value || "English";
     const items = sparks[selected] || sparks.en;
     const item = items[index % items.length];
 
@@ -898,19 +934,19 @@ function setupIHISpark() {
     text.textContent = item[2];
   }
 
-  next.addEventListener("click", () => {
-    index += 1;
+  tab.addEventListener("click", () => {
+    card.style.display = "block";
+    tab.style.display = "none";
     render();
   });
 
   close.addEventListener("click", () => {
     card.style.display = "none";
-    mini.style.display = "flex";
+    tab.style.display = "inline-flex";
   });
 
-  mini.addEventListener("click", () => {
-    card.style.display = "block";
-    mini.style.display = "none";
+  next.addEventListener("click", () => {
+    index += 1;
     render();
   });
 
@@ -918,6 +954,7 @@ function setupIHISpark() {
 
   render();
 }
+
 
 window.addEventListener("load", () => {
   setupIHISpark();

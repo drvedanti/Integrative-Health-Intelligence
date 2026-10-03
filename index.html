@@ -937,13 +937,34 @@ h3{
 /* IHI SPARK */
 #ihiSpark{
   position:fixed;
-  left:25px;
+  right:25px;
   bottom:25px;
   z-index:9999;
 }
 
+.ihi-spark-tab{
+  border:0;
+  background:var(--wine);
+  color:white;
+  border-radius:999px;
+  padding:13px 18px;
+  font-size:13px;
+  cursor:pointer;
+  box-shadow:0 10px 35px rgba(0,0,0,.15);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.ihi-spark-tab:hover{
+  background:var(--wine-dark);
+  transform:translateY(-1px);
+}
+
 .ihi-spark-card{
   width:320px;
+  margin-bottom:10px;
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:18px;
@@ -1031,7 +1052,7 @@ h3{
   }
 
   #ihiSpark{
-    left:15px;
+    right:15px;
     bottom:15px;
   }
 
