@@ -323,6 +323,228 @@ Object.assign(IHI_TRANSLATIONS.mr, {
   "Try again": "पुन्हा प्रयत्न करा"
 });
 
+
+/* ============================================================
+   COMPLETE STATIC LANGUAGE COVERAGE
+   Only language content is changed here.
+   Design, layout and product flow remain untouched.
+   ============================================================ */
+
+Object.assign(IHI_TRANSLATIONS.hi, {
+
+  /* HOME */
+  "Integrative Health Intelligence": "समेकित स्वास्थ्य समझ",
+  "Understanding": "अपनी सेहत को समझना",
+  "your health": "आपकी सेहत",
+  "shouldn't feel": "इतना मुश्किल नहीं",
+  "overwhelming.": "होना चाहिए।",
+  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
+    "आधुनिक चिकित्सा, समग्र देखभाल और जीवनशैली से जुड़ी जानकारी के ज़रिए स्वास्थ्य के सवालों को आसान भाषा में समझें।",
+  "How to use IHI": "IHI का उपयोग कैसे करें",
+  "About IHI": "IHI के बारे में",
+  "Compare medical perspectives with clarity.": "स्वास्थ्य को समझने के अलग-अलग दृष्टिकोणों को साफ़ तरीके से जानें।",
+  "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.":
+    "एक समय में एक स्वास्थ्य दृष्टिकोण को समझें, ताकि जानकारी साफ़ और केंद्रित रहे।",
+  "Three perspectives": "तीन दृष्टिकोण",
+  "One experience.": "एक अनुभव।",
+  "Different ways of understanding.": "समझने के अलग-अलग तरीके।",
+
+  /* APPROACHES */
+  "Modern Medicine": "आधुनिक चिकित्सा",
+  "Explore your experience through evidence-based clinical reasoning, symptoms, patterns, mechanisms and possible causes.":
+    "लक्षणों, उनके पैटर्न, शरीर में होने वाली प्रक्रियाओं और संभावित कारणों को वैज्ञानिक प्रमाणों के आधार पर समझें।",
+  "Ayurveda": "आयुर्वेद",
+  "Explore your experience through Ayurvedic concepts such as doshas, Agni, Nidana and patterns of imbalance.":
+    "दोष, अग्नि, निदान और असंतुलन जैसे आयुर्वेदिक विचारों के आधार पर अपने अनुभव को समझें।",
+  "Homeopathy": "होम्योपैथी",
+  "Explore your experience through the individual pattern of symptoms, sensations, timing, triggers and associated experiences.":
+    "लक्षणों, उनकी अनुभूति, समय, कारणों और उनसे जुड़ी दूसरी बातों के पूरे व्यक्तिगत पैटर्न को समझें।",
+
+  /* JOURNEY */
+  "The IHI journey": "IHI की यात्रा",
+  "From a question": "एक सवाल से",
+  "to clearer understanding.": "बेहतर समझ तक।",
+  "Tell us": "बताएँ",
+  "Describe what you're experiencing in everyday language.": "आप क्या अनुभव कर रहे हैं, इसे रोज़मर्रा की भाषा में बताएँ।",
+  "Choose": "चुनें",
+  "Answer": "जवाब दें",
+  "Respond to a few questions designed around your concern.": "अपनी समस्या के अनुसार कुछ आसान सवालों के जवाब दें।",
+  "Understand": "समझें",
+  "Ask deeper": "और पूछें",
+  "Keep the conversation going with IHI.": "IHI के साथ बातचीत जारी रखें।",
+  "What next": "आगे क्या?",
+  "Explore practical next steps, what to avoid and safety guidance.": "अगले कदम, किन चीज़ों से बचना है और सुरक्षा से जुड़ी जानकारी देखें।",
+
+  /* TOOL */
+  "Health Intelligence Tool": "स्वास्थ्य समझने का साधन",
+  "What are you trying to understand?": "आप क्या समझना चाहते हैं?",
+  "Start with your own words. You don't need to know the medical term.":
+    "अपने शब्दों में शुरू करें। आपको चिकित्सीय शब्द जानना ज़रूरी नहीं है।",
+  "Tell IHI what you're experiencing.": "IHI को बताएँ कि आप क्या अनुभव कर रहे हैं।",
+  "You can describe a symptom, a report finding, a health question, or something you've been wondering about.":
+    "आप कोई लक्षण, जाँच रिपोर्ट की जानकारी, स्वास्थ्य से जुड़ा सवाल या मन में चल रही कोई बात बता सकते हैं।",
+  "Explore →": "समझें →",
+  "Your exploration will appear here.": "आपकी खोज यहाँ दिखाई देगी।",
+
+  /* HOW TO USE */
+  "How to Use IHI": "IHI का उपयोग कैसे करें",
+  "Don't search for an answer.": "सिर्फ जवाब मत खोजिए।",
+  "Explore the question.": "सवाल को समझने की कोशिश कीजिए।",
+  "IHI is designed as a guided exploration. You start with what you know, choose a perspective, answer simple questions, and gradually build a clearer picture.":
+    "IHI आपको कदम-दर-कदम समझने में मदद करता है। जो पता है उससे शुरुआत करें, एक दृष्टिकोण चुनें, आसान सवालों के जवाब दें और धीरे-धीरे पूरी तस्वीर को समझें।",
+  "Start with your experience in your own words. No medical vocabulary is required.":
+    "अपने अनुभव को अपने शब्दों में बताएँ। किसी चिकित्सीय शब्दावली की ज़रूरत नहीं है।",
+  "Explore Modern Medicine, Ayurveda or Homeopathy separately. IHI does not blend the frameworks into one explanation.":
+    "आधुनिक चिकित्सा, आयुर्वेद या होम्योपैथी में से किसी एक दृष्टिकोण को अलग-अलग समझें। IHI इन दृष्टिकोणों को एक ही व्याख्या में नहीं मिलाता।",
+  "IHI asks a small number of questions relevant to your concern and the framework you've chosen.":
+    "IHI आपकी समस्या और चुने हुए दृष्टिकोण के अनुसार कुछ ज़रूरी सवाल पूछता है।",
+  "See what may be happening and why that framework interprets the experience in that way.":
+    "देखें कि क्या हो सकता है और चुना हुआ दृष्टिकोण आपके अनुभव को उस तरह क्यों समझता है।",
+  "Ask IHI another question without restarting the entire exploration. Your earlier context stays with the conversation.":
+    "पूरी प्रक्रिया फिर से शुरू किए बिना IHI से एक और सवाल पूछें। पहले की जानकारी बातचीत में बनी रहती है।",
+  "Explore practical things you can try, what to avoid and important safety or red-flag guidance.":
+    "आप क्या आज़मा सकते हैं, किन चीज़ों से बचना है और किन सुरक्षा संकेतों पर ध्यान देना है, यह जानें।",
+
+  /* ABOUT */
+  "About IHI": "IHI के बारे में",
+  "About the Creator": "निर्मात्री के बारे में",
+  "Dr. Vedanti Shah is a dentist, creator, and curious mind exploring where healthcare, technology, research, and design meet.":
+    "डॉ. वेदांती शाह दंत चिकित्सक और रचनाकार हैं। वह स्वास्थ्य, तकनीक, शोध और डिज़ाइन के बीच के संबंधों को समझने में रुचि रखती हैं।",
+  "She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things.":
+    "उन्हें विचारों की गहराई में जाना, समस्याओं पर शोध करना, अलग-अलग दृष्टिकोणों को जोड़ना और जटिल बातों को आसान तरीके से समझना पसंद है।",
+  "Her interests span healthcare, research, technology, AI, product thinking, design, and art. She brings these interests together through building, experimenting, and creating products that turn ideas into experiences.":
+    "उनकी रुचियाँ स्वास्थ्य, शोध, तकनीक, कृत्रिम बुद्धिमत्ता, उत्पाद सोच, डिज़ाइन और कला तक फैली हैं। वह इन रुचियों को नए उत्पाद बनाने, प्रयोग करने और विचारों को वास्तविक अनुभवों में बदलने के ज़रिए साथ लाती हैं।",
+  "IHI is one of the products she created.":
+    "IHI उनके बनाए हुए उत्पादों में से एक है।",
+
+  "Why IHI Exists": "IHI क्यों बना",
+  "I spent years studying healthcare and practicing, and I realized something—people carry so much health confusion every single day. But it's not just a medical thing—it happens everywhere.":
+    "मैंने कई साल स्वास्थ्य की पढ़ाई और चिकित्सा के काम में बिताए। इस दौरान मैंने महसूस किया कि लोग हर दिन स्वास्थ्य से जुड़ी बहुत सारी उलझनें लेकर चलते हैं। और यह सिर्फ अस्पताल की बात नहीं है—यह हर जगह होता है।",
+  "At family dinners, social gatherings, WhatsApp groups, or just sitting with a lab report at home—it’s the same story again and again:":
+    "परिवार के साथ खाने पर, दोस्तों के बीच, व्हाट्सऐप समूहों में या घर पर जाँच रिपोर्ट लेकर बैठे हों—कहानी बार-बार वही होती है:",
+  "What does this medical term on my report actually mean?":
+    "मेरी रिपोर्ट में लिखे इस चिकित्सीय शब्द का असल मतलब क्या है?",
+  "I Googled my symptoms at 2 AM and now I’m terrified.":
+    "मैंने रात दो बजे अपने लक्षण खोजे और अब मैं डर गया हूँ।",
+  "Skip those heavy pills, just try this home remedy!":
+    "इतनी दवाइयाँ मत लो, बस यह घरेलू उपाय आज़माओ!",
+  "My family says one thing, my doctor says another—who am I supposed to listen to?":
+    "मेरा परिवार कुछ और कहता है, डॉक्टर कुछ और—मैं किसकी बात मानूँ?",
+  "Everyone has an opinion, a natural cure, or a friend-of-a-friend story. Eventually, it leaves you exhausted, wondering what information you can actually trust.":
+    "हर किसी के पास अपनी राय, कोई प्राकृतिक इलाज या किसी जान-पहचान वाले की कहानी होती है। आखिर में इंसान थक जाता है और सोचता है कि आखिर किस जानकारी पर भरोसा किया जाए।",
+  "As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves.":
+    "एक चिकित्सक के रूप में मैंने समझा कि लोगों को और ज़्यादा शोर वाली राय नहीं चाहिए। उन्हें साफ़ और निष्पक्ष जानकारी चाहिए, ताकि वे खुद फैसला ले सकें।",
+  "When it comes to your health, you deserve clarity—not noise.":
+    "आपकी सेहत के मामले में आपको उलझन नहीं, साफ़ समझ मिलनी चाहिए।",
+  "That’s why I created IHI.": "इसीलिए मैंने IHI बनाया।",
+  "We bring different healthcare approaches together in one neutral space, breaking down how each system views your body so you can clear your doubts and choose what feels right for you.":
+    "हम अलग-अलग स्वास्थ्य दृष्टिकोणों को एक निष्पक्ष जगह पर रखते हैं और समझाते हैं कि हर दृष्टिकोण आपके शरीर और अनुभव को कैसे देखता है, ताकि आपकी उलझनें साफ़ हों और आप अपने लिए सही निर्णय ले सकें।",
+  "Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.":
+    "क्योंकि आपकी सेहत के मामले में आपको भटका हुआ महसूस नहीं होना चाहिए। आपको अपनी देखभाल में समझ के साथ भाग लेने वाला व्यक्ति महसूस होना चाहिए।",
+  "Dr. Vedanti Shah, BDS": "डॉ. वेदांती शाह, बीडीएस",
+  "Creator · Product Designer · Vibe Coder": "निर्मात्री · उत्पाद रचनाकार · तकनीकी सृजनकर्ता"
+});
+
+Object.assign(IHI_TRANSLATIONS.mr, {
+
+  "Integrative Health Intelligence": "एकत्रित आरोग्य समज",
+  "Understanding": "तुमचं आरोग्य",
+  "your health": "समजून घेणं",
+  "shouldn't feel": "इतकं",
+  "overwhelming.": "अवघड वाटायला नको.",
+  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
+    "आधुनिक वैद्यक, समग्र काळजी आणि जीवनशैलीशी संबंधित आरोग्याचे प्रश्न सोप्या भाषेत समजून घ्या.",
+  "How to use IHI": "IHI कसं वापरायचं",
+  "About IHI": "IHI बद्दल",
+  "Compare medical perspectives with clarity.": "आरोग्याकडे पाहण्याचे वेगवेगळे दृष्टिकोन स्पष्टपणे समजून घ्या.",
+  "Review one healthcare approach at a time so you get direct, focused guidance without conflicting noise.":
+    "एका वेळी एक आरोग्यविषयक दृष्टिकोन समजून घ्या, म्हणजे माहिती सरळ आणि नेमकी राहील.",
+  "Three perspectives": "तीन दृष्टिकोन",
+  "One experience.": "एक अनुभव.",
+  "Different ways of understanding.": "समजून घेण्याचे वेगवेगळे मार्ग.",
+
+  "Modern Medicine": "आधुनिक वैद्यक",
+  "Explore your experience through evidence-based clinical reasoning, symptoms, patterns, mechanisms and possible causes.":
+    "लक्षणं, त्यांचे नमुने, शरीरात होणाऱ्या प्रक्रिया आणि शक्य कारणं वैज्ञानिक पुराव्यांच्या आधाराने समजून घ्या.",
+  "Ayurveda": "आयुर्वेद",
+  "Explore your experience through Ayurvedic concepts such as doshas, Agni, Nidana and patterns of imbalance.":
+    "दोष, अग्नी, निदान आणि असंतुलन यांसारख्या आयुर्वेदिक संकल्पनांच्या आधाराने तुमचा अनुभव समजून घ्या.",
+  "Homeopathy": "होमिओपॅथी",
+  "Explore your experience through the individual pattern of symptoms, sensations, timing, triggers and associated experiences.":
+    "लक्षणं, त्यांची जाणीव, वेळ, कारणं आणि त्यांच्याशी संबंधित गोष्टींचा संपूर्ण वैयक्तिक नमुना समजून घ्या.",
+
+  "The IHI journey": "IHI ची वाटचाल",
+  "From a question": "एका प्रश्नापासून",
+  "to clearer understanding.": "अधिक स्पष्ट समजुतीपर्यंत.",
+  "Tell us": "सांगा",
+  "Describe what you're experiencing in everyday language.": "तुम्हाला काय जाणवतंय ते रोजच्या भाषेत सांगा.",
+  "Choose": "निवडा",
+  "Select the healthcare approach you want to explore.": "तुम्हाला समजून घ्यायचा आरोग्यविषयक दृष्टिकोन निवडा.",
+  "Answer": "उत्तर द्या",
+  "Respond to a few questions designed around your concern.": "तुमच्या समस्येनुसार काही सोपे प्रश्नांची उत्तरं द्या.",
+  "Understand": "समजून घ्या",
+  "See how that framework makes sense of your experience.": "निवडलेला दृष्टिकोन तुमच्या अनुभवाकडे कसा पाहतो ते समजून घ्या.",
+  "Ask deeper": "आणखी विचारा",
+  "Keep the conversation going with IHI.": "IHI सोबत बातचीत पुढे चालू ठेवा.",
+  "What next": "पुढे काय?",
+  "Explore practical next steps, what to avoid and safety guidance.": "पुढे काय करता येईल, काय टाळायचं आणि सुरक्षिततेची माहिती पाहा.",
+
+  "Health Intelligence Tool": "आरोग्य समजण्याचं साधन",
+  "What are you trying to understand?": "तुम्हाला काय समजून घ्यायचं आहे?",
+  "Start with your own words. You don't need to know the medical term.": "तुमच्या शब्दांत सुरुवात करा. वैद्यकीय शब्द माहीत असण्याची गरज नाही.",
+  "Tell IHI what you're experiencing.": "तुम्हाला काय जाणवतंय ते IHI ला सांगा.",
+  "You can describe a symptom, a report finding, a health question, or something you've been wondering about.": "एखादं लक्षण, तपासणी अहवालातली माहिती, आरोग्याचा प्रश्न किंवा मनातला काही विचार तुम्ही सांगू शकता.",
+  "Explore →": "समजून घ्या →",
+  "Your exploration will appear here.": "तुमची शोधयात्रा इथे दिसेल.",
+
+  "How to Use IHI": "IHI कसं वापरायचं",
+  "Don't search for an answer.": "फक्त उत्तर शोधू नका.",
+  "Explore the question.": "प्रश्न समजून घ्या.",
+  "IHI is designed as a guided exploration. You start with what you know, choose a perspective, answer simple questions, and gradually build a clearer picture.":
+    "IHI तुम्हाला हळूहळू समजून घेण्यासाठी तयार केलं आहे. जे माहीत आहे त्यापासून सुरुवात करा, एक दृष्टिकोन निवडा, सोप्या प्रश्नांची उत्तरं द्या आणि हळूहळू स्पष्ट चित्र तयार करा.",
+  "Start with your experience in your own words. No medical vocabulary is required.": "तुमचा अनुभव तुमच्या शब्दांत सांगा. वैद्यकीय शब्दांची गरज नाही.",
+  "Explore Modern Medicine, Ayurveda or Homeopathy separately. IHI does not blend the frameworks into one explanation.":
+    "आधुनिक वैद्यक, आयुर्वेद किंवा होमिओपॅथी यापैकी एक दृष्टिकोन वेगळा समजून घ्या. IHI हे दृष्टिकोन एका स्पष्टीकरणात मिसळत नाही.",
+  "IHI asks a small number of questions relevant to your concern and the framework you've chosen.": "तुमची समस्या आणि निवडलेल्या दृष्टिकोनानुसार IHI काही महत्त्वाचे प्रश्न विचारतो.",
+  "See what may be happening and why that framework interprets the experience in that way.": "काय होत असू शकतं आणि निवडलेला दृष्टिकोन तुमच्या अनुभवाचा तसा अर्थ का लावतो ते पाहा.",
+  "Ask IHI another question without restarting the entire exploration. Your earlier context stays with the conversation.":
+    "संपूर्ण प्रक्रिया पुन्हा सुरू न करता IHI ला आणखी एक प्रश्न विचारा. आधीची माहिती संभाषणात राहते.",
+  "Explore practical things you can try, what to avoid and important safety or red-flag guidance.":
+    "तुम्ही काय करून पाहू शकता, काय टाळायचं आणि कोणत्या सुरक्षिततेच्या संकेतांकडे लक्ष द्यायचं ते जाणून घ्या.",
+
+  "About IHI": "IHI बद्दल",
+  "About the Creator": "निर्मात्रीबद्दल",
+  "Dr. Vedanti Shah is a dentist, creator, and curious mind exploring where healthcare, technology, research, and design meet.":
+    "डॉ. वेदांती शाह दंतचिकित्सक आणि निर्मात्री आहेत. आरोग्य, तंत्रज्ञान, संशोधन आणि रचना यांचा संगम त्या उत्सुकतेने समजून घेतात.",
+  "She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things.":
+    "कल्पनांच्या खोलात जाणं, समस्यांवर संशोधन करणं, वेगवेगळे दृष्टिकोन जोडणं आणि गुंतागुंतीच्या गोष्टी सोप्या पद्धतीने समजून घेणं त्यांना आवडतं.",
+  "Her interests span healthcare, research, technology, AI, product thinking, design, and art. She brings these interests together through building, experimenting, and creating products that turn ideas into experiences.":
+    "त्यांच्या आवडी आरोग्य, संशोधन, तंत्रज्ञान, कृत्रिम बुद्धिमत्ता, उत्पादनविचार, रचना आणि कलेपर्यंत आहेत. नवीन गोष्टी तयार करून, प्रयोग करून आणि कल्पनांना प्रत्यक्ष अनुभवात बदलणारी उत्पादनं बनवून त्या या सगळ्या आवडी एकत्र आणतात.",
+  "IHI is one of the products she created.": "IHI हे त्यांनी तयार केलेल्या उत्पादनांपैकी एक आहे.",
+
+  "Why IHI Exists": "IHI का तयार केलं",
+  "I spent years studying healthcare and practicing, and I realized something—people carry so much health confusion every single day. But it's not just a medical thing—it happens everywhere.":
+    "आरोग्याची शिकवण घेताना आणि प्रत्यक्ष काम करताना मी अनेक वर्षं घालवली. तेव्हा मला जाणवलं की लोक रोज आरोग्याबद्दल खूप साऱ्या गोंधळासोबत जगतात. आणि हा फक्त वैद्यकीय प्रश्न नाही—हा सगळीकडे दिसतो.",
+  "At family dinners, social gatherings, WhatsApp groups, or just sitting with a lab report at home—it’s the same story again and again:":
+    "कुटुंबासोबत जेवताना, मित्रांच्या भेटीत, व्हॉट्सअॅपच्या गटात किंवा घरी तपासणीचा अहवाल घेऊन बसताना—कथा पुन्हा पुन्हा तीच असते:",
+  "What does this medical term on my report actually mean?": "माझ्या अहवालातला हा वैद्यकीय शब्द नेमका काय सांगतो?",
+  "I Googled my symptoms at 2 AM and now I’m terrified.": "मी रात्री दोन वाजता माझी लक्षणं शोधली आणि आता मला भीती वाटतेय.",
+  "Skip those heavy pills, just try this home remedy!": "इतक्या गोळ्या घेऊ नकोस, हा घरगुती उपाय करून पाह!",
+  "My family says one thing, my doctor says another—who am I supposed to listen to?": "माझं कुटुंब एक सांगतंय, डॉक्टर दुसरं—मी नेमकं कोणाचं ऐकायचं?",
+  "Everyone has an opinion, a natural cure, or a friend-of-a-friend story. Eventually, it leaves you exhausted, wondering what information you can actually trust.":
+    "प्रत्येकाकडे स्वतःचं मत, एखादा नैसर्गिक उपाय किंवा कोणीतरी सांगितलेली गोष्ट असते. शेवटी माणूस थकतो आणि नेमकी कोणती माहिती विश्वास ठेवण्यासारखी आहे असा प्रश्न पडतो.",
+  "As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves.":
+    "चिकित्सक म्हणून मला जाणवलं की लोकांना आणखी मोठमोठी मतं नकोत. त्यांना स्पष्ट आणि निष्पक्ष माहिती हवी आहे, जेणेकरून ते स्वतः निर्णय घेऊ शकतील.",
+  "When it comes to your health, you deserve clarity—not noise.": "तुमच्या आरोग्याच्या बाबतीत तुम्हाला गोंधळ नाही, तर स्पष्ट समज मिळायला हवी.",
+  "That’s why I created IHI.": "म्हणूनच मी IHI तयार केलं.",
+  "We bring different healthcare approaches together in one neutral space, breaking down how each system views your body so you can clear your doubts and choose what feels right for you.":
+    "वेगवेगळे आरोग्यविषयक दृष्टिकोन एका निष्पक्ष जागेत समजावून सांगतो, म्हणजे प्रत्येक पद्धत तुमच्या शरीराकडे कशी पाहते हे स्पष्ट होईल आणि तुम्ही स्वतःसाठी योग्य वाटणारा निर्णय घेऊ शकाल.",
+  "Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.":
+    "कारण तुमच्या आरोग्याच्या बाबतीत तुम्हाला हरवल्यासारखं वाटायला नको. तुमच्या स्वतःच्या आरोग्याची काळजी घेताना तुम्ही समजून घेऊन सहभागी असायला हवं.",
+  "Dr. Vedanti Shah, BDS": "डॉ. वेदांती शाह, बीडीएस",
+  "Creator · Product Designer · Vibe Coder": "निर्मात्री · उत्पादन रचनाकार · तंत्रसर्जक"
+});
+
 const IHI_ORIGINAL_TEXT = new WeakMap();
 const IHI_ORIGINAL_ATTRS = new WeakMap();
 

@@ -59,6 +59,9 @@ All Ayurvedic explanations are traditional-framework interpretations, not establ
     "mr-en": "Write natural conversational Pune-style Minglish. Use Marathi sentence structure. Keep only English words that people genuinely use naturally in everyday Marathi conversation. Never use Hindi. Never write separate Marathi and English versions."
   }[language] || "Write ONLY in simple, natural English.";
 
+  const languageGuard =
+    "LANGUAGE IS A HARD REQUIREMENT. Every user-facing field must follow the selected language exactly: questions, options, explanations, headings, practical suggestions, safety guidance and follow-up answers. For Hindi and Marathi, use Devanagari throughout and do not use English words. Never silently switch languages. Return ONLY valid JSON.";
+
   let prompt = "";
   let schema = "";
 
@@ -260,7 +263,7 @@ ${lang}
           messages: [
             {
               role: "system",
-              content: "You are IHI. Follow the selected language as a strict output constraint. " + lang + " " + languageGuard
+              content: "You are IHI. Follow the selected language as a strict output constraint. Return ONLY valid JSON. " + lang + " " + languageGuard
             },
             {
               role: "user",
