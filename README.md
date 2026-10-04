@@ -1,91 +1,64 @@
-# Integrative Health Intelligence
+# Integrative Health Intelligence (IHI)
 
-**An evidence-transparent Health Reasoning layer for recurring and confusing health concerns.**
+IHI helps people understand a health concern through three different schools of medicine — **Allopathy (modern medicine), Ayurveda and Homeopathy** — one at a time, in plain language. It is an educational tool, not a medical service.
 
-> I designed and prototyped a health-reasoning experience that helps people reconcile conflicting explanations without turning uncertainty into diagnosis.
+> People don't need more loud opinions. They need clear, unbiased information so they can decide for themselves. — Dr. Vedanti Shah, creator of IHI
 
-## Why this project
+## How it works
 
-People can find an enormous amount of health information, but the hard part is often reasoning through it: structuring a messy story, separating observations from interpretations, judging evidence quality, comparing different frameworks, noticing missing information, and deciding what to discuss with a clinician.
+1. **Tell** — describe what you are experiencing, by typing or speaking.
+2. **Choose** — pick one approach: Modern Medicine, Ayurveda or Homeopathy. IHI never blends them into one answer or ranks one above another.
+3. **Answer** — a few AI-generated questions tailored to your concern and the chosen approach.
+4. **Understand** — what may be happening, why, and a deeper explanation, in that approach's own terms.
+5. **Ask deeper** — follow-up questions that keep the earlier context.
+6. **What next** — practical things to try, what to avoid, and safety guidance.
 
-The product thesis was simple:
+Everything is available in **English, Hindi, Marathi, Hinglish (Hindi + English) and Minglish (Marathi + English)**, including voice input where the browser supports it.
 
-**Make confusing health information easier to reason about—without pretending to replace the clinician.**
+## Safety design
 
-## What I built
+- **Safety router** (`lib/safety.js`): crisis and emergency phrases in all five language modes are caught before any AI answer. Self-harm shows support lines and stops. Possible emergencies show an emergency card (911 US, 112 India, local services) with an option to continue.
+- **Scope guard:** requests that are not about understanding a health concern are declined.
+- **Not medical advice:** a footer on every page, and the emergency and crisis cards, say so. Users are asked not to enter personal identifiers.
+- **API hardening** (`api/ihi.js`): input limits, same-site requests only, per-visitor rate limit, upstream timeout, reply validation, and a retry when the AI provider is rate limited.
 
-**Talk → Structure → Explore → Evidence → Compare → Check uncertainty → Safety → Decide → Follow up**
+The red-flag list and emergency wording are prototype-grade and need clinician review before wider use.
 
-Key product patterns:
+## Tech
 
-- **Contributor Map** — possible contributors, not diagnoses or “root causes”.
-- **Evidence Lens** — provenance and evidence tiering made visible.
-- **Framework Comparison** — modern medicine and traditional frameworks kept distinct; no false equivalence.
-- **Missing Information** — surfaces what could materially change the reasoning.
-- **Safety Router** — urgent signals interrupt exploration rather than appearing as an afterthought.
-- **Decision Brief** — converts exploration into practical questions for a clinician.
-
-## Evidence that this is more than a concept
-
-This repository/package contains inspectable artifacts across the full product chain:
-
-| Claim | Inspectable proof |
+| Piece | What |
 |---|---|
-| The problem was researched | `01_research/research_evidence_trail.md` + `01_research/source_register.md` |
-| Product decisions were reasoned | `02_product/product_artifacts_index.md` + `01_research/decision_trace.md` |
-| The product was prototyped | `03_prototype/public_website/index.html` |
-| AI behavior was specified | `04_evaluation/phase_g_evaluation_fixture_v0_6_FINAL_checked.json` + `04_evaluation/EVALUATION_COVERAGE_AUDIT.md` |
-| Evaluation was made reproducible | `04_evaluation/health_concern_engine_evaluation_harness_v0_1.py` + `04_evaluation/REPRODUCIBILITY_AUDIT.md` |
-| A real LLM run was executed | `04_evaluation/llm_run_v1/` + `04_evaluation/LLM_EVALUATION_REPORT_v1.md` |
-| Safety boundaries were designed | `05_safety/safety_and_limitations.md` |
-| Claims map to evidence | `06_case_study/claim_to_evidence_index.md` |
-| The story is recruiter-readable | `06_case_study/recruiter_case_study.md` |
+| Site | Static `index.html` and `ai-flow.js` (no build step); translations live in `ai-flow.js` |
+| API | `api/ihi.js`, a Vercel serverless function calling Groq (`openai/gpt-oss-120b`) |
+| Safety | `lib/safety.js`, deterministic and covered by tests |
+| Hosting | Vercel, deployed from `main`; branches get preview deployments |
+| Tests | Node's built-in test runner in `tests/` |
 
-## Evaluation approach
+## Run and test
 
-The evaluation fixture contains **30 synthetic gold cases** spanning ordinary, ambiguous, multilingual, safety-critical, and adversarial situations. The lightweight harness checks coverage and selected critical-language patterns across eight evaluation dimensions.
+```bash
+node --test "tests/*.test.js"        # unit tests (no network, no API key)
+```
 
-The fixture and harness are **not clinical validation**. The v1 LLM run provides a real model-output artifact, but its scoring is provisional because the same model family generated and judged the outputs. Independent review and a second model/retrieval-backed run are still needed before making stronger performance claims.
+To run the site with the API locally, use the Vercel CLI (`vercel dev`) with an environment variable named `ihi` holding a Groq API key. On Vercel, set `ihi` for Production and Preview.
 
-## Portfolio case study
+## Deploy
 
-Open `06_case_study/recruiter_case_study.md` for the concise case-study narrative, or open the self-contained prototype in `03_prototype/public_website/index.html`.
+Push a branch to open a preview deployment, review it, then merge the pull request into `main` to update production. Keep `ihi` set in Vercel's environment variables. A Vercel Firewall rate-limit rule on `/api/ihi` (30 requests per 20 minutes per IP) is recommended in addition to the limit in code.
 
-## Scope & safety
+## Repository layout
 
-This is a **portfolio/product prototype, not a clinical tool or medical advice**. It is intentionally designed around uncertainty, evidence provenance, conservative language, and escalation of safety-critical situations.
+| Path | Contents |
+|---|---|
+| `index.html`, `ai-flow.js`, `images/`, `favicon.svg` | The site |
+| `api/`, `lib/`, `vercel.json` | Server code and function settings |
+| `tests/` | Safety, API and translation tests |
+| `01_research` … `06_case_study`, root evaluation documents | **Earlier design exploration** (see below) |
 
-### Latest evaluation evidence
+## Earlier design exploration
 
-The project now contains two conditions on the same frozen 30-case fixture: v1 model-only outputs and v2 retrieval/provenance-assisted outputs. The v2 run is preserved with raw outputs, harness results, provenance coverage audit, and an explicit comparison.
+Before the current one-approach-at-a-time product, an earlier and more complex concept was researched and prototyped: a Contributor Map, Evidence Lens, Safety Router, framework comparison and Decision Brief, with a 30-case evaluation suite and LLM evaluation runs. It was set aside as too complex for the first release. The folders `01_research` to `06_case_study`, `EVIDENCE_COVERAGE_MATRIX.md` and `REVIEWER_QUICKSTART.md` document that work and are kept as an archive. They describe that earlier concept, not the live site.
 
-## Latest evidence refresh — 26 Sep 2026
-The retrieval/provenance layer was refreshed after review of current WHO publications from 16–17 Sep 2026. See `04_evaluation/RETRIEVAL_LAYER_v2.md` and `04_evaluation/FAILURE_ANALYSIS_v1.md`. The refresh changes the evidence-policy source set; it does not constitute clinical validation.
+## Status and limits
 
-## Latest evidence-layer implementation — 26 Sep 2026
-The current retrieval layer now includes a deterministic provenance contract under `04_evaluation/provenance_contract_v1/`. It tests whether the refreshed WHO framework sources are actually sufficient for each claim class. The contract has 5 synthetic cases and currently passes 5/5 structural checks. Specific intervention-efficacy claims are explicitly marked as unsupported by the framework pack and routed to claim-specific clinical retrieval. This is not clinical validation or semantic entailment.
-
-### Prototype evidence
-The prototype now exposes a real provenance contract case directly in the Evidence Lens and working product flow: PC04 → R01 → insufficient source fit → withhold efficacy claim → claim-specific clinical retrieval. The root portfolio page, public website, and working prototype all use the same contract-backed example. The associated five-case targeted model evaluation reports 5/5 passed; this is not clinical validation or an independent benchmark.
-
-### Evaluation depth
-The evaluation package distinguishes breadth from depth. The frozen 30-case fixture remains unchanged for comparability. `04_evaluation/EVALUATION_DEPTH_AUDIT_v1.md` documents current coverage density and the next test gaps: multilingual depth, provenance-state depth, controlled evidence-conflict pairs, multi-turn longitudinal behavior, and repeated safety variants. These are future test-suite requirements, not claims of missing current functionality.
-
-## Targeted failure-variant evaluation
-
-The package includes a separate 26-case targeted depth suite at `04_evaluation/targeted_failure_variants_v1/`. It supplements rather than edits the frozen G01–G30 benchmark and focuses on multilingual meaning, provenance fit, evidence conflicts, longitudinal state preservation, and safety-boundary variants. The suite is frozen for execution; its raw model outputs and case-level review results should be preserved separately from the benchmark comparison.
-
-
-### Targeted failure variant execution
-The 26-case targeted suite can be run independently of the frozen G01–G30 benchmark. `EVALUATE_TARGETED_SUITE.py` checks output coverage and generates a case-level review worksheet. It does not turn lexical pattern matches into clinical safety judgments.
-
-
-## Targeted reference-baseline depth
-
-The 26-case targeted failure suite was executed against the deterministic reference engine. Coverage was 26/26. The run is preserved under `04_evaluation/targeted_failure_variants_v1/execution_v1/`. The reference engine produced a generic fallback for most targeted variants, exposing a concrete limitation of the deterministic oracle. This is an engineering coverage finding, not a clinical accuracy or safety score.
-
-## Current evidence gate
-
-The 26-case targeted suite is structurally validated and has a deterministic reference-engine baseline. A current-model replay is blocked by the absence of a callable model endpoint; no outputs are fabricated to close that gap.
-
-The evidence package is ready for public publication. The target repository is `drvedanti/Integrative-Health-Intelligence`; see `PUBLICATION_HANDOFF.md` for the exact publication path and current connector limitation.
+See [PROJECT_STATUS.md](PROJECT_STATUS.md). In short: this is a prototype for education, with no claim of clinical validation. The AI provider's free tier limits how many people can use it at the same time.
