@@ -24,4 +24,4 @@
 
 **Next evidence jump:** a callable current-model replay of the 26-case targeted suite. This is currently blocked; no synthetic outputs are substituted.
 
-**Operational next step:** publish this existing package to `drvedanti/Integrative-Health-Intelligence` and enable GitHub Pages. See `PUBLICATION_HANDOFF.md`.
+**Note:** this matrix documents an earlier design exploration and is kept as an archive. For the current product, see `README.md`.

@@ -1046,6 +1046,12 @@ const IHI_PHASE4 = {
     "hi-en": "Yeh aapke concerns samajhne mein help ke liye general health information deta hai. Yeh medical advice, diagnosis ya treatment nahi deta, aur qualified healthcare professional ka substitute nahi hai. Apni health ke baare mein koi bhi decision lene se pehle please kisi qualified professional se baat karein.",
     "mr-en": "तुमचे concerns समजून घ्यायला हे general health information देतं. ते medical advice, diagnosis किंवा treatment देत नाही आणि qualified healthcare professional ला substitute नाही. तुमच्या health बद्दल कोणताही decision घेण्यापूर्वी please त्यांच्याशी बोला."
   },
+  "Questions you type are processed by a third-party AI service to generate answers. Please avoid entering your name, ID numbers or other personal details.": {
+    hi: "आप जो सवाल लिखते हैं, उन्हें जवाब तैयार करने के लिए किसी तीसरे पक्ष की AI सेवा द्वारा प्रोसेस किया जाता है। कृपया अपना नाम, पहचान संख्या या अन्य निजी जानकारी न लिखें।",
+    mr: "तुम्ही लिहिलेले प्रश्न उत्तर तयार करण्यासाठी तृतीय-पक्षाच्या AI सेवेद्वारे प्रक्रिया केले जातात. कृपया तुमचं नाव, ओळख क्रमांक किंवा इतर वैयक्तिक माहिती लिहू नका.",
+    "hi-en": "Aap jo questions type karte hain, unhe answers banane ke liye ek third-party AI service process karti hai. Please apna naam, ID numbers ya doosri personal details enter na karein.",
+    "mr-en": "तुम्ही type केलेले questions answers तयार करण्यासाठी third-party AI service process करते. Please तुमचं नाव, ID numbers किंवा इतर personal details enter करू नका."
+  },
   "In an emergency, call 911 (US), 112 (India) or your local emergency number.": {
     hi: "आपातकाल में 911 (अमेरिका), 112 (भारत) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
     mr: "आपत्कालात 911 (अमेरिका), 112 (भारत) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
@@ -1057,6 +1063,124 @@ const IHI_PHASE4 = {
 Object.keys(IHI_PHASE4).forEach(key => {
   Object.keys(IHI_PHASE4[key]).forEach(lang => {
     IHI_TRANSLATIONS[lang][key] = IHI_PHASE4[key][lang];
+  });
+});
+
+/* About page text. Hindi and Marathi should be reviewed by native speakers. */
+const IHI_ABOUT = {
+  "Clarity, not noise.": {
+    "hi": "साफ़ समझ, शोर नहीं।",
+    "mr": "स्पष्टता, गोंधळ नाही.",
+    "hi-en": "Clarity, noise nahi.",
+    "mr-en": "Clarity, गोंधळ नाही."
+  },
+  "Health confusion is everywhere.": {
+    "hi": "सेहत को लेकर उलझन हर जगह है।",
+    "mr": "आरोग्याबद्दलचा गोंधळ सगळीकडे आहे.",
+    "hi-en": "Health ko lekar confusion har jagah hai.",
+    "mr-en": "Health बद्दलचा confusion सगळीकडे आहे."
+  },
+  "Lab reports come back with terms you don't recognize, online searches leave you more worried than before, and everyone around you offers conflicting advice:": {
+    "hi": "लैब रिपोर्ट में ऐसे शब्द आते हैं जो आप नहीं पहचानते, ऑनलाइन खोज से आप पहले से ज़्यादा चिंतित हो जाते हैं, और आपके आसपास हर कोई अलग-अलग सलाह देता है:",
+    "mr": "लॅब रिपोर्टमध्ये तुम्हाला न ओळखणारे शब्द येतात, ऑनलाइन शोधून तुम्ही आधीपेक्षा जास्त काळजीत पडता, आणि आजूबाजूचे प्रत्येकजण वेगवेगळे सल्ले देतो:",
+    "hi-en": "Lab reports mein aise terms aate hain jo aap nahi pehchante, online search se aap pehle se zyada worried ho jaate hain, aur aapke aas-paas har koi alag-alag advice deta hai:",
+    "mr-en": "Lab reports मध्ये तुम्हाला न ओळखणारे terms येतात, online search मुळे तुम्ही आधीपेक्षा जास्त worried होता, आणि आजूबाजूचे प्रत्येकजण वेगवेगळा advice देतो:"
+  },
+  "A relative suggests a home remedy.": {
+    "hi": "कोई रिश्तेदार घरेलू उपाय सुझाता है।",
+    "mr": "एखादे नातेवाईक घरगुती उपाय सुचवतात.",
+    "hi-en": "Koi relative home remedy suggest karta hai.",
+    "mr-en": "एखादे relative home remedy सुचवतात."
+  },
+  "A friend recommends Ayurveda.": {
+    "hi": "कोई दोस्त आयुर्वेद की सलाह देता है।",
+    "mr": "एखादा मित्र आयुर्वेदाचा सल्ला देतो.",
+    "hi-en": "Koi friend Ayurveda recommend karta hai.",
+    "mr-en": "एखादा friend Ayurveda recommend करतो."
+  },
+  "A WhatsApp group forwards claims about homeopathy.": {
+    "hi": "कोई व्हाट्सऐप ग्रुप होम्योपैथी के बारे में दावे फ़ॉरवर्ड करता है।",
+    "mr": "एखादा व्हॉट्सॲप ग्रुप होमिओपॅथीबद्दलचे दावे फॉरवर्ड करतो.",
+    "hi-en": "Koi WhatsApp group homeopathy ke baare mein claims forward karta hai.",
+    "mr-en": "एखादा WhatsApp group homeopathy बद्दलचे claims forward करतो."
+  },
+  "And your doctor tells you something totally different from your research.": {
+    "hi": "और आपका डॉक्टर आपकी खोजबीन से बिल्कुल अलग बात बताता है।",
+    "mr": "आणि तुमचे डॉक्टर तुमच्या शोधापेक्षा अगदी वेगळं काहीतरी सांगतात.",
+    "hi-en": "Aur aapka doctor aapki research se bilkul alag baat batata hai.",
+    "mr-en": "आणि तुमचे doctor तुमच्या research पेक्षा अगदी वेगळं काहीतरी सांगतात."
+  },
+  "Modern Medicine, Ayurveda, and Homeopathy each view health and illness differently. Yet most people hear all perspectives at once, with no clear way to make sense of the noise.": {
+    "hi": "आधुनिक चिकित्सा, आयुर्वेद और होम्योपैथी, तीनों सेहत और बीमारी को अलग-अलग नज़रिए से देखते हैं। फिर भी ज़्यादातर लोग सारे नज़रिए एक साथ सुनते हैं, और इस शोर को समझने का कोई साफ़ तरीका उनके पास नहीं होता।",
+    "mr": "आधुनिक वैद्यक, आयुर्वेद आणि होमिओपॅथी हे तिन्ही आरोग्याकडे आणि आजाराकडे वेगवेगळ्या दृष्टीने पाहतात. तरीही बहुतेक लोक सगळे दृष्टिकोन एकाच वेळी ऐकतात, आणि या गोंगाटाचा अर्थ लावण्याचा कोणताही स्पष्ट मार्ग त्यांच्याकडे नसतो.",
+    "hi-en": "Modern Medicine, Ayurveda aur Homeopathy teeno health aur illness ko alag-alag nazariye se dekhte hain. Phir bhi zyadatar log saare perspectives ek saath sunte hain, aur is noise ko samajhne ka koi clear tareeka unke paas nahi hota.",
+    "mr-en": "Modern Medicine, Ayurveda आणि Homeopathy हे तिन्ही health आणि illness कडे वेगवेगळ्या दृष्टीने पाहतात. तरीही बहुतेक लोक सगळे perspectives एकाच वेळी ऐकतात, आणि या noise चा अर्थ लावण्याचा कोणताही clear मार्ग त्यांच्याकडे नसतो."
+  },
+  "IHI is a calm, neutral place to sort that out.": {
+    "hi": "IHI इसे सुलझाने के लिए एक शांत, निष्पक्ष जगह है।",
+    "mr": "हे सगळं उलगडण्यासाठी IHI ही एक शांत, निष्पक्ष जागा आहे.",
+    "hi-en": "IHI isse sort karne ke liye ek calm, neutral jagah hai.",
+    "mr-en": "हे सगळं sort करण्यासाठी IHI ही एक calm, neutral जागा आहे."
+  },
+  "Describe what you are experiencing and choose your specific medical approach. IHI asks a few targeted questions, then explains how that specific system understands your concern in simple language, objectively and without bias. The goal is total clarity—equipping you with the deep understanding needed to take complete control of your health decisions.": {
+    "hi": "आप जो अनुभव कर रहे हैं उसे बताएँ और अपना चिकित्सा दृष्टिकोण चुनें। IHI कुछ सटीक सवाल पूछता है, फिर आसान भाषा में, निष्पक्ष रूप से और बिना किसी झुकाव के, समझाता है कि वह प्रणाली आपकी समस्या को कैसे समझती है। लक्ष्य है पूरी स्पष्टता—आपको वह गहरी समझ देना जिससे आप अपने स्वास्थ्य के फ़ैसलों की बागडोर पूरी तरह अपने हाथ में ले सकें।",
+    "mr": "तुम्हाला काय जाणवतंय ते सांगा आणि तुमचा वैद्यकीय दृष्टिकोन निवडा. IHI काही नेमके प्रश्न विचारतो, आणि मग ती पद्धत तुमच्या समस्येकडे कशी पाहते ते सोप्या भाषेत, वस्तुनिष्ठपणे आणि कोणताही पक्षपात न करता समजावतो. उद्दिष्ट आहे पूर्ण स्पष्टता—तुमच्या आरोग्याच्या निर्णयांची सूत्रं पूर्णपणे तुमच्या हातात घेण्यासाठी लागणारी सखोल समज तुम्हाला देणं.",
+    "hi-en": "Aap jo experience kar rahe hain use batayein aur apna medical approach choose karein. IHI kuch targeted questions poochta hai, phir simple language mein, objectively aur bina kisi bias ke, samjhata hai ki woh system aapke concern ko kaise samajhta hai. Goal hai total clarity—aapko woh deep understanding dena jisse aap apne health decisions ka complete control apne haath mein le sakein.",
+    "mr-en": "तुम्हाला काय जाणवतंय ते सांगा आणि तुमचा medical approach निवडा. IHI काही targeted questions विचारतो, आणि मग ती system तुमच्या concern कडे कशी पाहते ते simple भाषेत, objectively आणि कोणताही bias न ठेवता समजावतो. Goal आहे total clarity—तुमच्या health decisions चा complete control तुमच्या हातात घेण्यासाठी लागणारी deep understanding तुम्हाला देणं."
+  },
+  "“As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves. Because when it comes to your health, you shouldn't feel lost—you should feel like an informed partner in your own care.”": {
+    "hi": "“एक चिकित्सक के रूप में मैंने समझा कि लोगों को और ज़्यादा शोर वाली राय नहीं चाहिए। उन्हें बस साफ़, निष्पक्ष जानकारी चाहिए ताकि वे खुद फ़ैसला ले सकें। क्योंकि अपनी सेहत के मामले में आपको भटका हुआ नहीं, बल्कि अपनी देखभाल में समझदार साझेदार महसूस होना चाहिए।”",
+    "mr": "“चिकित्सक म्हणून मला जाणवलं की लोकांना आणखी मोठमोठी मतं नकोत. त्यांना फक्त स्पष्ट, निष्पक्ष माहिती हवी आहे, जेणेकरून ते स्वतः निर्णय घेऊ शकतील. कारण आरोग्याच्या बाबतीत तुम्हाला हरवल्यासारखं नाही, तर स्वतःच्या काळजीत समजूतदार भागीदार असल्यासारखं वाटायला हवं.”",
+    "hi-en": "“Ek clinician ke roop mein mujhe samajh aaya ki logon ko aur loud opinions nahi chahiye. Unhe bas clear, unbiased information chahiye taaki woh khud decide kar sakein. Kyunki health ki baat aati hai toh aapko lost nahi, balki apni care mein ek informed partner feel karna chahiye.”",
+    "mr-en": "“Clinician म्हणून मला जाणवलं की लोकांना आणखी loud opinions नकोत. त्यांना फक्त clear, unbiased information हवी आहे, जेणेकरून ते स्वतः decide करू शकतील. कारण health च्या बाबतीत तुम्हाला lost नाही, तर स्वतःच्या care मध्ये informed partner असल्यासारखं वाटायला हवं.”"
+  },
+  "Dr. Vedanti Shah": {
+    "hi": "डॉ. वेदांती शाह",
+    "mr": "डॉ. वेदांती शाह",
+    "hi-en": "Dr. Vedanti Shah",
+    "mr-en": "डॉ. वेदांती शाह"
+  },
+  "Creator of IHI": {
+    "hi": "IHI की निर्मात्री",
+    "mr": "IHI च्या निर्मात्री",
+    "hi-en": "IHI ki Creator",
+    "mr-en": "IHI च्या Creator"
+  },
+  "Dr. Vedanti Shah is a dentist, creator and curious mind working where healthcare, technology, research and design meet.": {
+    "hi": "डॉ. वेदांती शाह दंत चिकित्सक, रचनाकार और जिज्ञासु मन हैं, जो स्वास्थ्य, तकनीक, शोध और डिज़ाइन के संगम पर काम करती हैं।",
+    "mr": "डॉ. वेदांती शाह दंतचिकित्सक, निर्मात्री आणि जिज्ञासू मन आहेत, ज्या आरोग्य, तंत्रज्ञान, संशोधन आणि रचना यांच्या संगमावर काम करतात.",
+    "hi-en": "Dr. Vedanti Shah dentist, creator aur curious mind hain, jo healthcare, technology, research aur design ke intersection par kaam karti hain.",
+    "mr-en": "डॉ. वेदांती शाह dentist, creator आणि curious mind आहेत, ज्या healthcare, technology, research आणि design च्या intersection वर काम करतात."
+  },
+  "After years of studying and practicing healthcare, she saw how much confusion people carry about their health, and how rarely anyone explains the different ways healthcare traditions see the same concern. She created IHI to change that.": {
+    "hi": "कई साल स्वास्थ्य की पढ़ाई और प्रैक्टिस के बाद उन्होंने देखा कि लोग अपनी सेहत को लेकर कितनी उलझन लिए चलते हैं, और एक ही समस्या को अलग-अलग चिकित्सा परंपराएँ कैसे देखती हैं, यह शायद ही कोई समझाता है। उन्होंने इसे बदलने के लिए IHI बनाया।",
+    "mr": "अनेक वर्षं आरोग्याचा अभ्यास आणि प्रत्यक्ष काम केल्यावर त्यांच्या लक्षात आलं की लोक आपल्या आरोग्याबद्दल किती गोंधळ घेऊन जगतात, आणि एकाच समस्येकडे वेगवेगळ्या वैद्यकीय परंपरा कशा पाहतात हे क्वचितच कोणी समजावतं. हे बदलण्यासाठी त्यांनी IHI तयार केलं.",
+    "hi-en": "Kai saal healthcare ki padhai aur practice ke baad unhone dekha ki log apni health ko lekar kitna confusion lekar chalte hain, aur ek hi concern ko alag-alag healthcare traditions kaise dekhti hain, yeh shayad hi koi samjhata hai. Unhone ise badalne ke liye IHI banaya.",
+    "mr-en": "अनेक वर्षं healthcare चा अभ्यास आणि practice केल्यावर त्यांच्या लक्षात आलं की लोक आपल्या health बद्दल किती confusion घेऊन जगतात, आणि एकाच concern कडे वेगवेगळ्या healthcare traditions कशा पाहतात हे क्वचितच कोणी समजावतं. हे बदलण्यासाठी त्यांनी IHI तयार केलं."
+  },
+  "She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things. Her interests span healthcare, research, technology, AI, product thinking, design and art, and she brings them together by building, experimenting and creating products that turn ideas into experiences. IHI is one of them.": {
+    "hi": "उन्हें विचारों की गहराई में जाना, समस्याओं पर शोध करना, अलग-अलग नज़रियों को जोड़ना और जटिल बातों को समझने के रचनात्मक तरीके खोजना पसंद है। उनकी रुचियाँ स्वास्थ्य, शोध, तकनीक, AI, उत्पाद सोच, डिज़ाइन और कला तक फैली हैं, और वे इन्हें बनाने, प्रयोग करने और विचारों को अनुभवों में बदलने वाले उत्पाद रचने के ज़रिए साथ लाती हैं। IHI उन्हीं में से एक है।",
+    "mr": "कल्पनांच्या खोलात जाणं, समस्यांवर संशोधन करणं, वेगवेगळे दृष्टिकोन जोडणं आणि गुंतागुंतीच्या गोष्टी समजून घेण्याचे सर्जनशील मार्ग शोधणं त्यांना आवडतं. त्यांच्या आवडी आरोग्य, संशोधन, तंत्रज्ञान, AI, उत्पादनविचार, रचना आणि कलेपर्यंत आहेत, आणि नवीन गोष्टी तयार करून, प्रयोग करून आणि कल्पनांना अनुभवांत बदलणारी उत्पादनं बनवून त्या या सगळ्या आवडी एकत्र आणतात. IHI त्यापैकीच एक आहे.",
+    "hi-en": "Unhe ideas mein gehraai se jaana, problems par research karna, perspectives ko connect karna aur complex cheezon ko samajhne ke creative tareeke dhoondhna pasand hai. Unki interests healthcare, research, technology, AI, product thinking, design aur art tak hain, aur woh in sabko building, experimenting aur aise products create karne ke through saath laati hain jo ideas ko experiences mein badalte hain. IHI unmein se ek hai.",
+    "mr-en": "कल्पनांच्या खोलात जाणं, problems वर research करणं, perspectives connect करणं आणि complex गोष्टी समजून घेण्याचे creative मार्ग शोधणं त्यांना आवडतं. त्यांच्या interests healthcare, research, technology, AI, product thinking, design आणि art पर्यंत आहेत, आणि building, experimenting आणि ideas ना experiences मध्ये बदलणारे products बनवून त्या हे सगळं एकत्र आणतात. IHI त्यापैकीच एक आहे."
+  },
+  "Contact": {
+    "hi": "संपर्क",
+    "mr": "संपर्क",
+    "hi-en": "Contact",
+    "mr-en": "संपर्क"
+  },
+  "Email": {
+    "hi": "ईमेल",
+    "mr": "ईमेल",
+    "hi-en": "Email",
+    "mr-en": "ईमेल"
+  }
+};
+
+Object.keys(IHI_ABOUT).forEach(key => {
+  Object.keys(IHI_ABOUT[key]).forEach(lang => {
+    IHI_TRANSLATIONS[lang][key] = IHI_ABOUT[key][lang];
   });
 });
 

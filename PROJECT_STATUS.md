@@ -1,41 +1,38 @@
 # Project status
 
-**Evidence package:** ready for public publication
+**What IHI is:** a prototype that explains a health concern through Allopathy (modern medicine), Ayurveda or Homeopathy, one at a time, in five language modes. See [README.md](README.md).
 
-**Public GitHub repository:** exists, currently empty; automated write is blocked by connector HTTP 403.
+## Built and working
 
-## Completed evidence layers
-- Research/evidence trail packaged and source-linked
-- Research → product decision trace packaged
-- Product artifacts indexed
-- Public interactive prototype packaged
-- Working prototype packaged and statically/interaction audited
-- Frozen 30-case evaluation fixture packaged
-- Lightweight evaluation harness packaged and smoke-tested
-- Real GPT-5.6 Luna v1 30-case run preserved
-- Retrieval/provenance-assisted v2 condition preserved
-- Provenance contract + targeted 5-case current-model run preserved
-- Separate 26-case targeted depth suite structurally validated
-- Deterministic reference-engine depth baseline executed and scored
-- Safety/limitations specification packaged
-- Claim → evidence index and automated claim-link audit packaged
-- SHA-256 integrity manifest and reproducibility audit packaged
+- Full flow: describe concern, choose approach, answer questions, understanding, follow-ups, practical steps and safety.
+- Languages: English, Hindi, Marathi, Hinglish, Minglish (interface and AI replies).
+- Voice input with clear messages for blocked microphone, silence, offline and unsupported browsers.
+- Safety router for crisis and emergency phrases, a scope guard for non-health requests, and a footer disclaimer.
+- API protections: input limits, same-site check, rate limits, timeouts, reply validation, retry on provider rate limits, and a translated "busy" message.
+- Pages: Home, Health Intelligence Tool, How to Use IHI, About (Why IHI Exists, About the Creator with contact details).
+- Automated tests for the safety matcher, the API and the translation tables.
+
+## Before wider release
+
+- [ ] Clinician review of the red-flag list and emergency and crisis wording.
+- [ ] Native Hindi and Marathi review of all translated text, especially safety wording.
+- [ ] Confirm the emergency and crisis helpline numbers shown (911, 112, 988, Tele-MANAS 14416).
+- [ ] Final end-to-end test pass: all five language modes against the live AI, voice on real phones, mobile and desktop browsers.
+- [ ] Turn off Vercel's login protection for the public URL (and choose a custom domain if wanted).
+
+## Known limits
+
+- The AI provider's free tier allows roughly 8,000 tokens per minute and 200,000 per day, so only a few people can use IHI at the same moment and daily capacity is limited. IHI retries once and then shows a "busy" message.
+- Emergency detection is phrase-based plus an AI check. It can miss unusual wording and can over-trigger; the emergency card always lets the user continue.
+- Questions typed by users are processed by a third-party AI service.
 
 ## Deliberate non-claims
-- No claim of clinical validation
-- No claim of real-patient safety performance
-- No claim of production-model accuracy
-- No claim of independent scientific benchmarking
-- No claim that traditional frameworks are biomedical equivalents
 
-## Latest evaluation state
+- No claim of clinical validation.
+- No claim of real-patient safety performance.
+- No claim of production-model accuracy or independent scientific benchmarking.
+- No claim that the three approaches have equal evidence; IHI explains each in its own terms and does not blend or rank them.
 
-The frozen 30-case LLM run received 30/30 outputs. Its provisional same-model-family judge report averaged 4.04/5 overall; grounding/evidence-tier behavior was the main weakness. A retrieval/provenance-assisted second condition and a 5-case targeted provenance run were subsequently added.
+## Archive
 
-The 26-case targeted depth suite is frozen and structurally validated across multilingual, provenance, evidence-conflict, longitudinal, and safety-boundary variants. The deterministic reference engine was executed against all 26 and exposed a concrete limitation: it falls back to generic behavior on most targeted variants. The resulting 1 PASS / 1 PARTIAL / 24 FAIL rubric baseline is explicitly an engineering/reference-oracle finding, not live-model or clinical performance.
-
-A current-model replay of the 26-case targeted suite is **blocked by the absence of a callable model endpoint**. No outputs are fabricated to close that gap.
-
-## Publication gate
-
-The remaining operational step is to publish the existing package to `drvedanti/Integrative-Health-Intelligence` and enable a public GitHub Pages surface. See `PUBLICATION_HANDOFF.md`.
+`01_research` to `06_case_study`, `EVIDENCE_COVERAGE_MATRIX.md` and `REVIEWER_QUICKSTART.md` document an earlier, more complex product concept and its evaluation work. They are kept for reference and do not describe the live site.
