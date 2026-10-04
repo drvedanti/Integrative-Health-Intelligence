@@ -786,6 +786,121 @@ Object.assign(IHI_TRANSLATIONS["hi-en"], {
     "✦ IHI Spark"
 });
 
+
+/* ============================================================
+   SAFETY ROUTER, DISCLAIMERS AND ERROR MESSAGES
+   New strings for Phase 3. Hindi and Marathi wording should be
+   reviewed by native speakers before wider release.
+   ============================================================ */
+
+Object.assign(IHI_TRANSLATIONS.hi, {
+  "Checking your message…": "आपका संदेश जाँचा जा रहा है…",
+  "Important": "ज़रूरी",
+  "This may be an emergency": "यह आपातकालीन स्थिति हो सकती है",
+  "If you or someone else is in danger, call your local emergency number now. IHI shares general information and cannot assess an emergency.": "अगर आप या कोई और खतरे में हैं, तो अभी अपने स्थानीय आपातकालीन नंबर पर फ़ोन करें। IHI सिर्फ़ सामान्य जानकारी देता है और आपातकाल का आकलन नहीं कर सकता।",
+  "United States: call 911": "अमेरिका: 911 पर कॉल करें",
+  "India: call 112": "भारत: 112 पर कॉल करें",
+  "Elsewhere: call your local emergency services": "अन्य देश: अपनी स्थानीय आपातकालीन सेवा को कॉल करें",
+  "This isn't an emergency — continue": "यह आपातकाल नहीं है — आगे बढ़ें",
+  "Start over": "फिर से शुरू करें",
+  "You're not alone — help is available": "आप अकेले नहीं हैं — मदद उपलब्ध है",
+  "If you are thinking about harming yourself or ending your life, please reach out to someone right now. You do not have to face this alone.": "अगर आप खुद को नुकसान पहुँचाने या अपनी जान लेने के बारे में सोच रहे हैं, तो कृपया अभी किसी से संपर्क करें। आपको इसका सामना अकेले नहीं करना है।",
+  "United States: call or text 988 (Suicide & Crisis Lifeline)": "अमेरिका: 988 पर कॉल या टेक्स्ट करें (Suicide & Crisis Lifeline)",
+  "India: call Tele-MANAS at 14416, or dial 112 in an emergency": "भारत: Tele-MANAS को 14416 पर कॉल करें, या आपातकाल में 112 डायल करें",
+  "Elsewhere: contact your local emergency number or crisis line": "अन्य देश: अपने स्थानीय आपातकालीन नंबर या क्राइसिस हेल्पलाइन से संपर्क करें",
+  "If you can, tell someone you trust how you are feeling and stay with them.": "हो सके तो किसी भरोसेमंद व्यक्ति को बताएँ कि आप कैसा महसूस कर रहे हैं और उनके साथ रहें।",
+  "Go back": "वापस जाएँ",
+  "IHI is for health questions": "IHI स्वास्थ्य से जुड़े सवालों के लिए है",
+  "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI आपको स्वास्थ्य संबंधी चिंताओं को समझने में मदद करता है। यह उस अनुरोध में मदद नहीं कर सकता। कृपया अपने स्वास्थ्य या लक्षणों के बारे में सवाल पूछें।",
+  "Ask a health question": "स्वास्थ्य से जुड़ा सवाल पूछें",
+  "General information only — not medical advice.": "केवल सामान्य जानकारी — चिकित्सीय सलाह नहीं।",
+  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI आपकी सेहत को समझने में मदद के लिए सामान्य जानकारी देता है। यह चिकित्सीय सलाह, निदान या इलाज नहीं है। आपातकाल में 911 (अमेरिका), 112 (भारत) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
+  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI एक शैक्षणिक साधन है। यह चिकित्सीय सलाह, निदान या इलाज नहीं देता। अपनी सेहत के बारे में हमेशा किसी योग्य स्वास्थ्य विशेषज्ञ से बात करें।",
+  "You're sending requests quickly. Please wait a minute and try again.": "आप बहुत तेज़ी से अनुरोध भेज रहे हैं। कृपया एक मिनट रुककर फिर कोशिश करें।",
+  "We couldn't complete that right now. Please try again.": "अभी यह पूरा नहीं हो सका। कृपया फिर कोशिश करें।"
+});
+
+Object.assign(IHI_TRANSLATIONS.mr, {
+  "Checking your message…": "तुमचा संदेश तपासला जात आहे…",
+  "Important": "महत्त्वाचं",
+  "This may be an emergency": "ही आपत्कालीन परिस्थिती असू शकते",
+  "If you or someone else is in danger, call your local emergency number now. IHI shares general information and cannot assess an emergency.": "तुम्ही किंवा इतर कोणी धोक्यात असाल, तर आत्ताच तुमच्या भागातील आपत्कालीन क्रमांकावर फोन करा. IHI फक्त सामान्य माहिती देतो आणि आपत्कालीन परिस्थितीचं मूल्यमापन करू शकत नाही.",
+  "United States: call 911": "अमेरिका: 911 वर कॉल करा",
+  "India: call 112": "भारत: 112 वर कॉल करा",
+  "Elsewhere: call your local emergency services": "इतर ठिकाणी: तुमच्या भागातील आपत्कालीन सेवेला कॉल करा",
+  "This isn't an emergency — continue": "ही आपत्कालीन परिस्थिती नाही — पुढे जा",
+  "Start over": "पुन्हा सुरू करा",
+  "You're not alone — help is available": "तुम्ही एकटे नाही — मदत उपलब्ध आहे",
+  "If you are thinking about harming yourself or ending your life, please reach out to someone right now. You do not have to face this alone.": "जर तुम्ही स्वतःला इजा करण्याचा किंवा आयुष्य संपवण्याचा विचार करत असाल, तर कृपया आत्ताच कोणाशी तरी संपर्क साधा. तुम्हाला हे एकट्याने सहन करावं लागणार नाही.",
+  "United States: call or text 988 (Suicide & Crisis Lifeline)": "अमेरिका: 988 वर कॉल किंवा टेक्स्ट करा (Suicide & Crisis Lifeline)",
+  "India: call Tele-MANAS at 14416, or dial 112 in an emergency": "भारत: Tele-MANAS ला 14416 वर कॉल करा, किंवा आपत्कालात 112 डायल करा",
+  "Elsewhere: contact your local emergency number or crisis line": "इतर ठिकाणी: तुमच्या भागातील आपत्कालीन क्रमांक किंवा क्रायसिस हेल्पलाइनशी संपर्क साधा",
+  "If you can, tell someone you trust how you are feeling and stay with them.": "शक्य असल्यास तुमच्या विश्वासातील व्यक्तीला तुम्हाला कसं वाटतंय ते सांगा आणि त्यांच्यासोबत राहा.",
+  "Go back": "मागे जा",
+  "IHI is for health questions": "IHI आरोग्याशी संबंधित प्रश्नांसाठी आहे",
+  "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI तुम्हाला आरोग्याशी संबंधित समस्या समजून घेण्यात मदत करतो. तो त्या विनंतीमध्ये मदत करू शकत नाही. कृपया तुमच्या आरोग्याबद्दल किंवा लक्षणांबद्दल प्रश्न विचारा.",
+  "Ask a health question": "आरोग्याबद्दल प्रश्न विचारा",
+  "General information only — not medical advice.": "फक्त सामान्य माहिती — वैद्यकीय सल्ला नाही.",
+  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI तुमचं आरोग्य समजून घेण्यासाठी सामान्य माहिती देतो. ही वैद्यकीय सल्ला, निदान किंवा उपचार नाही. आपत्कालात 911 (अमेरिका), 112 (भारत) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
+  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI हे शैक्षणिक साधन आहे. ते वैद्यकीय सल्ला, निदान किंवा उपचार देत नाही. तुमच्या आरोग्याबद्दल नेहमी पात्र आरोग्य तज्ज्ञाशी बोला.",
+  "You're sending requests quickly. Please wait a minute and try again.": "तुम्ही खूप वेगाने विनंत्या पाठवत आहात. कृपया एक मिनिट थांबून पुन्हा प्रयत्न करा.",
+  "We couldn't complete that right now. Please try again.": "सध्या हे पूर्ण होऊ शकलं नाही. कृपया पुन्हा प्रयत्न करा."
+});
+
+Object.assign(IHI_TRANSLATIONS["hi-en"], {
+  "Checking your message…": "Aapka message check ho raha hai…",
+  "Important": "Zaroori",
+  "This may be an emergency": "Yeh emergency ho sakti hai",
+  "If you or someone else is in danger, call your local emergency number now. IHI shares general information and cannot assess an emergency.": "Agar aap ya koi aur khatre mein hai, toh abhi apne local emergency number par call karein. IHI sirf general information deta hai aur emergency ko assess nahi kar sakta.",
+  "United States: call 911": "United States: 911 par call karein",
+  "India: call 112": "India: 112 par call karein",
+  "Elsewhere: call your local emergency services": "Kahin aur: apni local emergency services ko call karein",
+  "This isn't an emergency — continue": "Yeh emergency nahi hai — continue karein",
+  "Start over": "Dobara shuru karein",
+  "You're not alone — help is available": "Aap akele nahi hain — madad available hai",
+  "If you are thinking about harming yourself or ending your life, please reach out to someone right now. You do not have to face this alone.": "Agar aap khud ko nuksan pahunchane ya apni jaan lene ke baare mein soch rahe hain, toh please abhi kisi se baat karein. Aapko yeh akele face nahi karna hai.",
+  "United States: call or text 988 (Suicide & Crisis Lifeline)": "United States: 988 par call ya text karein (Suicide & Crisis Lifeline)",
+  "India: call Tele-MANAS at 14416, or dial 112 in an emergency": "India: Tele-MANAS ko 14416 par call karein, ya emergency mein 112 dial karein",
+  "Elsewhere: contact your local emergency number or crisis line": "Kahin aur: apne local emergency number ya crisis line se contact karein",
+  "If you can, tell someone you trust how you are feeling and stay with them.": "Ho sake toh kisi trusted person ko batayein ki aap kaisa feel kar rahe hain aur unke saath rahein.",
+  "Go back": "Wapas jaayein",
+  "IHI is for health questions": "IHI health questions ke liye hai",
+  "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI aapko health concerns samajhne mein help karta hai. Woh is request mein help nahi kar sakta. Please apni health ya symptoms ke baare mein question poochhein.",
+  "Ask a health question": "Health question poochhein",
+  "General information only — not medical advice.": "Sirf general information — medical advice nahi.",
+  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI aapki health samajhne mein help ke liye general information deta hai. Yeh medical advice, diagnosis ya treatment nahi hai. Emergency mein 911 (US), 112 (India) ya apne local emergency number par call karein.",
+  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI ek educational tool hai. Yeh medical advice, diagnosis ya treatment nahi deta. Apni health ke baare mein hamesha kisi qualified healthcare professional se baat karein.",
+  "You're sending requests quickly. Please wait a minute and try again.": "Aap bahut jaldi requests bhej rahe hain. Please ek minute ruk kar dobara try karein.",
+  "We couldn't complete that right now. Please try again.": "Abhi yeh complete nahi ho saka. Please dobara try karein."
+});
+
+Object.assign(IHI_TRANSLATIONS["mr-en"], {
+  "Checking your message…": "तुमचा message check होत आहे…",
+  "Important": "Important",
+  "This may be an emergency": "ही emergency असू शकते",
+  "If you or someone else is in danger, call your local emergency number now. IHI shares general information and cannot assess an emergency.": "तुम्ही किंवा इतर कोणी danger मध्ये असाल, तर आत्ताच तुमच्या local emergency number वर call करा. IHI फक्त general information देतो आणि emergency assess करू शकत नाही.",
+  "United States: call 911": "United States: 911 वर call करा",
+  "India: call 112": "India: 112 वर call करा",
+  "Elsewhere: call your local emergency services": "इतर ठिकाणी: तुमच्या local emergency services ला call करा",
+  "This isn't an emergency — continue": "ही emergency नाही — पुढे जा",
+  "Start over": "पुन्हा सुरू करा",
+  "You're not alone — help is available": "तुम्ही एकटे नाही — help available आहे",
+  "If you are thinking about harming yourself or ending your life, please reach out to someone right now. You do not have to face this alone.": "जर तुम्ही स्वतःला harm करण्याचा किंवा आयुष्य संपवण्याचा विचार करत असाल, तर please आत्ताच कोणाशी तरी बोला. तुम्हाला हे एकट्याने face करावं लागणार नाही.",
+  "United States: call or text 988 (Suicide & Crisis Lifeline)": "United States: 988 वर call किंवा text करा (Suicide & Crisis Lifeline)",
+  "India: call Tele-MANAS at 14416, or dial 112 in an emergency": "India: Tele-MANAS ला 14416 वर call करा, किंवा emergency मध्ये 112 dial करा",
+  "Elsewhere: contact your local emergency number or crisis line": "इतर ठिकाणी: तुमच्या local emergency number किंवा crisis line शी contact करा",
+  "If you can, tell someone you trust how you are feeling and stay with them.": "शक्य असेल तर तुमच्या trusted व्यक्तीला तुम्हाला कसं वाटतंय ते सांगा आणि त्यांच्यासोबत राहा.",
+  "Go back": "मागे जा",
+  "IHI is for health questions": "IHI health questions साठी आहे",
+  "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI तुम्हाला health concerns समजून घ्यायला help करतो. तो त्या request मध्ये help करू शकत नाही. Please तुमच्या health किंवा symptoms बद्दल question विचारा.",
+  "Ask a health question": "Health question विचारा",
+  "General information only — not medical advice.": "फक्त general information — medical advice नाही.",
+  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI तुमची health समजून घ्यायला general information देतो. हा medical advice, diagnosis किंवा treatment नाही. Emergency मध्ये 911 (US), 112 (India) किंवा तुमच्या local emergency number वर call करा.",
+  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI एक educational tool आहे. ते medical advice, diagnosis किंवा treatment देत नाही. तुमच्या health बद्दल नेहमी qualified healthcare professional शी बोला.",
+  "You're sending requests quickly. Please wait a minute and try again.": "तुम्ही खूप fast requests पाठवत आहात. Please एक minute थांबून पुन्हा try करा.",
+  "We couldn't complete that right now. Please try again.": "आत्ता हे complete होऊ शकलं नाही. Please पुन्हा try करा."
+});
+
 const IHI_ORIGINAL_TEXT = new WeakMap();
 const IHI_ORIGINAL_ATTRS = new WeakMap();
 
@@ -1089,7 +1204,8 @@ let ihiState = {
   complaint: "",
   framework: "",
   answers: [],
-  history: []
+  history: [],
+  ackComplaint: false
 };
 
 const frameworkNames = {
@@ -1142,6 +1258,7 @@ async function ihiCall(action, extra = {}) {
       answers: ihiState.answers,
       history: ihiState.history,
       language: language?.value || "en",
+      ackComplaint: ihiState.ackComplaint === true,
       ...extra
     })
   });
@@ -1153,12 +1270,140 @@ async function ihiCall(action, extra = {}) {
   } catch (_) {}
 
   if (!response.ok) {
+    console.error("IHI API error", response.status, data.error);
+
     throw new Error(
-      data.error || "The AI request could not be completed."
+      response.status === 429
+        ? "You're sending requests quickly. Please wait a minute and try again."
+        : "We couldn't complete that right now. Please try again."
     );
   }
 
   return data;
+}
+
+
+/* ============================================================
+   SAFETY ROUTER — cards shown when the API flags a message
+   ============================================================ */
+
+function ihiResetTool() {
+  ihiState = {
+    complaint: "",
+    framework: "",
+    answers: [],
+    history: [],
+    ackComplaint: false
+  };
+
+  results.innerHTML =
+    '<p class="results-empty">Your exploration will appear here.</p>';
+
+  applySiteLanguage();
+
+  concern.focus();
+  concern.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+/* Returns true when the response was a router result and has been shown. */
+function ihiRoute(data, onContinue) {
+  const route = data && data.route;
+
+  if (!route || route === "ok") return false;
+
+  if (route === "crisis") {
+    show(`
+      <section class="section">
+        <div class="eyebrow">Important</div>
+
+        <h2>You're not alone — help is available</h2>
+
+        <div class="card router" role="alert">
+          <p>If you are thinking about harming yourself or ending your life, please reach out to someone right now. You do not have to face this alone.</p>
+
+          <ul class="list router-lines">
+            <li>United States: call or text 988 (Suicide & Crisis Lifeline)</li>
+            <li>India: call Tele-MANAS at 14416, or dial 112 in an emergency</li>
+            <li>Elsewhere: contact your local emergency number or crisis line</li>
+          </ul>
+
+          <p>If you can, tell someone you trust how you are feeling and stay with them.</p>
+
+          <div class="actions">
+            <button type="button" class="btn option" id="ihiRouterBack">Go back</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    document.getElementById("ihiRouterBack")
+      .addEventListener("click", ihiResetTool);
+
+    return true;
+  }
+
+  if (route === "emergency") {
+    show(`
+      <section class="section">
+        <div class="eyebrow">Important</div>
+
+        <h2>This may be an emergency</h2>
+
+        <div class="card router" role="alert">
+          <p>If you or someone else is in danger, call your local emergency number now. IHI shares general information and cannot assess an emergency.</p>
+
+          <ul class="list router-lines">
+            <li>United States: call 911</li>
+            <li>India: call 112</li>
+            <li>Elsewhere: call your local emergency services</li>
+          </ul>
+
+          <div class="actions">
+            ${onContinue
+              ? '<button type="button" class="btn option" id="ihiRouterContinue">This isn\'t an emergency — continue</button>'
+              : ""}
+            <button type="button" class="btn option" id="ihiRouterBack">Start over</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    document.getElementById("ihiRouterBack")
+      .addEventListener("click", ihiResetTool);
+
+    if (onContinue) {
+      document.getElementById("ihiRouterContinue")
+        .addEventListener("click", onContinue);
+    }
+
+    return true;
+  }
+
+  if (route === "off_topic") {
+    show(`
+      <section class="section">
+        <h2>IHI is for health questions</h2>
+
+        <div class="card router">
+          <p>IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.</p>
+
+          <div class="actions">
+            <button type="button" class="btn option" id="ihiRouterBack">Ask a health question</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    document.getElementById("ihiRouterBack")
+      .addEventListener("click", ihiResetTool);
+
+    return true;
+  }
+
+  return false;
 }
 
 
@@ -1576,6 +1821,8 @@ function renderPractical(data) {
         <ul class="list">${list(data?.safety)}</ul>
       </div>
 
+      <p class="disclaimer">General information only — not medical advice.</p>
+
     </section>
   `);
 }
@@ -1653,6 +1900,8 @@ function renderAnalysisPage(data) {
         <ul class="list">${list(data.safety)}</ul>
       </div>
 
+      <p class="disclaimer">General information only — not medical advice.</p>
+
     </section>
   `);
 
@@ -1674,11 +1923,15 @@ function renderAnalysisPage(data) {
     });
 }
 
-async function showAnalysis() {
+async function showAnalysis(opts) {
   busy("Putting your story together…");
 
+  const ack = !!(opts && opts.ack === true);
+
   try {
-    const data = await ihiCall("analysis");
+    const data = await ihiCall("analysis", ack ? { ack: true } : {});
+
+    if (ihiRoute(data, () => showAnalysis({ ack: true }))) return;
 
     ihiState.history.push({
       type: "analysis",
@@ -1692,9 +1945,11 @@ async function showAnalysis() {
   }
 }
 
-async function askIHI() {
+async function askIHI(opts) {
   const input = document.getElementById("ihiFollowup");
-  const question = input?.value.trim() || "";
+  const retry = opts && opts.question ? opts : null;
+  const question = retry ? retry.question : (input?.value.trim() || "");
+  const ack = !!(retry && retry.ack);
 
   if (!question) {
     input?.focus();
@@ -1709,7 +1964,13 @@ async function askIHI() {
   busy("IHI is thinking…");
 
   try {
-    const data = await ihiCall("ask", { question });
+    const data = await ihiCall("ask", ack ? { question, ack: true } : { question });
+
+    if (data.route && data.route !== "ok") {
+      ihiState.history.pop();
+
+      if (ihiRoute(data, () => askIHI({ question, ack: true }))) return;
+    }
 
     ihiState.history.push({
       type: "assistant",
@@ -1773,6 +2034,8 @@ async function askIHI() {
             : ""}
         </div>
 
+        <p class="disclaimer">General information only — not medical advice.</p>
+
         <div class="card" style="margin-top:24px">
           <h3>What next?</h3>
 
@@ -1825,7 +2088,7 @@ async function askIHI() {
 
   } catch (error) {
     ihiState.history.pop();
-    showError(error.message, askIHI);
+    showError(error.message, () => askIHI({ question, ack }));
   }
 }
 
@@ -1872,6 +2135,24 @@ function showError(
     );
 }
 
+async function runTriage() {
+  busy("Checking your message…");
+
+  try {
+    const data = await ihiCall("triage");
+
+    const handled = ihiRoute(data, () => {
+      ihiState.ackComplaint = true;
+      chooseFramework();
+    });
+
+    if (!handled) chooseFramework();
+
+  } catch (error) {
+    showError(error.message, runTriage);
+  }
+}
+
 exploreButton.addEventListener(
   "click",
   () => {
@@ -1888,10 +2169,11 @@ exploreButton.addEventListener(
       complaint: value,
       framework: "",
       answers: [],
-      history: []
+      history: [],
+      ackComplaint: false
     };
 
-    chooseFramework();
+    runTriage();
 
   }
 );

@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/ihi.js": {
+      "maxDuration": 30
+    }
+  }
+}
