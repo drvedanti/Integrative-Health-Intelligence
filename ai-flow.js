@@ -1028,6 +1028,12 @@ const IHI_PHASE4 = {
     "hi-en": "Allopathy (modern medicine), Ayurveda aur Homeopathy ke through health questions, holistic care aur lifestyle guidance ko simple language mein samjhein.",
     "mr-en": "Allopathy (modern medicine), Ayurveda आणि Homeopathy मधून health questions, holistic care आणि lifestyle guidance सोप्या भाषेत समजून घ्या."
   },
+  "IHI is busy right now. Please try again in a moment.": {
+    hi: "IHI पर अभी बहुत ज़्यादा लोग हैं। कृपया थोड़ी देर बाद फिर कोशिश करें।",
+    mr: "IHI वर सध्या खूप गर्दी आहे. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.",
+    "hi-en": "IHI par abhi bahut zyada log hain. Please thodi der baad dobara try karein.",
+    "mr-en": "IHI वर आत्ता खूप गर्दी आहे. Please थोड्या वेळाने पुन्हा try करा."
+  },
   "IHI is an educational tool, not a medical service.": {
     hi: "IHI एक शैक्षणिक साधन है, कोई चिकित्सा सेवा नहीं।",
     mr: "IHI हे शैक्षणिक साधन आहे, वैद्यकीय सेवा नाही.",
@@ -1368,7 +1374,9 @@ async function ihiCall(action, extra = {}) {
     throw new Error(
       response.status === 429
         ? "You're sending requests quickly. Please wait a minute and try again."
-        : "We couldn't complete that right now. Please try again."
+        : data.code === "busy"
+          ? "IHI is busy right now. Please try again in a moment."
+          : "We couldn't complete that right now. Please try again."
     );
   }
 

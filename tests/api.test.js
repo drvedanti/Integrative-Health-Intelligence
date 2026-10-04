@@ -266,3 +266,80 @@ test("rate limit returns 429 after the cap", async () => {
   }
   assert.strictEqual(last.status, 429);
 });
+
+/* ---------- Reliability: Groq rate limits ---------- */
+
+function scriptGroq(steps) {
+  const original = global.fetch;
+  let i = 0;
+  global.fetch = async (url, options) => {
+    groqCalls.push({ url, body: JSON.parse(options.body) });
+    const step = steps[Math.min(i, steps.length - 1)];
+    i += 1;
+    if (step.limited) {
+      return {
+        ok: false,
+        status: 429,
+        headers: { get: () => null },
+        json: async () => ({ error: { message: step.message } })
+      };
+    }
+    return {
+      ok: true,
+      status: 200,
+      json: async () => ({ choices: [{ message: { content: JSON.stringify(step.reply) } }] })
+    };
+  };
+  return () => { global.fetch = original; };
+}
+
+test("a short Groq rate limit is waited out and retried once", async () => {
+  const restore = scriptGroq([
+    { limited: true, message: "Rate limit reached. Please try again in 0.01s." },
+    { reply: QUESTIONS }
+  ]);
+  const started = Date.now();
+  const r = await call({ action: "questions", complaint: "acidity", framework: "modern" });
+  restore();
+  assert.strictEqual(r.status, 200);
+  assert.strictEqual(r.body.questions.length, 3);
+  assert.strictEqual(groqCalls.length, 2);
+  assert.ok(Date.now() - started < 3000);
+});
+
+test("repeated rate limits return 503 busy", async () => {
+  const restore = scriptGroq([
+    { limited: true, message: "Please try again in 0.01s." }
+  ]);
+  const r = await call({ action: "analysis", complaint: "acidity", framework: "modern", answers: [] });
+  restore();
+  assert.strictEqual(r.status, 503);
+  assert.deepStrictEqual(r.body, { error: "Busy", code: "busy" });
+  assert.strictEqual(groqCalls.length, 2);
+});
+
+test("a long rate-limit wait is not retried", async () => {
+  const restore = scriptGroq([
+    { limited: true, message: "Please try again in 30s." }
+  ]);
+  const started = Date.now();
+  const r = await call({ action: "questions", complaint: "acidity", framework: "modern" });
+  restore();
+  assert.strictEqual(r.status, 503);
+  assert.strictEqual(r.body.code, "busy");
+  assert.strictEqual(groqCalls.length, 1);
+  assert.ok(Date.now() - started < 2000);
+});
+
+test("main calls keep the default reasoning level and set a generous reply cap", async () => {
+  groqReply = QUESTIONS;
+  await call({ action: "questions", complaint: "acidity", framework: "modern" });
+  assert.strictEqual(groqCalls[0].body.reasoning_effort, undefined);
+  assert.strictEqual(groqCalls[0].body.max_completion_tokens, 3000);
+
+  groqCalls = [];
+  groqReply = ANALYSIS;
+  await call({ action: "analysis", complaint: "acidity", framework: "modern", answers: [] });
+  assert.strictEqual(groqCalls[0].body.reasoning_effort, undefined);
+  assert.strictEqual(groqCalls[0].body.max_completion_tokens, 4000);
+});
