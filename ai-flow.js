@@ -18,7 +18,6 @@ const IHI_TRANSLATIONS = {
     "About": "IHI ke baare mein",
     "Integrative Health Intelligence": "Integrative Health Intelligence",
     "Understanding your health shouldn't feel overwhelming.": "Apni health ko samajhna overwhelming nahi hona chahiye.",
-    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care aur lifestyle guidance ke through health questions explore karein—sab kuch simple language mein.",
     "Try the Tool →": "Tool Try Karein →",
     "How to use IHI": "IHI kaise use karein",
     "About IHI": "IHI ke baare mein",
@@ -94,7 +93,6 @@ const IHI_TRANSLATIONS = {
     "About": "हमारे बारे में",
     "Integrative Health Intelligence": "इंटीग्रेटिव हेल्थ इंटेलिजेंस",
     "Understanding your health shouldn't feel overwhelming.": "अपनी सेहत को समझना इतना मुश्किल नहीं होना चाहिए।",
-    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "मॉडर्न मेडिसिन, होलिस्टिक केयर और लाइफस्टाइल गाइडेंस के ज़रिए अपने हेल्थ सवालों को आसान भाषा में समझें।",
     "Try the Tool →": "टूल आज़माएँ →",
     "How to use IHI": "IHI कैसे इस्तेमाल करें",
     "About IHI": "IHI के बारे में",
@@ -158,7 +156,6 @@ const IHI_TRANSLATIONS = {
     "About": "IHI ke baare mein",
     "Integrative Health Intelligence": "इंटिग्रेटिव्ह हेल्थ इंटेलिजन्स",
     "Understanding your health shouldn't feel overwhelming.": "तुमचं आरोग्य समजून घेणं इतकं अवघड वाटायला नको.",
-    "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.": "Modern medicine, holistic care आणि lifestyle guidance मधून health questions सोप्या भाषेत समजून घ्या.",
     "Try the Tool →": "Tool वापरा →",
     "How to use IHI": "IHI कसं वापरायचं",
     "About IHI": "IHI बद्दल",
@@ -338,8 +335,6 @@ Object.assign(IHI_TRANSLATIONS.hi, {
   "your health": "आपकी सेहत",
   "shouldn't feel": "इतना मुश्किल नहीं",
   "overwhelming.": "होना चाहिए।",
-  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
-    "आधुनिक चिकित्सा, समग्र देखभाल और जीवनशैली से जुड़ी जानकारी के ज़रिए स्वास्थ्य के सवालों को आसान भाषा में समझें।",
   "How to use IHI": "IHI का उपयोग कैसे करें",
   "About IHI": "IHI के बारे में",
   "Compare medical perspectives with clarity.": "स्वास्थ्य को समझने के अलग-अलग दृष्टिकोणों को साफ़ तरीके से जानें।",
@@ -452,8 +447,6 @@ Object.assign(IHI_TRANSLATIONS.mr, {
   "your health": "समजून घेणं",
   "shouldn't feel": "इतकं",
   "overwhelming.": "अवघड वाटायला नको.",
-  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
-    "आधुनिक वैद्यक, समग्र काळजी आणि जीवनशैलीशी संबंधित आरोग्याचे प्रश्न सोप्या भाषेत समजून घ्या.",
   "How to use IHI": "IHI कसं वापरायचं",
   "About IHI": "IHI बद्दल",
   "Compare medical perspectives with clarity.": "आरोग्याकडे पाहण्याचे वेगवेगळे दृष्टिकोन स्पष्टपणे समजून घ्या.",
@@ -586,8 +579,6 @@ Object.assign(IHI_TRANSLATIONS["hi-en"], {
   "Integrative Health Intelligence": "Integrative Health Intelligence",
   "Understanding your health shouldn't feel overwhelming.":
     "Apni health ko samajhna overwhelming nahi hona chahiye.",
-  "Explore health questions across modern medicine, holistic care, and lifestyle guidance—explained side-by-side in plain language.":
-    "Modern Medicine, holistic care aur lifestyle guidance ke through health questions ko simple language mein samjhein.",
   "Try the Tool →": "Tool try karein →",
   "How to use IHI": "IHI kaise use karein",
   "About IHI": "IHI ke baare mein",
@@ -813,9 +804,6 @@ Object.assign(IHI_TRANSLATIONS.hi, {
   "IHI is for health questions": "IHI स्वास्थ्य से जुड़े सवालों के लिए है",
   "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI आपको स्वास्थ्य संबंधी चिंताओं को समझने में मदद करता है। यह उस अनुरोध में मदद नहीं कर सकता। कृपया अपने स्वास्थ्य या लक्षणों के बारे में सवाल पूछें।",
   "Ask a health question": "स्वास्थ्य से जुड़ा सवाल पूछें",
-  "General information only — not medical advice.": "केवल सामान्य जानकारी — चिकित्सीय सलाह नहीं।",
-  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI आपकी सेहत को समझने में मदद के लिए सामान्य जानकारी देता है। यह चिकित्सीय सलाह, निदान या इलाज नहीं है। आपातकाल में 911 (अमेरिका), 112 (भारत) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
-  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI एक शैक्षणिक साधन है। यह चिकित्सीय सलाह, निदान या इलाज नहीं देता। अपनी सेहत के बारे में हमेशा किसी योग्य स्वास्थ्य विशेषज्ञ से बात करें।",
   "You're sending requests quickly. Please wait a minute and try again.": "आप बहुत तेज़ी से अनुरोध भेज रहे हैं। कृपया एक मिनट रुककर फिर कोशिश करें।",
   "We couldn't complete that right now. Please try again.": "अभी यह पूरा नहीं हो सका। कृपया फिर कोशिश करें।"
 });
@@ -840,9 +828,6 @@ Object.assign(IHI_TRANSLATIONS.mr, {
   "IHI is for health questions": "IHI आरोग्याशी संबंधित प्रश्नांसाठी आहे",
   "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI तुम्हाला आरोग्याशी संबंधित समस्या समजून घेण्यात मदत करतो. तो त्या विनंतीमध्ये मदत करू शकत नाही. कृपया तुमच्या आरोग्याबद्दल किंवा लक्षणांबद्दल प्रश्न विचारा.",
   "Ask a health question": "आरोग्याबद्दल प्रश्न विचारा",
-  "General information only — not medical advice.": "फक्त सामान्य माहिती — वैद्यकीय सल्ला नाही.",
-  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI तुमचं आरोग्य समजून घेण्यासाठी सामान्य माहिती देतो. ही वैद्यकीय सल्ला, निदान किंवा उपचार नाही. आपत्कालात 911 (अमेरिका), 112 (भारत) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
-  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI हे शैक्षणिक साधन आहे. ते वैद्यकीय सल्ला, निदान किंवा उपचार देत नाही. तुमच्या आरोग्याबद्दल नेहमी पात्र आरोग्य तज्ज्ञाशी बोला.",
   "You're sending requests quickly. Please wait a minute and try again.": "तुम्ही खूप वेगाने विनंत्या पाठवत आहात. कृपया एक मिनिट थांबून पुन्हा प्रयत्न करा.",
   "We couldn't complete that right now. Please try again.": "सध्या हे पूर्ण होऊ शकलं नाही. कृपया पुन्हा प्रयत्न करा."
 });
@@ -867,9 +852,6 @@ Object.assign(IHI_TRANSLATIONS["hi-en"], {
   "IHI is for health questions": "IHI health questions ke liye hai",
   "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI aapko health concerns samajhne mein help karta hai. Woh is request mein help nahi kar sakta. Please apni health ya symptoms ke baare mein question poochhein.",
   "Ask a health question": "Health question poochhein",
-  "General information only — not medical advice.": "Sirf general information — medical advice nahi.",
-  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI aapki health samajhne mein help ke liye general information deta hai. Yeh medical advice, diagnosis ya treatment nahi hai. Emergency mein 911 (US), 112 (India) ya apne local emergency number par call karein.",
-  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI ek educational tool hai. Yeh medical advice, diagnosis ya treatment nahi deta. Apni health ke baare mein hamesha kisi qualified healthcare professional se baat karein.",
   "You're sending requests quickly. Please wait a minute and try again.": "Aap bahut jaldi requests bhej rahe hain. Please ek minute ruk kar dobara try karein.",
   "We couldn't complete that right now. Please try again.": "Abhi yeh complete nahi ho saka. Please dobara try karein."
 });
@@ -894,9 +876,6 @@ Object.assign(IHI_TRANSLATIONS["mr-en"], {
   "IHI is for health questions": "IHI health questions साठी आहे",
   "IHI helps you understand health concerns. It can't help with that request. Please ask a question about your health or symptoms.": "IHI तुम्हाला health concerns समजून घ्यायला help करतो. तो त्या request मध्ये help करू शकत नाही. Please तुमच्या health किंवा symptoms बद्दल question विचारा.",
   "Ask a health question": "Health question विचारा",
-  "General information only — not medical advice.": "फक्त general information — medical advice नाही.",
-  "IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.": "IHI तुमची health समजून घ्यायला general information देतो. हा medical advice, diagnosis किंवा treatment नाही. Emergency मध्ये 911 (US), 112 (India) किंवा तुमच्या local emergency number वर call करा.",
-  "IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.": "IHI एक educational tool आहे. ते medical advice, diagnosis किंवा treatment देत नाही. तुमच्या health बद्दल नेहमी qualified healthcare professional शी बोला.",
   "You're sending requests quickly. Please wait a minute and try again.": "तुम्ही खूप fast requests पाठवत आहात. Please एक minute थांबून पुन्हा try करा.",
   "We couldn't complete that right now. Please try again.": "आत्ता हे complete होऊ शकलं नाही. Please पुन्हा try करा."
 });
@@ -1037,6 +1016,41 @@ const IHI_PHASE2 = {
 Object.keys(IHI_PHASE2).forEach(key => {
   Object.keys(IHI_PHASE2[key]).forEach(lang => {
     IHI_TRANSLATIONS[lang][key] = IHI_PHASE2[key][lang];
+  });
+});
+
+/* Home intro and footer wording. Hindi and Marathi should be reviewed
+   by native speakers. */
+const IHI_PHASE4 = {
+  "Explore health questions, holistic care, and lifestyle guidance through Allopathy (modern medicine), Ayurveda, and Homeopathy, each explained in simple terms.": {
+    hi: "एलोपैथी (आधुनिक चिकित्सा), आयुर्वेद और होम्योपैथी के ज़रिए स्वास्थ्य के सवाल, समग्र देखभाल और जीवनशैली से जुड़ी जानकारी को आसान भाषा में समझें।",
+    mr: "ॲलोपॅथी (आधुनिक वैद्यक), आयुर्वेद आणि होमिओपॅथी यांच्यामार्फत आरोग्याचे प्रश्न, समग्र काळजी आणि जीवनशैलीविषयक माहिती सोप्या भाषेत समजून घ्या.",
+    "hi-en": "Allopathy (modern medicine), Ayurveda aur Homeopathy ke through health questions, holistic care aur lifestyle guidance ko simple language mein samjhein.",
+    "mr-en": "Allopathy (modern medicine), Ayurveda आणि Homeopathy मधून health questions, holistic care आणि lifestyle guidance सोप्या भाषेत समजून घ्या."
+  },
+  "IHI is an educational tool, not a medical service.": {
+    hi: "IHI एक शैक्षणिक साधन है, कोई चिकित्सा सेवा नहीं।",
+    mr: "IHI हे शैक्षणिक साधन आहे, वैद्यकीय सेवा नाही.",
+    "hi-en": "IHI ek educational tool hai, medical service nahi.",
+    "mr-en": "IHI एक educational tool आहे, medical service नाही."
+  },
+  "It shares general health information to help you understand your concerns. It does not give medical advice, diagnosis or treatment, and it is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.": {
+    hi: "यह आपकी चिंताओं को समझने में मदद के लिए सामान्य स्वास्थ्य जानकारी देता है। यह चिकित्सीय सलाह, निदान या इलाज नहीं देता, और किसी योग्य स्वास्थ्य विशेषज्ञ का विकल्प नहीं है। अपनी सेहत के बारे में कोई भी फ़ैसला लेने से पहले कृपया किसी योग्य विशेषज्ञ से बात करें।",
+    mr: "तुमच्या चिंता समजून घेण्यासाठी हे सामान्य आरोग्य माहिती देतं. ते वैद्यकीय सल्ला, निदान किंवा उपचार देत नाही आणि पात्र आरोग्य तज्ज्ञाला पर्याय नाही. तुमच्या आरोग्याबाबत कोणताही निर्णय घेण्यापूर्वी कृपया त्यांच्याशी बोला.",
+    "hi-en": "Yeh aapke concerns samajhne mein help ke liye general health information deta hai. Yeh medical advice, diagnosis ya treatment nahi deta, aur qualified healthcare professional ka substitute nahi hai. Apni health ke baare mein koi bhi decision lene se pehle please kisi qualified professional se baat karein.",
+    "mr-en": "तुमचे concerns समजून घ्यायला हे general health information देतं. ते medical advice, diagnosis किंवा treatment देत नाही आणि qualified healthcare professional ला substitute नाही. तुमच्या health बद्दल कोणताही decision घेण्यापूर्वी please त्यांच्याशी बोला."
+  },
+  "In an emergency, call 911 (US), 112 (India) or your local emergency number.": {
+    hi: "आपातकाल में 911 (अमेरिका), 112 (भारत) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
+    mr: "आपत्कालात 911 (अमेरिका), 112 (भारत) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
+    "hi-en": "Emergency mein 911 (US), 112 (India) ya apne local emergency number par call karein.",
+    "mr-en": "Emergency मध्ये 911 (US), 112 (India) किंवा तुमच्या local emergency number वर call करा."
+  }
+};
+
+Object.keys(IHI_PHASE4).forEach(key => {
+  Object.keys(IHI_PHASE4[key]).forEach(lang => {
+    IHI_TRANSLATIONS[lang][key] = IHI_PHASE4[key][lang];
   });
 });
 
@@ -1944,7 +1958,6 @@ function renderPractical(data) {
         <ul class="list">${list(data?.safety)}</ul>
       </div>
 
-      <p class="disclaimer">General information only — not medical advice.</p>
 
     </section>
   `);
@@ -2023,7 +2036,6 @@ function renderAnalysisPage(data) {
         <ul class="list">${list(data.safety)}</ul>
       </div>
 
-      <p class="disclaimer">General information only — not medical advice.</p>
 
     </section>
   `);
@@ -2157,7 +2169,6 @@ async function askIHI(opts) {
             : ""}
         </div>
 
-        <p class="disclaimer">General information only — not medical advice.</p>
 
         <div class="card" style="margin-top:24px">
           <h3>What next?</h3>
