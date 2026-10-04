@@ -1323,6 +1323,25 @@ button.card{
   margin-top:16px;
 }
 
+.voice-status{
+  color:var(--muted);
+  flex-basis:100%;
+  font-size:14px;
+  margin:8px 0 0;
+  order:10;
+}
+
+.voice-status:empty{
+  display:none;
+}
+
+.btn.listening,
+.btn.listening:disabled{
+  border-color:var(--wine);
+  color:var(--wine);
+  opacity:1;
+}
+
 .tool-notice{
   background:#faf6ee;
   border:1px solid var(--gold);

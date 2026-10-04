@@ -901,6 +901,184 @@ Object.assign(IHI_TRANSLATIONS["mr-en"], {
   "We couldn't complete that right now. Please try again.": "आत्ता हे complete होऊ शकलं नाही. Please पुन्हा try करा."
 });
 
+/* ============================================================
+   PHASE 2 — LANGUAGE CORRECTNESS
+   Strings that were missing or in the wrong language, plus voice
+   messages. Pure Marathi ("mr") contains no English or Hindi;
+   "Marathi + English" ("mr-en") keeps its mixed wording.
+   Hindi and Marathi wording should be reviewed by native speakers.
+   ============================================================ */
+
+/* Pure Marathi fixes. mr-en was copied from mr earlier, so it keeps the
+   mixed Marathi + English versions of these entries. */
+Object.assign(IHI_TRANSLATIONS.mr, {
+  "About": "परिचय",
+  "Don't search for an answer. Explore the question.": "फक्त उत्तर शोधू नका. प्रश्न समजून घ्या.",
+  "A few questions before we interpret it.": "अर्थ लावण्याआधी काही प्रश्न.",
+  "Answer what fits. Every question also lets you describe your experience in your own words.": "जे बसतं त्याचं उत्तर द्या. तुम्ही तुमचा अनुभव तुमच्या शब्दांतही सांगू शकता.",
+  "Continue → What you can try": "पुढे → तुम्ही काय करून पाहू शकता",
+  "Building questions around your complaint…": "तुमच्या समस्येनुसार प्रश्न तयार होत आहेत…",
+  "Putting your story together…": "तुमचा अनुभव समजून घेतला जात आहे…"
+});
+
+const IHI_PHASE2 = {
+  "Your question": {
+    hi: "आपका सवाल", mr: "तुमचा प्रश्न",
+    "hi-en": "Aapka question", "mr-en": "तुमचा question"
+  },
+  "What this means": {
+    hi: "इसका क्या मतलब है", mr: "याचा अर्थ काय",
+    "hi-en": "Iska matlab kya hai", "mr-en": "याचा अर्थ काय"
+  },
+  "Why this may connect": {
+    hi: "यह कैसे जुड़ सकता है", mr: "हे कसं जोडलेलं असू शकतं",
+    "hi-en": "Yeh kaise connect ho sakta hai", "mr-en": "हे कसं connect असू शकतं"
+  },
+  "Going one level deeper": {
+    hi: "एक कदम और गहराई में", mr: "आणखी एक पाऊल खोलात",
+    "hi-en": "Ek level aur deeper", "mr-en": "आणखी एक level deeper"
+  },
+  "What you can try next": {
+    hi: "आप आगे क्या आज़मा सकते हैं", mr: "पुढे तुम्ही काय करून पाहू शकता",
+    "hi-en": "Aap aage kya try kar sakte hain", "mr-en": "पुढे तुम्ही काय try करू शकता"
+  },
+  "What to watch for": {
+    hi: "किन बातों पर ध्यान दें", mr: "कशाकडे लक्ष द्यायचं",
+    "hi-en": "Kin baaton par dhyaan dein", "mr-en": "कशाकडे लक्ष द्यायचं"
+  },
+  "What you can do next": {
+    hi: "आप आगे क्या कर सकते हैं", mr: "पुढे तुम्ही काय करू शकता",
+    "hi-en": "Aap aage kya kar sakte hain", "mr-en": "पुढे तुम्ही काय करू शकता"
+  },
+  "Next steps": {
+    hi: "अगले कदम", mr: "पुढचे टप्पे",
+    "hi-en": "Agle steps", "mr-en": "पुढचे steps"
+  },
+  "Step 2": { "hi-en": "Step 2" },
+  "Step 3": { "hi-en": "Step 3" },
+  "You can ask IHI something more, or continue directly to practical next steps.": {
+    hi: "आप IHI से कुछ और पूछ सकते हैं, या सीधे आगे के व्यावहारिक कदमों पर जा सकते हैं।",
+    mr: "तुम्ही IHI ला आणखी काही विचारू शकता, किंवा थेट पुढच्या व्यावहारिक टप्प्यांकडे जाऊ शकता.",
+    "hi-en": "Aap IHI se kuch aur pooch sakte hain, ya seedhe practical next steps par ja sakte hain.",
+    "mr-en": "तुम्ही IHI ला आणखी काही विचारू शकता, किंवा थेट practical next steps कडे जाऊ शकता."
+  },
+  "You can ask another question, or continue to the practical and safety section.": {
+    hi: "आप एक और सवाल पूछ सकते हैं, या व्यावहारिक सुझाव और सुरक्षा वाले हिस्से पर जा सकते हैं।",
+    mr: "तुम्ही आणखी एक प्रश्न विचारू शकता, किंवा व्यावहारिक सूचना आणि सुरक्षिततेच्या भागाकडे जाऊ शकता.",
+    "hi-en": "Aap ek aur question pooch sakte hain, ya practical aur safety section par ja sakte hain.",
+    "mr-en": "तुम्ही आणखी एक question विचारू शकता, किंवा practical आणि safety section कडे जाऊ शकता."
+  },
+  "A possible explanation": {
+    hi: "एक संभावित व्याख्या", mr: "एक शक्य स्पष्टीकरण",
+    "hi-en": "Ek possible explanation", "mr-en": "एक possible explanation"
+  },
+  "Here is what IHI found": {
+    hi: "IHI को यह मिला", mr: "IHI ला हे आढळलं",
+    "hi-en": "IHI ne yeh paaya", "mr-en": "IHI ला हे आढळलं"
+  },
+  "Website language": {
+    hi: "वेबसाइट की भाषा", mr: "वेबसाइटची भाषा",
+    "hi-en": "Website ki language", "mr-en": "Website ची language"
+  },
+  "Open IHI Spark": {
+    hi: "IHI की झलक खोलें", mr: "IHI ची झलक उघडा",
+    "hi-en": "IHI Spark kholein", "mr-en": "IHI Spark उघडा"
+  },
+  "Close IHI Spark": {
+    hi: "IHI की झलक बंद करें", mr: "IHI ची झलक बंद करा",
+    "hi-en": "IHI Spark band karein", "mr-en": "IHI Spark बंद करा"
+  },
+
+  /* Voice input messages */
+  "Voice input isn't supported in this browser. Please type instead.": {
+    hi: "इस ब्राउज़र में बोलकर लिखना उपलब्ध नहीं है। कृपया टाइप करें।",
+    mr: "या ब्राउझरमध्ये बोलून लिहिणं उपलब्ध नाही. कृपया टाइप करा.",
+    "hi-en": "Is browser mein voice input support nahi hai. Please type karein.",
+    "mr-en": "या browser मध्ये voice input support नाही. Please type करा."
+  },
+  "Microphone access is blocked. Please allow the microphone in your browser settings, or type instead.": {
+    hi: "माइक्रोफ़ोन की अनुमति बंद है। कृपया ब्राउज़र सेटिंग में माइक्रोफ़ोन की अनुमति दें, या टाइप करें।",
+    mr: "मायक्रोफोनची परवानगी बंद आहे. कृपया ब्राउझर सेटिंग्जमध्ये मायक्रोफोनला परवानगी द्या, किंवा टाइप करा.",
+    "hi-en": "Microphone access blocked hai. Please browser settings mein microphone allow karein, ya type karein.",
+    "mr-en": "Microphone access blocked आहे. Please browser settings मध्ये microphone allow करा, किंवा type करा."
+  },
+  "We didn't hear anything. Please try again.": {
+    hi: "कुछ सुनाई नहीं दिया। कृपया फिर कोशिश करें।",
+    mr: "काही ऐकू आलं नाही. कृपया पुन्हा प्रयत्न करा.",
+    "hi-en": "Kuch sunai nahi diya. Please dobara try karein.",
+    "mr-en": "काही ऐकू आलं नाही. Please पुन्हा try करा."
+  },
+  "No microphone was found. Please check your device, or type instead.": {
+    hi: "माइक्रोफ़ोन नहीं मिला। कृपया अपना डिवाइस जाँचें, या टाइप करें।",
+    mr: "मायक्रोफोन सापडला नाही. कृपया तुमचं डिव्हाइस तपासा, किंवा टाइप करा.",
+    "hi-en": "Microphone nahi mila. Please apna device check karein, ya type karein.",
+    "mr-en": "Microphone सापडला नाही. Please तुमचं device check करा, किंवा type करा."
+  },
+  "Voice input needs an internet connection. Please try again, or type instead.": {
+    hi: "बोलकर लिखने के लिए इंटरनेट चाहिए। कृपया फिर कोशिश करें, या टाइप करें।",
+    mr: "बोलून लिहिण्यासाठी इंटरनेट लागतं. कृपया पुन्हा प्रयत्न करा, किंवा टाइप करा.",
+    "hi-en": "Voice input ke liye internet chahiye. Please dobara try karein, ya type karein.",
+    "mr-en": "Voice input साठी internet लागतं. Please पुन्हा try करा, किंवा type करा."
+  },
+  "Voice input doesn't support this language in your browser. Please type instead.": {
+    hi: "आपके ब्राउज़र में यह भाषा बोलकर लिखने के लिए उपलब्ध नहीं है। कृपया टाइप करें।",
+    mr: "तुमच्या ब्राउझरमध्ये ही भाषा बोलून लिहिण्यासाठी उपलब्ध नाही. कृपया टाइप करा.",
+    "hi-en": "Aapke browser mein yeh language voice input ke liye available nahi hai. Please type karein.",
+    "mr-en": "तुमच्या browser मध्ये ही language voice input साठी available नाही. Please type करा."
+  },
+  "Voice input didn't work. Please try again, or type instead.": {
+    hi: "बोलकर लिखना काम नहीं किया। कृपया फिर कोशिश करें, या टाइप करें।",
+    mr: "बोलून लिहिणं जमलं नाही. कृपया पुन्हा प्रयत्न करा, किंवा टाइप करा.",
+    "hi-en": "Voice input kaam nahi kiya. Please dobara try karein, ya type karein.",
+    "mr-en": "Voice input नीट चाललं नाही. Please पुन्हा try करा, किंवा type करा."
+  }
+};
+
+Object.keys(IHI_PHASE2).forEach(key => {
+  Object.keys(IHI_PHASE2[key]).forEach(lang => {
+    IHI_TRANSLATIONS[lang][key] = IHI_PHASE2[key][lang];
+  });
+});
+
+/* The About page quotes these lines in curly quotes. */
+[
+  "What does this medical term on my report actually mean?",
+  "I Googled my symptoms at 2 AM and now I’m terrified.",
+  "Skip those heavy pills, just try this home remedy!",
+  "My family says one thing, my doctor says another—who am I supposed to listen to?"
+].forEach(key => {
+  Object.keys(IHI_TRANSLATIONS).forEach(lang => {
+    const value = IHI_TRANSLATIONS[lang][key];
+
+    if (value) {
+      IHI_TRANSLATIONS[lang]["“" + key + "”"] = "“" + value + "”";
+    }
+  });
+});
+
+const IHI_PAGE_META = {
+  en: {
+    title: "Integrative Health Intelligence — IHI",
+    description: "IHI helps you explore health questions through different healthcare frameworks and understand your experience more clearly."
+  },
+  hi: {
+    title: "समेकित स्वास्थ्य समझ — IHI",
+    description: "IHI अलग-अलग स्वास्थ्य दृष्टिकोणों के ज़रिए आपको अपनी सेहत से जुड़े सवाल समझने में मदद करता है।"
+  },
+  mr: {
+    title: "एकत्रित आरोग्य समज — IHI",
+    description: "IHI वेगवेगळ्या आरोग्यविषयक दृष्टिकोनांतून तुम्हाला तुमचे आरोग्याचे प्रश्न समजून घ्यायला मदत करतो."
+  },
+  "hi-en": {
+    title: "Integrative Health Intelligence — IHI",
+    description: "IHI aapko alag-alag healthcare frameworks ke through apne health questions samajhne mein help karta hai."
+  },
+  "mr-en": {
+    title: "Integrative Health Intelligence — IHI",
+    description: "IHI तुम्हाला वेगवेगळ्या healthcare frameworks मधून तुमचे health questions समजून घ्यायला help करतो."
+  }
+};
+
 const IHI_ORIGINAL_TEXT = new WeakMap();
 const IHI_ORIGINAL_ATTRS = new WeakMap();
 
@@ -913,42 +1091,38 @@ function normalizeIHIText(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
+const IHI_INDEX = new WeakMap();
+
+function ihiIndex(dictionary) {
+  let index = IHI_INDEX.get(dictionary);
+
+  if (!index) {
+    index = new Map();
+
+    Object.keys(dictionary).forEach(key => {
+      index.set(normalizeIHIText(key), dictionary[key]);
+    });
+
+    IHI_INDEX.set(dictionary, index);
+  }
+
+  return index;
+}
+
+/* Exact match only. Partial matches used to produce half-translated
+   sentences, so strings that mix fixed text and data are rendered as
+   separate elements instead. */
 function ihiTranslateString(source, dictionary) {
-  if (!source || !Object.keys(dictionary).length) return source;
+  if (!source || !dictionary || !Object.keys(dictionary).length) return source;
 
   const leading = source.match(/^\s*/)?.[0] || "";
   const trailing = source.match(/\s*$/)?.[0] || "";
   const core = source.slice(leading.length, source.length - trailing.length);
-  const normalized = normalizeIHIText(core);
+  const translated = ihiIndex(dictionary).get(normalizeIHIText(core));
 
-  const exact = Object.keys(dictionary).find(
-    key => normalizeIHIText(key) === normalized
-  );
-
-  if (exact) {
-    return leading + dictionary[exact] + trailing;
-  }
-
-  let translated = core;
-
-  Object.keys(dictionary)
-    .sort(
-      (a, b) =>
-        normalizeIHIText(b).length -
-        normalizeIHIText(a).length
-    )
-    .forEach(key => {
-      const normalizedKey = normalizeIHIText(key);
-
-      if (
-        normalizedKey &&
-        normalizeIHIText(translated).includes(normalizedKey)
-      ) {
-        translated = translated.split(key).join(dictionary[key]);
-      }
-    });
-
-  return leading + translated + trailing;
+  return translated === undefined
+    ? source
+    : leading + translated + trailing;
 }
 
 
@@ -956,113 +1130,6 @@ function ihiT(value) {
   return ihiTranslateString(value, ihiDictionary());
 }
 
-
-function applyHinglishAbout() {
-  const select = document.getElementById("siteLanguage");
-  if (!select || select.value !== "hi-en") return;
-
-  const about = document.querySelector(".about-page");
-  if (!about) return;
-
-  const eyebrow = about.querySelector(".about-heading .eyebrow");
-  const titles = about.querySelectorAll(".story-title");
-  const creator = about.querySelector(".about-column.creator");
-  const creatorHeading = creator?.querySelector("h3");
-  const creatorPs = creator?.querySelectorAll("p");
-  const story = about.querySelector(".about-column:not(.creator) .story");
-  const storyPs = story?.querySelectorAll("p");
-  const bullets = story?.querySelectorAll("li");
-
-  if (eyebrow) eyebrow.textContent = "IHI ke baare mein";
-
-  if (titles[0]) titles[0].textContent = "Creator ke baare mein";
-  if (titles[1]) titles[1].textContent = "IHI kyun bana";
-
-  if (creatorHeading) {
-    creatorHeading.textContent =
-      "Dr. Vedanti Shah dentist, creator aur curious mind hain. Woh healthcare, technology, research aur design ke intersection ko explore karti hain.";
-  }
-
-  if (creatorPs?.[0]) {
-    creatorPs[0].textContent =
-      "Unhe ideas mein deeply jaana, problems par research karna, different perspectives ko connect karna aur complex cheezon ko samajhne ke creative tareeke dhoondhna pasand hai.";
-  }
-
-  if (creatorPs?.[1]) {
-    creatorPs[1].textContent =
-      "Unki interests healthcare, research, technology, AI, product thinking, design aur art tak hain. Woh building, experimenting aur products create karne ke through in interests ko ek saath laati hain, jo ideas ko real experiences mein badalte hain.";
-  }
-
-  if (creatorPs?.[2]) {
-    creatorPs[2].textContent =
-      "IHI unke banaye hue products mein se ek hai.";
-  }
-
-  if (storyPs?.[0]) {
-    storyPs[0].textContent =
-      "Maine healthcare ki padhai aur practice mein kai saal bitaye, aur mujhe ek cheez samajh aayi—log har din health ko lekar bahut confusion ke saath jeete hain. Aur ye sirf medical problem nahi hai—ye har jagah hota hai.";
-  }
-
-  if (storyPs?.[1]) {
-    storyPs[1].textContent =
-      "Family dinner mein, social gatherings mein, WhatsApp groups mein, ya ghar par lab report lekar baithe hue—story baar-baar wahi hoti hai:";
-  }
-
-  if (bullets?.[0]) {
-    bullets[0].textContent =
-      "Meri report mein likhe is medical term ka actual matlab kya hai?";
-  }
-
-  if (bullets?.[1]) {
-    bullets[1].textContent =
-      "Maine raat ke 2 baje apne symptoms Google kiye aur ab main dar gaya hoon.";
-  }
-
-  if (bullets?.[2]) {
-    bullets[2].textContent =
-      "Itni medicines mat lo, bas ye home remedy try karo!";
-  }
-
-  if (bullets?.[3]) {
-    bullets[3].textContent =
-      "Meri family kuch aur bolti hai, mere doctor kuch aur—main kiski baat sunu?";
-  }
-
-  if (storyPs?.[2]) {
-    storyPs[2].textContent =
-      "Har kisi ke paas apni opinion, koi natural cure ya friend-of-a-friend ki story hoti hai. Aakhir mein insaan thak jaata hai aur sochta hai ki actually kis information par trust karein.";
-  }
-
-  if (storyPs?.[3]) {
-    storyPs[3].textContent =
-      "Clinician ke roop mein mujhe samajh aaya ki logon ko aur loud opinions nahi chahiye. Unhe clear aur unbiased information chahiye, taaki woh khud decision le sakein.";
-  }
-
-  if (storyPs?.[4]) {
-    storyPs[4].textContent =
-      "Health ki baat aati hai, toh aap clarity deserve karte hain—noise nahi.";
-  }
-
-  if (storyPs?.[5]) {
-    storyPs[5].textContent =
-      "Isi liye maine IHI create kiya.";
-  }
-
-  if (storyPs?.[6]) {
-    storyPs[6].textContent =
-      "Hum different healthcare approaches ko ek neutral space mein samjhate hain aur batate hain ki har approach aapke body aur experience ko kaise dekhti hai, taaki aapke doubts clear ho sakein aur aap khud decide kar sakein ki aapke liye kya right lagta hai.";
-  }
-
-  if (storyPs?.[7]) {
-    const textNode = Array.from(storyPs[7].childNodes)
-      .find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
-
-    if (textNode) {
-      textNode.textContent =
-        "\n              Kyuki health ki baat aati hai, toh aapko lost feel nahi hona chahiye. Aapko apni care mein informed partner feel karna chahiye.\n\n              ";
-    }
-  }
-}
 
 function applySiteLanguage() {
   const select = document.getElementById("siteLanguage");
@@ -1073,8 +1140,16 @@ function applySiteLanguage() {
 
   document.documentElement.lang =
     lang === "hi" ? "hi" :
-    lang === "mr" ? "mr" :
+    lang === "mr" || lang === "mr-en" ? "mr" :
+    lang === "hi-en" ? "hi-Latn" :
     "en";
+
+  const meta = IHI_PAGE_META[lang] || IHI_PAGE_META.en;
+  document.title = meta.title;
+
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute("content", meta.description);
 
   const walker = document.createTreeWalker(
     document.body,
@@ -1171,7 +1246,7 @@ function applySiteLanguage() {
       "For example: I've been feeling acidity after meals and I want to understand why...",
 
     "hi-en":
-      "Example: खाना खाने के बाद acidity होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
+      "Example: khana khane ke baad acidity hoti hai aur main samajhna chahta/chahti hoon ki aisa kyun hota hai...",
 
     hi:
       "उदाहरण: खाना खाने के बाद अम्लता होती है और मैं समझना चाहता/चाहती हूँ कि ऐसा क्यों होता है...",
@@ -1196,7 +1271,6 @@ function applySiteLanguage() {
 
   localStorage.setItem("ihiLanguage", lang);
 
-  applyHinglishAbout();
 }
 
 
@@ -1213,6 +1287,11 @@ const frameworkNames = {
   ayurveda: "Ayurveda",
   homeopathy: "Homeopathy"
 };
+
+/* "Step 2 · Ayurveda" as separate elements so each part is translated. */
+function frameworkEyebrow(label) {
+  return `<span>${label}</span> · <span>${esc(frameworkNames[ihiState.framework])}</span>`;
+}
 
 function esc(value) {
   return String(value ?? "").replace(
@@ -1409,21 +1488,61 @@ function ihiRoute(data, onContinue) {
 
 const activeRecognitions = new WeakMap();
 
+const VOICE_MESSAGES = {
+  unsupported: "Voice input isn't supported in this browser. Please type instead.",
+  blocked: "Microphone access is blocked. Please allow the microphone in your browser settings, or type instead.",
+  silence: "We didn't hear anything. Please try again.",
+  noMic: "No microphone was found. Please check your device, or type instead.",
+  network: "Voice input needs an internet connection. Please try again, or type instead.",
+  language: "Voice input doesn't support this language in your browser. Please type instead.",
+  failed: "Voice input didn't work. Please try again, or type instead."
+};
+
+const VOICE_ERRORS = {
+  "not-allowed": "blocked",
+  "service-not-allowed": "blocked",
+  "no-speech": "silence",
+  "audio-capture": "noMic",
+  "network": "network",
+  "language-not-supported": "language"
+};
+
 function setupVoiceInput(textareaId, buttonId) {
   const textarea = document.getElementById(textareaId);
   const button = document.getElementById(buttonId);
   if (!textarea || !button) return;
+
+  if (button.dataset.voiceReady === "1") return;
+  button.dataset.voiceReady = "1";
+
+  /* Short message under the button; announced to screen readers. */
+  const status = document.createElement("p");
+  status.className = "voice-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  button.insertAdjacentElement("afterend", status);
+
+  const say = key => {
+    status.textContent = key ? ihiT(VOICE_MESSAGES[key]) : "";
+  };
 
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if (!SpeechRecognition) {
     button.style.display = "none";
+    status.textContent = VOICE_MESSAGES.unsupported;
+    applySiteLanguage();
     return;
   }
 
-  if (button.dataset.voiceReady === "1") return;
-  button.dataset.voiceReady = "1";
+  const reset = () => {
+    activeRecognitions.delete(button);
+    button.textContent = ihiT("🎙 Speak");
+    button.disabled = false;
+    button.classList.remove("listening");
+    button.setAttribute("aria-pressed", "false");
+  };
 
   button.addEventListener("click", event => {
     event.preventDefault();
@@ -1433,6 +1552,8 @@ function setupVoiceInput(textareaId, buttonId) {
     const recognition = new SpeechRecognition();
     const selected = language?.value || "en";
 
+    /* Hinglish and Minglish are recognised as Hindi and Marathi
+       (Devanagari); IHI understands that text. */
     recognition.lang =
       selected === "hi" || selected === "hi-en" ? "hi-IN" :
       selected === "mr" || selected === "mr-en" ? "mr-IN" :
@@ -1445,23 +1566,24 @@ function setupVoiceInput(textareaId, buttonId) {
     activeRecognitions.set(button, recognition);
     button.textContent = ihiT("🎙 Listening…");
     button.disabled = true;
+    button.classList.add("listening");
+    button.setAttribute("aria-pressed", "true");
+    say("");
 
     let captured = "";
+    let failure = "";
 
     recognition.onresult = event => {
       const result =
         event.results?.[event.results.length - 1]?.[0];
 
-      const spoken =
-        result?.transcript?.trim() || "";
+      const spoken = result?.transcript?.trim() || "";
 
       if (spoken && !captured) captured = spoken;
     };
 
-    recognition.onerror = () => {
-      activeRecognitions.delete(button);
-      button.textContent = ihiT("🎙 Speak");
-      button.disabled = false;
+    recognition.onerror = event => {
+      failure = VOICE_ERRORS[event?.error] || "failed";
     };
 
     recognition.onend = () => {
@@ -1474,19 +1596,20 @@ function setupVoiceInput(textareaId, buttonId) {
         textarea.dispatchEvent(
           new Event("input", { bubbles: true })
         );
+
+        say("");
+      } else {
+        say(failure || "silence");
       }
 
-      activeRecognitions.delete(button);
-      button.textContent = ihiT("🎙 Speak");
-      button.disabled = false;
+      reset();
     };
 
     try {
       recognition.start();
     } catch (_) {
-      activeRecognitions.delete(button);
-      button.textContent = ihiT("🎙 Speak");
-      button.disabled = false;
+      say("failed");
+      reset();
     }
   });
 }
@@ -1600,7 +1723,7 @@ async function loadQuestions() {
 
     if (!questions.length) {
       throw new Error(
-        "No questions were returned."
+        "We couldn't complete that right now. Please try again."
       );
     }
 
@@ -1608,9 +1731,7 @@ async function loadQuestions() {
       <section class="section">
 
         <div class="eyebrow">
-          Step 2 · ${esc(
-            frameworkNames[ihiState.framework]
-          )}
+          ${frameworkEyebrow("Step 2")}
         </div>
 
         <h2>
@@ -1696,6 +1817,8 @@ async function loadQuestions() {
         );
       }
     );
+
+    applySiteLanguage();
 
     box.addEventListener("click", event => {
       const button = event.target.closest(".ihi-option");
@@ -1799,7 +1922,7 @@ function renderPractical(data) {
     <section class="section">
 
       <div class="eyebrow">
-        Next steps · ${esc(frameworkNames[ihiState.framework])}
+        ${frameworkEyebrow("Next steps")}
       </div>
 
       <h2>What you can do next</h2>
@@ -1832,7 +1955,7 @@ function renderAnalysisPage(data) {
     <section class="section">
 
       <div class="eyebrow">
-        Step 3 · ${esc(frameworkNames[ihiState.framework])}
+        ${frameworkEyebrow("Step 3")}
       </div>
 
       <h2>What may be happening?</h2>
@@ -1989,7 +2112,7 @@ async function askIHI(opts) {
       <section class="section">
 
         <div class="eyebrow">
-          Ask IHI · ${esc(frameworkNames[ihiState.framework])}
+          ${frameworkEyebrow("Ask IHI")}
         </div>
 
         <h2>Your question</h2>
@@ -2339,6 +2462,7 @@ window.addEventListener("load", () => {
 
   applySiteLanguage();
   setupIHISpark();
+  applySiteLanguage();
 
   if (!document.getElementById("concern")) return;
 
