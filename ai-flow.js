@@ -1246,6 +1246,10 @@ function setupVoiceInput(textareaId, buttonId) {
   });
 }
 
+function ihi(value) {
+  return ihiT(value);
+}
+
 function voiceButton(id) {
   return `<button type="button" class="btn option" id="` +
     id + `" style="margin-top:10px">${ihi("🎙 Speak")}</button>`;
