@@ -1080,7 +1080,7 @@ h3{
 }
 
 #ihiQuestions .question h3{
-  font-size:32px;
+  font-size:24px;
   line-height:1.2;
   margin:0 0 22px;
   letter-spacing:-.025em;
@@ -1143,7 +1143,7 @@ h3{
   }
 
   #ihiQuestions .question h3{
-    font-size:28px;
+    font-size:22px;
   }
 
   #ihiQuestions .ihi-option{
@@ -1151,6 +1151,156 @@ h3{
     justify-content:flex-start;
     font-size:18px;
   }
+}
+
+/* ============================================================
+   TOOL RESULTS — questions, analysis, follow-up, errors
+   Components used by ai-flow.js. Uses existing design tokens.
+   ============================================================ */
+
+#results .section{
+  padding:0;
+}
+
+#results .eyebrow{
+  margin-bottom:12px;
+}
+
+#results h2{
+  font-size:clamp(30px,4.5vw,42px);
+  line-height:1.1;
+  margin:0 0 14px;
+}
+
+#results h3{
+  font-size:22px;
+  line-height:1.25;
+  margin:0 0 10px;
+}
+
+#results h4{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  font-weight:400;
+  margin:20px 0 8px;
+}
+
+.section-intro{
+  color:var(--muted);
+  max-width:620px;
+  margin-bottom:26px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+}
+
+.grid.two{
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+  text-align:left;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+button.card{
+  font:inherit;
+  color:inherit;
+  width:100%;
+}
+
+.card.clickable{
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.card.clickable:hover,
+.card.clickable:focus-visible{
+  border-color:var(--wine);
+  transform:translateY(-2px);
+  outline:none;
+}
+
+.list{
+  margin:0 0 0 20px;
+}
+
+.list li{
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+.notice{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:16px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+.card.safety{
+  background:#faf6ee;
+  border-color:var(--gold);
+}
+
+.card.error{
+  border-color:#b3261e;
+}
+
+.loading{
+  color:var(--muted);
+  padding:36px 0;
+  text-align:center;
+}
+
+/* Secondary buttons: answer options and Speak */
+.btn.option{
+  background:var(--white);
+  color:var(--ink);
+  border-color:var(--line);
+}
+
+.btn.option:hover{
+  background:var(--white);
+  color:var(--ink);
+  border-color:var(--wine);
+}
+
+.btn:disabled{
+  opacity:.6;
+  cursor:default;
+  transform:none;
+}
+
+#results textarea{
+  width:100%;
+  min-height:100px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:white;
+  color:var(--ink);
+  padding:15px;
+  outline:none;
+  resize:vertical;
+}
+
+#results textarea:focus{
+  border-color:var(--wine);
 }
 
 </style>
