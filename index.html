@@ -1303,6 +1303,47 @@ button.card{
   border-color:var(--wine);
 }
 
+/* Safety router, disclaimers, footer */
+
+.card.router{
+  border-color:var(--wine);
+}
+
+.router-lines{
+  margin:14px 0;
+}
+
+.router-lines li{
+  font-weight:600;
+}
+
+.disclaimer{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:16px;
+}
+
+.tool-notice{
+  background:#faf6ee;
+  border:1px solid var(--gold);
+  border-radius:12px;
+  color:var(--ink);
+  font-size:14px;
+  margin:18px 0 0;
+  padding:12px 16px;
+}
+
+.site-footer{
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+  padding:32px 0 96px;
+}
+
+.site-footer p{
+  max-width:760px;
+}
+
 </style>
 
 <style id="about-final-refinement">
@@ -1612,6 +1653,8 @@ button.card{
           or something you've been wondering about.
         </p>
 
+        <p class="tool-notice">IHI shares general information to help you understand your health. It is not medical advice, diagnosis or treatment. In an emergency, call 911 (US), 112 (India) or your local emergency number.</p>
+
         <textarea
           id="concern"
           placeholder="For example: I've been feeling acidity after meals and I want to understand why..."
@@ -1885,6 +1928,12 @@ button.card{
 </section>
 
 </main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>IHI is an educational tool. It does not provide medical advice, diagnosis or treatment. Always speak to a qualified healthcare professional about your health.</p>
+  </div>
+</footer>
 
 
 <script>
