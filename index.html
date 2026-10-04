@@ -7,6 +7,13 @@
 <title>Integrative Health Intelligence — IHI</title>
 
 <meta name="description" content="IHI helps you explore health questions through different healthcare frameworks and understand your experience more clearly.">
+<meta name="theme-color" content="#f7f5f0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IHI">
+<meta property="og:title" content="Integrative Health Intelligence — IHI">
+<meta property="og:description" content="Explore health questions through Allopathy (modern medicine), Ayurveda and Homeopathy, each explained in simple terms.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 <style>
 :root{
@@ -176,7 +183,7 @@ h3{
 
 .small{
   color:var(--muted);
-  font-size:14px;
+  font-size:16px;
 }
 
 /* BUTTONS */
@@ -272,7 +279,7 @@ h3{
 
 .hero-note p{
   color:var(--muted);
-  font-size:14px;
+  font-size:16px;
 }
 
 /* APPROACH */
@@ -325,7 +332,7 @@ h3{
 
 .approach p{
   color:var(--muted);
-  font-size:14px;
+  font-size:16px;
   max-width:290px;
 }
 
@@ -382,7 +389,7 @@ h3{
 
 .step p{
   color:var(--muted);
-  font-size:13px;
+  font-size:15px;
 }
 
 /* TOOL */
@@ -517,253 +524,6 @@ h3{
 
 
 
-   /* ============================================================
-   ABOUT — FINAL TYPOGRAPHY
-   ============================================================ */
-
-.about-page{
-  padding:82px 0 130px;
-}
-
-.about-heading{
-  margin-bottom:58px;
-}
-
-.about-heading .eyebrow{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:25px;
-  line-height:1.1;
-  letter-spacing:-.02em;
-  text-transform:none;
-  font-weight:400;
-  color:var(--ink);
-  margin:0;
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-  align-items:start;
-}
-
-.about-column{
-  border:1px solid var(--line);
-  padding:48px 44px 52px;
-  background:var(--paper);
-}
-
-
-/* SECTION HEADINGS */
-
-.story-title{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:35px;
-  line-height:1.08;
-  letter-spacing:-.035em;
-  font-weight:400;
-  color:var(--ink);
-  margin-bottom:38px;
-}
-
-
-/* CREATOR */
-
-.creator{
-  min-height:650px;
-  display:flex;
-  flex-direction:column;
-}
-
-.creator h3,
-.creator p{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:22px;
-  line-height:1.55;
-  font-weight:400;
-  letter-spacing:0;
-  color:var(--ink);
-  max-width:560px;
-}
-
-.creator h3{
-  margin-bottom:28px;
-}
-
-.creator p{
-  margin-bottom:27px;
-}
-
-.creator p strong{
-  font-weight:600;
-}
-
-
-/* PHOTO AREA */
-
-.creator-photo{
-  width:100%;
-  height:250px;
-  margin-bottom:38px;
-  border:1px solid var(--line);
-  background:#eeeae3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-.creator-photo-placeholder{
-  font-family:Inter,ui-sans-serif,sans-serif;
-  font-size:12px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-
-/* WHY IHI */
-
-.about-grid > .about-column:last-child{
-  min-height:650px;
-}
-
-.story{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:22px;
-  line-height:1.55;
-  font-weight:400;
-  color:var(--ink);
-  max-width:680px;
-}
-
-.story p{
-  font-size:22px;
-  margin-bottom:27px;
-}
-
-.story ul{
-  margin:0 0 30px 25px;
-}
-
-.story li{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:22px;
-  line-height:1.55;
-  font-weight:400;
-  margin-bottom:12px;
-  padding-left:5px;
-}
-
-
-/* CREATOR IDENTITY — RIGHT PANEL */
-
-.about-identity{
-  margin-top:55px;
-  padding-top:28px;
-  border-top:1px solid var(--line);
-}
-
-.about-identity-name{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:30px;
-  line-height:1.2;
-  font-weight:400;
-}
-
-.about-identity-role{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:29px;
-  line-height:1.3;
-  font-weight:400;
-  color:var(--ink);
-  margin-top:7px;
-}
-
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:25px;
-  }
-
-  .creator,
-  .about-grid > .about-column:last-child{
-    min-height:auto;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .about-page{
-    padding:62px 0 95px;
-  }
-
-  .about-heading{
-    margin-bottom:42px;
-  }
-
-  .about-heading .eyebrow{
-    font-size:25px;
-  }
-
-  .about-column{
-    padding:32px 25px 38px;
-  }
-
-  .story-title{
-    font-size:31px;
-    margin-bottom:28px;
-  }
-
-  .creator h3,
-  .creator p,
-  .story,
-  .story p,
-  .story li{
-    font-size:19px;
-  }
-
-  .about-identity-name{
-    font-size:27px;
-  }
-
-  .about-identity-role{
-    font-size:25px;
-  }
-
-  .creator-photo{
-    height:210px;
-  }
-
-}
-/* SPARK */
-
-#ihi-spark{
-  position:fixed;
-  right:25px;
-  bottom:25px;
-  z-index:200;
-}
-
-.spark-button{
-  border:0;
-  background:var(--wine);
-  color:white;
-  border-radius:999px;
-  padding:13px 18px;
-  box-shadow:0 10px 35px rgba(0,0,0,.15);
-  font-size:13px;
-}
-
-.spark-button:hover{
-  background:var(--wine-dark);
-}
-
 /* MOBILE */
 
 @media(max-width:850px){
@@ -817,8 +577,7 @@ h3{
     padding:85px 0;
   }
 
-  .section-heading,
-  .about-grid{
+  .section-heading{
     grid-template-columns:1fr;
     gap:30px;
   }
@@ -848,9 +607,6 @@ h3{
     gap:20px;
   }
 
-  .about-grid{
-    gap:65px;
-  }
 }
 
 @media(max-width:520px){
@@ -880,58 +636,7 @@ h3{
     padding:24px;
   }
 
-  #ihi-spark{
-    right:15px;
-    bottom:15px;
-  }
 }
-
-
-/* ============================================================
-   IHI ABOUT — FINAL OVERRIDE
-   Keep this AFTER all previous About rules.
-   ============================================================ */
-
-@media (min-width:901px){
-
-  .about-page .about-heading .eyebrow{
-    font-size:25px !important;
-  }
-
-  .about-page .about-grid{
-    gap:25px !important;
-  }
-
-  .about-page .story-title{
-    font-size:35px !important;
-  }
-
-  .about-page .creator h3,
-  .about-page .creator p,
-  .about-page .story,
-  .about-page .story p,
-  .about-page .story li{
-    font-size:22px !important;
-  }
-
-  .about-page .about-identity-name{
-    font-size:30px !important;
-  }
-
-  .about-page .about-identity-role{
-    font-size:29px !important;
-  }
-
-  .about-page .creator-photo{
-    height:250px !important;
-  }
-
-}
-
-
-
-
-
 
 
 /* IHI SPARK */
@@ -1303,7 +1008,17 @@ button.card{
   border-color:var(--wine);
 }
 
-/* Safety router, disclaimers, footer */
+/* Keyboard focus */
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid var(--wine);
+  outline-offset:2px;
+}
+
+/* Safety router, footer */
 
 .card.router{
   border-color:var(--wine);
@@ -1357,81 +1072,223 @@ button.card{
   font-weight:600;
 }
 
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+.about-page{
+  padding:75px 0 120px;
+}
+
+.about-intro{
+  margin-bottom:64px;
+  max-width:760px;
+}
+
+.about-intro h2{
+  margin:14px 0 0;
+}
+
+.about-section + .about-section{
+  border-top:1px solid var(--line);
+  margin-top:72px;
+  padding-top:72px;
+}
+
+.about-title{
+  font-size:clamp(30px,4vw,40px);
+  margin-bottom:28px;
+}
+
+.about-text{
+  max-width:720px;
+}
+
+.about-text p,
+.about-text li{
+  font-size:18px;
+  line-height:1.75;
+}
+
+.about-text p{
+  margin:0 0 20px;
+}
+
+.about-text ul{
+  margin:0 0 24px 22px;
+}
+
+.about-text li{
+  margin-bottom:6px;
+}
+
+.about-text .about-lead{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+  line-height:1.35;
+  margin-bottom:16px;
+}
+
+.about-quote{
+  border-left:2px solid var(--wine);
+  margin:40px 0 0;
+  padding:4px 0 4px 26px;
+}
+
+.about-quote blockquote{
+  margin:0;
+}
+
+.about-quote blockquote p{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  font-style:italic;
+  line-height:1.55;
+  margin:0 0 14px;
+}
+
+.about-quote figcaption{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.about-quote figcaption::before{
+  content:"— ";
+}
+
+.about-quote figcaption strong{
+  color:var(--ink);
+  font-weight:600;
+}
+
+.about-quote figcaption strong::after{
+  content:",";
+}
+
+.creator-layout{
+  align-items:start;
+  display:grid;
+  gap:56px;
+  grid-template-columns:minmax(0,1fr) 300px;
+}
+
+.creator-photo{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  margin:0;
+  overflow:hidden;
+}
+
+.creator-photo img{
+  display:block;
+  height:auto;
+  width:100%;
+}
+
+.creator-name{
+  margin:28px 0 0;
+}
+
+.about-text .creator-name{
+  margin-bottom:0;
+}
+
+.creator-name strong{
+  display:block;
+  font-size:20px;
+  font-weight:600;
+}
+
+.creator-name span{
+  color:var(--muted);
+  font-size:16px;
+}
+
+.about-contact{
+  border-top:1px solid var(--line);
+  margin-top:36px;
+  padding-top:24px;
+}
+
+.about-contact h4{
+  color:var(--wine);
+  font-family:inherit;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  margin:0 0 14px;
+  text-transform:uppercase;
+}
+
+.about-contact ul{
+  list-style:none;
+  margin:0;
+}
+
+.about-contact li{
+  display:flex;
+  gap:16px;
+  margin-bottom:8px;
+}
+
+.about-contact li span{
+  color:var(--muted);
+  flex:0 0 72px;
+}
+
+.about-contact a{
+  color:var(--wine);
+  overflow-wrap:anywhere;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+@media(max-width:900px){
+
+  .creator-layout{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .creator-photo{
+    max-width:260px;
+    order:-1;
+  }
+}
+
+@media(max-width:600px){
+
+  .about-page{
+    padding:62px 0 95px;
+  }
+
+  .about-section + .about-section{
+    margin-top:56px;
+    padding-top:56px;
+  }
+
+  .about-text p,
+  .about-text li{
+    font-size:17px;
+  }
+
+  .about-text .about-lead{
+    font-size:21px;
+  }
+
+  .about-quote{
+    padding-left:20px;
+  }
+
+  .about-quote blockquote p{
+    font-size:20px;
+  }
+}
+
 </style>
 
-<style id="about-final-refinement">
-/* ABOUT — final spacing and typography */
-.about-page .about-heading .eyebrow {
-  font-size: 25px !important;
-}
-
-.about-page .about-grid {
-  gap: 25px !important;
-}
-
-.about-page .story-title {
-  font-size: 35px !important;
-}
-
-.about-page .creator h3,
-.about-page .creator p,
-.about-page .story,
-.about-page .story p,
-.about-page .story li {
-  font-size: 22px !important;
-}
-
-/* No gaps between story paragraphs */
-.about-page .story p {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.about-page .story ul {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.about-page .story li {
-  margin-bottom: 7px !important;
-}
-
-/* Creator identity at bottom of Why IHI Exists */
-.about-page .about-identity-name {
-  font-size: 30px !important;
-  font-weight: 400 !important;
-}
-
-.about-page .about-identity-role {
-  font-size: 29px !important;
-  font-weight: 400 !important;
-}
-
-/* No highlighted/bold text inside About */
-.about-page strong,
-.about-page b,
-.about-page em {
-  font-weight: 400 !important;
-  font-style: normal !important;
-}
-
-/* Remove the large IHI Spark card */
-
-
-/* Keep only the bottom-right Ask IHI button */
-#ihi-spark {
-  position: fixed !important;
-  right: 25px !important;
-  bottom: 25px !important;
-  z-index: 9999 !important;
-  display: block !important;
-  pointer-events: auto !important;
-}
-
-#ihi-spark .spark-button {
-  cursor: pointer !important;
-}
-</style>
 
 </head>
 
@@ -1834,103 +1691,87 @@ button.card{
 
     <div class="container">
 
-      <div class="about-heading">
+      <div class="about-intro">
         <div class="eyebrow">About IHI</div>
+        <h2>Clarity, not noise.</h2>
       </div>
 
 
-      <div class="about-grid">
+      <!-- WHY IHI EXISTS -->
 
-        <!-- LEFT -->
+      <section class="about-section" aria-labelledby="about-why">
 
-        <article class="about-column creator">
+        <h3 class="about-title" id="about-why">Why IHI Exists</h3>
 
-          <div>
+        <div class="about-text">
 
-            <div class="story-title">About the Creator</div>
+          <p class="about-lead">Health confusion is everywhere.</p>
 
-            <h3>
-              Dr. Vedanti Shah is a dentist, creator, and curious mind exploring where healthcare, technology, research, and design meet.
-            </h3>
+          <p>Lab reports come back with terms you don't recognize, online searches leave you more worried than before, and everyone around you offers conflicting advice:</p>
 
-            <p>
-              She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things.
+          <ul>
+            <li>A relative suggests a home remedy.</li>
+            <li>A friend recommends Ayurveda.</li>
+            <li>A WhatsApp group forwards claims about homeopathy.</li>
+            <li>And your doctor tells you something totally different from your research.</li>
+          </ul>
+
+          <p>Modern Medicine, Ayurveda, and Homeopathy each view health and illness differently. Yet most people hear all perspectives at once, with no clear way to make sense of the noise.</p>
+
+          <p class="about-lead">IHI is a calm, neutral place to sort that out.</p>
+
+          <p>Describe what you are experiencing and choose your specific medical approach. IHI asks a few targeted questions, then explains how that specific system understands your concern in simple language, objectively and without bias. The goal is total clarity—equipping you with the deep understanding needed to take complete control of your health decisions.</p>
+
+          <figure class="about-quote">
+            <blockquote>
+              <p>“As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves. Because when it comes to your health, you shouldn't feel lost—you should feel like an informed partner in your own care.”</p>
+            </blockquote>
+            <figcaption><strong>Dr. Vedanti Shah</strong> <span>Creator of IHI</span></figcaption>
+          </figure>
+
+        </div>
+
+      </section>
+
+
+      <!-- ABOUT THE CREATOR -->
+
+      <section class="about-section" aria-labelledby="about-creator">
+
+        <h3 class="about-title" id="about-creator">About the Creator</h3>
+
+        <div class="creator-layout">
+
+          <div class="about-text">
+
+            <p>Dr. Vedanti Shah is a dentist, creator and curious mind working where healthcare, technology, research and design meet.</p>
+
+            <p>After years of studying and practicing healthcare, she saw how much confusion people carry about their health, and how rarely anyone explains the different ways healthcare traditions see the same concern. She created IHI to change that.</p>
+
+            <p>She enjoys going deep into ideas, researching problems, connecting perspectives, and finding creative ways to make sense of complex things. Her interests span healthcare, research, technology, AI, product thinking, design and art, and she brings them together by building, experimenting and creating products that turn ideas into experiences. IHI is one of them.</p>
+
+            <p class="creator-name">
+              <strong>Dr. Vedanti Shah, BDS</strong>
+              <span>Creator · Product Designer · Vibe Coder</span>
             </p>
 
-            <p>
-              Her interests span healthcare, research, technology, AI, product thinking, design, and art. She brings these interests together through building, experimenting, and creating products that turn ideas into experiences.
-            </p>
-
-            <p>
-              IHI is one of the products she created.
-            </p>
+            <div class="about-contact">
+              <h4>Contact</h4>
+              <ul>
+                <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/drvedantishah/" target="_blank" rel="noopener noreferrer">linkedin.com/in/drvedantishah</a></li>
+                <li><span>Email</span> <a href="mailto:drvedantiwaghe@gmail.com">drvedantiwaghe@gmail.com</a></li>
+              </ul>
+            </div>
 
           </div>
 
+          <figure class="creator-photo">
+            <img src="images/dr-vedanti-shah.jpg" alt="Portrait of Dr. Vedanti Shah" width="550" height="581">
+          </figure>
 
-        </article>
+        </div>
 
-
-        <!-- RIGHT -->
-
-        <article class="about-column">
-
-          <div class="story-title">Why IHI Exists</div>
-
-          <div class="story">
-
-            <p>
-              I spent years studying healthcare and practicing, and I realized something—people carry so much health confusion every single day. But it's not just a medical thing—it happens everywhere.
-            </p>
-
-            <p>
-              At family dinners, social gatherings, WhatsApp groups, or just sitting with a lab report at home—it’s the same story again and again:
-            </p>
-
-            <ul>
-              <li>“What does this medical term on my report actually mean?”</li>
-              <li>“I Googled my symptoms at 2 AM and now I’m terrified.”</li>
-              <li>“Skip those heavy pills, just try this home remedy!”</li>
-              <li>“My family says one thing, my doctor says another—who am I supposed to listen to?”</li>
-            </ul>
-
-            <p>
-              Everyone has an opinion, a natural cure, or a friend-of-a-friend story. Eventually, it leaves you exhausted, wondering what information you can actually trust.
-            </p>
-
-            <p>
-              As a clinician, I realized people don't need more loud opinions. They just want clear, unbiased information so they can decide for themselves.
-            </p>
-
-            <p>
-              When it comes to your health, you deserve clarity—not noise.
-            </p>
-
-            <p>
-              That’s why I created IHI.
-            </p>
-
-            <p>
-              We bring different healthcare approaches together in one neutral space, breaking down how each system views your body so you can clear your doubts and choose what feels right for you.
-            </p>
-
-            <p>
-              Because when it comes to your health, you shouldn't feel lost. You should feel like an informed partner in your own care.
-
-<div class="about-identity">
-  <div class="about-identity-name">Dr. Vedanti Shah, BDS</div>
-  <div class="about-identity-role">Creator · Product Designer · Vibe Coder</div>
-</div>
-
-            </p>
-
-          </div>
-
-          
-
-        </article>
-
-      </div>
+      </section>
 
     </div>
 
@@ -1944,6 +1785,7 @@ button.card{
   <div class="container">
     <p class="site-footer-lead">IHI is an educational tool, not a medical service.</p>
     <p>It shares general health information to help you understand your concerns. It does not give medical advice, diagnosis or treatment, and it is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.</p>
+    <p>Questions you type are processed by a third-party AI service to generate answers. Please avoid entering your name, ID numbers or other personal details.</p>
     <p>In an emergency, call 911 (US), 112 (India) or your local emergency number.</p>
   </div>
 </footer>
