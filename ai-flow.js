@@ -1040,23 +1040,23 @@ const IHI_PHASE4 = {
     "hi-en": "IHI ek educational tool hai, medical service nahi.",
     "mr-en": "IHI एक educational tool आहे, medical service नाही."
   },
-  "It shares general health information to help you understand your concerns. It does not give medical advice, diagnosis or treatment, and it is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.": {
-    hi: "यह आपकी चिंताओं को समझने में मदद के लिए सामान्य स्वास्थ्य जानकारी देता है। यह चिकित्सीय सलाह, निदान या इलाज नहीं देता, और किसी योग्य स्वास्थ्य विशेषज्ञ का विकल्प नहीं है। अपनी सेहत के बारे में कोई भी फ़ैसला लेने से पहले कृपया किसी योग्य विशेषज्ञ से बात करें।",
-    mr: "तुमच्या चिंता समजून घेण्यासाठी हे सामान्य आरोग्य माहिती देतं. ते वैद्यकीय सल्ला, निदान किंवा उपचार देत नाही आणि पात्र आरोग्य तज्ज्ञाला पर्याय नाही. तुमच्या आरोग्याबाबत कोणताही निर्णय घेण्यापूर्वी कृपया त्यांच्याशी बोला.",
-    "hi-en": "Yeh aapke concerns samajhne mein help ke liye general health information deta hai. Yeh medical advice, diagnosis ya treatment nahi deta, aur qualified healthcare professional ka substitute nahi hai. Apni health ke baare mein koi bhi decision lene se pehle please kisi qualified professional se baat karein.",
-    "mr-en": "तुमचे concerns समजून घ्यायला हे general health information देतं. ते medical advice, diagnosis किंवा treatment देत नाही आणि qualified healthcare professional ला substitute नाही. तुमच्या health बद्दल कोणताही decision घेण्यापूर्वी please त्यांच्याशी बोला."
+  "It shares general health information to help you understand your concerns, and is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.": {
+    hi: "यह आपकी चिंताओं को समझने में मदद के लिए सामान्य स्वास्थ्य जानकारी देता है, और किसी योग्य स्वास्थ्य विशेषज्ञ का विकल्प नहीं है। अपनी सेहत के बारे में कोई भी फ़ैसला लेने से पहले कृपया किसी योग्य विशेषज्ञ से बात करें।",
+    mr: "तुमच्या चिंता समजून घेण्यासाठी हे सामान्य आरोग्य माहिती देतं आणि पात्र आरोग्य तज्ज्ञाला पर्याय नाही. तुमच्या आरोग्याबाबत कोणताही निर्णय घेण्यापूर्वी कृपया त्यांच्याशी बोला.",
+    "hi-en": "Yeh aapke concerns samajhne mein help ke liye general health information deta hai, aur qualified healthcare professional ka substitute nahi hai. Apni health ke baare mein koi bhi decision lene se pehle please kisi qualified professional se baat karein.",
+    "mr-en": "तुमचे concerns समजून घ्यायला हे general health information देतं आणि qualified healthcare professional ला substitute नाही. तुमच्या health बद्दल कोणताही decision घेण्यापूर्वी please त्यांच्याशी बोला."
   },
-  "Questions you type are processed by a third-party AI service to generate answers. Please avoid entering your name, ID numbers or other personal details.": {
-    hi: "आप जो सवाल लिखते हैं, उन्हें जवाब तैयार करने के लिए किसी तीसरे पक्ष की AI सेवा द्वारा प्रोसेस किया जाता है। कृपया अपना नाम, पहचान संख्या या अन्य निजी जानकारी न लिखें।",
-    mr: "तुम्ही लिहिलेले प्रश्न उत्तर तयार करण्यासाठी तृतीय-पक्षाच्या AI सेवेद्वारे प्रक्रिया केले जातात. कृपया तुमचं नाव, ओळख क्रमांक किंवा इतर वैयक्तिक माहिती लिहू नका.",
-    "hi-en": "Aap jo questions type karte hain, unhe answers banane ke liye ek third-party AI service process karti hai. Please apna naam, ID numbers ya doosri personal details enter na karein.",
-    "mr-en": "तुम्ही type केलेले questions answers तयार करण्यासाठी third-party AI service process करते. Please तुमचं नाव, ID numbers किंवा इतर personal details enter करू नका."
+  "Questions you type are processed by a third-party LLM to generate answers. Please avoid entering any personal details or sensitive information.": {
+    hi: "आप जो सवाल लिखते हैं, उन्हें जवाब तैयार करने के लिए किसी तीसरे पक्ष के LLM द्वारा प्रोसेस किया जाता है। कृपया कोई भी निजी या संवेदनशील जानकारी न लिखें।",
+    mr: "तुम्ही लिहिलेले प्रश्न उत्तर तयार करण्यासाठी तृतीय-पक्षाच्या LLM द्वारे प्रक्रिया केले जातात. कृपया कोणतीही वैयक्तिक किंवा संवेदनशील माहिती लिहू नका.",
+    "hi-en": "Aap jo questions type karte hain, unhe answers banane ke liye ek third-party LLM process karta hai. Please koi bhi personal details ya sensitive information enter na karein.",
+    "mr-en": "तुम्ही type केलेले questions answers तयार करण्यासाठी third-party LLM process करतो. Please कोणतीही personal details किंवा sensitive information enter करू नका."
   },
-  "In an emergency, call 911 (US), 112 (India) or your local emergency number.": {
-    hi: "आपातकाल में 911 (अमेरिका), 112 (भारत) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
-    mr: "आपत्कालात 911 (अमेरिका), 112 (भारत) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
-    "hi-en": "Emergency mein 911 (US), 112 (India) ya apne local emergency number par call karein.",
-    "mr-en": "Emergency मध्ये 911 (US), 112 (India) किंवा तुमच्या local emergency number वर call करा."
+  "In an emergency, call 112 (India), 911 (US), or your local emergency number.": {
+    hi: "आपातकाल में 112 (भारत), 911 (अमेरिका) या अपने स्थानीय आपातकालीन नंबर पर कॉल करें।",
+    mr: "आपत्कालात 112 (भारत), 911 (अमेरिका) किंवा तुमच्या भागातील आपत्कालीन क्रमांकावर कॉल करा.",
+    "hi-en": "Emergency mein 112 (India), 911 (US) ya apne local emergency number par call karein.",
+    "mr-en": "Emergency मध्ये 112 (India), 911 (US) किंवा तुमच्या local emergency number वर call करा."
   }
 };
 

@@ -96,9 +96,10 @@ a{
   gap:30px;
 }
 
-.logo{
+.nav-btn.logo{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:25px;
+  font-size:45px;
+  line-height:1;
   font-weight:700;
   letter-spacing:-.04em;
 }
@@ -763,6 +764,25 @@ h3{
 
   .ihi-spark-card{
     width:285px;
+  }
+}
+
+@media(max-width:600px){
+  .nav-btn.logo{
+    font-size:36px;
+  }
+
+  .ihi-spark-tab{
+    width:44px;
+    height:44px;
+    padding:0;
+    font-size:0;
+  }
+
+  .ihi-spark-tab::before{
+    content:"✦";
+    font-size:20px;
+    line-height:1;
   }
 }
 
@@ -1784,9 +1804,9 @@ textarea:focus-visible{
 <footer class="site-footer">
   <div class="container">
     <p class="site-footer-lead">IHI is an educational tool, not a medical service.</p>
-    <p>It shares general health information to help you understand your concerns. It does not give medical advice, diagnosis or treatment, and it is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.</p>
-    <p>Questions you type are processed by a third-party AI service to generate answers. Please avoid entering your name, ID numbers or other personal details.</p>
-    <p>In an emergency, call 911 (US), 112 (India) or your local emergency number.</p>
+    <p>It shares general health information to help you understand your concerns, and is not a substitute for a qualified healthcare professional. Please speak to one before making any decision about your health.</p>
+    <p>Questions you type are processed by a third-party LLM to generate answers. Please avoid entering any personal details or sensitive information.</p>
+    <p>In an emergency, call 112 (India), 911 (US), or your local emergency number.</p>
   </div>
 </footer>
 

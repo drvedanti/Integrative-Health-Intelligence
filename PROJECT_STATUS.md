@@ -24,7 +24,7 @@
 
 - The AI provider's free tier allows roughly 8,000 tokens per minute and 200,000 per day, so only a few people can use IHI at the same moment and daily capacity is limited. IHI retries once and then shows a "busy" message.
 - Emergency detection is phrase-based plus an AI check. It can miss unusual wording and can over-trigger; the emergency card always lets the user continue.
-- Questions typed by users are processed by a third-party AI service.
+- Questions typed by users are processed by a third-party LLM.
 
 ## Deliberate non-claims
 

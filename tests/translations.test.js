@@ -18,7 +18,7 @@ assert.ok(start >= 0 && end > start, "could not locate the translation tables");
 const T = new Function(source.slice(start, end) + "; return IHI_TRANSLATIONS;")();
 
 /* Names that legitimately stay in Latin script. */
-const BRANDS = /^(IHI|BDS|AI|Tele|MANAS|Tele-MANAS|Suicide|Crisis|Lifeline|Dr|WhatsApp|Google|Vibe|Coder|Spark|Creator|Product|Designer)$/i;
+const BRANDS = /^(IHI|BDS|AI|LLM|Tele|MANAS|Tele-MANAS|Suicide|Crisis|Lifeline|Dr|WhatsApp|Google|Vibe|Coder|Spark|Creator|Product|Designer)$/i;
 
 const latinWords = value =>
   (value.match(/[A-Za-z][A-Za-z'’-]{2,}/g) || []).filter(w => !BRANDS.test(w));
