@@ -1183,6 +1183,20 @@ Object.keys(IHI_ABOUT).forEach(key => {
     IHI_TRANSLATIONS[lang][key] = IHI_ABOUT[key][lang];
   });
 });
+const HERO_HEADLINE =
+  "Understand your health—and why your body feels this way.";
+
+IHI_TRANSLATIONS["hi-en"][HERO_HEADLINE] =
+  "Apni health samjhein—and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.";
+
+IHI_TRANSLATIONS.hi[HERO_HEADLINE] =
+  "अपनी सेहत को समझें—और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।";
+
+IHI_TRANSLATIONS["mr-en"][HERO_HEADLINE] =
+  "तुमचं health समजून घ्या—and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या.";
+
+IHI_TRANSLATIONS.mr[HERO_HEADLINE] =
+  "तुमचं आरोग्य समजून घ्या—आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.";
 
 /* The About page quotes these lines in curly quotes. */
 [
