@@ -1199,6 +1199,45 @@ Object.keys(IHI_ABOUT).forEach(key => {
     }
   });
 });
+/* Home hero copy — all language modes */
+
+const IHI_HOME_COPY = {
+
+  "Understand your health—and why your body feels this way.": {
+    hi: "अपने स्वास्थ्य को समझें—और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।",
+    mr: "तुमचं आरोग्य समजून घ्या—आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.",
+    "hi-en": "Apni health samjhein—and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.",
+    "mr-en": "तुमचं health समजून घ्या—and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या."
+  },
+
+  "Understand the root cause behind your symptoms—explained through Modern Medicine, Ayurveda, and Homeopathy.": {
+    hi: "अपने लक्षणों के पीछे का मूल कारण समझें—आधुनिक चिकित्सा, आयुर्वेद और होम्योपैथी के ज़रिए।",
+    mr: "तुमच्या लक्षणांमागचं मूळ कारण समजून घ्या—आधुनिक वैद्यक, आयुर्वेद आणि होमिओपॅथीच्या माध्यमातून.",
+    "hi-en": "Apne symptoms ke peeche ka root cause samjhein—Modern Medicine, Ayurveda aur Homeopathy ke through.",
+    "mr-en": "तुमच्या symptoms मागचं root cause समजून घ्या—Modern Medicine, Ayurveda आणि Homeopathy च्या माध्यमातून."
+  },
+
+  "Read one perspective at a time.": {
+    hi: "एक समय में एक दृष्टिकोण समझें।",
+    mr: "एका वेळी एक दृष्टिकोन समजून घ्या.",
+    "hi-en": "Ek time par ek perspective samjhein.",
+    "mr-en": "एका वेळी एक perspective समजून घ्या."
+  },
+
+  "Switch cleanly between Modern Medicine, Ayurveda, and Homeopathy so you can understand each approach without mixing them up.": {
+    hi: "आधुनिक चिकित्सा, आयुर्वेद और होम्योपैथी के बीच आसानी से बदलें, ताकि आप हर पद्धति को बिना आपस में मिलाए समझ सकें।",
+    mr: "आधुनिक वैद्यक, आयुर्वेद आणि होमिओपॅथी यांमध्ये सहजपणे बदला, म्हणजे प्रत्येक पद्धत एकमेकांत न मिसळता समजून घेता येईल.",
+    "hi-en": "Modern Medicine, Ayurveda aur Homeopathy ke beech aasani se switch karein, taaki aap har approach ko bina mix kiye samajh sakein.",
+    "mr-en": "Modern Medicine, Ayurveda आणि Homeopathy मध्ये सहज switch करा, म्हणजे प्रत्येक approach एकमेकांत mix न करता समजून घेता येईल."
+  }
+
+};
+
+Object.entries(IHI_HOME_COPY).forEach(([key, translations]) => {
+  Object.entries(translations).forEach(([lang, value]) => {
+    IHI_TRANSLATIONS[lang][key] = value;
+  });
+});
 
 const IHI_PAGE_META = {
   en: {
