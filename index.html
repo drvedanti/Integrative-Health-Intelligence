@@ -230,26 +230,21 @@ h3{
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:80px;
+  grid-template-columns:minmax(0, 1.8fr) minmax(280px, .8fr);
+  gap:48px;
   align-items:end;
 }
 
 .hero-copy{
-  max-width:800px;
-}
-
-.hero-copy .eyebrow{
-  margin-bottom:28px;
+  max-width:none;
 }
 
 .hero-copy h1{
-  max-width:760px;
-  font-size:clamp(3.25rem,6.2vw,5.75rem);
+  max-width:none;
+  font-size:clamp(3rem, 5vw, 4.75rem);
   line-height:1.02;
   text-wrap:balance;
 }
-
 .hero-copy h1 em{
   color:var(--wine);
   font-style:normal;
@@ -1366,7 +1361,7 @@ textarea:focus-visible{
         <div class="eyebrow">Integrative Health Intelligence</div>
 
         <h1>
-  Understand your health —and why your body feels this way.
+  Understand&nbsp;your&nbsp;health—and why your body feels this way.
 </h1>
 
 <p class="lead hero-description">
