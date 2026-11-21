@@ -1197,6 +1197,59 @@ IHI_TRANSLATIONS["mr-en"][HERO_HEADLINE] =
 
 IHI_TRANSLATIONS.mr[HERO_HEADLINE] =
   "तुमचं आरोग्य समजून घ्या—आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.";
+/* HOW TO USE — INTRO COPY */
+
+Object.assign(IHI_TRANSLATIONS["hi-en"], {
+
+  "Not sure what’s causing it?":
+    "Samajh nahi aa raha ki yeh kis wajah se ho raha hai?",
+
+  "Start with what you feel.":
+    "Jo aap mehsoos kar rahe hain, wahin se shuru karein.",
+
+  "You don’t have to figure everything out before you begin. Just walk through the four steps below.":
+    "Shuru karne se pehle aapko sab kuch samajhna zaroori nahi hai. Bas neeche diye gaye chaar steps follow karein."
+
+});
+
+Object.assign(IHI_TRANSLATIONS.hi, {
+
+  "Not sure what’s causing it?":
+    "समझ नहीं आ रहा कि इसकी वजह क्या है?",
+
+  "Start with what you feel.":
+    "जो महसूस हो रहा है, वहीं से शुरू करें।",
+
+  "You don’t have to figure everything out before you begin. Just walk through the four steps below.":
+    "शुरू करने से पहले आपको सब कुछ समझना ज़रूरी नहीं है। बस नीचे दिए गए चार चरणों से शुरुआत करें।"
+
+});
+
+Object.assign(IHI_TRANSLATIONS["mr-en"], {
+
+  "Not sure what’s causing it?":
+    "कशामुळे होतंय हे समजत नाहीये?",
+
+  "Start with what you feel.":
+    "तुम्हाला जे feel होतंय, तिथून start करा.",
+
+  "You don’t have to figure everything out before you begin. Just walk through the four steps below.":
+    "Start करण्याआधी सगळं काही figure out करण्याची गरज नाही. खाली दिलेले four steps एकेक करून follow करा."
+
+});
+
+Object.assign(IHI_TRANSLATIONS.mr, {
+
+  "Not sure what’s causing it?":
+    "याचं कारण काय आहे, हे कळत नाहीये?",
+
+  "Start with what you feel.":
+    "तुम्हाला जे जाणवतंय, तिथून सुरुवात करा.",
+
+  "You don’t have to figure everything out before you begin. Just walk through the four steps below.":
+    "सुरुवात करण्यापूर्वी सगळं काही समजून घेण्याची गरज नाही. खाली दिलेल्या चार पायऱ्या एकेक करून पूर्ण करा。"
+
+});
 
 /* The About page quotes these lines in curly quotes. */
 [
