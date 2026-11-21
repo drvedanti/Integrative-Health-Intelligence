@@ -1183,20 +1183,31 @@ Object.keys(IHI_ABOUT).forEach(key => {
     IHI_TRANSLATIONS[lang][key] = IHI_ABOUT[key][lang];
   });
 });
-const HERO_HEADLINE =
-  "Understand your health and why your body feels this way.";
+/* HOME HERO HEADLINE TRANSLATIONS */
 
-IHI_TRANSLATIONS["hi-en"][HERO_HEADLINE] =
-  "Apni health samjhein and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.";
+Object.assign(IHI_TRANSLATIONS["hi-en"], {
+  "Understand your health": "Apni health ko samjhein",
+  "and why your body": "aur jaanen ki aapka body",
+  "feels this way.": "aisa kyun feel karta hai."
+});
 
-IHI_TRANSLATIONS.hi[HERO_HEADLINE] =
-  "अपनी सेहत को समझें और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।";
+Object.assign(IHI_TRANSLATIONS.hi, {
+  "Understand your health": "अपने स्वास्थ्य को समझें",
+  "and why your body": "और जानें कि आपका शरीर",
+  "feels this way.": "ऐसा क्यों महसूस करता है।"
+});
 
-IHI_TRANSLATIONS["mr-en"][HERO_HEADLINE] =
-  "तुमचं health समजून घ्या and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या.";
+Object.assign(IHI_TRANSLATIONS["mr-en"], {
+  "Understand your health": "तुमचं health समजून घ्या",
+  "and why your body": "आणि तुमच्या body ला",
+  "feels this way.": "असं का वाटतंय ते समजून घ्या."
+});
 
-IHI_TRANSLATIONS.mr[HERO_HEADLINE] =
-  "तुमचं आरोग्य समजून घ्या आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.";
+Object.assign(IHI_TRANSLATIONS.mr, {
+  "Understand your health": "तुमचं आरोग्य समजून घ्या",
+  "and why your body": "आणि तुमच्या शरीराला",
+  "feels this way.": "असं का वाटतंय ते समजून घ्या."
+});
 /* HOW TO USE — INTRO COPY */
 
 Object.assign(IHI_TRANSLATIONS["hi-en"], {
