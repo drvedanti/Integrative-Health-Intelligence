@@ -1184,19 +1184,19 @@ Object.keys(IHI_ABOUT).forEach(key => {
   });
 });
 const HERO_HEADLINE =
-  "Understand your health—and why your body feels this way.";
+  "Understand your health and why your body feels this way.";
 
 IHI_TRANSLATIONS["hi-en"][HERO_HEADLINE] =
-  "Apni health samjhein—and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.";
+  "Apni health samjhein and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.";
 
 IHI_TRANSLATIONS.hi[HERO_HEADLINE] =
-  "अपनी सेहत को समझें—और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।";
+  "अपनी सेहत को समझें और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।";
 
 IHI_TRANSLATIONS["mr-en"][HERO_HEADLINE] =
-  "तुमचं health समजून घ्या—and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या.";
+  "तुमचं health समजून घ्या and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या.";
 
 IHI_TRANSLATIONS.mr[HERO_HEADLINE] =
-  "तुमचं आरोग्य समजून घ्या—आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.";
+  "तुमचं आरोग्य समजून घ्या आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.";
 /* HOW TO USE — INTRO COPY */
 
 Object.assign(IHI_TRANSLATIONS["hi-en"], {
@@ -1270,11 +1270,11 @@ Object.assign(IHI_TRANSLATIONS.mr, {
 
 const IHI_HOME_COPY = {
 
-  "Understand your health—and why your body feels this way.": {
-    hi: "अपने स्वास्थ्य को समझें—और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।",
-    mr: "तुमचं आरोग्य समजून घ्या—आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.",
-    "hi-en": "Apni health samjhein—and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.",
-    "mr-en": "तुमचं health समजून घ्या—and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या."
+  "Understand your health and why your body feels this way.": {
+    hi: "अपने स्वास्थ्य को समझें और जानें कि आपका शरीर ऐसा क्यों महसूस कर रहा है।",
+    mr: "तुमचं आरोग्य समजून घ्या आणि तुमच्या शरीराला असं का वाटतंय तेही जाणून घ्या.",
+    "hi-en": "Apni health samjhein and yeh bhi jaanen ki aapka body aisa kyun feel karta hai.",
+    "mr-en": "तुमचं health समजून घ्या and तुमच्या body ला असं का वाटतंय तेही जाणून घ्या."
   },
 
   "Understand the root cause behind your symptoms—explained through Modern Medicine, Ayurveda, and Homeopathy.": {
