@@ -471,8 +471,13 @@ h3{
 
 .how-intro h2{
   margin:15px 0 20px;
+  font-size:clamp(2rem,4vw,3.625rem);
+  line-height:1.06;
 }
 
+.how-intro h2 .how-title-line{
+  display:block;
+}
 .how-flow{
   position:relative;
   max-width:850px;
@@ -612,6 +617,10 @@ h3{
 
   h1{
     font-size:53px;
+  }
+    .how-intro h2{
+    font-size:clamp(1.2rem,6.5vw,2rem);
+    line-height:1.12;
   }
 .hero-copy h1{
   font-size:clamp(2.5rem,10.5vw,3.15rem);
@@ -1592,17 +1601,13 @@ textarea:focus-visible{
 
       <div class="how-intro">
 
-        <div class="eyebrow">How to Use IHI</div>
+  <div class="eyebrow">How to Use IHI</div>
 
-        <h2>Don't search for an answer.<br>Explore the question.</h2>
+  <h2><span class="how-title-line">Not sure what’s causing it?</span><span class="how-title-line">Start with what you feel.</span></h2>
 
-        <p class="lead">
-          IHI is designed as a guided exploration. You start with what you
-          know, choose a perspective, answer simple questions, and gradually
-          build a clearer picture.
-        </p>
+  <p class="lead">You don’t have to figure everything out before you begin. Just walk through the four steps below.</p>
 
-      </div>
+</div>
 
 
       <div class="how-flow">
